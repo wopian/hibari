@@ -8,6 +8,8 @@ Build Unknown (01/01/2015) | Latest Build
 
 Content coming Soon™.
 
+---
+
 ##Contributing
 
 Content coming Soon™.
@@ -19,6 +21,8 @@ Not yet implemented on Production.
 ###Achievements
 
 Not yet implemented on Production or Staging.
+
+---
 
 ##Screenshots
 
