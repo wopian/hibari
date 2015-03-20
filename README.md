@@ -1,12 +1,9 @@
 # Hibari: Hummingbird Tools
-Production:
 
-[![Deployment status from dploy.io](https://wopian-hb.dploy.io/badge/13023223963004/19496.png)](https://wopian-hb.dploy.io)
-
-Staging: (Live version of repo)
-
-[![Deployment status from dploy.io](https://wopian-hb.dploy.io/badge/13023223963004/19495.png)](https://wopian-hb.dploy.io) 
-
+[Production](https://hb.wopian.me) | [Staging](https://staging.wopian.me)
+:---: | :---:
+[![Deployment status from dploy.io](https://wopian-hb.dploy.io/badge/13023223963004/19496.png)](https://wopian-hb.dploy.io) | [![Deployment status from dploy.io](https://wopian-hb.dploy.io/badge/13023223963004/19495.png)](https://wopian-hb.dploy.io)
+Build Unknown (01/01/2015) | Latest Build
 ##What is Hibari?
 
 Content coming Soon™.
