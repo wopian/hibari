@@ -2,7 +2,7 @@
 
 [Production](https://hb.wopian.me) | [Staging](https://staging.wopian.me)
 :---: | :---:
-[![Deployment status from dploy.io](https://wopian-hb.dploy.io/badge/13023223963004/19496.png)](https://wopian-hb.dploy.io) | [![Deployment status from dploy.io](https://wopian-hb.dploy.io/badge/13023223963004/19495.png)](https://wopian-hb.dploy.io)
+[![Deployment status from DeployBot](https://wopian-hb.deploybot.com/badge/88313865898261/46786.svg)](http://deploybot.com) | [![Deployment status from DeployBot](https://wopian-hb.deploybot.com/badge/34534835944506/46784.svg)](http://deploybot.com)
 Build Unknown (01/01/2015) | Latest Build
 ##What is Hibari?
 
