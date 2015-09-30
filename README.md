@@ -1,4 +1,4 @@
-# Hibari: Hummingbird Tools
+# Hibari
 
 [Production](https://hb.wopian.me) | [Staging](https://staging.wopian.me)
 :---: | :---:
