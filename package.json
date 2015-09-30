@@ -16,4 +16,15 @@
   "homepage": "https://hb.wopian.me",
   "repository": {
     "type": "git",
-    
+    "url": "https://github.com/wopian/hibari"
+  },
+  "bugs": {
+    "url": "https://github.com/wopian/hibari/issues"
+  },
+  "devDependencies": {
+    "glob": "^4.3.1",
+    "grunt": "~0.4.5",
+    "load-grunt-tasks": "^3.3.0"
+  }
+}
+  }
