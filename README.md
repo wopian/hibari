@@ -1,7 +1,4 @@
 # Hibari [WIP]
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/wopian/hibari.svg)](https://greenkeeper.io/)
-
 Extended user, anime & manga stats for Kitsu
 
 ## Development
