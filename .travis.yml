@@ -1,0 +1,14 @@
+language: node_js
+cache:
+    directories:
+        - node_modules
+node_js: node
+sudo: false
+matrix:
+    fast_finish: true
+before_install:
+    - npm update && npm prune
+install:
+    - travis_retry npm i
+script:
+    - npm run build
