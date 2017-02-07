@@ -1,5 +1,4 @@
 # Hibari [WIP]
-
 Extended user, anime & manga stats for Kitsu
 
 ## Development
