@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o errexit -o nounset
+set -e
 
 if [ "$TRAVIS_BRANCH" != "master" ]
 then
@@ -26,4 +26,4 @@ touch .
 
 git add -A .
 git commit -a -m "rebuild pages at ${rev}"
-git push -q upstream HEAD:gh-pages -f
+git push -q upstream HEAD:gh-pages > /dev/null 2>&1
