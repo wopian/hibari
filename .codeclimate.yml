@@ -7,6 +7,9 @@ engines:
     checks:
       Similar code:
         enabled: true
+    exclude_fingerprints:
+    - 95ea0e6ac034573af69bc979f6dcc0f5
+    - 29898bbee6f210eff6477b087ceb11a1
   eslint:
     # CodeClimate doesn't support eslint-config-vue yet
     enabled: false
