@@ -1,0 +1,25 @@
+engines:
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - javascript
+    checks:
+      Similar code:
+        enabled: true
+  eslint:
+    enabled: true
+    channel: "eslint-3"
+    config: .eslintrc
+  scss-lint:
+    enabled: true
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.js"
+  - "**.vue"
+exclude_paths:
+- .vscode
+- static
+- tests
