@@ -11,6 +11,7 @@
     </div>
 
     <div class='content' v-if='anime'>
+      <set-title :title='anime.attr.canonicalTitle + " - Hibari"'></set-title>
       <p>{{ $route.params.slug }}</p>
 
       <pre>
@@ -43,7 +44,12 @@ NSFW: {{ anime.attr.nsfw }}
 </template>
 
 <script>
+import SetTitle from 'components/SetTitle'
+
 export default {
+  components: {
+    SetTitle
+  },
   data () {
     return {
       loading: false,

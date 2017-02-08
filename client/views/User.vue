@@ -11,6 +11,7 @@
     </div>
 
     <div class='content' v-if='user'>
+      <set-title :title='user.attributes.name + " - Hibari"'></set-title>
       <p>{{ $route.params.id }}</p>
       <pre>
 ID: {{ user.id }}
@@ -44,7 +45,12 @@ Pro: {{ user.attributes.proExpiresAt }}
 </template>
 
 <script>
+import SetTitle from 'components/SetTitle'
+
 export default {
+  components: {
+    SetTitle
+  },
   data () {
     return {
       loading: false,
