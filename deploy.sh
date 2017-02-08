@@ -21,6 +21,8 @@ git fetch upstream
 git reset upstream/gh-pages
 
 echo "hb.wopian.me" > CNAME
+# SPA hack for GitHub Pages
+cp index.html 404.html
 
 touch .
 
