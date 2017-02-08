@@ -1,5 +1,5 @@
 <template>
-  <div class='user'>
+  <main class='user'>
     <h1>User</h1>
 
     <div class='loading' v-if='loading'>
@@ -41,7 +41,7 @@ Pro: {{ user.attributes.proExpiresAt }}
       <img v-bind:src='user.attributes.avatar.large'>
       <img v-bind:src='user.attributes.coverImage.original'>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

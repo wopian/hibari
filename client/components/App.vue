@@ -50,6 +50,7 @@ body {
 main {
   @extend .container;
   @extend %base;
+  padding-top: calc(54px + 2rem);
 }
 
 footer {

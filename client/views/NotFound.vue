@@ -1,7 +1,7 @@
 <template>
-  <div class='user'>
+  <main class='error'>
     <h1>404</h1>
-  </div>
+  </main>
 </template>
 
 <script>

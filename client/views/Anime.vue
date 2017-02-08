@@ -1,5 +1,5 @@
 <template>
-  <div class="anime">
+  <main class="anime">
     <h1>Anime</h1>
 
     <div class='loading' v-if='loading'>
@@ -40,7 +40,7 @@ NSFW: {{ anime.attr.nsfw }}
       <!--<img v-bind:src='anime.attr.posterImage.small'>
       <img v-bind:src='anime.attr.coverImage.small'>-->
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
