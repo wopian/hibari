@@ -5,6 +5,7 @@ import Home from '../views/Home'
 import User from '../views/User'
 import Anime from '../views/Anime'
 import Manga from '../views/Manga'
+import NotFound from '../views/NotFound'
 
 Vue.use(Router)
 Vue.use(Resource)
@@ -27,6 +28,10 @@ export default new Router({
     {
       path: '/manga/:slug',
       component: Manga
+    },
+    {
+      path: '*',
+      component: NotFound
     }
   ]
 })
