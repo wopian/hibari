@@ -31,8 +31,7 @@ Age Rating: {{ anime.attr.ageRating }}
 Age Guide: {{ anime.attr.ageRatingGuide }}
 Episodes: {{ anime.attr.episodeCount }}
 Length: {{ anime.attr.episodeLength }} minutes
-Sub Type: {{ anime.attr.subtype }}
-Show Type: {{ anime.attr.showType }}
+Type: {{ anime.attr.subtype }}
 Youtube: https://youtu.be/{{ anime.attr.youtubeVideoId }}
 NSFW: {{ anime.attr.nsfw }}
       </pre>

@@ -13,10 +13,10 @@ const config = require('./config')
 
 if (config.electron) {
   // remove dist folder in electron mode
-  exec('rm -rf app/assets/')
+  exec('rm-cli app/assets/')
 } else {
   // remove dist folder in web app mode
-  exec('rm -rf dist/')
+  exec('rm-cli dist/')
   // use source-map in web app mode
   base.devtool = 'source-map'
 }
