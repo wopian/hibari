@@ -12,6 +12,7 @@ module.exports = {
     'vue',
     'vuex',
     'vue-router',
+    'vue-resource',
     'vuex-router-sync',
     'promise-polyfill'
   ],
