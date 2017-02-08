@@ -61,6 +61,6 @@ See [CHANGELOG][5]
 [0]:https://kitsu.io
 [1]:https://github.com/wopian/hibari/releases
 [2]:https://travis-ci.org/wopian/hibari
-[3]:https://codeclimate.com/github.com/wopian/hibari
-[4]:https://codeclimate.com/github.com/wopian/hibari/Issues
+[3]:https://codeclimate.com/github/wopian/hibari
+[4]:https://codeclimate.com/github/wopian/hibari/issues
 [5]:https://github.com/wopian/hibari/blob/master/CHANGELOG.md
