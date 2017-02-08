@@ -19,15 +19,24 @@ npm run dev
 npm run build
 ```
 
-### Updating
+### Linting
+```bash
+npm run lint
+```
+
+### Updating Local Dependencies
 ```bash
 npm update && npm prune
 ```
+
+### Updating Origin Dependencies
+```bash
+npm i -g npm-check-updates
+ncu --packageFile package.json
+``` 
 
 ## Known Issues
 No known issues
 
 ## Releases
 See [CHANGELOG](https://github.com/wopian/hibari/blob/master/CHANGELOG.md)
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
