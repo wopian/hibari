@@ -1,4 +1,4 @@
-# Hibari [WIP]
+# Hibari
 Extended user, anime & manga stats for [Kitsu][0]
 
 ## Installing
