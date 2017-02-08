@@ -13,4 +13,4 @@ install:
 script:
   - npm run build
 after_success:
-  - test $TRAVIS_PULL_REQUEST == "false" && test && test $TRAVIS_BRANCH == "master" && bash deploy.sh
+  - test $TRAVIS_PULL_REQUEST == "false" && test && test $TRAVIS_BRANCH == "master" && chmod +x deploy.sh && bash deploy.sh
