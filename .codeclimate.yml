@@ -10,7 +10,11 @@ engines:
   eslint:
     enabled: true
     channel: "eslint-3"
-    config: .eslintrc
+    config:
+      config: .eslintrc
+      extensions:
+      - .js
+      - .vue
   scss-lint:
     enabled: true
   fixme:
