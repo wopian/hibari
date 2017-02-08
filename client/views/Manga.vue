@@ -1,5 +1,5 @@
 <template>
-  <div class="manga">
+  <main class="manga">
     <h1>Manga</h1>
 
     <div class='loading' v-if='loading'>
@@ -39,9 +39,8 @@ NSFW: {{ manga.attr.nsfw }}
 
       <!--<img v-bind:src='manga.attr.posterImage.small'>
       <img v-bind:src='manga.attr.coverImage.small'>-->
-      <pre>{{manga}}</pre>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

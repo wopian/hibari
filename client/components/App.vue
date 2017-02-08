@@ -1,13 +1,33 @@
 <template>
   <div id="app">
+    <navbar></navbar>
     <router-view></router-view>
+    <footr></footr>
   </div>
 </template>
 
+<script>
+import Navbar from './Navbar'
+import Footr from './Footr'
+
+export default {
+  components: {
+    Navbar,
+    Footr
+  }
+}
+</script>
+
 <style lang='scss'>
+@import '~bootstrap/scss/bootstrap';
+
 body {
-  margin: 0;
-  font-size: 2rem;
+  img {
+    overflow: hidden;
+  }
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont,
                'avenir next', avenir,
                helvetica, 'helvetica neue',
@@ -15,13 +35,34 @@ body {
                'segoe ui', arial,
                sans-serif;
 }
-.page {
-  text-align: center;
-  /* nesting for the need to test postcss */
-  code {
-    background-color: #f0f0f0;
-    padding: 3px 5px;
-    border-radius: 2px;
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+%base {
+  // Sticky footer
+  flex: 3;
+}
+
+main {
+  @extend .container;
+  @extend %base;
+}
+
+footer {
+  height: 54px;
+  background: rgba(black, .05);
+  margin-top: 1rem;
+  box-shadow: 0 -1px 0 0 rgba(black, .1);
+
+  div {
+    @extend .container;
+    padding-top: 1rem;
   }
+}
+.page {
 }
 </style>
