@@ -1,13 +1,14 @@
 <template>
   <main class='home'>
-    <div class='jumbotron'>
-      <div class='container text-center'>
-      <h1 class='display-3'>User</h1>
-      <p class='lead'>Something about getting user stats</p>
-      <input v-model='userInput' class='form-control form-control-lg col-lg-4 col-sm-6 offset-lg-4 offset-sm-3 text-center' type='text' placeholder='wopian'>
-      <router-link :to='"/@" + slugify(userInput)' class='btn btn-lg mt-4 btn-primary'>Lookup</router-link>
+
+    <section>
+      <div>
+        <p>User</p>
+        <p>Something about getting user stats</p>
+        <input v-model='userInput' type='text' placeholder='wopian'>
+        <router-link :to='"/@" + slugify(userInput)'>Lookup</router-link>
       </div>
-    </div>
+    </section>
 
     <div class='card-deck container'>
       <div class='card card-outline-primary mb-3 text-center'>
@@ -53,3 +54,41 @@ export default {
   }
 }
 </script>
+
+<style lang='scss' scoped>
+@import '~bootstrap/scss/bootstrap';
+
+  section {
+    @extend .jumbotron;
+
+    div {
+      @extend .container;
+      @extend .text-center;
+    }
+
+    p:first-of-type {
+      @extend .display-3;
+    }
+
+    p:last-of-type {
+      @extend .lead;
+    }
+
+    input {
+      @extend .form-control;
+      @extend .form-control-lg;
+      @extend .col-lg-4;
+      @extend .col-sm-6;
+      @extend .offset-lg-4;
+      @extend .offset-sm-3;
+      @extend .text-center;
+    }
+
+    a {
+      @extend .btn;
+      @extend .btn-lg;
+      @extend .btn-primary;
+      margin-top: 1rem;
+    }
+  }
+</style>
