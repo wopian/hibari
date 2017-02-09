@@ -65,7 +65,7 @@ export default {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData: () => {
+    fetchData () {
       this.error = this.user = null
       this.loading = true
 

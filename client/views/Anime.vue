@@ -1,5 +1,5 @@
 <template>
-  <main class="no-container anime">
+  <main class='no-container anime'>
     <spinner v-if='loading'></spinner>
 
     <section class='content' v-if='anime'>
@@ -67,7 +67,7 @@ export default {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData: () => {
+    fetchData () {
       this.error = this.user = null
       this.loading = true
       this.$http.get('https://kitsu.io/api/edge/anime?filter[slug]=' + this.$route.params.slug, {}, {
@@ -102,6 +102,5 @@ export default {
   }
   section {
     position: relative;
-    background-color: #ababab;
   }
 </style>

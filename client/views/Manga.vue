@@ -1,5 +1,5 @@
 <template>
-  <main class="manga">
+  <main class='manga'>
     <h1>Manga</h1>
 
     <spinner v-if='loading'></spinner>
@@ -64,7 +64,7 @@ export default {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData: () => {
+    fetchData () {
       this.error = this.user = null
       this.loading = true
 

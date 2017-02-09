@@ -14,7 +14,6 @@ const locales = {
   en: en,
   ja: ja
 }
-
 // Use vue-cookie
 Vue.use(Cookie)
 
