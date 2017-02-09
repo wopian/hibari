@@ -36,3 +36,28 @@
     }
   }
 </script>
+
+<style lang='scss'>
+  @import '../styles/main.scss';
+
+  footer {
+    @extend .navbar;
+    height: 54px;
+    background: rgba(black, .05);
+    margin-top: 1rem;
+
+    div {
+      @extend .container;
+      @extend .nav;
+    }
+      
+    a {
+      @extend .nav-link;
+      cursor: pointer;
+      color: red;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+</style>

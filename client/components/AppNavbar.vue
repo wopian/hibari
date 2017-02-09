@@ -1,8 +1,8 @@
 <template>
   <header>
     <nav>
-      <h1>Hibari</h1>
-      <router-link to='/'>Home</router-link>
+      <h1>{{ $t('hibari') }}</h1>
+      <router-link to='/'>{{ $t('navigation.home') }}</router-link>
       <git-hub-corner></git-hub-corner>
     </nav>
   </header>
@@ -40,7 +40,6 @@
     }
 
     a {
-      @extend .nav-item;
       @extend .nav-link;
     }
   }

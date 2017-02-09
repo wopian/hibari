@@ -1,8 +1,24 @@
 export default {
   lang: 'English',
+  hibari: 'Hibari',
+  navigation: {
+    home: 'Home'
+  },
   home: {
-    userStats: 'User Stats',
-    animeStats: 'Anime Stats',
-    mangaStats: 'Manga Stats'
+    user: {
+      head: 'User',
+      body: 'Something about getting user stats',
+      action: 'Lookup'
+    },
+    anime: {
+      head: 'Anime',
+      body: 'Something about getting anime stats',
+      action: 'Lookup'
+    },
+    manga: {
+      head: 'Manga',
+      body: 'Something about getting manga stats',
+      action: 'Lookup'
+    }
   }
 }

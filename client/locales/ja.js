@@ -1,8 +1,22 @@
 export default {
   lang: '日本語',
+  hibari: 'ひばり',
+  navigation: {
+    home: 'ホーム'
+  },
   home: {
-    userStats: 'ユーザー統計',
-    animeStats: 'アニメの統計情報',
-    mangaStats: '漫画の統計'
+    user: {
+      head: 'ユーザー'
+    },
+    anime: {
+      head: 'アニメ',
+      body: '',
+      action: ''
+    },
+    manga: {
+      head: 'マンガ',
+      body: '',
+      action: ''
+    }
   }
 }

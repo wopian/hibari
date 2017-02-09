@@ -64,17 +64,6 @@
     margin-top: calc(56px);
   }
 
-  footer {
-    height: 54px;
-    background: rgba(black, .05);
-    margin-top: 1rem;
-    box-shadow: 0 -1px 0 0 rgba(black, .1);
-
-    div {
-      @extend .container;
-      padding-top: 1rem;
-    }
-  }
   .page {
   }
 </style>

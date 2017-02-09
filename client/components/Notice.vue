@@ -17,6 +17,10 @@
     @extend .alert-info;
     border-radius: 0;
     margin-bottom: 0;
+    background: lighten($primary, 50);
+    border: 0;
+    z-index: 1;
+    box-shadow: 0 0 1px 0 rgba(black, .25);
 
     div {
       @extend .container;
