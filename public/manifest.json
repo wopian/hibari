@@ -4,14 +4,14 @@
   "start_url": ".",
   "lang": "en",
   "url": ".",
-  "display": "minimal-ui",
+  "display": "standalone",
   "background_color": "#fff",
   "theme_color": "#2EA291",
   "description": "User stats for Kitsu.io",
   "orientation": "any",
   "icons": [{
     "src": "favicon-194x194.png",
-    "sizes": "194x194",
+    "sizes": "192x192",
     "type": "image/png"
   }]
 }

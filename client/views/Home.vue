@@ -1,7 +1,7 @@
 <template>
   <main class='home'>
 
-    <section>
+    <section endpoint='user'>
       <div>
         <p>User</p>
         <p>Something about getting user stats</p>
@@ -55,10 +55,10 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-@import '~bootstrap/scss/bootstrap';
+<style lang='scss'>
+  @import '../styles/main.scss';
 
-  section {
+  section[endpoint] {
     @extend .jumbotron;
 
     div {

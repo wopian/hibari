@@ -10,10 +10,9 @@
   </section>
 </template>
 
-<style lang='scss' scoped>
-  @import '~bootstrap/scss/bootstrap';
-
-  section {
+<style lang='scss'>
+  @import '../styles/main.scss';
+  section[role='alert'] {
     @extend .alert;
     @extend .alert-info;
     border-radius: 0;

@@ -9,39 +9,39 @@
 </template>
 
 <script>
-import GitHubCorner from './GitHubCorner'
-export default {
-  components: {
-    GitHubCorner
+  import GitHubCorner from './GitHubCorner'
+  export default {
+    components: {
+      GitHubCorner
+    }
   }
-}
 </script>
 
 <style lang='scss'>
-@import '~bootstrap/scss/bootstrap';
+  @import '../styles/main.scss';
 
-header {
-  @extend .navbar;
-  @extend .navbar-light;
-  @extend .fixed-top;
+  header {
+    @extend .navbar;
+    @extend .navbar-light;
+    @extend .fixed-top;
 
-  background: white;
-  box-shadow: 0 0 1px 0 rgba(black, .25);
+    background: white;
+    box-shadow: 0 0 1px 0 rgba(black, .25);
 
-  nav {
-    @extend .nav;
-    @extend .container;
+    nav {
+      @extend .nav;
+      @extend .container;
+    }
+
+    h1 {
+      @extend .navbar-brand;
+      @extend .mb-0;
+      padding-left: 15px;
+    }
+
+    a {
+      @extend .nav-item;
+      @extend .nav-link;
+    }
   }
-
-  h1 {
-    @extend .navbar-brand;
-    @extend .mb-0;
-    padding-left: 15px;
-  }
-
-  a {
-    @extend .nav-item;
-    @extend .nav-link;
-  }
-}
 </style>

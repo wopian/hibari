@@ -20,14 +20,14 @@ base.plugins.push(
 _.cssProcessors.forEach(processor => {
   let loaders
   if (processor.loader === '') {
-    loaders = ['postcss-loader']
+    loaders = ['sass-loader']
   } else {
-    loaders = ['postcss-loader', processor.loader]
+    loaders = ['sass-loader', processor.loader]
   }
   base.module.loaders.push(
     {
       test: processor.test,
-      loaders: ['style-loader', _.cssLoader].concat(loaders)
+      loaders: ['sass-loader', _.cssLoader].concat(loaders)
     }
   )
 })

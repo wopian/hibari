@@ -7,32 +7,31 @@
 </template>
 
 <script>
-import Vue from 'vue'
-export default {
-  data () {
-    return {
-      lang: Vue.config.lang,
-      languages: [
-        {
-          code: 'en',
-          name: 'English'
-        },
-        {
-          code: 'ja',
-          name: '日本語'
+  export default {
+    data () {
+      return {
+        lang: this.$lang,
+        languages: [
+          {
+            code: 'en',
+            name: 'English'
+          },
+          {
+            code: 'ja',
+            name: '日本語'
+          }
+        ],
+        Select: newLang => {
+          console.log('[APP] Changed language to ' + newLang)
+          Vue.config.lang = newLang
+          this.$cookie.set('lang', newLang)
         }
-      ],
-      Select: newLang => {
-        console.log('[APP] Changed language to ' + newLang)
-        Vue.config.lang = newLang
-        this.$cookie.set('lang', newLang)
+      }
+    },
+    components: {
+      language: {
+        props: ['code', 'name']
       }
     }
-  },
-  components: {
-    language: {
-      props: ['code', 'name']
-    }
   }
-}
 </script>
