@@ -1,11 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Resource from 'vue-resource'
-import Home from '../views/Home'
-import User from '../views/User'
-import Anime from '../views/Anime'
-import Manga from '../views/Manga'
-import NotFound from '../views/NotFound'
 
 Vue.use(Router)
 Vue.use(Resource)
@@ -15,23 +10,23 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Home
+      component: resolve => require(['../views/Home'], resolve)
     },
     {
       path: '/@:id',
-      component: User
+      component: resolve => require(['../views/User'], resolve)
     },
     {
       path: '/anime/:slug',
-      component: Anime
+      component: resolve => require(['../views/Anime'], resolve)
     },
     {
       path: '/manga/:slug',
-      component: Manga
+      component: resolve => require(['../views/Manga'], resolve)
     },
     {
       path: '*',
-      component: NotFound
+      component: resolve => require(['../views/404'], resolve)
     }
   ]
 })
