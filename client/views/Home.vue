@@ -60,6 +60,7 @@ export default {
 
   section[endpoint] {
     @extend .jumbotron;
+    border-radius: 0;
 
     div {
       @extend .container;
@@ -89,12 +90,12 @@ export default {
       @extend .btn-lg;
       @extend .btn-primary;
       margin-top: 1rem;
-      background: #2EA291;
-      border-color: #2EA291;
+      background: $primary;
+      border-color: $primary;
 
       &:hover {
-        background: darken(#2EA291, 5);
-        border-color: darken(#2EA291, 2);
+        background: darken($primary, 5);
+        border-color: darken($primary, 2);
       }
     }
   }
