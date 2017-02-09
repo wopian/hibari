@@ -28,17 +28,17 @@
 </template>
 
 <style lang='scss'>
-.loader {
-  height: 40px;
-  width: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  .loader {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
-  svg path,
-  svg rect{
-    fill: #000;
+    svg path,
+    svg rect{
+      fill: #000;
+    }
   }
-}
 </style>

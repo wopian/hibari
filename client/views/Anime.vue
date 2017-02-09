@@ -73,7 +73,8 @@ export default {
       this.$http.get('https://kitsu.io/api/edge/anime?filter[slug]=' + this.$route.params.slug, {}, {
         headers: {
           'Content-Type': 'application/vnd.api+json',
-          'Accept': 'application/vnd.api+json'
+          'Accept': 'application/vnd.api+json',
+          'User-Agent': 'hibari'
         }
       })
       .then((data) => {

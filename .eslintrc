@@ -1,3 +1,4 @@
 {
-  "extends": "vue"
+  "extends": "vue",
+  "plugins": ["vue"]
 }
