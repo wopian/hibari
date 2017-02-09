@@ -9,8 +9,6 @@ import en from './locales/en'
 import ja from './locales/ja'
 sync(store, router)
 
-console.log(en)
-
 // https://kazupon.github.io/vue-i18n/
 const locales = {
   en: en,
