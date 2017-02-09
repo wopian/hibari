@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import GitHubCorner from './GitHubCorner'
+  import GitHubCorner from 'components/GitHubCorner'
   export default {
     components: {
       GitHubCorner
@@ -18,7 +18,7 @@
 </script>
 
 <style lang='scss'>
-  @import '../styles/main.scss';
+  @import '~styles/main.scss';
 
   header {
     @extend .navbar;

@@ -11,7 +11,7 @@
 </template>
 
 <style lang='scss'>
-  @import '../styles/main.scss';
+  @import '~styles/main.scss';
   section[role='alert'] {
     @extend .alert;
     @extend .alert-info;

@@ -1,17 +1,17 @@
 <template>
   <div id='app'>
-    <navbar></navbar>
+    <app-navbar></app-navbar>
     <notice v-if='showNotice'></notice>
     <router-view>
     </router-view>
-    <footr></footr>
+    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-  import Navbar from './Navbar'
-  import Notice from './Notice'
-  import Footr from './Footr'
+  import AppNavbar from 'components/AppNavbar'
+  import Notice from 'components/Notice'
+  import AppFooter from 'components/AppFooter'
 
   export default {
     data () {
@@ -20,15 +20,15 @@
       }
     },
     components: {
-      Navbar,
+      AppNavbar,
       Notice,
-      Footr
+      AppFooter
     }
   }
 </script>
 
 <style lang='scss'>
-  @import '../styles/main.scss';
+  @import '~styles/main.scss';
 
   body {
     img {
