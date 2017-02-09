@@ -22,9 +22,10 @@ export default {
           name: 'Japanese'
         },
       ],
-      Select: change => {
-        console.log('code ' + change)
-        Vue.config.lang = change
+      Select: newLang => {
+        console.log('[APP] Changed language to ' + newLang)
+        Vue.config.lang = newLang
+        this.$cookie.set('lang', newLang)
       }
     }
   },
