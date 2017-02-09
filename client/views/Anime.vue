@@ -67,13 +67,13 @@ export default {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData: function() {
+    fetchData: () => {
       this.error = this.user = null
       this.loading = true
       this.$http.get('https://kitsu.io/api/edge/anime?filter[slug]=' + this.$route.params.slug, {}, {
         headers: {
-          "Content-Type": "application/vnd.api+json",
-          "Accept": "application/vnd.api+json"
+          'Content-Type': 'application/vnd.api+json',
+          'Accept': 'application/vnd.api+json'
         }
       })
       .then((data) => {
@@ -101,5 +101,6 @@ export default {
   }
   section {
     position: relative;
+    background-color: #ababab;
   }
 </style>

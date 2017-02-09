@@ -2,5 +2,17 @@
 {
   "files.associations": {
     "*.vue": "vue"
-  }
+  },
+  "eslint.validate": [
+    "javascript",
+    "vue"
+  ],
+  "sasslint.enable": true,
+  "color-highlight.languages": [
+    "javascript",
+    "html",
+    "json",
+    "vue"
+  ],
+  "color-highlight.markerType": "background"
 }

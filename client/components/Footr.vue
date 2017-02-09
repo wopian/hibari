@@ -9,7 +9,7 @@
 <script>
 import Vue from 'vue'
 export default {
-  data() {
+  data () {
     return {
       lang: Vue.config.lang,
       languages: [
@@ -20,7 +20,7 @@ export default {
         {
           code: 'ja',
           name: 'Japanese'
-        },
+        }
       ],
       Select: newLang => {
         console.log('[APP] Changed language to ' + newLang)

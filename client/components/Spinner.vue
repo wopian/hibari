@@ -38,7 +38,7 @@
 
   svg path,
   svg rect{
-    fill: black;
+    fill: #000;
   }
 }
 </style>

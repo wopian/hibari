@@ -37,7 +37,7 @@ export default {
     return {
       userInput: '',
       animeInput: '',
-      mangaInput: '',
+      mangaInput: ''
     }
   },
   methods: {

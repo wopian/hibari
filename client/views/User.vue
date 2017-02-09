@@ -65,14 +65,14 @@ export default {
     '$route': 'fetchData'
   },
   methods: {
-    fetchData: function() {
+    fetchData: () => {
       this.error = this.user = null
       this.loading = true
 
       this.$http.get('https://kitsu.io/api/edge/users?filter[name]=' + this.$route.params.id, {}, {
         headers: {
-          "Content-Type": "application/vnd.api+json",
-          "Accept": "application/vnd.api+json"
+          'Content-Type': 'application/vnd.api+json',
+          'Accept': 'application/vnd.api+json'
         }
       })
       .then((data) => {
