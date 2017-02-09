@@ -45,7 +45,7 @@
     "postcss-nested": "1.0.0",
     "raw-loader": "0.5.1",
     "rm-cli": "1.2.1",
-    "sass-loader": "5.0.0",
+    "sass-loader": "5.0.1",
     "style-loader": "0.13.1",
     "testcafe": "0.12.1",
     "vue-i18n": "5.0.0",
