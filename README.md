@@ -13,6 +13,8 @@ Extended user, anime & manga stats for [Kitsu][0]
 [![Travis]][2]
 [![CC Score]][3]
 [![CC Issues]][4]
+[![David]][5]
+[![DavidD]][6]
 
 ### Setup
 ``` bash
@@ -57,6 +59,8 @@ See [CHANGELOG][5]
 [Travis]:https://img.shields.io/travis/wopian/hibari.svg?style=flat-square&label=travis
 [CC Score]:https://img.shields.io/codeclimate/github/wopian/hibari.svg?style=flat-square
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
+[David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
+[DavidD]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
 
 [0]:https://kitsu.io
 [1]:https://github.com/wopian/hibari/releases
@@ -64,3 +68,5 @@ See [CHANGELOG][5]
 [3]:https://codeclimate.com/github/wopian/hibari
 [4]:https://codeclimate.com/github/wopian/hibari/issues
 [5]:https://github.com/wopian/hibari/blob/master/CHANGELOG.md
+[6]:https://david-dm.org/wopian/hibari
+[7]:https://david-dm.org/wopian/hibari?type=dev
