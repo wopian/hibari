@@ -1,0 +1,17 @@
+{
+  "name": "Hibari",
+  "short_name": "Hibari",
+  "start_url": ".",
+  "lang": "en",
+  "url": ".",
+  "display": "minimal-ui",
+  "background_color": "#fff",
+  "theme_color": "#2EA291",
+  "description": "User stats for Kitsu.io",
+  "orientation": "any",
+  "icons": [{
+    "src": "favicon-194x194.png",
+    "sizes": "194x194",
+    "type": "image/png"
+  }]
+}

@@ -89,6 +89,13 @@ export default {
       @extend .btn-lg;
       @extend .btn-primary;
       margin-top: 1rem;
+      background: #2EA291;
+      border-color: #2EA291;
+
+      &:hover {
+        background: darken(#2EA291, 5);
+        border-color: darken(#2EA291, 2);
+      }
     }
   }
 </style>
