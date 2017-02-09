@@ -30,7 +30,6 @@
 </template>
 
 <script>
-
 export default {
   components: {
   },
@@ -42,7 +41,7 @@ export default {
     }
   },
   methods: {
-    slugify: input => input.replace(/\s+/g, '-').toLowerCase()
+    slugify: input => input.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()
   }
 }
 </script>

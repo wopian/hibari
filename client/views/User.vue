@@ -2,9 +2,7 @@
   <main class='user'>
     <h1>User</h1>
 
-    <div class='loading' v-if='loading'>
-      Loading...
-    </div>
+    <spinner v-if='loading'></spinner>
 
     <div class='error' v-if='error'>
       {{ error }}
@@ -45,10 +43,12 @@ Pro: {{ user.attributes.proExpiresAt }}
 </template>
 
 <script>
+import Spinner from 'components/Spinner'
 import SetTitle from 'components/SetTitle'
 
 export default {
   components: {
+    Spinner,
     SetTitle
   },
   data () {
