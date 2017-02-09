@@ -19,7 +19,7 @@ export default {
         },
         {
           code: 'ja',
-          name: 'Japanese'
+          name: '日本語'
         }
       ],
       Select: newLang => {
