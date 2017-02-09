@@ -1,7 +1,7 @@
 <template>
   <main class='home'>
 
-    <div class='card-deck'>
+    <div class='card-deck container'>
       <div class='card card-outline-primary mb-3 text-center'>
         <div class='card-block'>
           <h3 class='card-title'>{{ $t('home.animeStats') }}</h3>

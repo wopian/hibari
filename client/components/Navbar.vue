@@ -29,13 +29,14 @@ header {
   box-shadow: 0 0 1px 0 rgba(black, .25);
 
   nav {
-    @extend .container;
     @extend .nav;
+    @extend .container;
   }
 
   h1 {
     @extend .navbar-brand;
     @extend .mb-0;
+    padding-left: 15px;
   }
 
   a {
