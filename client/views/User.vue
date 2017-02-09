@@ -31,7 +31,7 @@ Ratings: {{ user.attributes.ratingsCount }}
 Posts: {{ user.attributes.postsCount }}
 Comments: {{ user.attributes.commentsCount }}
 Likes Given: {{ user.attributes.likesGivenCount }}
-Likes Recieved: {{ user.attributes.likesRecievedCount }}
+Likes Received: {{ user.attributes.likesReceivedCount }}
 Reviews: {{ user.attributes.reviewsCount }}
 Pro: {{ user.attributes.proExpiresAt }}
       </pre>
