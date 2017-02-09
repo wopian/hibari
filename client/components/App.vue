@@ -1,18 +1,27 @@
 <template>
   <div id='app'>
     <navbar></navbar>
-    <router-view></router-view>
+    <notice v-if='showNotice'></notice>
+    <router-view>
+    </router-view>
     <footr></footr>
   </div>
 </template>
 
 <script>
 import Navbar from './Navbar'
+import Notice from './Notice'
 import Footr from './Footr'
 
 export default {
+  data () {
+    return {
+      showNotice: true
+    }
+  },
   components: {
     Navbar,
+    Notice,
     Footr
   }
 }
@@ -49,7 +58,10 @@ body {
 
 main {
   @extend %base;
-  padding-top: calc(54px + 2rem);
+}
+
+#app > :nth-child(2) {
+  margin-top: calc(56px);
 }
 
 footer {
