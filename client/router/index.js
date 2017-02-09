@@ -15,7 +15,19 @@ export default new Router({
     },
     {
       path: '/@:id',
-      component: resolve => require(['../views/User'], resolve)
+      component: resolve => require(['../views/User'], resolve),
+      children: [
+        {
+          path: 'library',
+          redirect: '/@:id',
+          children: [
+            {
+              path: ':status',
+              redirect: '/@:id'
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/anime/:slug',
@@ -28,17 +40,16 @@ export default new Router({
     // Legacy redirects for 2014-2016 Hibari
     {
       path: '/:id',
-      redirect: '/@:id?\?legacy=user'
+      redirect: '/@:id'
     },
     {
       path: '/:id/library',
-      redirect: '/@:id?\?legacy=library'
+      redirect: '/@:id'
     },
     {
       path: '/:id/library/:status',
-      redirect: '/@:id?\?legacy=library,:status'
+      redirect: '/@:id'
     },
-
     {
       path: '*',
       component: resolve => require(['../views/404'], resolve)
