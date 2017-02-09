@@ -3,12 +3,17 @@
     <nav>
       <h1>Hibari</h1>
       <router-link to='/'>Home</router-link>
+      <git-hub-corner></git-hub-corner>
     </nav>
   </header>
 </template>
 
 <script>
+import GitHubCorner from './GitHubCorner'
 export default {
+  components: {
+    GitHubCorner
+  }
 }
 </script>
 
