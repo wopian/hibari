@@ -7,10 +7,11 @@
 </template>
 
 <script>
+  import Vue from 'vue'
   export default {
     data () {
       return {
-        lang: this.$lang,
+        lang: Vue.config.lang,
         languages: [
           {
             code: 'en',
@@ -21,10 +22,10 @@
             name: '日本語'
           }
         ],
-        Select: newLang => {
-          console.log('[APP] Changed language to ' + newLang)
-          Vue.config.lang = newLang
-          this.$cookie.set('lang', newLang)
+        Select: langNew => {
+          console.info('[APP] Set language to ' + langNew)
+          Vue.config.lang = langNew
+          this.$cookie.set('lang', langNew)
         }
       }
     },
