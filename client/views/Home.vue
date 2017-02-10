@@ -5,7 +5,7 @@
       <div>
         <p>{{ $t('home.user.head') }}</p>
         <p>{{ $t('home.user.body') }}</p>
-        <input v-model='userInput' type='text' placeholder='wopian'>
+        <input v-model='userInput' type='text' :placeholder='$t("home.user.placeholder")'>
         <router-link :to='"/@" + slugify(userInput)'>{{ $t('home.user.action') }}</router-link>
       </div>
     </section>
@@ -88,14 +88,75 @@ export default {
     a {
       @extend .btn;
       @extend .btn-lg;
-      @extend .btn-primary;
       margin-top: 1rem;
-      background: $primary;
-      border-color: $primary;
 
       &:hover {
         background: darken($primary, 5);
         border-color: darken($primary, 2);
+      }
+    }
+  }
+
+  section[endpoint='user'] {
+    background-image: url(/background.jpg);
+    background-color: #017783;
+    background-size: auto 95%;
+    background-repeat: no-repeat;
+    position: relative;
+    color: white;
+
+    @media (min-width: 1501px) {
+      background-position: 75% bottom;
+    }
+    @media (min-width: 921px) and (max-width: 1500px) {
+      background-position: 88% bottom;
+    }
+
+    @media (max-width: 920px) {
+      background-position: 0;
+      background-image: none;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      //background: rgba(black, .2);
+    }
+
+    input {
+      background: rgba(white, .1);
+      color: white;
+      border-radius: 0;
+      border-color: transparent;
+
+      &::-webkit-input-placeholder {
+        color: rgba(white, .4);
+        font-weight: 300;
+        font-family:
+          -apple-system,
+          system-ui,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+      }
+    }
+
+    a {
+      border-radius: 0;
+      border: 1px solid rgba(white, .1);
+      color: white;
+      font-weight: 300;
+
+      &:hover {
+        background: rgba(white, .1);
+        border-color: transparent;
       }
     }
   }

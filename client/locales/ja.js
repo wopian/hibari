@@ -6,17 +6,15 @@ export default {
   },
   home: {
     user: {
-      head: 'ユーザー'
+      head: 'ユーザー',
+      body: 'Psst, help translate this project',
+      action: 'サーチ'
     },
     anime: {
-      head: 'アニメ',
-      body: '',
-      action: ''
+      head: 'アニメ'
     },
     manga: {
-      head: 'マンガ',
-      body: '',
-      action: ''
+      head: 'マンガ'
     }
   }
 }
