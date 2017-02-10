@@ -1,4 +1,6 @@
 # Hibari
+[![Website]][8]
+
 User, anime & manga stats for [Kitsu][0]
 
 ## Installing
@@ -58,6 +60,7 @@ See [CHANGELOG][5]
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
 [David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
 [DavidD]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
+[Website]:https://img.shields.io/website-up-down-green-red/https/hb.wopian.me.svg?style=flat-square
 
 [0]:https://kitsu.io
 [1]:https://github.com/wopian/hibari/releases
@@ -67,3 +70,4 @@ See [CHANGELOG][5]
 [5]:https://github.com/wopian/hibari/blob/master/CHANGELOG.md
 [6]:https://david-dm.org/wopian/hibari
 [7]:https://david-dm.org/wopian/hibari?type=dev
+[8]:https://hb.wopian.me
