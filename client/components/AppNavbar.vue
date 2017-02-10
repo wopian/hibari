@@ -24,9 +24,15 @@
     @extend .navbar;
     @extend .navbar-light;
     @extend .fixed-top;
+    background: rgba(white, .8);
+    transition: background 300ms ease-out;
+    backdrop-filter: blur(2px);
+    border-bottom: 1px solid rgba(black, .05);
 
-    background: white;
-    box-shadow: 0 0 1px 0 rgba(black, .25);
+    &:hover {
+      background: white;
+      transition: background 200ms ease-in;
+    }
 
     nav {
       @extend .nav;
@@ -41,6 +47,13 @@
 
     a {
       @extend .nav-link;
+      color: black;
+      transition: color 200ms ease-out;
+
+      &:hover {
+        color: $primary;
+        transition: color 100ms ease-in;
+      }
     }
   }
 </style>
