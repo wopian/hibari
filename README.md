@@ -1,5 +1,5 @@
 # Hibari
-Extended user, anime & manga stats for [Kitsu][0]
+User, anime & manga stats for [Kitsu][0]
 
 ## Installing
 [![GitHub Rl]][1]

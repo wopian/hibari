@@ -9,7 +9,7 @@
     "dev": "node build/server.js",
     "lint": "eslint client/* --ext .js --ext .vue"
   },
-  "author": "James Harris <wopiancitizen123@gmail.com>",
+  "author": "James Harris <wopian@wopian.me>",
   "license": "MIT",
   "private": true,
   "dependencies": {
