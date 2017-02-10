@@ -3,9 +3,20 @@
     <nav>
       <h1>{{ $t('hibari') }}</h1>
       <router-link to='/'>{{ $t('navigation.home') }}</router-link>
+      <language-switcher></language-switcher>
     </nav>
   </header>
 </template>
+
+<script>
+import LanguageSwitcher from 'components/LanguageSwitcher'
+
+export default {
+  components: {
+    LanguageSwitcher
+  }
+}
+</script>
 
 <style lang='scss'>
   @import '~styles/main.scss';
@@ -28,6 +39,7 @@
     nav {
       @extend .nav;
       @extend .container;
+      flex-align: flex-start;
     }
 
     h1 {
