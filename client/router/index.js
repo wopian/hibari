@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Resource from 'vue-resource'
-import Home from '../views/Home'
+import Home from 'views/Home'
+import User from 'views/User'
+import Anime from 'views/Anime'
+import Manga from 'views/Manga'
 
 Vue.use(Router)
 Vue.use(Resource)
@@ -15,15 +18,15 @@ export default new Router({
     },
     {
       path: '/@:id',
-      component: resolve => require(['../views/User'], resolve),
+      component: User,
       children: [
         {
           path: 'library',
-          redirect: '/@:id',
+          component: resolve => require(['../views/User'], resolve),
           children: [
             {
               path: ':status',
-              redirect: '/@:id'
+              component: resolve => require(['../views/User'], resolve)
             }
           ]
         }
@@ -31,11 +34,11 @@ export default new Router({
     },
     {
       path: '/anime/:slug',
-      component: resolve => require(['../views/Anime'], resolve)
+      component: Anime
     },
     {
       path: '/manga/:slug',
-      component: resolve => require(['../views/Manga'], resolve)
+      component: Manga
     },
     // Legacy redirects for 2014-2016 Hibari
     {
