@@ -14,5 +14,6 @@
     "json",
     "vue"
   ],
-  "color-highlight.markerType": "background"
+  "color-highlight.markerType": "background",
+  "files.hotExit": "off"
 }
