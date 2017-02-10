@@ -3,19 +3,9 @@
     <nav>
       <h1>{{ $t('hibari') }}</h1>
       <router-link to='/'>{{ $t('navigation.home') }}</router-link>
-      <git-hub-corner></git-hub-corner>
     </nav>
   </header>
 </template>
-
-<script>
-  import GitHubCorner from 'components/GitHubCorner'
-  export default {
-    components: {
-      GitHubCorner
-    }
-  }
-</script>
 
 <style lang='scss'>
   @import '~styles/main.scss';
@@ -28,6 +18,7 @@
     transition: background 300ms ease-out;
     backdrop-filter: blur(2px);
     border-bottom: 1px solid rgba(black, .05);
+    overflow-y: hidden;
 
     &:hover {
       background: white;

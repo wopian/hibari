@@ -1,7 +1,8 @@
 <template>
   <footer>
     <div>
-      <a v-for='lang in languages' @click='Select(lang.code)'>{{ lang.name }}</a>
+      <button v-for='lang in languages' @click='Select(lang.code)'>{{ lang.name }}</button>
+      <a href='https://github.com/wopian/hibari' target='_blank'>Github</a>
     </div>
   </footer>
 </template>
@@ -50,14 +51,25 @@
       @extend .container;
       @extend .nav;
     }
-      
+
+    button {
+      background: transparent;
+      border: 0;
+    }
+
+    button,
     a {
       @extend .nav-link;
       cursor: pointer;
-      color: red;
+      color: black;
       &:hover {
         color: $primary;
       }
+    }
+
+    a {
+      @extend .float-right;
+      @extend .clearfix;
     }
   }
 </style>
