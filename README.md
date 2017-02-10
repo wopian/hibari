@@ -48,9 +48,6 @@ npm i -g npm-check-updates
 ncu --packageFile package.json
 ``` 
 
-## Known Issues
-No known issues
-
 ## Releases
 See [CHANGELOG][5]
 
