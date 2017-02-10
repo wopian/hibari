@@ -3,12 +3,14 @@
 ## [0.0.1] - 2017-02-10
 ### Fixed
 - Outputting debug information to console in production
+
 ### Added
 - Development notice to top of pages
 - GitHub Corner in top right of page
 - Formatting for the User section in Home
 - Added manifest
 - Localised the current strings
+
 ### Changed
 - Use native language in footer, instead of its English name
 - Changed `static` to `public`
