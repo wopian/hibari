@@ -72,6 +72,10 @@ export default {
       // TODO: Get only specific fields: ?fields[attributes]=slug
       // TODO: For libraries sort items by last updated in request, e.g:
       // /people?sort=age,author.name
+      // TODO: Stats for past week, month, year
+      // https://kitsu.io/api/edge/users/42603/library-entries?include=anime&filter[since]=2017-01-08
+      // Global:
+      // https://kitsu.io/api/edge/library-entries?filter[kind]=anime&filter[since]=2017-02-10&page[limit]=10
       this.$http.get('https://kitsu.io/api/edge/users?include=waifu,pinnedPost,profileLinks,favorites&filter[name]=' + this.$route.params.slug, {}, {
         headers: {
           'Content-Type': 'application/vnd.api+json',
@@ -168,10 +172,11 @@ export default {
           left: calc((100vw - 10rem) / 2);
           border-radius: 999rem;
           width: 10rem;
-          bottom: -5rem;
+          top: calc(50% - 56px);
           position: absolute;
           display: block;
           z-index: 501;
+          pointer-events: none;
         }
       }
 
