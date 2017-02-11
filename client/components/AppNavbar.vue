@@ -1,7 +1,10 @@
 <template>
   <header>
     <nav>
-      <h1>{{ $t('hibari') }}</h1>
+      <h1>
+        {{ $t('hibari') }}
+        <span v-if='development'> Dev</span>
+      </h1>
       <router-link to='/'>{{ $t('navigation.home') }}</router-link>
       <language-switcher></language-switcher>
     </nav>
@@ -14,6 +17,11 @@ import LanguageSwitcher from 'components/LanguageSwitcher'
 export default {
   components: {
     LanguageSwitcher
+  },
+  computed: {
+    development () {
+      return String(this.$store.development)
+    }
   }
 }
 </script>
