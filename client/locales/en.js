@@ -13,9 +13,9 @@ export default {
   home: {
     user: {
       head: 'User',
-      body: 'Something about searching a user',
+      body: 'Something about searching {username}',
       placeholder: 'enter a username...',
-      action: 'Lookup {username}'
+      action: 'Lookup'
     },
     anime: {
       head: 'Anime',

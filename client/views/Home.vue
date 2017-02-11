@@ -4,9 +4,9 @@
     <section user>
       <div>
         <p>{{ $t('home.user.head') }}</p>
-        <p>{{ $t('home.user.body') }}</p>
+        <p>{{ $t('home.user.body', { username: slugify(userInput) || 'a user' }) }}</p>
         <input v-model='userInput' type='text' :placeholder='$t("home.user.placeholder")'>
-        <router-link :to='"/@" + slugify(userInput)'>{{ $t('home.user.action', { username: slugify(userInput) }) }}</router-link>
+        <router-link :to='"/@" + slugify(userInput)'>{{ $t('home.user.action') }}</router-link>
       </div>
     </section>
 
