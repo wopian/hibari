@@ -20,10 +20,7 @@ export default {
   },
   computed: {
     development () {
-      if (window.location.hostname === 'localhost' ) {
-        return true
-      }
-      return false
+      return window.location.hostname === 'localhost'
     }
   }
 }
