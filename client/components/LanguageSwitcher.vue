@@ -5,17 +5,18 @@
 </template>
 
 <script>
+  // TODO: Implement solution that doesn't require importing Vue to hot reload
   import Vue from 'vue'
   export default {
     data () {
       return {
-        lang: Vue.config.lang,
+        lang: this.$lang,
         languages: [
           {
-            code: 'EN',
+            code: 'EN'
           },
           {
-            code: 'JA',
+            code: 'JA'
           }
         ],
         Select: langNew => {
