@@ -1,11 +1,9 @@
-<template>
-  <div id='app'>
-    <navbar></navbar>
-    <notice v-if='showNotice'></notice>
-    <router-view>
-    </router-view>
-    <foobar></foobar>
-  </div>
+<template lang='pug'>
+  #app
+    navbar
+    notice(v-if='showNotice')
+    router-view
+    foobar
 </template>
 
 <script>

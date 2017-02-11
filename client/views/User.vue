@@ -1,6 +1,5 @@
 <template>
   <main class='user'>
-    <spinner v-if='loading'></spinner>
 
     <section v-if='error' error>
       {{ error }}
@@ -9,32 +8,21 @@
     <section v-else content>
       <set-title v-if='user' :title='user.attr.name + " - Hibari"'></set-title>
 
-      <div class='cover' v-if='user' :style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")" }'>
+      <div class='cover' v-if='user && lw(user.attr.name) === slug' :style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")" }'>
         <img v-if='user.attr.avatar.large' v-bind:src='user.attr.avatar.large'>
       </div>
       <div class='cover 2' v-else></div>
 
       <nav>
         <div>
-          <router-link :to='{ name: "User" }'>Profile</router-link>
+          <router-link :to='{ name: "Profile" }'>Profile</router-link>
           <router-link :to='{ name: "Library" }'>Library</router-link>
         </div>
       </nav>
 
-      <div class='content' v-if='user'>
-        <div>
-          <div class='left'>
-            <h1>{{ user.attr.name }}</h1>
-          </div>
+      <router-view></router-view>
 
-          <div class='right'>
-            <p class='waifu'>
-              {{ waifu.attributes.name }}
-              <span>{{ user.attr.waifuOrHusbando }}</span>
-            </p>
-          </div>
-        </div>
-      </div>
+      <spinner v-if='loading'></spinner>
 
       <hr>
       All information
@@ -71,30 +59,23 @@ export default {
   data () {
     return {
       loading: false,
-      user: null,
-      waifu: null,
-      pinned: null,
-      profileLinks: null,
-      favourites: null,
-      error: null
+      error: null,
+      slug: this.$route.params.slug,
+      lw: str => str.toLowerCase()
     }
   },
   created () {
     this.fetchData()
-  },
-  watch: {
-    '$route': 'fetchData'
   },
   methods: {
     fetchData () {
       this.error = this.user = null
       this.loading = true
 
-      // TODO: ?include=relationshipdata
       // TODO: Get only specific fields: ?fields[attributes]=slug
       // TODO: For libraries sort items by last updated in request, e.g:
       // /people?sort=age,author.name
-      this.$http.get('https://kitsu.io/api/edge/users?include=waifu,pinnedPost,profileLinks,favorites&filter[name]=' + this.$route.params.id, {}, {
+      this.$http.get('https://kitsu.io/api/edge/users?include=waifu,pinnedPost,profileLinks,favorites&filter[name]=' + this.$route.params.slug, {}, {
         headers: {
           'Content-Type': 'application/vnd.api+json',
           'Accept': 'application/vnd.api+json',
@@ -106,13 +87,20 @@ export default {
         if (data.body.meta.count === 0) {
           this.error = 'No user exists'
         } else {
-          this.user = data.body.data[0]
-          this.waifu = data.body.included[0]
-          this.pinned = data.body.included[1]
-          this.profileLinks = data.body.included[2]
-          this.favourites = data.body.included[3]
-          this.user.attr = this.user.attributes
-          delete this.user.attributes
+          let temp = data.body.data[0]
+          temp.attr = temp.attributes
+          delete temp.attributes
+          this.$store.commit('USER', temp)
+          this.$store.commit('WAIFU', data.body.included[0])
+          this.$store.commit('PINNED', data.body.included[1])
+          this.$store.commit('PROFILELINKS', data.body.included[2])
+          this.$store.commit('FAVOURITES', data.body.included[3])
+          /*this.$store.user.waifu = data.body.included[0]
+          this.$store.user.pinned = data.body.included[1]
+          this.$store.user.profileLinks = data.body.included[2]
+          this.$store.user.favourites = data.body.included[3] */
+          // this.$store.user.user.attr = this.$store.user.user.attributes
+          // delete this.$store.user.user.attributes
           // delete this.user.relationships
           // delete this.user.links
         }
@@ -120,6 +108,23 @@ export default {
       .catch((error) => {
         this.error = error.toString()
       })
+    }
+  },
+  computed: {
+    user () {
+      return this.$store.state.user.user
+    },
+    waifu () {
+      return this.$store.state.user.waifu
+    },
+    pinned () {
+      return this.$store.state.user.pinned
+    },
+    profileLinks () {
+      return this.$store.state.user.profileLinks
+    },
+    favourites () {
+      return this.$store.state.user.favourites
     }
   }
 }
