@@ -1,10 +1,11 @@
 <template>
   <main class='home'>
+    <set-title :title='"Hibari"'></set-title>
 
     <section user>
       <div>
         <p>{{ $t('home.user.head') }}</p>
-        <p>{{ $t('home.user.body', { username: slugify(userInput) || 'a user' }) }}</p>
+        <p>{{ $t('home.user.body', { username: (slugify(userInput)) || 'a user' }) }}</p>
         <input v-model='userInput' type='text' :placeholder='$t("home.user.placeholder")'>
         <router-link :to='"/@" + slugify(userInput)'>{{ $t('home.user.action') }}</router-link>
       </div>
@@ -39,8 +40,11 @@
 </template>
 
 <script>
+import SetTitle from 'components/SetTitle'
+
 export default {
   components: {
+    SetTitle
   },
   data () {
     return {

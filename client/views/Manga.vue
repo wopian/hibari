@@ -1,5 +1,6 @@
 <template>
   <main class='manga'>
+    <set-title :title='titleCase(this.$route.params.query) + " - Hibari"'></set-title>
     <h1>Manga</h1>
 
     <spinner v-if='loading'></spinner>
@@ -55,7 +56,14 @@ export default {
     return {
       loading: false,
       manga: null,
-      error: null
+      error: null,
+      titleCase: (str, glue) => {
+        glue = (glue) ? glue : ['of', 'for', 'and', 'no']
+        return String(str.replace(/(\w)(\w*)/g, function (_, i, r) {
+          const j = i.toUpperCase() + (r != null ? r : "")
+          return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
+        }))
+      }
     }
   },
   created () {

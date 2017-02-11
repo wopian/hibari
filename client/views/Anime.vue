@@ -1,5 +1,6 @@
 <template>
   <main class='no-container anime'>
+    <set-title :title='titleCase(this.$route.params.query.replace(/-/g, " ")) + " - Hibari"'></set-title>
     <spinner v-if='loading'></spinner>
 
     <section class='content' v-if='anime'>
@@ -59,7 +60,14 @@ export default {
     return {
       loading: false,
       anime: null,
-      error: null
+      error: null,
+      titleCase: (str, glue) => {
+        glue = (glue) ? glue : ['of', 'for', 'and', 'no']
+        return String(str.replace(/(\w)(\w*)/g, function (_, i, r) {
+          const j = i.toUpperCase() + (r != null ? r : "")
+          return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
+        }))
+      }
     }
   },
   created () {

@@ -3,11 +3,11 @@
     name: 'set-title',
     props: ['title'],
     created () {
-      document.title = this.title
+      document.title = window.location.hostname === 'localhost' ? '[DEV] ' + this.title : this.title
     },
     watch: {
       title () {
-        document.title = this.title
+        document.title = window.location.hostname === 'localhost' ? '[DEV] ' + this.title : this.title
       }
     },
     render () {
