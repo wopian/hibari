@@ -1,3 +1,8 @@
+// //webpack.github.io/docs/context.html#require-context
+const testsContext = require.context('.', true, /\.spec$/)
+testsContext.keys().forEach(testsContext)
+
+/*
 import IndexPage from './page-model';
 
 fixture `Index page`
@@ -12,3 +17,4 @@ test('first test', async t => {
         .click(page.desrement)
         .expect(page.counter.innerText).contains('0');
 });
+*/

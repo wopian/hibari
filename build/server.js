@@ -5,7 +5,7 @@ const chalk = require('chalk')
 const express = require('express')
 const webpack = require('webpack')
 const webpackConfig = require('./webpack.dev')
-const config = require('./config')
+const config = require('./webpack.config')
 const LogPlugin = require('./log-plugin')
 
 const app = express()

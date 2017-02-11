@@ -1,7 +1,7 @@
 'use strict'
 const path = require('path')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const config = require('./config')
+const config = require('./webpack.config')
 
 const _ = module.exports = {}
 

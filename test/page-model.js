@@ -1,3 +1,4 @@
+/*
 import { Selector } from 'testcafe'
 
 export default class IndexPage {
@@ -9,3 +10,4 @@ export default class IndexPage {
     this.desrement = counterWrapper.child('button').withText('Decrement')
   }
 }
+*/
