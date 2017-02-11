@@ -3,11 +3,13 @@
     name: 'set-title',
     props: ['title'],
     created () {
-      document.title = window.location.hostname === 'localhost' ? '[DEV] ' + this.title : this.title
+      this.setTitle()
     },
-    watch: {
-      title () {
-        document.title = window.location.hostname === 'localhost' ? '[DEV] ' + this.title : this.title
+    methods: {
+      setTitle () {
+        const checkDevelopment = window.location.hostname === 'localhost' ? '[DEV] ' : ''
+        const checkRoot = this.title ? this.title + ' - Hibari' : 'Hibari'
+        document.title = checkDevelopment + checkRoot
       }
     },
     render () {

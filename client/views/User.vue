@@ -3,7 +3,7 @@
     section(v-if='error' error) {{ error }}
 
     section(v-else content)
-      set-title(v-if='user' v-bind:title='user.attr.name + "- Hibari"')
+      set-title(v-if='user' v-bind:title='user.attr.name')
 
       .cover(v-if='user && lw(user.attr.name) === slug' v-bind:style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")"}')
         img(v-if='user.attr.avatar.large' v-bind:src='user.attr.avatar.large')
@@ -13,6 +13,7 @@
         div
           router-link(:to='{ name: "Profile" }') {{ $t('user.navigation.profile')}}
           router-link(:to='{ name: "Library" }') {{ $t('user.navigation.library')}}
+          a(:href='"//kitsu.io/users/" + slug' target='_blank') Kitsu
 
       router-view
 

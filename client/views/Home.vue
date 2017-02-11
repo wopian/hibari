@@ -1,6 +1,6 @@
 <template>
   <main class='home'>
-    <set-title :title='"Hibari"'></set-title>
+    <set-title></set-title>
 
     <section user>
       <div>

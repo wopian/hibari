@@ -1,11 +1,11 @@
 <template lang='pug'>
   main.no-container.anime
-    set-title(v-bind:title='titleCase(this.$route.params.query.replace(/-/g, " ")) + " - Hibari"')
+    set-title(v-bind:title='titleCase(this.$route.params.query.replace(/-/g, " "))')
 
     spinner(v-if='loading')
 
     section.content(v-if='anime')
-      set-title(v-bind:title='anime.attr.canonicalTitle + " - Hibari"')
+      set-title(v-bind:title='anime.attr.canonicalTitle')
 
       h1 Anime
       pre {{ anime }}
