@@ -10,7 +10,8 @@
 
     <div class='content' v-if='manga'>
       <set-title :title='manga.attr.canonicalTitle + " - Hibari"'></set-title>
-      <p>{{ $route.params.slug }}</p>
+      <pre>{{ manga }}</pre>
+      <!--<p>{{ $route.params.slug }}</p>
 
       <pre>
 ID: {{ manga.id }}
@@ -33,7 +34,7 @@ Volumes: {{ manga.attr.volumeCount }}
 Serialization: {{ manga.attr.serialization }}
 Type: {{ manga.attr.subtype }}
 NSFW: {{ manga.attr.nsfw }}
-      </pre>
+      </pre>-->
 
       <!--<img v-bind:src='manga.attr.posterImage.small'>
       <img v-bind:src='manga.attr.coverImage.small'>-->
@@ -68,7 +69,7 @@ export default {
       this.error = this.user = null
       this.loading = true
 
-      this.$http.get('https://kitsu.io/api/edge/manga?filter[slug]=' + this.$route.params.slug, {}, {
+      this.$http.get('https://kitsu.io/api/edge/manga?page[limit]=1&filter[text]=' + this.$route.params.query, {}, {
         headers: {
           'Content-Type': 'application/vnd.api+json',
           'Accept': 'application/vnd.api+json',
@@ -82,8 +83,12 @@ export default {
         } else {
           this.manga = data.body.data[0]
           this.manga.attr = this.manga.attributes
+          // TODO: https://github.com/vuejs/vue-router/issues/703#issuecomment-256198206
+          // this.$router.replace(this.manga.attr.slug)
+          history.replaceState({}, null, '/manga/' + this.manga.attr.slug)
           delete this.manga.attributes
           delete this.manga.relationships
+          delete this.manga.links
         }
       })
       .catch((error) => {

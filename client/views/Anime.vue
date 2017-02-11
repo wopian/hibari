@@ -3,8 +3,10 @@
     <spinner v-if='loading'></spinner>
 
     <section class='content' v-if='anime'>
-      <h1>Anime</h1>
       <set-title :title='anime.attr.canonicalTitle + " - Hibari"'></set-title>
+      <h1>Anime</h1>
+      <pre>{{ anime }}</pre>
+      <!--
       <p>{{ $route.params.slug }}</p>
       <pre>
 ID: {{ anime.id }}
@@ -33,7 +35,7 @@ Poster: {{ anime.attr.posterImage.small }}
       </pre>
       <pre v-if='anime.attr.coverImage.small'>
 Cover: {{ anime.attr.coverImage.small }}
-      </pre>
+      </pre> -->
       <!--<img v-bind:src='anime.attr.posterImage.small'>
       <img v-bind:src='anime.attr.coverImage.small'>-->
     </section>
@@ -70,7 +72,7 @@ export default {
     fetchData () {
       this.error = this.user = null
       this.loading = true
-      this.$http.get('https://kitsu.io/api/edge/anime?filter[slug]=' + this.$route.params.slug, {}, {
+      this.$http.get('https://kitsu.io/api/edge/anime?page[limit]=1&filter[text]=' + this.$route.params.query, {}, {
         headers: {
           'Content-Type': 'application/vnd.api+json',
           'Accept': 'application/vnd.api+json',
@@ -84,8 +86,12 @@ export default {
         } else {
           this.anime = data.body.data[0]
           this.anime.attr = this.anime.attributes
+          // TODO: https://github.com/vuejs/vue-router/issues/703#issuecomment-256198206
+          // this.$router.replace(this.anime.attr.slug)
+          history.replaceState({}, null, '/anime/' + this.anime.attr.slug)
           delete this.anime.attributes
           delete this.anime.relationships
+          delete this.anime.links
         }
       })
       .catch((error) => {

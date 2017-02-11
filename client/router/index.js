@@ -33,11 +33,11 @@ export default new Router({
       ]
     },
     {
-      path: '/anime/:slug',
+      path: '/anime/:query',
       component: Anime
     },
     {
-      path: '/manga/:slug',
+      path: '/manga/:query',
       component: Manga
     },
     // Legacy redirects for 2014-2016 Hibari
