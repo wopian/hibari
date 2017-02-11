@@ -3,9 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-
-const development = process.env.NODE_ENV === 'development' ? 'development' : false
-
 const state = {
   count: 0
 }
@@ -28,7 +25,6 @@ const actions = {
 }
 
 const store = new Vuex.Store({
-  development,
   state,
   mutations,
   actions
