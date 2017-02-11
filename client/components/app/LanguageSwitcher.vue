@@ -35,7 +35,7 @@
 </script>
 
 <style lang='scss'>
-  @import '../styles/main.scss';
+  @import '~styles/main.scss';
 
   div[switcher] {
     @extend .nav;

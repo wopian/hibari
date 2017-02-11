@@ -7,7 +7,7 @@
 </template>
 
 <style lang='scss'>
-  @import '../styles/main.scss';
+  @import '~styles/main.scss';
 
   footer {
     @extend .navbar;

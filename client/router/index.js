@@ -14,14 +14,17 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Home',
       component: Home
     },
     {
       path: '/@:id',
+      name: 'User',
       component: User,
       children: [
         {
           path: 'library',
+          name: 'Library',
           component: resolve => require(['../views/User'], resolve),
           children: [
             {

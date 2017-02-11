@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import LanguageSwitcher from 'components/LanguageSwitcher'
+import LanguageSwitcher from 'components/app/LanguageSwitcher'
 
 export default {
   components: {

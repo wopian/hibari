@@ -1,17 +1,17 @@
 <template>
   <div id='app'>
-    <app-navbar></app-navbar>
+    <navbar></navbar>
     <notice v-if='showNotice'></notice>
     <router-view>
     </router-view>
-    <app-footer></app-footer>
+    <foobar></foobar>
   </div>
 </template>
 
 <script>
-  import AppNavbar from 'components/AppNavbar'
-  import Notice from 'components/Notice'
-  import AppFooter from 'components/AppFooter'
+  import Navbar from 'components/app/Navbar'
+  import Notice from 'components/app/Notice'
+  import Foobar from 'components/app/Foobar'
 
   export default {
     data () {
@@ -20,9 +20,9 @@
       }
     },
     components: {
-      AppNavbar,
+      Navbar,
       Notice,
-      AppFooter
+      Foobar
     }
   }
 </script>

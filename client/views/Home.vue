@@ -66,6 +66,7 @@ export default {
     section {
       @extend .jumbotron;
       border-radius: 0;
+      height: 400px;
 
       div {
         @extend .container;
