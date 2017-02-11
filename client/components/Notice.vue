@@ -1,5 +1,5 @@
 <template>
-  <section role='alert' v-if='show'>
+  <section notice v-if='show && !matches || !cookie'>
     <div>
       <button type='button' @click='Hide()'>
         <span>&times;</span>
@@ -8,8 +8,7 @@
     <h4 class='alert-heading'>Notice</h4>
     -->
       <div>
-        <p>As of 8th February '17, Hibari has been rewritten from scratch to support the Kitsu API</p>
-        <p>This version is very early alpha and is prone to bugs and breakages. Feel free to send me suggestions on <a href='//kitsu.io/users/wopian'>Kitsu</a></p>
+        <p v-html='$t( "notice.content" )'></p>
       </div>
     </div>
   </section>
@@ -22,7 +21,26 @@ export default {
       show: true,
       Hide: () => {
         this.show = !this.show
+        this.$cookie.set('notice', this.show)
+        this.$cookie.set('noticeID', this.$t('notice.id'))
       }
+    }
+  },
+  computed: {
+    cookie () {
+      // Gets boolean value of notice if set
+      return this.$cookie.get('notice')
+    },
+    matches () {
+      // Check if `noticeID` exists
+      if (parseInt(this.$cookie.get('noticeID'))) {
+        // Check if `noticeID` matches current notice
+        if (parseInt(this.$cookie.get('noticeID')) === parseInt(this.$t('notice.id'))) {
+          return true
+        }
+        return false
+      }
+      return false
     }
   }
 }
@@ -31,7 +49,7 @@ export default {
 <style lang='scss'>
   @import '~styles/main.scss';
 
-  section[role='alert'] {
+  section[notice] {
     @extend .alert;
     @extend .alert-dismissible;
     border-radius: 0;
@@ -53,10 +71,11 @@ export default {
         order: 0;
         flex: 1 1 auto;
         align-self: auto;
+        text-align: center;
       }
     }
 
-    P:last-of-type {
+    p:last-of-type {
       @extend .mb-0;
     }
 
@@ -73,7 +92,7 @@ export default {
       right: 0;
       padding-left: 15px;
       span {
-        color: darken(white, 15);
+        color: darken(white, 20);
       }
     }
   }
