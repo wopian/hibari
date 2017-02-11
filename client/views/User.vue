@@ -5,7 +5,10 @@
     section(v-else content)
       set-title(v-if='user' v-bind:title='user.attr.name')
 
-      .cover(v-if='user && lw(user.attr.name) === slug' v-bind:style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")"}')
+      .cover(
+        v-if='user && lw(user.attr.name) === slug'
+        v-bind:style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")"}'
+      )
         img(v-if='user.attr.avatar.large' v-bind:src='user.attr.avatar.large')
       .cover(v-else)
 
@@ -26,19 +29,19 @@
 
         hr
         p Waifu
-        pre(v-if='waifu') {{ user }}
+        pre(v-if='waifu') {{ waifu }}
 
         hr
         p Pinned Post
-        pre(v-if='pinned') {{ user }}
+        pre(v-if='pinned') {{ pinned }}
 
         hr
         p Profile Links
-        pre(v-if='profileLinks') {{ user }}
+        pre(v-if='profileLinks') {{ profileLinks }}
 
         hr
         p Favourites
-        pre(v-if='favourites') {{ user }}
+        pre(v-if='favourites') {{ favourites }}
 </template>
 
 <script>
@@ -81,22 +84,41 @@ export default {
         if (data.body.meta.count === 0) {
           this.error = 'No user exists'
         } else {
-          let temp = data.body.data[0]
-          temp.attr = temp.attributes
-          delete temp.attributes
-          this.$store.commit('USER', temp)
-          this.$store.commit('WAIFU', data.body.included[0])
-          this.$store.commit('PINNED', data.body.included[1])
-          this.$store.commit('PROFILELINKS', data.body.included[2])
-          this.$store.commit('FAVOURITES', data.body.included[3])
-          /*this.$store.user.waifu = data.body.included[0]
-          this.$store.user.pinned = data.body.included[1]
-          this.$store.user.profileLinks = data.body.included[2]
-          this.$store.user.favourites = data.body.included[3] */
-          // this.$store.user.user.attr = this.$store.user.user.attributes
-          // delete this.$store.user.user.attributes
-          // delete this.user.relationships
-          // delete this.user.links
+          let user = data.body.data[0]
+          user.attr = user.attributes
+          delete user.attributes
+          delete user.relationships
+          this.$store.commit('USER', user)
+
+          let included = data.body.included
+          let include = {}
+
+          include.characters = []
+          include.posts = []
+          include.profileLinks = []
+          include.favourites = []
+
+          included.forEach(element => {
+            switch (element.type) {
+              case ('characters'):
+                include.characters.push(element)
+                break
+              case ('posts'):
+                include.posts.push(element)
+                break
+              case ('profileLinks'):
+                include.profileLinks.push(element)
+                break
+              case ('favorites'):
+                include.favourites.push(element)
+                break
+            }
+          })
+
+          this.$store.commit('WAIFU', include.characters[0])
+          this.$store.commit('PINNED', include.posts[0])
+          this.$store.commit('PROFILELINKS', include.profileLinks[0])
+          this.$store.commit('FAVOURITES', include.favourites[0])
         }
       })
       .catch((error) => {
@@ -149,7 +171,7 @@ export default {
           bottom: -5rem;
           position: absolute;
           display: block;
-          z-index: 101;
+          z-index: 501;
         }
       }
 
