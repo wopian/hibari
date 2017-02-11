@@ -33,7 +33,7 @@ export default {
     @extend .navbar;
     @extend .navbar-light;
     @extend .fixed-top;
-    background: rgba(white, .8);
+    background: rgba(white, .9);
     transition: background 300ms ease-out;
     backdrop-filter: blur(2px);
     border-bottom: 1px solid rgba(black, .05);
