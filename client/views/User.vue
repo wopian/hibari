@@ -1,50 +1,43 @@
-<template>
-  <main class='user'>
+<template lang='pug'>
+  main.user
+    section(v-if='error' error) {{ error }}
 
-    <section v-if='error' error>
-      {{ error }}
-    </section>
+    section(v-else content)
+      set-title(v-if='user' v-bind:title='user.attr.name + "- Hibari"')
 
-    <section v-else content>
-      <set-title v-if='user' :title='user.attr.name + " - Hibari"'></set-title>
+      .cover(v-if='user && lw(user.attr.name) === slug' v-bind:style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")"}')
+        img(v-if='user.attr.avatar.large' v-bind:src='user.attr.avatar.large')
+      .cover(v-else)
 
-      <div class='cover' v-if='user && lw(user.attr.name) === slug' :style='{ backgroundImage: "url(" + user.attr.coverImage.original + ")" }'>
-        <img v-if='user.attr.avatar.large' v-bind:src='user.attr.avatar.large'>
-      </div>
-      <div class='cover 2' v-else></div>
+      nav
+        div
+          router-link(:to='{ name: "Profile" }') {{ $t('user.navigation.profile')}}
+          router-link(:to='{ name: "Library" }') {{ $t('user.navigation.library')}}
 
-      <nav>
-        <div>
-          <router-link :to='{ name: "Profile" }'>Profile</router-link>
-          <router-link :to='{ name: "Library" }'>Library</router-link>
-        </div>
-      </nav>
+      router-view
 
-      <router-view></router-view>
+      spinner(v-if='loading')
 
-      <spinner v-if='loading'></spinner>
+      .container
+        hr
+        p All information
+        pre(v-if='user') {{ user }}
 
-      <hr>
-      All information
-      <pre v-if='user'>{{ user }}</pre>
+        hr
+        p Waifu
+        pre(v-if='waifu') {{ user }}
 
-      <hr>
-      Waifu
-      <pre v-if='waifu'>{{ waifu }}</pre>
+        hr
+        p Pinned Post
+        pre(v-if='pinned') {{ user }}
 
-      <hr>
-      Pinned Post
-      <pre v-if='pinned'>{{ pinned }}</pre>
+        hr
+        p Profile Links
+        pre(v-if='profileLinks') {{ user }}
 
-      <hr>
-      Profile Links
-      <pre v-if='pinned'>{{ profileLinks }}</pre>
-
-      <hr>
-      Favourites
-      <pre v-if='pinned'>{{ favourites }}</pre>
-    </section>
-  </main>
+        hr
+        p Favourites
+        pre(v-if='favourites') {{ user }}
 </template>
 
 <script>

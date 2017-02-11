@@ -1,46 +1,16 @@
-<template>
-  <main class='manga'>
-    <set-title :title='titleCase(this.$route.params.query) + " - Hibari"'></set-title>
-    <h1>Manga</h1>
+<template lang='pug'>
+  main.no-container.anime
+    set-title(v-bind:title='titleCase(this.$route.params.query.replace(/-/g, " ")) + " - Hibari"')
 
-    <spinner v-if='loading'></spinner>
+    spinner(v-if='loading')
 
-    <div class='error' v-if='error'>
-      {{ error }}
-    </div>
+    section.content(v-if='manga')
+      set-title(v-bind:title='manga.attr.canonicalTitle + " - Hibari"')
 
-    <div class='content' v-if='manga'>
-      <set-title :title='manga.attr.canonicalTitle + " - Hibari"'></set-title>
-      <pre>{{ manga }}</pre>
-      <!--<p>{{ $route.params.slug }}</p>
+      h1 Manga
+      pre {{ manga }}
 
-      <pre>
-ID: {{ manga.id }}
-Slug: {{ manga.attr.slug }}
-Synopsis: {{ manga.attr.synopsis }}
-English Title: {{ manga.attr.titles.en }}
-Canonical Title: {{ manga.attr.canonicalTitle }}
-Abbreviations: {{ manga.attr.abbreviatedTitles }}
-Rating: {{ manga.attr.averageRating }}
-Ratings: {{ manga.attr.ratingFrequencies }}
-Favourites: {{ manga.attr.favoritesCount }}
-Started Publishing: {{ manga.attr.startDate }}
-Finished Publishing: {{ manga.attr.endDate }}
-Popularity Rank: {{ manga.attr.popularityRank }}
-Rating Rank: {{ manga.attr.ratingRank }}
-Age Rating: {{ manga.attr.ageRating }}
-Age Guide: {{ manga.attr.ageRatingGuide }}
-Chapters: {{ manga.attr.chapterCount }}
-Volumes: {{ manga.attr.volumeCount }}
-Serialization: {{ manga.attr.serialization }}
-Type: {{ manga.attr.subtype }}
-NSFW: {{ manga.attr.nsfw }}
-      </pre>-->
-
-      <!--<img v-bind:src='manga.attr.posterImage.small'>
-      <img v-bind:src='manga.attr.coverImage.small'>-->
-    </div>
-  </main>
+    .error(v-if='error') {{ error }}
 </template>
 
 <script>

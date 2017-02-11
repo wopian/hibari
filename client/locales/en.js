@@ -27,5 +27,11 @@ export default {
       body: 'Something about searching a manga',
       action: 'Lookup'
     }
+  },
+  user: {
+    navigation: {
+      profile: 'Profile',
+      library: 'Library'
+    }
   }
 }

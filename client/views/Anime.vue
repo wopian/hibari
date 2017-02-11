@@ -1,50 +1,16 @@
-<template>
-  <main class='no-container anime'>
-    <set-title :title='titleCase(this.$route.params.query.replace(/-/g, " ")) + " - Hibari"'></set-title>
-    <spinner v-if='loading'></spinner>
+<template lang='pug'>
+  main.no-container.anime
+    set-title(v-bind:title='titleCase(this.$route.params.query.replace(/-/g, " ")) + " - Hibari"')
 
-    <section class='content' v-if='anime'>
-      <set-title :title='anime.attr.canonicalTitle + " - Hibari"'></set-title>
-      <h1>Anime</h1>
-      <pre>{{ anime }}</pre>
-      <!--
-      <p>{{ $route.params.slug }}</p>
-      <pre>
-ID: {{ anime.id }}
-Slug: {{ anime.attr.slug }}
-Synopsis: {{ anime.attr.synopsis }}
-English Title: {{ anime.attr.titles.en }}
-Canonical Title: {{ anime.attr.canonicalTitle }}
-Abbreviations: {{ anime.attr.abbreviatedTitles }}
-Rating: {{ anime.attr.averageRating }}
-Ratings: {{ anime.attr.ratingFrequencies }}
-Favourites: {{ anime.attr.favoritesCount }}
-Started Airing: {{ anime.attr.startDate }}
-Finished Airing: {{ anime.attr.endDate }}
-Popularity Rank: {{ anime.attr.popularityRank }}
-Rating Rank: {{ anime.attr.ratingRank }}
-Age Rating: {{ anime.attr.ageRating }}
-Age Guide: {{ anime.attr.ageRatingGuide }}
-Episodes: {{ anime.attr.episodeCount }}
-Length: {{ anime.attr.episodeLength }} minutes
-Type: {{ anime.attr.subtype }}
-Youtube: https://youtu.be/{{ anime.attr.youtubeVideoId }}
-NSFW: {{ anime.attr.nsfw }}
-      </pre>
-      <pre v-if='anime.attr.posterImage.small'>
-Poster: {{ anime.attr.posterImage.small }}
-      </pre>
-      <pre v-if='anime.attr.coverImage.small'>
-Cover: {{ anime.attr.coverImage.small }}
-      </pre> -->
-      <!--<img v-bind:src='anime.attr.posterImage.small'>
-      <img v-bind:src='anime.attr.coverImage.small'>-->
-    </section>
+    spinner(v-if='loading')
 
-    <div class='error' v-if='error'>
-      {{ error }}
-    </div>
-  </main>
+    section.content(v-if='anime')
+      set-title(v-bind:title='anime.attr.canonicalTitle + " - Hibari"')
+
+      h1 Anime
+      pre {{ anime }}
+
+    .error(v-if='error') {{ error }}
 </template>
 
 <script>

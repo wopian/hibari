@@ -1,13 +1,4 @@
-<template>
-  <main class='error'>
-    <h1>404</h1>
-  </main>
+<template lang='pug'>
+  main.error
+    h1 404
 </template>
-
-<script>
-
-export default {
-  components: {
-  }
-}
-</script>
