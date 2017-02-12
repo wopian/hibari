@@ -11,6 +11,8 @@ before_install:
 - npm update && npm prune
 install:
 - travis_retry npm i
+before_script:
+- npm run test
 script:
 - npm run build
 after_success:
