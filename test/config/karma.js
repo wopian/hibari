@@ -14,7 +14,7 @@ module.exports = function (config) {
       suppressSkipped: true
     },
     coverageReporter: {
-      dir: '../coverage',
+      dir: '../../coverage',
       reporters: [
         { type: 'lcov', subdir: '.' },
         { type: 'text-summary' }
