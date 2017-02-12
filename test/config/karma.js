@@ -8,7 +8,7 @@ module.exports = function (config) {
     reporters: ['spec', 'coverage'],
     files: ['../index.js'],
     preprocessors: {
-      '../index.js': ['webpack']
+      '../index.js': ['webpack', 'coverage']
     },
     specReporter: {
       suppressSkipped: true
@@ -24,6 +24,10 @@ module.exports = function (config) {
     webpackMiddleware: {
       noInfo: true
     },
-    singleRun: true
+    singleRun: true,
+    exclude: [
+      '../../client/**/*.js',
+      '../../client/**/*.scss'
+    ]
   })
 }
