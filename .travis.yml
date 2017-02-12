@@ -8,7 +8,6 @@ matrix:
   fast_finish: true
 before_install:
 - stty cols 80
-- npm update && npm prune
 install:
 - travis_retry npm i
 before_script:
