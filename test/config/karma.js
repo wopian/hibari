@@ -1,14 +1,18 @@
-const webpackConfig = require('../../build/webpack.dev')
+const webpackConfig = require('../../build/webpack.test')
 delete webpackConfig.entry
 
 module.exports = function (config) {
   config.set({
     browsers: ['PhantomJS'],
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine-jquery', 'jasmine'],
     reporters: ['spec', 'coverage'],
     files: ['../index.js'],
     preprocessors: {
-      '../index.js': ['webpack', 'coverage']
+      '../index.js': ['webpack']
+    },
+    webpack: webpackConfig,
+    webpackMiddleware: {
+      noInfo: true
     },
     specReporter: {
       suppressSkipped: true
@@ -20,14 +24,6 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
-    webpack: webpackConfig,
-    webpackMiddleware: {
-      noInfo: true
-    },
-    singleRun: true,
-    exclude: [
-      '../../client/**/*.js',
-      '../../client/**/*.scss'
-    ]
+    singleRun: true
   })
 }
