@@ -13,7 +13,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "babel-runtime": "6.22.0",
+    "babel-runtime": "6.23.0",
     "offline-plugin": "4.6.1",
     "promise-polyfill": "6.0.2",
     "vue": "2.1.10",
