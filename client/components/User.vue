@@ -72,7 +72,7 @@
         } else if (localStorage.getItem(`user-${this.slug}`)) {
           console.info('[APP] Loaded data from local storage')
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
-          this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu
+          this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu[0]
           this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
@@ -83,7 +83,7 @@
       },
       displayData (cached, user, include) {
         this.user = cached ? this.$store.state.user[this.slug] : user
-        this.waifu = cached ? this.$store.state.waifu[this.slug] : include.waifu
+        this.waifu = cached ? this.$store.state.waifu[this.slug][0] : include.waifu[0]
         this.pinned = cached ? this.$store.state.pinned[this.slug] : include.pinned
         this.profileLinks = cached ? this.$store.state.profileLinks[this.slug] : include.profileLinks
         this.favourites = cached ? this.$store.state.favourites[this.slug] : include.favourites
@@ -160,7 +160,6 @@
       saveToLocalStorage (user, waifu, pinned, profileLinks, favourites) {
         // User doesn't exist - store data
         if (!localStorage.getItem(`user-${this.slug}`)) {
-          console.info('[APP] Saved data to local storage')
           localStorage.setItem(`user-${this.slug}`, JSON.stringify([
             { user: user },
             { waifu: waifu },
