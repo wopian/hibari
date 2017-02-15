@@ -97,5 +97,7 @@
       height: 456px
       margin-top: -56px
       > div
-        margin-top: calc(56px / 2)
+        margin-top: 56px
+        @include media-breakpoint-up(sm)
+          margin-top: 28px
 </style>
