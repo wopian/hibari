@@ -25,6 +25,8 @@ script:
 
 after_success:
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash build/deploy.sh
+- bash <(curl -s https://codecov.io/bash)
+
 addons:
   code_climate:
     repo_token: d4e9d96b88184c8841c0f11761fe17e51e4f2ee53e07b5204f7049a7f286bd61
