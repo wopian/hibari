@@ -4,7 +4,7 @@
       .left
         h1 {{ user.attributes.name }}
       .right
-        p.waifu {{ waifu[0].attributes.name }}
+        p.waifu(v-if='waifu') {{ waifu[0].attributes.name }}
           span {{ user.attributes.waifuOrHusbando }}
 
     .container

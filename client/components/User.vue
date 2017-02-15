@@ -58,19 +58,32 @@
       this.checkStore()
     },
     methods: {
+      // We don't want to request data from the API if it was accessed in the current session
+      // First we check the vuex store
+      // Second we check local storage
+      // Else download the data and add it to the vuex store and local storage
       checkStore () {
         this.loading = true
+        // Check vuex store
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
-          console.info('[APP] Loaded user information from store')
+          console.info('[APP] Loaded data from store')
           this.displayData(true)
+        // } else if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'))[this.slug]) {
+        } else if (localStorage.getItem(`user-${this.slug}`)) {
+          console.info('[APP] Loaded data from local storage')
+          this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
+          this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu
+          this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned
+          this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
+          this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
         } else {
-          console.info('[APP] Downloaded user information to store')
+          console.info('[APP] Downloaded data from API')
           this.fetchData()
         }
       },
       displayData (cached, user, include) {
         this.user = cached ? this.$store.state.user[this.slug] : user
-        this.waifu = cached ? this.$store.state.waifu[this.slug] : include.characters
+        this.waifu = cached ? this.$store.state.waifu[this.slug] : include.waifu
         this.pinned = cached ? this.$store.state.pinned[this.slug] : include.pinned
         this.profileLinks = cached ? this.$store.state.profileLinks[this.slug] : include.profileLinks
         this.favourites = cached ? this.$store.state.favourites[this.slug] : include.favourites
@@ -102,21 +115,20 @@
 
             user = data.body.data[0]
             delete user.relationships
-            this.$store.commit('USER', [user, this.slug])
 
             included = data.body.included
-            include.characters = []
-            include.posts = []
+            include.waifu = []
+            include.pinned = []
             include.profileLinks = []
             include.favourites = []
 
             included.forEach(el => {
               switch (el.type) {
                 case ('characters'):
-                  include.characters.push(el)
+                  include.waifu.push(el)
                   break
                 case ('posts'):
-                  include.posts.push(el)
+                  include.pinned.push(el)
                   break
                 case ('profileLinks'):
                   include.profileLinks.push(el)
@@ -127,17 +139,36 @@
               }
             })
 
-            this.$store.commit('WAIFU', [include.characters, this.slug])
-            this.$store.commit('PINNED', [include.posts, this.slug])
+            // Save user data in vuex store
+            this.$store.commit('USER', [user, this.slug])
+            this.$store.commit('WAIFU', [include.waifu, this.slug])
+            this.$store.commit('PINNED', [include.pinned, this.slug])
             this.$store.commit('PROFILELINKS', [include.profileLinks, this.slug])
             this.$store.commit('FAVOURITES', [include.favourites, this.slug])
 
+            // Save user data to local storage
+            this.saveToLocalStorage(user, include.waifu, include.pinned, include.profileLinks, include.favourites)
+
+            // Display user information
             this.displayData(false, user, include)
           }
         })
         .catch((error) => {
           this.error = error.toString()
         })
+      },
+      saveToLocalStorage (user, waifu, pinned, profileLinks, favourites) {
+        // User doesn't exist - store data
+        if (!localStorage.getItem(`user-${this.slug}`)) {
+          console.info('[APP] Saved data to local storage')
+          localStorage.setItem(`user-${this.slug}`, JSON.stringify([
+            { user: user },
+            { waifu: waifu },
+            { pinned: pinned },
+            { profileLinks: profileLinks },
+            { favourites: favourites }
+          ], null, '\t'))
+        }
       }
     }
   }

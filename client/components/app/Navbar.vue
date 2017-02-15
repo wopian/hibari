@@ -31,14 +31,16 @@
     @extend .navbar-light
     @extend .fixed-top
     background: rgba(white, .9)
+    background: rgba($primary, .9)
     transition: background 300ms ease-out
     backdrop-filter: blur(2px)
     border-bottom: 1px solid rgba(black, .05)
     overflow-y: hidden
 
     &:hover
-      background: white
-      transition: background 200ms ease-in
+      // background: white
+      // background: $primary
+      // transition: background 200ms ease-in
 
     nav
       @extend .nav
@@ -49,13 +51,17 @@
       @extend .navbar-brand
       @extend .mb-0
       padding-left: 15px
+      color: white
+
+      &:hover
+        color: white
 
     a
       @extend .nav-link
-      color: black
       transition: color 200ms ease-out
+      color: rgba(white, .7)
 
       &:hover
-        color: $primary
+        color: white
         transition: color 100ms ease-in
 </style>

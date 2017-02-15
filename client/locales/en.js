@@ -24,7 +24,7 @@ export default {
       action: 'Lookup'
     },
     manga: {
-      head: 'User',
+      head: 'Manga',
       body: 'Something about searching {manga}',
       placeholder: 'enter a manga...',
       action: 'Lookup'

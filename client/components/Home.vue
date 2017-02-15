@@ -94,4 +94,8 @@
       background-color: $primary
       position: relative
       color: white
+      height: 456px
+      margin-top: -56px
+      > div
+        margin-top: calc(56px / 2)
 </style>
