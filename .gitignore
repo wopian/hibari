@@ -1,6 +1,5 @@
+.DS_Store
 node_modules
 dist
-coverage
-test/coverage
+test/unit/coverage
 *.log
-.DS_Store

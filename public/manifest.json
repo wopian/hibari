@@ -1,13 +1,13 @@
 {
-  "name": "Hibari",
+  "name": "Hibari for Kitsu.io",
   "short_name": "Hibari",
   "start_url": ".",
   "lang": "en",
   "url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "theme_color": "#2EA291",
-  "description": "User stats for Kitsu.io",
+  "theme_color": "#332532",
+  "description": "User, anime & manga stats for Kitsu.io",
   "orientation": "any",
   "icons": [{
     "src": "favicon-194x194.png",

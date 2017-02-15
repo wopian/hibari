@@ -1,5 +1,5 @@
 export default {
-  lang: '日本語？',
+  lang: '日本語',
   hibari: 'ヒバリ',
   navigation: {
     home: 'ホーム？'

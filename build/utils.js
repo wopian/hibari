@@ -1,73 +1,64 @@
-'use strict'
-const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const config = require('./webpack.config')
+var path = require('path')
+var config = require('../config')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const _ = module.exports = {}
-
-_.cwd = (file) => {
-  return path.join(process.cwd(), file || '')
+exports.assetsPath = function (_path) {
+  var assetsSubDirectory = process.env.NODE_ENV === 'production'
+    ? config.build.assetsSubDirectory
+    : config.dev.assetsSubDirectory
+  return path.posix.join(assetsSubDirectory, _path)
 }
 
-_.cssLoader = config.cssModules
-  ? 'css-loader?-autoprefixer&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-  : 'css-loader?-autoprefixer'
+exports.cssLoaders = function (options) {
+  options = options || {}
+  // generate loader string to be used with extract text plugin
+  function generateLoaders (loaders) {
+    var sourceLoader = loaders.map(function (loader) {
+      var extraParamChar
+      if (/\?/.test(loader)) {
+        loader = loader.replace(/\?/, '-loader?')
+        extraParamChar = '&'
+      } else {
+        loader = loader + '-loader'
+        extraParamChar = '?'
+      }
+      return loader + (options.sourceMap ? extraParamChar + 'sourceMap' : '')
+    }).join('!')
 
-_.cssProcessors = [
-  { loader: '', test: /\.css$/ },
-  { loader: 'sass-loader?sourceMap', test: /\.scss$/ },
-  { loader: 'less-loader?sourceMap', test: /\.less$/ },
-  { loader: 'stylus-loader?sourceMap', test: /\.styl$/ },
-  { loader: 'sass-loader?indentedSyntax&sourceMap', test: /\.sass$/ }
-]
-
-_.outputPath = config.electron
-  ? path.join(__dirname, '../app/dist')
-  : path.join(__dirname, '../dist')
-
-_.outputIndexPath = config.electron
-  ? path.join(__dirname, '../app/dist/index.html')
-  : path.join(__dirname, '../dist/index.html')
-
-_.target = config.electron
-  ? 'electron-renderer'
-  : 'web'
-
-// https://github.com/egoist/vbuild/blob/master/lib/vue-loaders.js
-_.loadersOptions = () => {
-  const isProd = process.env.NODE_ENV === 'production'
-
-  function generateLoader (langs) {
-    langs.unshift('css-loader?sourceMap&-autoprefixer')
-    if (!isProd) {
-      return ['vue-style-loader'].concat(langs).join('!')
+    // Extract CSS when that option is specified
+    // (which is the case during production build)
+    if (options.extract) {
+      return ExtractTextPlugin.extract({
+        use: sourceLoader,
+        fallback: 'vue-style-loader'
+      })
+    } else {
+      return ['vue-style-loader', sourceLoader].join('!')
     }
-    return ExtractTextPlugin.extract({
-      fallback: 'vue-style-loader',
-      use: langs.join('!')
+  }
+
+  // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
+  return {
+    css: generateLoaders(['css']),
+    postcss: generateLoaders(['css']),
+    less: generateLoaders(['css', 'less']),
+    sass: generateLoaders(['css', 'sass?indentedSyntax']),
+    scss: generateLoaders(['css', 'sass']),
+    stylus: generateLoaders(['css', 'stylus']),
+    styl: generateLoaders(['css', 'stylus'])
+  }
+}
+
+// Generate loaders for standalone style files (outside of .vue)
+exports.styleLoaders = function (options) {
+  var output = []
+  var loaders = exports.cssLoaders(options)
+  for (var extension in loaders) {
+    var loader = loaders[extension]
+    output.push({
+      test: new RegExp('\\.' + extension + '$'),
+      loader: loader
     })
   }
-
-  return {
-    minimize: isProd,
-    options: {
-      // css-loader relies on context
-      context: process.cwd(),
-      // postcss plugins apply to .css files
-      postcss: config.postcss,
-      babel: config.babel,
-      vue: {
-        // postcss plugins apply to css in .vue files
-        postcss: config.postcss,
-        loaders: {
-          css: generateLoader([]),
-          sass: generateLoader(['sass-loader?indentedSyntax&sourceMap']),
-          scss: generateLoader(['sass-loader?sourceMap']),
-          less: generateLoader(['less-loader?sourceMap']),
-          stylus: generateLoader(['stylus-loader?sourceMap']),
-          js: 'babel-loader'
-        }
-      }
-    }
-  }
+  return output
 }

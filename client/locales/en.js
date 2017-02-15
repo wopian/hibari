@@ -4,8 +4,8 @@ export default {
   notice: {
     id: '1',
     content: 'As of 8th February \'17, Hibari has been rewritten from scratch to support the ' +
-    'Kitsu API<br>This version is very early alpha and is prone to bugs and lack of content. ' +
-    'Feel free to send me suggestions on <a href=\'\/\/kitsu.io/users/wopian\'>Kitsu</a>'
+    'Kitsu API<br>This version is very early alpha and is prone to bugs and lacks content. ' +
+    'Feel free to send me suggestions on <a href=\'//kitsu.io/users/wopian\'>Kitsu</a>'
   },
   navigation: {
     home: 'Home'
@@ -19,19 +19,22 @@ export default {
     },
     anime: {
       head: 'Anime',
-      body: 'Something about searching an anime',
+      body: 'Something about searching {anime}',
+      placeholder: 'enter an anime...',
       action: 'Lookup'
     },
     manga: {
-      head: 'Manga',
-      body: 'Something about searching a manga',
+      head: 'User',
+      body: 'Something about searching {manga}',
+      placeholder: 'enter a manga...',
       action: 'Lookup'
     }
   },
   user: {
     navigation: {
       profile: 'Profile',
-      library: 'Library'
+      library: 'Library',
+      kitsu: 'Kitsu'
     }
   }
 }

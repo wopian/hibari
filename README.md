@@ -32,6 +32,8 @@ npm i
 npm run dev
 # build for production with minification
 npm run build
+# same as above with report generated
+npm run build --report
 ```
 
 ### Linting
@@ -48,7 +50,7 @@ npm update && npm prune
 ```bash
 npm i -g npm-check-updates
 ncu --packageFile package.json
-``` 
+```
 
 ## Releases
 See [CHANGELOG][5]

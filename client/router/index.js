@@ -1,15 +1,18 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Resource from 'vue-resource'
-import Home from 'views/Home'
-import User from 'views/User'
+import Meta from 'vue-meta'
+import Home from 'components/Home'
+import User from 'components/User'
 import Profile from 'components/user/Profile'
 import Library from 'components/user/Library'
-import Anime from 'views/Anime'
-import Manga from 'views/Manga'
+import Anime from 'components/Anime'
+import Manga from 'components/Manga'
+import E404 from 'components/404'
 
 Vue.use(Router)
 Vue.use(Resource)
+Vue.use(Meta)
 
 export default new Router({
   mode: 'history',
@@ -62,9 +65,10 @@ export default new Router({
       path: '/:slug/library/:status',
       redirect: '/@:slug/library/:status'
     },
+    // 404 Page
     {
       path: '*',
-      component: resolve => require(['../views/404'], resolve)
+      component: E404
     }
   ]
 })

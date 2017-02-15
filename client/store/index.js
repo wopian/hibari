@@ -4,49 +4,43 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  user: {
-    user: null,
-    waifu: null,
-    pinned: null,
-    profileLinks: null,
-    favourites: null
-  }
+  user: {},
+  waifu: {},
+  pinned: {},
+  profileLinks: {},
+  favourites: {},
+  anime: {},
+  manga: {}
 }
 
 const mutations = {
   USER (state, payload) {
-    state.user.user = payload
+    state.user[payload[1]] = payload[0]
   },
   WAIFU (state, payload) {
-    state.user.waifu = payload
+    state.waifu[payload[1]] = payload[0]
   },
   PINNED (state, payload) {
-    state.user.pinned = payload
+    state.pinned[payload[1]] = payload[0]
   },
   PROFILELINKS (state, payload) {
-    state.user.profileLinks = payload
+    state.profileLinks[payload[1]] = payload[0]
   },
   FAVOURITES (state, payload) {
-    state.user.favourites = payload
+    state.favourites[payload[1]] = payload[0]
+  },
+  ANIME (state, payload) {
+    state.anime[payload[1]] = payload[0]
+  },
+  MANGA (state, payload) {
+    state.manga[payload[1]] = payload[0]
   }
 }
 
 const actions = {
-  /*
-  incrementAsync ({ commit }) {
-    setTimeout(() => {
-      commit('INCREMENT')
-    }, 200)
-  }
-  */
 }
 
 const store = new Vuex.Store({
-  // user,
-  // waifu,
-  // pinned,
-  // profileLinks,
-  // favourites,
   state,
   mutations,
   actions

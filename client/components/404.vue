@@ -1,12 +1,12 @@
 <template lang='pug'>
-  .test
-    // p(v-repeat='user.name')
+  main.error
+    h1 404
 </template>
 
 <script>
   export default {
     metaInfo: {
-      title: 'Library'
+      title: '404'
     }
   }
 </script>

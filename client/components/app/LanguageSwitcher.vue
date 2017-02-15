@@ -1,13 +1,18 @@
-<template>
-  <div switcher>
-    <button v-for='lang in languages' @click='Select(lang.code)'>{{ lang.code }}</button>
-  </div>
+<template lang='pug'>
+  .switcher
+    button(v-for='lang in languages' @click='Select(lang.code)') {{ lang.code }}
 </template>
 
 <script>
-  // TODO: Implement solution that doesn't require importing Vue to hot reload
+  // TODO: Implement solution that doesn't require importing Vue for live reload
   import Vue from 'vue'
+
   export default {
+    components: {
+      language: {
+        props: ['code']
+      }
+    },
     data () {
       return {
         lang: this.$lang,
@@ -20,45 +25,37 @@
           }
         ],
         Select: langNew => {
-          console.info('[APP] Set language to ' + langNew)
+          console.info(`[APP] Set language to ${langNew}`)
           Vue.config.lang = langNew.toLowerCase()
           this.$cookie.set('lang', langNew.toLowerCase())
         }
-      }
-    },
-    components: {
-      language: {
-        props: ['code']
       }
     }
   }
 </script>
 
-<style lang='scss'>
-  @import '~styles/main.scss';
+<style lang='sass'>
+  @import ~bootstrap/scss/bootstrap
+  @import ~assets/variables
 
-  div[switcher] {
-    @extend .nav;
-    justify-content: flex-end;
-    flex: 1 1 auto;
+  .switcher
+    @extend .nav
+    justify-content: flex-end
+    flex: 1 1 auto
+    // Fix alignment
+    position: relative
+    top: 2px
 
-    // Fix misalignment
-    position: relative;
-    top: 2px;
-    // .
+    button
+      @extend .nav-link
+      flex: 0 1 auto
+      cursor: pointer
+      color: black
+      background: transparent
+      border: 0
+      padding: .5em .5rem
+      font-size: .75rem
 
-    button{
-      flex: 0 1 auto;
-      @extend .nav-link;
-      cursor: pointer;
-      color: black;
-      background: transparent;
-      border: 0;
-      padding: 0.5em .5rem;
-      font-size: .75rem;
-      &:hover {
-        color: $primary;
-      }
-    }
-  }
+      &:hover
+        color: $primary
 </style>
