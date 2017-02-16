@@ -76,6 +76,7 @@
           this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
+          this.loading = false
         } else {
           console.info('[APP] Downloaded data from API')
           this.fetchData()
@@ -87,6 +88,7 @@
         this.pinned = cached ? this.$store.state.pinned[this.slug] : include.pinned
         this.profileLinks = cached ? this.$store.state.profileLinks[this.slug] : include.profileLinks
         this.favourites = cached ? this.$store.state.favourites[this.slug] : include.favourites
+        this.loading = false
       },
       fetchData () {
         this.error = this.user = null
@@ -182,11 +184,20 @@
       .cover
         margin-top: -56px
         width: 100vw
-        height: 456px
+        height: 400px
         background-color: $primary
         background-size: cover
         background-position: center
         position: relative
+
+        &:before
+          content: ''
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+          background: rgba(black, .5)
 
         img
           left: calc((100vw - 10rem) / 2)
@@ -200,7 +211,7 @@
 
       nav
         @extend .navbar
-        background: rgba(darken(white, 3), .9)
+        background: rgba(darken(white, 3), .8)
         border-bottom: 1px solid rgba(black, .05)
         width: 100vw
         position: sticky

@@ -102,7 +102,7 @@
       .cover
         margin-top: -56px
         width: 100vw
-        height: 456px
+        height: 400px
         background-color: $primary
         background-size: cover
         background-position: center

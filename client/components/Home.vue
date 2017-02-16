@@ -94,7 +94,7 @@
       background-color: $primary
       position: relative
       color: white
-      height: 456px
+      height: 400px
       margin-top: -56px
       > div
         margin-top: 56px
