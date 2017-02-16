@@ -14,7 +14,7 @@
 
       nav
         div
-          a(:href='"//kitsu.io/manga/" + query' target='_blank') Kitsu
+          a(:href='"//kitsu.io/manga/" + query' rel='noopener' target='_blank') Kitsu
 
       spinner(v-if='loading')
 

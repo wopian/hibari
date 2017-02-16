@@ -17,7 +17,7 @@
         div
           router-link(:to='{ name: "Profile" }') {{ $t('user.navigation.profile') }}
           router-link(:to='{ name: "Library" }') {{ $t('user.navigation.library') }}
-          a(:href='"//kitsu.io/users/" + slug' target='_blank') Kitsu
+          a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') Kitsu
 
       router-view(
         v-bind:slug='slug'

@@ -1,7 +1,7 @@
 <template lang='pug'>
   footer
     div
-      a(href='https://github.com/wopian/hibari' target='_blank') Github
+      a(href='https://github.com/wopian/hibari' rel='noopener' target='_blank') Github
 </template>
 
 <style lang='sass'>
