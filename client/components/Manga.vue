@@ -51,10 +51,10 @@
       checkStore () {
         this.loading = true
         if (this.$store.state.manga[this.$route.params.query] !== undefined) {
-          console.info('[APP] Loaded manga information from store')
+          console.info('[HB]: Loaded manga information from store')
           this.displayData(true)
         } else {
-          console.info('[APP] Downloaded manga information to store')
+          console.info('[HB]: Downloaded manga information to store')
           this.fetchData()
         }
       },
