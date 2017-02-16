@@ -1,5 +1,5 @@
 <template lang='pug'>
-  header
+  header(v-bind:class='{ transparent: position }')
     nav
       h1 {{ $t('hibari') }}
         span(v-if='development')  Dev
@@ -18,6 +18,26 @@
       development () {
         return window.location.hostname === 'localhost'
       }
+    },
+    data () {
+      return {
+        position: (this.$route.params.slug || this.$route.params.query) ? ((window.pageYOffset || document.documentElement.scrollTop) < 300) : false
+      }
+    },
+    methods: {
+      handleScroll (event) {
+        if (this.$route.params.slug || this.$route.params.query) {
+          this.position = (window.pageYOffset || document.documentElement.scrollTop) < 300
+        }
+      }
+    },
+    beforeDestroy: function () {
+      window.removeEventListener('scroll', this.handleScroll)
+    },
+    mounted () {
+      window.addEventListener('scroll', () => {
+        setTimeout(this.handleScroll, 250)
+      })
     }
   }
 </script>
@@ -30,17 +50,18 @@
     @extend .navbar
     @extend .navbar-light
     @extend .fixed-top
-    background: rgba(white, .9)
-    background: rgba($primary, .9)
-    transition: background 300ms ease-out
-    backdrop-filter: blur(2px)
+    background: rgba($primary, .95)
+    transition: background 400ms ease-out
     border-bottom: 1px solid rgba(black, .05)
     overflow-y: hidden
 
-    &:hover
-      // background: white
-      // background: $primary
-      // transition: background 200ms ease-in
+    &.transparent
+      background: transparent
+      transition: background 400ms ease-in-out
+
+      &:hover
+        background: rgba($primary, .95)
+        transition: background 300ms ease-in-out
 
     nav
       @extend .nav
