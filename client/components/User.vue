@@ -7,9 +7,10 @@
         v-if='user && user.attributes.name.toLowerCase() === slug'
         v-bind:style='{ backgroundImage: "url(" + user.attributes.coverImage.original + ")"}'
       )
-        img(
-          v-if='user.attributes.avatar.large'
-          v-bind:src='user.attributes.avatar.large')
+        .container
+          img(
+            v-if='user.attributes.avatar.large'
+            v-bind:src='user.attributes.avatar.large')
       .cover(v-else)
 
       nav
@@ -183,12 +184,13 @@
     section.content
       .cover
         margin-top: -56px
-        width: 100vw
         height: 400px
         background-color: $primary
         background-size: cover
         background-position: center
         position: relative
+        display: flex
+        align-items: flex-end
 
         &:before
           content: ''
@@ -199,13 +201,13 @@
           left: 0
           background: rgba(black, .5)
 
+        div
+          padding-bottom: 30px
+          padding-left: 0
+
         img
-          left: calc((100vw - 10rem) / 2)
           border-radius: 999rem
-          width: 10rem
-          top: calc(50% - 56px)
-          position: absolute
-          display: block
+          width: 100px
           z-index: 501
           pointer-events: none
 
