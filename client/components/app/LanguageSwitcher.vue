@@ -25,7 +25,7 @@
           }
         ],
         Select: langNew => {
-          console.info(`[APP] Set language to ${langNew}`)
+          console.info(`[HB]: Language set to ${langNew}`)
           Vue.config.lang = langNew.toLowerCase()
           this.$cookie.set('lang', langNew.toLowerCase())
         }

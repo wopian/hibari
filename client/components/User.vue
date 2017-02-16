@@ -66,11 +66,11 @@
         this.loading = true
         // Check vuex store
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
-          console.info('[APP] Loaded data from store')
+          console.info('[HB]: Data retrived from store')
           this.displayData(true)
         // } else if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'))[this.slug]) {
         } else if (localStorage.getItem(`user-${this.slug}`)) {
-          console.info('[APP] Loaded data from local storage')
+          console.info('[HB]: Data retrived from local storage')
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
           this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu[0]
           this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned
@@ -78,7 +78,7 @@
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
           this.loading = false
         } else {
-          console.info('[APP] Downloaded data from API')
+          console.info('[HB]: Data retrived from API')
           this.fetchData()
         }
       },

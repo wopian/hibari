@@ -51,10 +51,10 @@
       checkStore () {
         this.loading = true
         if (this.$store.state.anime[this.$route.params.query] !== undefined) {
-          console.info('[APP] Loaded anime information from store')
+          console.info('[HB]: Data retrived from store')
           this.displayData(true)
         } else {
-          console.info('[APP] Downloaded anime information to store')
+          console.info('[HB]: Data retrived from API')
           this.fetchData()
         }
       },
