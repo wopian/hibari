@@ -100,7 +100,6 @@
   main.manga
     section.content
       .cover
-        margin-top: -56px
         width: 100vw
         height: 400px
         background-color: $primary

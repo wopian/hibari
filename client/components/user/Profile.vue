@@ -62,12 +62,18 @@
     > div:first-of-type
       @extend .row
 
-    .left, .right
-      @extend .col
+    .left
+      @extend .col-md-8
+      @extend .col-sm-12
+      background: blue
 
-    @include media-breakpoint-up(md)
-      .right
-        text-align: right
+    .right
+      @extend .col-md-4
+      @extend .col-sm-12
+      background: red
+      order: -1
+      @include media-breakpoint-up(md)
+        order: 1
 
     h1, .waifu
       @extend .display-4

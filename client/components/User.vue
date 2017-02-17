@@ -11,13 +11,16 @@
           img(
             v-if='user.attributes.avatar.large'
             v-bind:src='user.attributes.avatar.large')
+          div
+            h2 {{ user.attributes.name }}
+              span(v-if='user.attributes.title') {{ user.attributes.title }}
+            a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') Kitsu Profile
       .cover(v-else)
 
       nav
         div
-          router-link(:to='{ name: "Profile" }') {{ $t('user.navigation.profile') }}
-          router-link(:to='{ name: "Library" }') {{ $t('user.navigation.library') }}
-          a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') Kitsu
+          router-link(:to='{ name: "Profile" }' exact) {{ $t('user.navigation.profile') }}
+          router-link(:to='{ name: "Library" }' exact) {{ $t('user.navigation.library') }}
 
       router-view(
         v-bind:slug='slug'
@@ -183,7 +186,6 @@
   main.user
     section.content
       .cover
-        margin-top: -56px
         height: 400px
         background-color: $primary
         background-size: cover
@@ -201,31 +203,61 @@
           left: 0
           background: rgba(black, .5)
 
-        div
+        > div
           padding-bottom: 30px
           padding-left: 0
+          display: flex
+          flex-direction: row
+          justify-content: flex-start
+          align-items: flex-end
+
+          div
+            padding-left: 1px
 
         img
           border-radius: 999rem
           width: 100px
           z-index: 501
           pointer-events: none
+          margin-right: 24px
+
+        h2
+          color: white
+          font-weight: 500
+          font-size: 30px
+          padding-bottom: 1px
+
+          span
+            background: #F75239
+            border-radius: 3px
+            text-transform: uppercase
+            font-size: 13px
+            padding: 3px 10px
+            position: relative
+            left: 8px
+            top: -4px
+            font-weight: 400
+            line-height: 1
+
+        a
+          @extend .btn
+          font-size: 12px
+          padding: 8px 40px
+          margin-bottom: 10px
+          background: $kitsu
+          color: white
+          line-height: 1.25
 
       nav
         @extend .navbar
-        background: rgba(darken(white, 3), .8)
+        background: white
         border-bottom: 1px solid rgba(black, .05)
+        padding: 0
         width: 100vw
         position: sticky
         top: 56px
-        height: 46px
         z-index: 100
-        backdrop-filter: blur(2px)
         transition: background 300ms ease-out
-
-        &:hover
-          background: darken(white, 3)
-          transition: background 200ms ease-in
 
         div
           @extend .container
@@ -233,13 +265,22 @@
 
         a
           @extend .nav-link
-          color: black
-          transition: color 200ms ease-out
-          padding: 0.16em 1em
+          color: rgba(black, .3)
+          transition: color 100ms ease-out
+          padding: 10px 20px
+          font-size: 14px
+          border-left: 1px solid #eee
 
-          &:hover
+          &.router-link-active
             color: $primary
-            transition: color 100ms ease-out
+
+          &:last-of-type
+            border-right: 1px solid #eee
+
+          &:hover:not(.router-link-active)
+            color: rgba($primary, .8)
+            background: #fafafa
+            transition: color 100ms ease-in-out
 
       .content
         @extend .container

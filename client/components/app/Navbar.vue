@@ -21,13 +21,13 @@
     },
     data () {
       return {
-        position: (this.$route.params.slug || this.$route.params.query) ? ((window.pageYOffset || document.documentElement.scrollTop) < 300) : false
+        position: (this.$route.params.slug || this.$route.params.query) ? ((window.pageYOffset || document.documentElement.scrollTop) < 100) : false
       }
     },
     methods: {
       handleScroll (event) {
         if (this.$route.params.slug || this.$route.params.query) {
-          this.position = (window.pageYOffset || document.documentElement.scrollTop) < 300
+          this.position = (window.pageYOffset || document.documentElement.scrollTop) < 100
         }
       }
     },
@@ -50,9 +50,8 @@
     @extend .navbar
     @extend .navbar-light
     @extend .fixed-top
-    background: rgba($primary, .95)
+    background: $primary
     transition: background 400ms ease-out
-    border-bottom: 1px solid rgba(black, .05)
     overflow-y: hidden
 
     &.transparent

@@ -47,7 +47,6 @@
       border-radius: 0
       height: 400px
       margin-bottom: 0
-      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
 
       div
         @extend .container
@@ -75,7 +74,6 @@
         &::-webkit-input-placeholder
           color: rgba(white, .4)
           font-weight: 300
-          font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
 
       a
         @extend .btn
@@ -95,7 +93,6 @@
       position: relative
       color: white
       height: 400px
-      margin-top: -56px
       > div
         margin-top: 56px
         @include media-breakpoint-up(sm)

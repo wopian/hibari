@@ -30,12 +30,13 @@ export default {
   @import ~bootstrap/scss/bootstrap
 
   #app
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-    padding-top: calc(56px)
+    // -webkit-font-smoothing: antialiased
+    // -moz-osx-font-smoothing: grayscale
     display: flex
     flex-direction: column
     min-height: 100vh
+    font-family: 'Asap', sans-serif;
+    background: #fafafa
 
     main
       flex: 3
