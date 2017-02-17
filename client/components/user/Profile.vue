@@ -143,13 +143,4 @@
         margin-bottom: 0
       p:last-of-type
         @extend .card-text
-
-
-    h1, .waifu
-      @extend .display-4
-
-      span
-        display: block
-        padding-top: .5rem
-        font-size: 1.5rem
 </style>
