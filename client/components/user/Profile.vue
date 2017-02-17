@@ -3,26 +3,26 @@
     div
       .left
         .title
-          span Sociability
+          span {{ $t('user.sociability.title') }}
         .sociability
           .card
             p {{ user.attributes.postsCount }}
-            p Posts
+            p {{ $t('user.sociability.postsCount') }}
           .card
             p {{ user.attributes.commentsCount }}
-            p Comments
+            p {{ $t('user.sociability.commentsCount') }}
           .card
             p {{ user.attributes.likesGivenCount }}
-            p Likes Given
+            p {{ $t('user.sociability.likesGivenCount') }}
           .card
             p {{ user.attributes.likesReceivedCount }}
-            p Likes Received
+            p {{ $t('user.sociability.likesReceivedCount') }}
           .card
             p {{ user.attributes.followingCount }}
-            p Followed
+            p {{ $t('user.sociability.followingCount') }}
           .card
             p {{ user.attributes.followersCount }}
-            p Followers
+            p {{ $t('user.sociability.followersCount') }}
       .right
         .title
           span About
@@ -37,15 +37,19 @@
       .title
         span Waifu
       pre(v-if='waifu') {{ waifu }}
+      pre(v-else) User has no waifu
       .title
         span Pinned Post
       pre(v-if='pinned') {{ pinned }}
+      pre(v-else) User has no pinned post
       .title
         span Profile Links
       pre(v-if='profileLinks') {{ profileLinks }}
+      pre(v-else) User has no profile links
       .title
         span Favourites
       pre(v-if='favourites') {{ favourites }}
+      pre(v-else) User has no favourites
 </template>
 
 <script>

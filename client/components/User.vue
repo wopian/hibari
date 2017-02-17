@@ -14,7 +14,7 @@
           div
             h2 {{ user.attributes.name }}
               span(v-if='user.attributes.title') {{ user.attributes.title }}
-            a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') Kitsu Profile
+            a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
       .cover(v-else)
 
       nav

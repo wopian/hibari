@@ -31,10 +31,22 @@ export default {
     }
   },
   user: {
+    kitsuProfile: 'Kitsu Profile',
     navigation: {
       profile: 'Profile',
-      library: 'Library',
-      kitsu: 'Kitsu'
+      library: 'Library'
+    },
+    sociability: {
+      title: 'Sociability',
+      postsCount: 'Posts',
+      commentsCount: 'Comments',
+      likesGivenCount: 'Likes Given',
+      likesReceivedCount: 'Likes Received',
+      followingCount: 'Followed',
+      followersCount: 'Followers'
+    },
+    about: {
+      title: 'About'
     }
   }
 }
