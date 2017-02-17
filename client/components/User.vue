@@ -77,7 +77,7 @@
           console.info('[HB]: Data retrived from local storage')
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
           this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu[0]
-          this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned
+          this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned[0]
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
           this.loading = false
@@ -89,7 +89,7 @@
       displayData (cached, user, include) {
         this.user = cached ? this.$store.state.user[this.slug] : user
         this.waifu = cached ? this.$store.state.waifu[this.slug][0] : include.waifu[0]
-        this.pinned = cached ? this.$store.state.pinned[this.slug] : include.pinned
+        this.pinned = cached ? this.$store.state.pinned[this.slug] : include.pinned[0]
         this.profileLinks = cached ? this.$store.state.profileLinks[this.slug] : include.profileLinks
         this.favourites = cached ? this.$store.state.favourites[this.slug] : include.favourites
         this.loading = false
