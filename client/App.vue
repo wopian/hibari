@@ -30,10 +30,6 @@ export default {
   @import ~bootstrap/scss/bootstrap
   @import ~assets/variables
 
-  .os
-    font-family: 'Open Sans', sans-serif
-    font-size: 14px
-
   #app
     // -webkit-font-smoothing: antialiased
     // -moz-osx-font-smoothing: grayscale
@@ -45,4 +41,36 @@ export default {
 
     main
       flex: 3
+
+  .os
+    font-family: 'Open Sans', sans-serif
+    font-size: 14px
+
+  .title
+    display: block
+    overflow: hidden
+    white-space: nowrap
+    text-align: center
+    margin-bottom: 15px
+
+    span
+      position: relative
+      display: inline-block
+
+      &:before,
+      &:after
+        content: ''
+        position: absolute
+        top: 50%
+        width: 100vw
+        height: 1px
+        background: rgba($primary, .1)
+
+      &:before
+        right: 100%
+        margin-right: 1rem
+
+      &:after
+        left: 100%
+        margin-left: 1rem
 </style>

@@ -31,24 +31,20 @@
           span {{ user.attributes.waifuOrHusbando }}
 
     .container
-      hr
-      p User
+      .title
+        span User
       pre(v-if='user') {{ user }}
-
-      hr
-      p Waifu
+      .title
+        span Waifu
       pre(v-if='waifu') {{ waifu }}
-
-      hr
-      p Pinned Post
+      .title
+        span Pinned Post
       pre(v-if='pinned') {{ pinned }}
-
-      hr
-      p Profile Links
+      .title
+        span Profile Links
       pre(v-if='profileLinks') {{ profileLinks }}
-
-      hr
-      p Favourites
+      .title
+        span Favourites
       pre(v-if='favourites') {{ favourites }}
 </template>
 
@@ -77,34 +73,6 @@
 <style lang='sass'>
   @import ~bootstrap/scss/bootstrap
   @import ~assets/variables
-
-  .title
-    display: block
-    overflow: hidden
-    white-space: nowrap
-    text-align: center
-    margin-bottom: 15px
-
-    span
-      position: relative
-      display: inline-block
-
-      &:before,
-      &:after
-        content: ''
-        position: absolute
-        top: 50%
-        width: 100vw
-        height: 1px
-        background: rgba($primary, .1)
-
-      &:before
-        right: 100%
-        margin-right: 1rem
-
-      &:after
-        left: 100%
-        margin-left: 1rem
 
   section.profile
     @extend .container
