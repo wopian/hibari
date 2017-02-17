@@ -28,6 +28,11 @@ export default {
 
 <style lang='sass'>
   @import ~bootstrap/scss/bootstrap
+  @import ~assets/variables
+
+  .os
+    font-family: 'Open Sans', sans-serif
+    font-size: 14px
 
   #app
     // -webkit-font-smoothing: antialiased
@@ -35,7 +40,7 @@ export default {
     display: flex
     flex-direction: column
     min-height: 100vh
-    font-family: 'Asap', sans-serif;
+    font-family: 'Asap', sans-serif
     background: #fafafa
 
     main
