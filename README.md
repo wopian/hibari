@@ -64,7 +64,7 @@ See [CHANGELOG][5]
 [David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
 [DavidD]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
 [Website]:https://img.shields.io/website-up-down-green-red/https/hb.wopian.me.svg?style=flat-square
-[CodeCov]:https://img.shields.io/codecov/c/github/codecov/wopian-hibari.svg
+[CodeCov]:https://img.shields.io/codecov/c/github/wopian/hibari.svg
 
 [0]:https://kitsu.io
 [1]:https://github.com/wopian/hibari/releases
