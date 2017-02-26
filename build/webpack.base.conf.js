@@ -53,10 +53,6 @@ module.exports = {
         include: [resolve('client'), resolve('test')]
       },
       {
-        test: /\.yml$/,
-        loader: 'yml'
-      },
-      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         query: {
