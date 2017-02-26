@@ -60,7 +60,7 @@
     "karma-sourcemap-loader": "0.3.7",
     "karma-spec-reporter": "0.0.30",
     "karma-webpack": "2.0.2",
-    "lolex": "1.5.2",
+    "lolex": "1.6.0",
     "mocha": "3.2.0",
     "node-sass": "4.5.0",
     "offline-plugin": "4.6.1",
