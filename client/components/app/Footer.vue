@@ -8,6 +8,11 @@
   @import ~bootstrap/scss/bootstrap
   @import ~assets/variables
 
+  // Push footer up if notice visible
+  // Else footer is hidden behind it
+  #app > footer:nth-child(4)
+    margin-bottom: 6rem
+
   footer
     @extend .navbar
     height: 54px

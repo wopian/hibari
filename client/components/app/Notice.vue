@@ -44,11 +44,18 @@
   section.notice
     @extend .alert
     @extend .alert-dismissible
+    position: fixed
+    bottom: 0
+    left: 0
+    right: 0
     border-radius: 0
     margin-bottom: 0
-    background: darken(white, 2)
+    background: darken(white, 12)
     border: 0
     z-index: 1
+    height: 6rem
+    max-height: 6rem
+    overflow: hidden
 
     > div
       @extend .container
@@ -57,7 +64,8 @@
       flex-wrap: nowrap
       justify-content: space-between
       align-content: stretch
-      align-items: flex-start
+      align-items: center
+      height: 100%
 
       div
         order: 0
@@ -81,5 +89,5 @@
       padding-left: 15px
 
       span
-        color: darken(white, 20)
+        color: rgba(black, .8)
 </style>

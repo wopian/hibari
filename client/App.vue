@@ -1,8 +1,8 @@
 <template lang='pug'>
   #app
     navbar
-    notice
     router-view
+    notice
     foobar
 
 </template>
@@ -37,7 +37,7 @@ export default {
     flex-direction: column
     min-height: 100vh
     font-family: 'Asap', sans-serif
-    background: #fafafa
+    background: #eceeef
 
     main
       flex: 3
