@@ -5,7 +5,6 @@ import Cookie from 'vue-cookie'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
-
 import en from 'locales/en'
 import ja from 'locales/ja'
 
