@@ -17,7 +17,7 @@
     section.manga
       div
         p {{ $t('home.manga.head') }}
-        p {{ $t('home.manga.body', { username: slugify(mangaInput) || 'a manga' }) }}
+        p {{ $t('home.manga.body', { manga: slugify(mangaInput) || 'a manga' }) }}
         input(v-model='mangaInput' v-bind:placeholder='$t("home.manga.placeholder")' type='text')
         router-link(:to='"/manga/" + slugify(mangaInput)') {{ $t('home.manga.action') }}
 </template>
