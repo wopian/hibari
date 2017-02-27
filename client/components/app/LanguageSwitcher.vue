@@ -50,12 +50,12 @@
       @extend .nav-link
       flex: 0 1 auto
       cursor: pointer
-      color: rgba(white, .7)
+      color: rgba($white, .7)
       background: transparent
       border: 0
       padding: .5em .5rem
       font-size: .75rem
 
       &:hover
-        color: white
+        color: $white
 </style>

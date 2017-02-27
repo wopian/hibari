@@ -71,17 +71,17 @@
       @extend .navbar-brand
       @extend .mb-0
       padding-left: 15px
-      color: white
+      color: $white
 
       &:hover
-        color: white
+        color: $white
 
     a
       @extend .nav-link
       transition: color 200ms ease-out
-      color: rgba(white, .7)
+      color: rgba($white, .7)
 
       &:hover
-        color: white
+        color: $white
         transition: color 100ms ease-in
 </style>

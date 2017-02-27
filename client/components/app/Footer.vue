@@ -16,7 +16,7 @@
   footer
     @extend .navbar
     height: 54px
-    background: rgba(black, .05)
+    background: $grey
     margin-top: 1rem
 
     div
@@ -26,7 +26,7 @@
     a
       @extend .nav-link
       cursor: pointer
-      color: black
+      color: $black
       &:hover
         color: $primary
 </style>

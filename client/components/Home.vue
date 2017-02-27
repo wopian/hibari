@@ -47,6 +47,7 @@
       border-radius: 0
       height: 400px
       margin-bottom: 0
+      background: $lightgrey
 
       div
         @extend .container
@@ -66,13 +67,13 @@
         @extend .offset-lg-4
         @extend .offset-sm-3
         @extend .text-center
-        background: rgba(white, .1)
-        color: white
+        background: rgba($white, .1)
+        color: $white
         border-radius: 0
         border-color: transparent
 
         &::-webkit-input-placeholder
-          color: rgba(white, .4)
+          color: rgba($white, .4)
           font-weight: 300
 
       a
@@ -80,18 +81,18 @@
         @extend .btn-lg
         margin-top: 1rem
         border-radius: 0
-        border: 1px solid rgba(white, .1)
-        color: white
+        border: 1px solid rgba($white, .1)
+        color: $white
         font-weight: 300
 
         &:hover
-          background: rgba(white, .1)
+          background: rgba($white, .1)
           border-color: transparent
 
     .user
       background-color: $primary
       position: relative
-      color: white
+      color: $white
       height: 400px
       > div
         margin-top: 56px

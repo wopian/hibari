@@ -222,13 +222,13 @@
           margin-right: 24px
 
         h2
-          color: white
+          color: $white
           font-weight: 500
           font-size: 30px
           padding-bottom: 1px
 
           span
-            background: #F75239
+            background: $kitsu
             border-radius: 3px
             text-transform: uppercase
             font-size: 13px
@@ -245,13 +245,13 @@
           padding: 8px 40px
           margin-bottom: 10px
           background: $kitsu
-          color: white
+          color: $white
           line-height: 1.25
 
       nav
         @extend .navbar
-        background: white
-        border-bottom: 1px solid rgba(black, .05)
+        background: $purewhite
+        border-bottom: 1px solid $grey
         padding: 0
         width: 100vw
         position: sticky
@@ -269,17 +269,17 @@
           transition: color 100ms ease-out
           padding: 10px 20px
           font-size: 14px
-          border-left: 1px solid #eee
+          border-left: 1px solid $grey
 
           &.router-link-active
             color: $primary
 
           &:last-of-type
-            border-right: 1px solid #eee
+            border-right: 1px solid $grey
 
           &:hover:not(.router-link-active)
             color: rgba($primary, .8)
-            background: #fafafa
+            background: $white
             transition: color 100ms ease-in-out
 
       .content

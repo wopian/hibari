@@ -37,7 +37,7 @@ export default {
     flex-direction: column
     min-height: 100vh
     font-family: 'Asap', sans-serif
-    background: #eceeef
+    background: $white
 
     main
       flex: 3
@@ -52,6 +52,9 @@ export default {
     white-space: nowrap
     text-align: center
     margin-bottom: 15px
+    font-size: 14px
+    font-weight: 700
+    color: $black
 
     span
       position: relative
@@ -64,7 +67,7 @@ export default {
         top: 50%
         width: 100vw
         height: 1px
-        background: rgba($primary, .1)
+        background: $grey
 
       &:before
         right: 100%

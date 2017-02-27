@@ -50,7 +50,8 @@
     right: 0
     border-radius: 0
     margin-bottom: 0
-    background: darken(white, 12)
+    background: $grey
+    color: $black
     border: 0
     z-index: 1
     height: 6rem
@@ -77,7 +78,7 @@
       @extend .mb-0
 
     a
-      color: $primary
+      color: $kitsu
 
     button
       @extend .close
@@ -89,5 +90,5 @@
       padding-left: 15px
 
       span
-        color: rgba(black, .8)
+        color: $black
 </style>

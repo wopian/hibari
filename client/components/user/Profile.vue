@@ -25,7 +25,7 @@
             p {{ $t('user.sociability.followersCount') }}
       .right
         .title
-          span About
+          span About Me
         p.os {{ user.attributes.about }}
         p.waifu(v-if='waifu') {{ waifu.attributes.name }}
           span {{ user.attributes.waifuOrHusbando }}
@@ -81,7 +81,7 @@
   section.profile
     @extend .container
     padding: 0
-    margin-top: 15px
+    margin-top: 30px
 
     > div:first-of-type
       @extend .row
@@ -105,8 +105,8 @@
     .card
       @extend .card-block
       text-align: center
-      box-shadow: 0 1px 4px rgba(black, .04)
-      border: 1px solid rgba(black, .09)
+      box-shadow: 0 1px 4px rgba($black, .04)
+      border: 1px solid rgba($black, .09)
       margin: 0 15px 30px
       min-width: 10rem
       p:first-of-type

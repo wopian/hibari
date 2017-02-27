@@ -28,6 +28,8 @@
 </template>
 
 <style lang='sass'>
+  @import ~assets/variables
+
   .loader
     height: 40px
     width: 40px
@@ -38,5 +40,5 @@
     z-index: 99999
     svg path,
     svg rect
-      fill: #000
+      fill: $black
 </style>
