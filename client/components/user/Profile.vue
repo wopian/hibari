@@ -24,6 +24,20 @@
             p {{ user.attributes.followersCount }}
             p {{ $t('user.sociability.followersCount') }}
 
+        .title
+          span Recent Activity
+        .recent-activity.row
+          .col-3(v-for='n in 4')
+            img(src='//media.kitsu.io/anime/poster_images/11178/large.jpg?1452886316')
+
+        .title
+          span Anime Stats
+
+        .title
+          span Manga Stats
+
+
+
         //- RAW API DUMP START
         .title
           span User
@@ -153,4 +167,16 @@
       ul
         .active
           background: $primary
+
+    .recent-activity
+      margin-bottom: 30px
+      margin-left: -7.5px
+      margin-right: -7.5px
+      div
+        padding: 0 7.5px
+      img
+        width: 100%
+        max-width: 100%
+        vertical-align: middle
+        border-radius: 3px
 </style>
