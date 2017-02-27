@@ -23,33 +23,52 @@
           .card
             p {{ user.attributes.followersCount }}
             p {{ $t('user.sociability.followersCount') }}
+
+        //- RAW API DUMP START
+        .title
+          span User
+        pre(v-if='user') {{ user }}
+        .title
+          span Waifu
+        pre(v-if='waifu') {{ waifu }}
+        pre(v-else) User has no waifu
+        .title
+          span Pinned Post
+        pre(v-if='pinned') {{ pinned }}
+        pre(v-else) User has no pinned post
+        .title
+          span Profile Links
+        pre(v-if='profileLinks') {{ profileLinks }}
+        pre(v-else) User has no profile links
+        .title
+          span Favourites
+        pre(v-if='favourites') {{ favourites }}
+        pre(v-else) User has no favourites
+        //- RAW API DUMP END
+
       .right
         .title
           span About Me
         p.os {{ user.attributes.about }}
         p.waifu(v-if='waifu') {{ waifu.attributes.name }}
           span {{ user.attributes.waifuOrHusbando }}
-
-    .container
-      .title
-        span User
-      pre(v-if='user') {{ user }}
-      .title
-        span Waifu
-      pre(v-if='waifu') {{ waifu }}
-      pre(v-else) User has no waifu
-      .title
-        span Pinned Post
-      pre(v-if='pinned') {{ pinned }}
-      pre(v-else) User has no pinned post
-      .title
-        span Profile Links
-      pre(v-if='profileLinks') {{ profileLinks }}
-      pre(v-else) User has no profile links
-      .title
-        span Favourites
-      pre(v-if='favourites') {{ favourites }}
-      pre(v-else) User has no favourites
+        .favourites(v-if='favourites')
+          .title
+            span Favourites
+          ul.nav.nav-pills.nav-justified
+            li.nav-item
+              a.nav-link.active Anime
+            li.nav-item
+              a.nav-link Manga
+            li.nav-item
+              a.nav-link Characters
+          .tab-content
+            .tab-pane.active
+              .row
+                .col-3(v-for='fav in favourites')
+                  a(href='/anime/osomatsu-san')
+                    //- {{ fav.id }}
+                    img(src='//media.kitsu.io/anime/poster_images/11178/tiny.jpg?1452886316')
 </template>
 
 <script>
@@ -115,4 +134,23 @@
         margin-bottom: 0
       p:last-of-type
         @extend .card-text
+
+    .favourites
+      a
+        font-size: 12px
+      .row
+        margin: 15px -2px 0
+        > div
+          padding: 0 3px
+        a
+          border-radius: 3px
+          overflow: hidden
+          display: inline-block
+      img
+        width: 100%
+        max-width: 100%
+        vertical-align: middle
+      ul
+        .active
+          background: $primary
 </style>
