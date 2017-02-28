@@ -15,6 +15,7 @@ Vue.use(Resource)
 Vue.use(Meta)
 
 export default new Router({
+  // TODO: Re-enable when hosted on Heroku
   // mode: 'history',
   routes: [
     {
