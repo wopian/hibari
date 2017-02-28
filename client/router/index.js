@@ -53,19 +53,6 @@ export default new Router({
       path: '/manga/:query',
       component: Manga
     },
-    // Legacy redirects for 2014-2016 Hibari
-    {
-      path: '/:slug',
-      redirect: '/@:slug'
-    },
-    {
-      path: '/:slug/library',
-      redirect: '/@:slug/library'
-    },
-    {
-      path: '/:slug/library/:status',
-      redirect: '/@:slug/library/:status'
-    },
     // 404 Page
     {
       path: '*',
