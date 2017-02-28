@@ -111,6 +111,9 @@
   @import ~bootstrap/scss/bootstrap
   @import ~assets/variables
 
+  pre
+    max-width: 100%
+
   section.profile
     @extend .container
     padding: 0
