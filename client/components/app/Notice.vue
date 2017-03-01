@@ -51,13 +51,13 @@
     @extend .alert-dismissible
     border-radius: 0
     margin-bottom: 0
-    background: $grey
-    color: $black
+    background: $primary
+    color: rgba($white, .9)
     border: 0
     z-index: 1
     position: sticky
     bottom: 0
-    padding: 1rem 0
+    padding: 1.5rem 0
 
     > div
       @extend .container
@@ -91,5 +91,5 @@
       padding-left: 15px
 
       span
-        color: $black
+        color: $white
 </style>
