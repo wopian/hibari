@@ -174,7 +174,7 @@
       text-align: center
       box-shadow: 0 1px 4px rgba($black, .04)
       border: 1px solid rgba($black, .09)
-      margin: 0 15px 30px
+      margin: 0 7.5px 15px
       min-width: 10rem
       p:first-of-type
         @extend .card-title
