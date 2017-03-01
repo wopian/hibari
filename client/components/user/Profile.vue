@@ -195,6 +195,12 @@
         max-width: 100%
         vertical-align: middle
       ul
+        position: sticky
+        top: 98px
+        z-index: 1
+        background: rgba($white, .96)
+        margin: -15px 0
+        padding: 15px 0
         .active
           color: $white
           background: $primary
