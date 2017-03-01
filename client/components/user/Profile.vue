@@ -147,8 +147,12 @@
 
   section.profile
     @extend .container
-    padding: 0
+    padding: 0 15px
     margin-top: 30px
+
+    @include media-breakpoint-up(sm)
+      &
+        padding: 0
 
     > div:first-of-type
       @extend .row
