@@ -40,24 +40,34 @@
 
         //- RAW API DUMP START
         .title
-          span User
-        pre(v-if='user') {{ user }}
+          span API User
+        details
+          summary Show
+          pre(v-if='user') {{ user }}
         .title
-          span Waifu
-        pre(v-if='waifu') {{ waifu }}
-        pre(v-else) User has no waifu
+          span API Waifu
+        details
+          summary Show
+          pre(v-if='waifu') {{ waifu }}
+          pre(v-else) User has no waifu
         .title
-          span Pinned Post
-        pre(v-if='pinned') {{ pinned }}
-        pre(v-else) User has no pinned post
+          span API Pinned Post
+        details
+          summary Show
+          pre(v-if='pinned') {{ pinned }}
+          pre(v-else) User has no pinned post
         .title
-          span Profile Links
-        pre(v-if='profileLinks') {{ profileLinks }}
-        pre(v-else) User has no profile links
+          span API Profile Links
+        details
+          summary Show
+          pre(v-if='profileLinks') {{ profileLinks }}
+          pre(v-else) User has no profile links
         .title
-          span Favourites
-        pre(v-if='favourites') {{ favourites }}
-        pre(v-else) User has no favourites
+          span API Favourites
+        details
+          summary Show
+          pre(v-if='favourites') {{ favourites }}
+          pre(v-else) User has no favourites
         //- RAW API DUMP END
 
       .right
@@ -71,18 +81,37 @@
             span Favourites
           ul.nav.nav-pills.nav-justified
             li.nav-item
-              a.nav-link.active Anime
+              a.nav-link(
+                :class='{ active: favouritesPanel === "anime" }'
+                @click='favouritesPanel = "anime"'
+              ) Anime
             li.nav-item
-              a.nav-link Manga
+              a.nav-link(
+                :class='{ active: favouritesPanel === "manga" }'
+                @click='favouritesPanel = "manga"'
+              ) Manga
             li.nav-item
-              a.nav-link Characters
+              a.nav-link(
+                :class='{ active: favouritesPanel === "characters" }'
+                @click='favouritesPanel = "characters"'
+              ) Characters
           .tab-content
-            .tab-pane.active
+            .tab-pane.active(v-if='favouritesPanel === "anime"')
               .row
-                .col-3(v-for='fav in favourites')
-                  router-link(:to='"/anime/osomatsu-san"')
+                .col-3(v-for='fav in favourites.anime')
+                  router-link(:to='"/anime/" + fav[0].attributes.slug')
                     //- {{ fav.id }}
-                    img(src='//media.kitsu.io/anime/poster_images/11178/tiny.jpg?1452886316')
+                    img(:src='fav[0].attributes.posterImage.large')
+            .tab-pane.active(v-else-if='favouritesPanel === "manga"')
+              .row
+                .col-3(v-for='fav in favourites.manga')
+                  router-link(:to='"/manga/" + fav[0].attributes.slug')
+                    img(:src='fav[0].attributes.posterImage.large')
+            .tab-pane.active(v-else-if='favouritesPanel === "characters"')
+              .row
+                .col-3(v-for='fav in favourites.characters')
+                  a
+                    img(:src='fav[0].attributes.image.original')
 </template>
 
 <script>
@@ -101,7 +130,8 @@
     data () {
       return {
         loading: false,
-        error: null
+        error: null,
+        favouritesPanel: 'anime'
       }
     }
   }
@@ -166,7 +196,14 @@
         vertical-align: middle
       ul
         .active
+          color: $white
           background: $primary
+        a:not(.active)
+          cursor: pointer
+          transition: color 200ms ease-in-out
+          &:hover
+            color: $kitsu
+            transition: color 100ms ease-in-out
 
     .recent-activity
       margin-bottom: 30px

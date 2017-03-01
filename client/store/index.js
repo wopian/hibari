@@ -6,7 +6,7 @@ Vue.use(Vuex)
 const state = {
   user: {},
   waifu: {},
-  pinned: {},
+  pinnedPost: {},
   profileLinks: {},
   favourites: {},
   anime: {},
@@ -20,8 +20,8 @@ const mutations = {
   WAIFU (state, payload) {
     state.waifu[payload[1]] = payload[0]
   },
-  PINNED (state, payload) {
-    state.pinned[payload[1]] = payload[0]
+  PINNEDPOST (state, payload) {
+    state.pinnedPost[payload[1]] = payload[0]
   },
   PROFILELINKS (state, payload) {
     state.profileLinks[payload[1]] = payload[0]

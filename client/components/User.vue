@@ -26,7 +26,7 @@
         v-bind:slug='slug'
         v-bind:user='user'
         v-bind:waifu='waifu'
-        v-bind:pinned='pinned'
+        v-bind:pinned='pinnedPost'
         v-bind:profile-links='profileLinks'
         v-bind:favourites='favourites'
       )
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+  import { Kitsu } from 'api'
   import Spinner from 'components/svg/Spinner'
 
   export default {
@@ -53,7 +54,7 @@
         slug: this.$route.params.slug,
         user: null,
         waifu: null,
-        pinned: null,
+        pinnedPost: null,
         profileLinks: null,
         favourites: null
       }
@@ -72,12 +73,11 @@
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
           console.info('[HB]: Data retrived from store')
           this.displayData(true)
-        // } else if (localStorage.getItem('user') && JSON.parse(localStorage.getItem('user'))[this.slug]) {
         } else if (localStorage.getItem(`user-${this.slug}`)) {
           console.info('[HB]: Data retrived from local storage')
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
           this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu[0]
-          this.pinned = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinned[0]
+          this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinnedPost[0]
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
           this.loading = false
@@ -89,14 +89,13 @@
       displayData (cached, user, include) {
         this.user = cached ? this.$store.state.user[this.slug] : user
         this.waifu = cached ? this.$store.state.waifu[this.slug][0] : include.waifu[0]
-        this.pinned = cached ? this.$store.state.pinned[this.slug] : include.pinned[0]
+        this.pinnedPost = cached ? this.$store.state.pinnedPost[this.slug] : include.pinnedPost[0]
         this.profileLinks = cached ? this.$store.state.profileLinks[this.slug] : include.profileLinks
         this.favourites = cached ? this.$store.state.favourites[this.slug] : include.favourites
         this.loading = false
       },
       fetchData () {
         this.error = this.user = null
-        this.loading = true
         // TODO: Get only specific fields: ?fields[attributes]=slug
         // TODO: For libraries sort items by last updated in request, e.g:
         // /people?sort=age,author.name
@@ -104,72 +103,115 @@
         // //kitsu.io/api/edge/users/42603/library-entries?include=anime&filter[since]=2017-01-08
         // GLobal:
         // //kitsu.io/api/edge/library-entries?filter[kind]=anime&filter[since]=2017-02-10&page[limit]=10
-        this.$http.get(`https://kitsu.io/api/edge/users?include=waifu,pinnedPost,profileLinks,favorites&filter[name]=${this.$route.params.slug}`, {}, {
-          headers: {
-            'Content-Type': 'application/vnd.api+json',
-            'Accept': 'application/vnd.api+json',
-            'User-Agent': 'hibari'
-          }
-        })
-        .then((data) => {
-          this.loading = false
-          if (data.body.meta.count === 0) {
+        Kitsu.get(`users?include=waifu,pinnedPost,profileLinks,favorites.item&fields[characters]=slug,image&fields[manga]=slug,posterImage&fields[anime]=slug,posterImage&filter[name]=${this.$route.params.slug}`)
+        .then(d => {
+          console.log(d)
+          d = d.data
+          console.log(d)
+          if (d.meta.count === 0) {
             this.error = 'No user exists'
           } else {
-            let user, included
+            let user, included, relation
             let include = {}
 
-            user = data.body.data[0]
-            delete user.relationships
+            user = d.data[0]
+            // delete user.relationships
 
-            included = data.body.included
+            relation = d.data[0].relationships
+            included = d.included
             include.waifu = []
-            include.pinned = []
+            include.pinnedPost = []
             include.profileLinks = []
-            include.favourites = []
+            include.favourites = {characters: [], manga: [], anime: []}
 
-            included.forEach(el => {
-              switch (el.type) {
-                case ('characters'):
-                  include.waifu.push(el)
-                  break
-                case ('posts'):
-                  include.pinned.push(el)
-                  break
-                case ('profileLinks'):
-                  include.profileLinks.push(el)
-                  break
-                case ('favorites'):
-                  include.favourites.push(el)
-                  break
-              }
+            // Bind waifu relation to included data
+            if (relation.waifu.data !== null) {
+              included.forEach(link => {
+                if (relation.waifu.data.id === link.id) {
+                  console.log(`Waifu: ${relation.waifu.data.id}, Link: ${link.id}`)
+                  include.waifu.push(link)
+                }
+              })
+            }
+
+            // Bind pinnedPost relation to included data
+            if (relation.pinnedPost.data !== null) {
+              included.forEach(link => {
+                if (relation.pinnedPost.data.id === link.id) {
+                  console.log(`Pinned: ${relation.pinnedPost.data.id}, Link: ${link.id}`)
+                  include.pinnedPost.push(link)
+                }
+              })
+            }
+
+            // Bind profileLinks relation to included data
+            relation.profileLinks.data.forEach(item => {
+              included.forEach(link => {
+                if (item.id === link.id) {
+                  include.profileLinks.push(link)
+                }
+              })
             })
+
+            // Bind favourites relation to included data
+            relation.favorites.data.forEach(item => {
+              included.forEach(link => {
+                if (item.id === link.id) {
+                  const type = link.relationships.item.data.type
+                  include.favourites[type].push(
+                    Object.assign(
+                      link.attributes,
+                      included.filter(
+                        function (el) {
+                          if (el.id === link.relationships.item.data.id) {
+                            return true
+                          }
+                          return false
+                        }
+                      )
+                    )
+                  )
+                }
+              })
+            })
+
+            // Sort favourites by their rank
+            include.favourites.characters.sort(this.numericSort('favRank'))
+            include.favourites.manga.sort(this.numericSort('favRank'))
+            include.favourites.anime.sort(this.numericSort('favRank'))
 
             // Save user data in vuex store
             this.$store.commit('USER', [user, this.slug])
             this.$store.commit('WAIFU', [include.waifu, this.slug])
-            this.$store.commit('PINNED', [include.pinned, this.slug])
+            this.$store.commit('PINNEDPOST', [include.pinnedPost, this.slug])
             this.$store.commit('PROFILELINKS', [include.profileLinks, this.slug])
             this.$store.commit('FAVOURITES', [include.favourites, this.slug])
 
             // Save user data to local storage
-            this.saveToLocalStorage(user, include.waifu, include.pinned, include.profileLinks, include.favourites)
+            this.saveToLocalStorage(user, include.waifu, include.pinnedPost, include.profileLinks, include.favourites)
 
             // Display user information
             this.displayData(false, user, include)
           }
         })
-        .catch((error) => {
-          this.error = error.toString()
+        .catch(e => {
+          this.error = e.toString()
         })
       },
-      saveToLocalStorage (user, waifu, pinned, profileLinks, favourites) {
+      numericSort (key) {
+        return (a, b) => {
+          if (a[key] > b[key]) return 1
+          if (a[key] < b[key]) return -1
+          return 0
+        }
+      },
+      saveToLocalStorage (user, waifu, pinnedPost, profileLinks, favourites) {
         // User doesn't exist - store data
         if (!localStorage.getItem(`user-${this.slug}`)) {
           localStorage.setItem(`user-${this.slug}`, JSON.stringify([
             { user: user },
             { waifu: waifu },
-            { pinned: pinned },
+            { pinnedPost: pinnedPost },
             { profileLinks: profileLinks },
             { favourites: favourites }
           ], null, '\t'))

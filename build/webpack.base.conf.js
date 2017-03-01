@@ -28,7 +28,8 @@ module.exports = {
       'client': resolve('client'),
       'assets': resolve('client/assets'),
       'components': resolve('client/components'),
-      'locales': resolve('client/locales')
+      'locales': resolve('client/locales'),
+      'api': resolve('client/api')
     }
   },
   module: {
