@@ -35,7 +35,9 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins
+  @import ~bootstrap/scss/nav
   @import ~assets/variables
 
   .switcher

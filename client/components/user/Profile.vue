@@ -138,7 +138,11 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins
+  @import ~bootstrap/scss/grid
+  @import ~bootstrap/scss/card
+  @import ~bootstrap/scss/media
   @import ~assets/variables
 
   section.profile

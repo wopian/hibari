@@ -43,7 +43,12 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins
+  @import ~bootstrap/scss/grid
+  @import ~bootstrap/scss/nav
+  @import ~bootstrap/scss/navbar
+  @import ~bootstrap/scss/utilities
   @import ~assets/variables
 
   header

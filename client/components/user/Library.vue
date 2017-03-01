@@ -22,7 +22,9 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins
+  @import ~bootstrap/scss/grid
 
   .library
     @extend .container

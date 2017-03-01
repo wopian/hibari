@@ -222,7 +222,7 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/bootstrap.scss
   @import ~assets/variables
 
   main.user

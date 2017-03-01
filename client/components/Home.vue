@@ -38,7 +38,14 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins
+  @import ~bootstrap/scss/type
+  @import ~bootstrap/scss/grid
+  @import ~bootstrap/scss/forms
+  @import ~bootstrap/scss/buttons
+  @import ~bootstrap/scss/jumbotron
+  @import ~bootstrap/scss/utilities
   @import ~assets/variables
 
   main.home

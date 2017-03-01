@@ -6,6 +6,7 @@ var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 var OfflinePlugin = require('offline-plugin')
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
@@ -39,6 +40,48 @@ var webpackConfig = merge(baseWebpackConfig, {
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
+    // Optimize css
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorOptions: {
+        calc: true,
+        colormin: true,
+        convertValues: true,
+        core: true,
+        discardComments: { removeAll: true },
+        discardDuplicates: true,
+        discardEmpty: true,
+        discardOverridden: true,
+        discardUnused: true, // unsafe
+        filterOptimiser: true,
+        functionOptimiser: true,
+        mergeIdents: true, // unsafe
+        // mergeLonghand: true,
+        mergeRules: true,
+        minifyFontValues: true,
+        minifyGradients: true,
+        minifyParams: true,
+        minifySelectors: true,
+        normalizeCharset: true,
+        normalizeString: { preferredQuote: 'single' },
+        normalizeUnicode: true,
+        normalizeUrl: true,
+        orderedValues: true,
+        reduceBackgroundRepeat: true,
+        reduceDisplayValues: true,
+        reduceIdents: false, // unsafe
+        reduceInitial: true,
+        reducePositions: true,
+        reduceTimingFunctions: true,
+        reduceTransforms: true,
+        svgo: true,
+        uniqueSelectors: true,
+        zindex: true // unsafe
+        // options: cssnano.co/optimisations
+      },
+      canPrint: true
+    }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
@@ -51,7 +94,12 @@ var webpackConfig = merge(baseWebpackConfig, {
       minify: {
         removeComments: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        removeAttributeQuotes: true,
+        minifyCSS: true,
+        minifyJS: true,
+        minifyURLS: true,
+        sortAttributes: true,
+        sortClassName: true
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },

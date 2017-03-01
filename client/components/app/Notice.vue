@@ -38,7 +38,12 @@
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins
+  @import ~bootstrap/scss/grid
+  @import ~bootstrap/scss/alert
+  @import ~bootstrap/scss/close
+  @import ~bootstrap/scss/utilities
   @import ~assets/variables
 
   section.notice
