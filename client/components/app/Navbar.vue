@@ -2,7 +2,7 @@
   header(v-bind:class='{ transparent: position }')
     nav
       h1 {{ $t('hibari') }}
-        span(v-if='development')  Dev
+        span(v-if='development') Dev
       router-link(:to='{name: "Home"}') {{ $t('navigation.home') }}
       language-switcher
 </template>
@@ -77,9 +77,12 @@
       @extend .mb-0
       padding-left: 15px
       color: $white
-
+      font-weight: 700
+      cursor: default
       &:hover
         color: $white
+      span
+        font-weight: 400
 
     a
       @extend .nav-link
