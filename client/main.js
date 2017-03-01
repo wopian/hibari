@@ -13,9 +13,9 @@ if (process.env.NODE_ENV === 'production') {
   require('./pwa')
 
   // Redirect HTTP to HTTPS
-  if (window.location.protocol === 'http:') {
-    window.location.protocol = 'https'
-  }
+  // if (window.location.protocol === 'http:') {
+  //   window.location.protocol = 'https'
+  // }
 }
 
 sync(store, router)
