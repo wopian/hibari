@@ -8,9 +8,14 @@ import store from './store'
 import en from 'locales/en'
 import ja from 'locales/ja'
 
-// progressive web app
 if (process.env.NODE_ENV === 'production') {
+  // Enable Progressive Web App
   require('./pwa')
+
+  // Redirect HTTP to HTTPS
+  if (location.protocol === 'http:') {
+    location.href = location.href.replace(/^http:/, 'https:')
+  }
 }
 
 sync(store, router)
