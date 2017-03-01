@@ -13,19 +13,19 @@ export default {
   home: {
     user: {
       head: 'User',
-      body: 'Something about searching {username}',
+      body: 'Search for {username} on Kitsu',
       placeholder: 'enter a username...',
       action: 'Lookup'
     },
     anime: {
       head: 'Anime',
-      body: 'Something about searching {anime}',
+      body: 'Search for {anime}',
       placeholder: 'enter an anime...',
       action: 'Lookup'
     },
     manga: {
       head: 'Manga',
-      body: 'Something about searching {manga}',
+      body: 'Search for {manga}',
       placeholder: 'enter a manga...',
       action: 'Lookup'
     }
