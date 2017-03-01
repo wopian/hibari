@@ -14,8 +14,8 @@
         show: true,
         Hide: () => {
           this.show = !this.show
-          this.$cookie.set('notice', this.show)
-          this.$cookie.set('noticeID', this.$t('notice.id'))
+          this.$cookie.set('notice', this.show, 30)
+          this.$cookie.set('noticeID', this.$t('notice.id'), 30)
         }
       }
     },
