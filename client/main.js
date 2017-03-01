@@ -13,8 +13,8 @@ if (process.env.NODE_ENV === 'production') {
   require('./pwa')
 
   // Redirect HTTP to HTTPS
-  if (location.protocol === 'http:') {
-    location.href = location.href.replace(/^http:/, 'https:')
+  if (window.location.protocol === 'http:') {
+    window.location.protocol = 'https'
   }
 }
 
