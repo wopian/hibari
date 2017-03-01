@@ -24,6 +24,9 @@
 
 <script>
   export default {
+    metaInfo: {
+      titleTemplate: 'Hibari - Stats for Kitsu'
+    },
     data () {
       return {
         userInput: '',

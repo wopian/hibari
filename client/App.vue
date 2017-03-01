@@ -15,7 +15,6 @@ import Footer from 'components/app/Footer'
 export default {
   name: 'app',
   metaInfo: {
-    title: 'Dashboard',
     titleTemplate: '%s | Hibari'
   },
   components: {
