@@ -28,7 +28,7 @@
           span Recent Activity
         .recent-activity.row
           .col-3(v-for='n in 4')
-            img(src='//media.kitsu.io/anime/poster_images/11178/large.jpg?1452886316')
+            img(src='//media.kitsu.io/anime/poster_images/11178/small.jpg?1452886316')
 
         .title
           span Anime Stats
@@ -101,12 +101,12 @@
                 .col-3(v-for='fav in favourites.anime')
                   router-link(:to='"/anime/" + fav[0].attributes.slug')
                     //- {{ fav.id }}
-                    img(:src='fav[0].attributes.posterImage.large')
+                    img(:src='fav[0].attributes.posterImage.small')
             .tab-pane.active(v-else-if='favouritesPanel === "manga"')
               .row
                 .col-3(v-for='fav in favourites.manga')
                   router-link(:to='"/manga/" + fav[0].attributes.slug')
-                    img(:src='fav[0].attributes.posterImage.large')
+                    img(:src='fav[0].attributes.posterImage.small')
             .tab-pane.active(v-else-if='favouritesPanel === "characters"')
               .row
                 .col-3(v-for='fav in favourites.characters')
