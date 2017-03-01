@@ -57,7 +57,7 @@
       border-radius: 0
       height: 400px
       margin-bottom: 0
-      background: $lightgrey
+      background: $white
 
       div
         @extend .container

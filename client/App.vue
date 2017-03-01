@@ -2,9 +2,8 @@
   #app
     navbar
     router-view
-    notice
     foobar
-
+    notice
 </template>
 
 <script>

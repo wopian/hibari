@@ -49,19 +49,15 @@
   section.notice
     @extend .alert
     @extend .alert-dismissible
-    position: fixed
-    bottom: 0
-    left: 0
-    right: 0
     border-radius: 0
     margin-bottom: 0
     background: $grey
     color: $black
     border: 0
     z-index: 1
-    height: 6rem
-    max-height: 6rem
-    overflow: hidden
+    position: sticky
+    bottom: 0
+    padding: 1rem 0
 
     > div
       @extend .container
