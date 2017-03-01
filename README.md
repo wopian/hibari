@@ -1,6 +1,4 @@
 # Hibari
-
-[![Greenkeeper badge](https://badges.greenkeeper.io/wopian/hibari.svg)](https://greenkeeper.io/)
 [![Website]][8]
 
 User, anime & manga stats for [Kitsu][0]
