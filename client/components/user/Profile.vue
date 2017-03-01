@@ -80,7 +80,7 @@
             .tab-pane.active
               .row
                 .col-3(v-for='fav in favourites')
-                  a(href='/anime/osomatsu-san')
+                  router-link(:to='"/anime/osomatsu-san"')
                     //- {{ fav.id }}
                     img(src='//media.kitsu.io/anime/poster_images/11178/tiny.jpg?1452886316')
 </template>
