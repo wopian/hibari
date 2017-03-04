@@ -35,7 +35,7 @@
       }
     },
     methods: {
-      slugify: input => input.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]/g, '').toLowerCase()
+      slugify: input => input.trim().replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-_]/g, '').toLowerCase()
     }
   }
 </script>
