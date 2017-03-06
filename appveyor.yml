@@ -1,0 +1,15 @@
+environment:
+  nodejs_version: ""
+platform:
+- x64
+cache:
+- node_modules
+install:
+- ps: Install-Product node $env:nodejs_version $env:platform
+- npm update
+- npm prune
+- npm i
+test_script:
+- npm t
+- npm run build
+build: off
