@@ -59,7 +59,7 @@ See [CHANGELOG][5]
 
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
 [GitHub Dl]:https://img.shields.io/github/downloads/wopian/hibari/total.svg?style=flat-square
-[Travis]:https://img.shields.io/travis/wopian/hibari/master.svg?style=flat-square&label=linux
+[Travis]:https://img.shields.io/travis/wopian/hibari/master.svg?style=flat-square&label=linux%20%26%20macOS
 [CC Score]:https://img.shields.io/codeclimate/github/wopian/hibari.svg?style=flat-square
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
 [David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
