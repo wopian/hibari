@@ -59,14 +59,14 @@ See [CHANGELOG][5]
 
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
 [GitHub Dl]:https://img.shields.io/github/downloads/wopian/hibari/total.svg?style=flat-square
-[Travis]:https://img.shields.io/travis/wopian/hibari.svg?style=flat-square&label=linux
+[Travis]:https://img.shields.io/travis/wopian/hibari/master.svg?style=flat-square&label=linux
 [CC Score]:https://img.shields.io/codeclimate/github/wopian/hibari.svg?style=flat-square
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
 [David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
 [DavidD]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
 [Website]:https://img.shields.io/website-up-down-green-red/https/hb.wopian.me.svg?style=flat-square
 [CodeCov]:https://img.shields.io/codecov/c/github/wopian/hibari.svg?style=flat-square
-[AppVeyor]:https://img.shields.io/appveyor/ci/wopian/hibari.svg?style=flat-square&label=windows
+[AppVeyor]:https://img.shields.io/appveyor/ci/wopian/hibari/master.svg?style=flat-square&label=windows
 
 [0]:https://kitsu.io
 [1]:https://github.com/wopian/hibari/releases
