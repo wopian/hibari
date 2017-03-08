@@ -1,0 +1,20 @@
+scripts:
+  dev:
+    script: node build/dev-server.js
+    description: run server and watch for changes
+  build:
+    default:
+      script: node build/build.js
+      description: build from source code
+    report:
+      script: node build/build.js --report
+      description: build from source code & generate a report on file size
+  test:
+    script: cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run
+    description: run tests with karma
+  lint:
+    script: eslint --ext .js,.vue client test/unit/specs
+    description: lint files with eslint
+  update:
+    script: npm update && npm prune
+    description: update your dependencies

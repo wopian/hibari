@@ -21,37 +21,19 @@ User, anime & manga stats for [Kitsu][0]
 [![DavidD]][6]
 
 ### Setup
-``` bash
-# Download source code
-git clone https://github.com/wopian/hibari.git
-# install dependencies
-npm i
-```
+1. Download source code:
+    ```bash
+    git clone https://github.com/wopian/hibari.git
+    ```
+1. Install dependencies:
+    ```bash
+    npm i
+    ```
 
-### Building
+### Commands
+Display the list of available commands:
 ```bash
-# serve with hot reload at localhost:4000
-npm run dev
-# build for production with minification
-npm run build
-# same as above with report generated
-npm run build --report
-```
-
-### Linting
-```bash
-npm run lint
-```
-
-### Updating Local Dependencies
-```bash
-npm update && npm prune
-```
-
-### Updating Origin Dependencies
-```bash
-npm i -g npm-check-updates
-ncu --packageFile package.json
+npm start
 ```
 
 ## Releases
