@@ -10,6 +10,6 @@ install:
 - npm prune
 - npm i
 test_script:
-- npm t
-- npm run build
+- npm start test
+- npm start build
 build: off

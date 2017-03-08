@@ -12,9 +12,9 @@ matrix:
 install:
 - travis_retry npm i
 before_script:
-- npm t
+- npm start test
 script:
-- npm run build
+- npm start build
 after_success:
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash build/deploy.sh
 - bash <(curl -s https://codecov.io/bash)
