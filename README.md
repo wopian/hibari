@@ -22,10 +22,12 @@ User, anime & manga stats for [Kitsu][0]
 
 ### Setup
 1. Download source code:
+
     ```bash
     git clone https://github.com/wopian/hibari.git
     ```
 1. Install dependencies:
+
     ```bash
     npm i
     ```
