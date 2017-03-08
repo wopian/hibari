@@ -95,23 +95,30 @@
                 :class='{ active: favouritesPanel === "characters" }'
                 @click='favouritesPanel = "characters"'
               ) Characters
+
+          //- start: favourites container
           .tab-content
+            //- Display anime favourites when active
             .tab-pane.active(v-if='favouritesPanel === "anime"')
               .row
                 .col-3(v-for='fav in favourites.anime')
                   router-link(:to='"/anime/" + fav[0].attributes.slug')
-                    //- {{ fav.id }}
-                    img(:src='fav[0].attributes.posterImage.small')
+                    img(v-bind:src='fav[0].attributes.posterImage ? fav[0].attributes.posterImage.small : "/kitsu/default_poster.jpg"')
+
+            //- Display anime favourites when active
             .tab-pane.active(v-else-if='favouritesPanel === "manga"')
               .row
                 .col-3(v-for='fav in favourites.manga')
                   router-link(:to='"/manga/" + fav[0].attributes.slug')
-                    img(:src='fav[0].attributes.posterImage.small')
+                    img(v-bind:src='fav[0].attributes.posterImage ? fav[0].attributes.posterImage.small : "/kitsu/default_poster.jpg"')
+
+            //- Display anime favourites when active
             .tab-pane.active(v-else-if='favouritesPanel === "characters"')
               .row
                 .col-3(v-for='fav in favourites.characters')
                   a
-                    img(:src='fav[0].attributes.image.original')
+                    img(v-bind:src='fav[0].attributes.image ? fav[0].attributes.image.original : "/kitsu/default_poster.jpg"')
+          //- stop: favourites container
 </template>
 
 <script>

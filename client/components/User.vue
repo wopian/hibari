@@ -4,18 +4,15 @@
 
     section.content(v-else)
       .cover(
-        v-if='user && user.attributes.name.toLowerCase() === slug'
-        v-bind:style='{ backgroundImage: "url(" + user.attributes.coverImage.original + ")"}'
+        v-if='user'
+        v-bind:style='{ backgroundImage: "url(" + (user.attributes.coverImage ? user.attributes.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
       )
         .container
-          img(
-            v-if='user.attributes.avatar.large'
-            v-bind:src='user.attributes.avatar.large')
+          img(v-bind:src='user.attributes.avatar ? user.attributes.avatar.large : "/kitsu/default_avatar.png"')
           div
             h2 {{ user.attributes.name }}
               span(v-if='user.attributes.title') {{ user.attributes.title }}
             a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
-      .cover(v-else)
 
       nav
         div
@@ -105,9 +102,7 @@
         // //kitsu.io/api/edge/library-entries?filter[kind]=anime&filter[since]=2017-02-10&page[limit]=10
         Kitsu.get(`users?include=waifu,pinnedPost,profileLinks,favorites.item&fields[characters]=slug,image&fields[manga]=slug,posterImage&fields[anime]=slug,posterImage&filter[name]=${this.$route.params.slug}`)
         .then(d => {
-          console.log(d)
           d = d.data
-          console.log(d)
           if (d.meta.count === 0) {
             this.error = 'No user exists'
           } else {
@@ -128,7 +123,6 @@
             if (relation.waifu.data !== null) {
               included.forEach(link => {
                 if (relation.waifu.data.id === link.id) {
-                  console.log(`Waifu: ${relation.waifu.data.id}, Link: ${link.id}`)
                   include.waifu.push(link)
                 }
               })
@@ -138,7 +132,6 @@
             if (relation.pinnedPost.data !== null) {
               included.forEach(link => {
                 if (relation.pinnedPost.data.id === link.id) {
-                  console.log(`Pinned: ${relation.pinnedPost.data.id}, Link: ${link.id}`)
                   include.pinnedPost.push(link)
                 }
               })
