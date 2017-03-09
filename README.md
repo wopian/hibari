@@ -20,16 +20,29 @@ User, anime & manga stats for [Kitsu][0]
 [![David]][5]
 [![DavidD]][6]
 
+### Requirements
+- [git](https://git-scm.com/) 2.0.0 or newer
+- [node.js](https://nodejs.org) 7.0.0 or newer
+- npm 3.10.8 or newer (installed with node.js)
+  - run `npm install npm -g` to update to latest version
+
 ### Setup
 1. Download source code:
 
     ```bash
     git clone https://github.com/wopian/hibari.git
+    cd hibari
     ```
 1. Install dependencies:
 
     ```bash
     npm i
+    ```
+
+3. Add this repository as origin:
+
+    ```bash
+    git remote add origin https://github.com/wopian/hibari.git
     ```
 
 ### Commands
