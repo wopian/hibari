@@ -3,7 +3,7 @@
 
 User, anime & manga stats for [Kitsu][0]
 
-## Installing
+## Usage
 [![GitHub Rl]][1]
 [![Github Dl]][1]
 
@@ -46,13 +46,16 @@ User, anime & manga stats for [Kitsu][0]
     ```
 
 ### Commands
-Display the list of available commands:
+Display a list of available commands:
 ```bash
 npm start
 ```
 
 ## Releases
 See [CHANGELOG][5]
+
+## License
+All code released under the [MIT license](LICENSE.md)
 
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
 [GitHub Dl]:https://img.shields.io/github/downloads/wopian/hibari/total.svg?style=flat-square
