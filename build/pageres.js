@@ -1,0 +1,10 @@
+const PageRes = require('pageres')
+
+const pageres = new PageRes({ delay: 10 })
+  .src('hb.wopian.me', [ '412x732', '1920x1080' ])
+  .src('hb.wopian.me/#/@wopian', [ '412x732', '1920x1080' ])
+  .src('https://hb.wopian.me/#/anime/cowboy-bebop', [ '412x732', '1920x1080' ])
+  .src('https://hb.wopian.me/#/manga/20th-century-boys', [ '412x732', '1920x1080' ])
+  .dest(`${__dirname}/../screenshot`)
+  .run()
+  .then(() => console.log('done'))
