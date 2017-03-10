@@ -11,6 +11,13 @@ User, anime & manga stats for [Kitsu][0]
 - Extract the zip
 - Upload to web server
 
+## Contributing
+
+PRs are welcome - please read [CONTRIBUTING](CONTRIBUTING.md) before opening
+
+Checkout the [roadmap](https://github.com/wopian/hibari/projects/1) for other tasks you can help
+implement/fix 😃
+
 ## Development
 [![Travis]][2]
 [![AppVeyor]][10]
