@@ -2,10 +2,10 @@ export default {
   lang: 'English',
   hibari: 'Hibari',
   notice: {
-    id: '1',
-    content: 'As of 8th February \'17, Hibari has been rewritten from scratch to support the ' +
-    'Kitsu API<br>This version is very early alpha and is prone to bugs and lacks content. ' +
-    'Feel free to send me suggestions on <a href=\'//kitsu.io/users/wopian\'>Kitsu</a>'
+    id: '2',
+    content: 'This version is very early alpha and is prone to bugs and lack of content.<br>' +
+    'Please send bug reports or suggestions on my <a href=\'//kitsu.io/users/wopian\'>Kitsu</a>' +
+    'profile or on <a href=\'//github.com/wopian/hibari\'>GitHub</a>'
   },
   navigation: {
     home: 'Home'
