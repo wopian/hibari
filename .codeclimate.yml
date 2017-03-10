@@ -29,5 +29,5 @@ ratings:
   - "**.vue"
 exclude_paths:
 - .vscode
-- static
+- public
 - tests
