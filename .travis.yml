@@ -9,6 +9,8 @@ cache:
 sudo: false
 matrix:
   fast_finish: true
+before_install:
+- npm upgrade && npm prune
 install:
 - travis_retry npm i
 before_script:
