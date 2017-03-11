@@ -4,7 +4,7 @@ export default {
   notice: {
     id: '2',
     content: 'This version is very early alpha and is prone to bugs and lack of content.<br>' +
-    'Please send bug reports or suggestions on my <a href=\'//kitsu.io/users/wopian\'>Kitsu</a>' +
+    'Please send bug reports or suggestions on my <a href=\'//kitsu.io/users/wopian\'>Kitsu</a> ' +
     'profile or on <a href=\'//github.com/wopian/hibari\'>GitHub</a>'
   },
   navigation: {
