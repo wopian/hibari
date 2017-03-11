@@ -21,3 +21,6 @@ scripts:
   rebase:
     script: git stash && git pull --rebase origin master && git stash pop
     description: fetches latest commits from the upstream repository
+  capture:
+    script: node build/pageres.js
+    description: captures and saves screenshots of the main pages
