@@ -27,5 +27,5 @@ cp index.html 404.html
 touch .
 
 git add -A .
-git commit -a -m "rebuild pages at ${rev}"
+git commit -a -m "chore: deploy ${rev}"
 git push -q upstream HEAD:gh-pages > /dev/null 2>&1
