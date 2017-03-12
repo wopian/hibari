@@ -7,7 +7,7 @@ ensuring your code conforms to Standard JS
 
 ## Localisation
 
-Localisation of Hibari is greatly appreciated! Locale files are located at [`client/locales`](https://github.com/wopian/hibari/tree/master/client/locales) and uses the [ISO 639](https://en.wikipedia.org/wiki/ISO_639) standard.
+Localisation of Hibari is greatly appreciated! Locale files are located at [`client/locales`](https://github.com/wopian/hibari/tree/master/client/locales) and uses the [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639) standard.
 
 ### The Basics
 1. Copy & rename the `en.js` English localisation using the ISO 639 code of the new language, e.g `ja.js` for Japanese
