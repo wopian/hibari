@@ -8,6 +8,11 @@ import store from './store'
 import en from 'locales/en'
 import ja from 'locales/ja'
 
+const locales = {
+  en: en,
+  ja: ja
+}
+
 if (process.env.NODE_ENV === 'production') {
   // Enable Progressive Web App
   require('./pwa')
@@ -19,11 +24,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 sync(store, router)
-
-const locales = {
-  en: en,
-  ja: ja
-}
 
 Vue.use(Cookie)
 Vue.use(I18n)
