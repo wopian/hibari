@@ -1,18 +1,7 @@
 // Place your settings in this file to overwrite default and user settings.
 {
-  "files.associations": {
-    "*.vue": "vue"
-  },
   "eslint.validate": [
     "javascript",
     "vue"
-  ],
-  "sasslint.enable": true,
-  "color-highlight.languages": [
-    "javascript",
-    "html",
-    "json",
-    "vue"
-  ],
-  "color-highlight.markerType": "background"
+  ]
 }
