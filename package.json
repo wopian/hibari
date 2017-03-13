@@ -20,7 +20,7 @@
   "devDependencies": {
     "autoprefixer": "~6.7.6",
     "axios": "~0.15.3",
-    "babel-core": "~6.23.1",
+    "babel-core": "~6.24.0",
     "babel-eslint": "~7.1.1",
     "babel-loader": "~6.4.0",
     "babel-plugin-istanbul": "~4.0.0",
