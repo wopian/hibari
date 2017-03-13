@@ -18,7 +18,7 @@ before_script:
 script:
 - npm start build
 after_success:
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && bash build/deploy.sh
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test $TRAVIS_OS_NAME == "linux" && bash build/deploy.sh
 - bash <(curl -s https://codecov.io/bash)
 addons:
   code_climate:
