@@ -38,13 +38,12 @@
   @import ~bootstrap/scss/variables
   @import ~bootstrap/scss/mixins
   @import ~bootstrap/scss/nav
+  @import ~bootstrap/scss/utilities/spacing
   @import ~assets/variables
 
   .switcher
     @extend .nav
-    justify-content: flex-end
-    flex: 1 1 auto
-    // Fix alignment
+    @extend .ml-auto
     position: relative
     top: 2px
 

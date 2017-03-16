@@ -1,8 +1,20 @@
 <template lang='pug'>
   footer
     div
-      a(href='https://github.com/wopian/hibari' rel='noopener' target='_blank') Github
+      a.mr-auto(href='https://github.com/wopian/hibari' rel='noopener' target='_blank') Github
+      span.navbar-text Version {{ VERSION }}
 </template>
+
+<script>
+  console.log(VERSION)
+  export default {
+    data () {
+      return {
+        VERSION: VERSION
+      }
+    }
+  }
+</script>
 
 <style lang='sass'>
   @import ~bootstrap/scss/variables

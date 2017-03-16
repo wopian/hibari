@@ -8,6 +8,10 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 var OfflinePlugin = require('offline-plugin')
+var GitRevisionPlugin = require('git-revision-webpack-plugin')
+var gitRevisionPlugin = new GitRevisionPlugin({
+  versionCommand: 'describe --always --tags'
+})
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
   : config.build.env
@@ -28,7 +32,8 @@ var webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      'process.env': config.dev.env,
+      'VERSION': JSON.stringify(gitRevisionPlugin.version()),
     }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
