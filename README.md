@@ -24,8 +24,8 @@ implement/fix 😃
 [![CodeCov]][9]
 [![CC Score]][3]
 [![CC Issues]][4]
-[![David]][5]
-[![DavidD]][6]
+[![David]][6]
+[![DavidD]][7]
 
 ### Requirements
 - [git](https://git-scm.com/) 2.0.0 or newer
