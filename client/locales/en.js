@@ -3,9 +3,7 @@ export default {
   hibari: 'Hibari',
   notice: {
     id: '3',
-    content: 'This version is very early alpha and is prone to bugs and lack of content. Please ' +
-    'send bug reports or suggestions on my <a href=\'//kitsu.io/users/wopian\'>Kitsu</a> ' +
-    'profile or on <a href=\'//github.com/wopian/hibari\'>GitHub</a>'
+    content: 'This version is very early alpha and is prone to bugs and lack of content'
   },
   navigation: {
     home: 'Home',
