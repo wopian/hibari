@@ -25,7 +25,7 @@
 </template>
 
 <script>
-  import Spinner from 'components/svg/Spinner'
+  import Spinner from 'components/util/Loader'
 
   export default {
     metaInfo () {
