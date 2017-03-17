@@ -48,5 +48,8 @@ export default {
     about: {
       title: 'About'
     }
+  },
+  loader: {
+    collectingData: 'Collecting Data'
   }
 }

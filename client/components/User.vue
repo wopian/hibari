@@ -1,5 +1,6 @@
 <template lang='pug'>
   main.user
+
     section.error(v-if='error') Error: {{ error }}
 
     section.content(v-else)
@@ -14,6 +15,7 @@
             h2 {{ user.attributes.name }}
               span(v-if='user.attributes.title') {{ user.attributes.title }}
             a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
+
       //- Placeholder cover while data loads
       .cover(
         v-else
@@ -39,7 +41,7 @@
         v-bind:favourites='favourites'
       )
 
-      spinner(v-if='loading' message='Collecting Data')
+      spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
 </template>
 
 <script>
