@@ -82,13 +82,15 @@
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
           this.displayData(true)
           console.info('[HB]: Data retrived from store')
-        } else if (localStorage.getItem(`user-${this.slug}`)) {
-          this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
-          this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu[0]
-          this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinnedPost[0]
-          this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
-          this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
+        // Check local storage. If data is less than 30 minutes old use it.
+        } else if (localStorage.getItem(`user-${this.slug}`) && Date.now() - JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated < 1800000) {
+          this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].user
+          this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].waifu[0]
+          this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].pinnedPost[0]
+          this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].profileLinks
+          this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[5].favourites
           console.info('[HB]: Data retrived from local storage')
+        // Local storage is empty  or data is older than 30 minutes
         } else {
           this.loading = true
           this.fetchData()
@@ -193,7 +195,13 @@
             this.$store.commit('FAVOURITES', [include.favourites, this.slug])
 
             // Save user data to local storage
-            this.saveToLocalStorage(user, include.waifu, include.pinnedPost, include.profileLinks, include.favourites)
+            this.saveToLocalStorage(
+              user,
+              include.waifu,
+              include.pinnedPost,
+              include.profileLinks,
+              include.favourites
+            )
 
             // Display user information
             this.displayData(false, user, include)
@@ -214,6 +222,7 @@
         // User doesn't exist - store data
         if (!localStorage.getItem(`user-${this.slug}`)) {
           localStorage.setItem(`user-${this.slug}`, JSON.stringify([
+            { updated: Date.now() },
             { user: user },
             { waifu: waifu },
             { pinnedPost: pinnedPost },
