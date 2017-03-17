@@ -3,6 +3,7 @@
     section.error(v-if='error') Error: {{ error }}
 
     section.content(v-else)
+      //- Cover to display  when data loaded
       .cover(
         v-if='user'
         v-bind:style='{ backgroundImage: "url(" + (user.attributes.coverImage ? user.attributes.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
@@ -12,6 +13,16 @@
           div
             h2 {{ user.attributes.name }}
               span(v-if='user.attributes.title') {{ user.attributes.title }}
+            a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
+      //- Placeholder cover while data loads
+      .cover(
+        v-else
+        v-bind:style='{ backgroundImage: "url(/kitsu/default_cover.png)" }'
+      )
+        .container
+          img(src='/kitsu/default_avatar.png')
+          div
+            h2 {{ slug }}
             a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
       nav
@@ -28,12 +39,12 @@
         v-bind:favourites='favourites'
       )
 
-      spinner(v-if='loading')
+      spinner(v-if='loading' message='Collecting Data')
 </template>
 
 <script>
   import { Kitsu } from 'api'
-  import Spinner from 'components/svg/Spinner'
+  import Spinner from 'components/util/Loader'
 
   export default {
     metaInfo () {
@@ -65,22 +76,21 @@
       // Second we check local storage
       // Else download the data and add it to the vuex store and local storage
       checkStore () {
-        this.loading = true
         // Check vuex store
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
-          console.info('[HB]: Data retrived from store')
           this.displayData(true)
+          console.info('[HB]: Data retrived from store')
         } else if (localStorage.getItem(`user-${this.slug}`)) {
-          console.info('[HB]: Data retrived from local storage')
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].user
           this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].waifu[0]
           this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].pinnedPost[0]
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].favourites
-          this.loading = false
+          console.info('[HB]: Data retrived from local storage')
         } else {
-          console.info('[HB]: Data retrived from API')
+          this.loading = true
           this.fetchData()
+          console.info('[HB]: Data retrived from API')
         }
       },
       displayData (cached, user, include) {
