@@ -8,7 +8,8 @@ export default {
     'profile or on <a href=\'//github.com/wopian/hibari\'>GitHub</a>'
   },
   navigation: {
-    home: 'Home'
+    home: 'Home',
+    bugs: 'Bugs'
   },
   home: {
     user: {
@@ -47,6 +48,19 @@ export default {
     },
     about: {
       title: 'About'
+    }
+  },
+  bugs: {
+    title: 'Bugs',
+    body: 'Please create a <a href=\'//github.com/wopian/hibari/issues/new\'>GitHub Issue</a> ' +
+    'for any bugs you encounter.',
+    requirements: 'The following information is required to aid replication and fixing:',
+    include: {
+      version: 'Version:',
+      os: 'Operating System:',
+      browser: 'Browser:',
+      browserVer: 'Browser Version:',
+      replicate: 'Steps to replicate:'
     }
   },
   loader: {

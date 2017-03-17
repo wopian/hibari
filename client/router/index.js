@@ -8,6 +8,7 @@ import Profile from 'components/user/Profile'
 import Library from 'components/user/Library'
 import Anime from 'components/Anime'
 import Manga from 'components/Manga'
+import Bugs from 'components/Bugs'
 import E404 from 'components/404'
 
 Vue.use(Router)
@@ -52,6 +53,11 @@ export default new Router({
     {
       path: '/manga/:query',
       component: Manga
+    },
+    {
+      path: '/bugs',
+      name: 'Bugs',
+      component: Bugs
     },
     // 404 Page
     {

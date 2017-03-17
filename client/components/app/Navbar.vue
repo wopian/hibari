@@ -3,7 +3,8 @@
     nav
       h1 {{ $t('hibari') }}
         span(v-if='development') Dev
-      router-link(:to='{name: "Home"}') {{ $t('navigation.home') }}
+      router-link(:to='{ name: "Home" }') {{ $t('navigation.home') }}
+      router-link(:to='{ name: "Bugs" }') {{ $t('navigation.bugs') }}
       language-switcher
 </template>
 
