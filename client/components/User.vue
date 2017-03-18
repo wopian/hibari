@@ -84,7 +84,7 @@
         // Check vuex store
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
           this.displayData(true)
-          console.info('[HB]: Data retrived from store')
+          console.info('[HB]: Data retrieved from store')
         // Check local storage. If data is less than 30 minutes old use it.
         } else if (localStorage.getItem(`user-${this.slug}`) && moment().diff(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated, 'minutes') < 30) {
           this.updated = moment(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated).fromNow()
@@ -93,12 +93,12 @@
           this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].pinnedPost[0]
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[5].favourites
-          console.info('[HB]: Data retrived from local storage')
+          console.info('[HB]: Data retrieved from local storage')
         // Local storage is empty  or data is older than 30 minutes
         } else {
           this.loading = true
           this.fetchData()
-          console.info('[HB]: Data retrived from API')
+          console.info('[HB]: Data retrieved from API')
         }
       },
       displayData (cached, user, include) {

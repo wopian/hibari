@@ -51,10 +51,10 @@
       checkStore () {
         this.loading = true
         if (this.$store.state.manga[this.$route.params.query] !== undefined) {
-          console.info('[HB]: Data retrived from store')
+          console.info('[HB]: Data retrieved from store')
           this.displayData(true)
         } else {
-          console.info('[HB]: Data retrived from API')
+          console.info('[HB]: Data retrieved from API')
           this.fetchData()
         }
       },
