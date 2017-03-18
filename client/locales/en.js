@@ -1,6 +1,7 @@
 export default {
   lang: 'English',
   hibari: 'Hibari',
+  strapline: 'Stats for Kitsu',
   notice: {
     id: '3',
     content: 'This version is very early alpha and is prone to bugs and lack of content'

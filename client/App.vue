@@ -13,8 +13,10 @@ import Footer from 'components/app/Footer'
 
 export default {
   name: 'app',
-  metaInfo: {
-    titleTemplate: '%s | Hibari'
+  metaInfo () {
+    return {
+      titleTemplate: `%s | ${this.$t('hibari')}`
+    }
   },
   components: {
     Navbar,

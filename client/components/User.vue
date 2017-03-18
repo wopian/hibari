@@ -53,7 +53,7 @@
   export default {
     metaInfo () {
       return {
-        titleTemplate: `${this.user ? this.user.attributes.name : this.slug}'s %s | Hibari`
+        titleTemplate: `${this.user ? this.user.attributes.name : this.slug}'s %s | ${this.$t('hibari')}`
       }
     },
     components: {

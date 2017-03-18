@@ -24,8 +24,10 @@
 
 <script>
   export default {
-    metaInfo: {
-      titleTemplate: 'Hibari - Stats for Kitsu'
+    metaInfo () {
+      return {
+        titleTemplate: `${this.$t('hibari')} - ${this.$t('strapline')}`
+      }
     },
     data () {
       return {
