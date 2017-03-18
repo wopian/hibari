@@ -9,7 +9,7 @@ then
 fi
 
 rev=$(git rev-parse --short HEAD)
-tag=$(git describe --tags)
+tag=$(git describe --abbrev=0 --tags --always)
 
 cd dist
 
@@ -29,5 +29,8 @@ touch .
 
 git add -A .
 git commit -a -m "chore: deploy ${rev}"
-git tag $tag
+
+hash=$(git rev-parse --short HEAD)
+
+git tag -a "${tag}-production" $hash -m ''
 git push -q upstream HEAD:gh-pages --follow-tags > /dev/null 2>&1
