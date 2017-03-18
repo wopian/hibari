@@ -102,6 +102,7 @@
         }
       },
       displayData (cached, user, include) {
+        this.updated = moment().fromNow()
         this.user = cached ? this.$store.state.user[this.slug] : user
         this.waifu = cached ? this.$store.state.waifu[this.slug][0] : include.waifu[0]
         this.pinnedPost = cached ? this.$store.state.pinnedPost[this.slug] : include.pinnedPost[0]
