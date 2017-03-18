@@ -31,6 +31,7 @@
         div
           router-link(:to='{ name: "Profile" }' exact) {{ $t('user.navigation.profile') }}
           router-link(:to='{ name: "Library" }' exact) {{ $t('user.navigation.library') }}
+          span(v-if='updated') Updated {{ updated }}
 
       router-view(
         v-bind:slug='slug'
@@ -45,6 +46,7 @@
 </template>
 
 <script>
+  import moment from 'moment'
   import { Kitsu } from 'api'
   import Spinner from 'components/util/Loader'
 
@@ -62,6 +64,7 @@
         loading: false,
         error: null,
         slug: this.$route.params.slug,
+        updated: null,
         user: null,
         waifu: null,
         pinnedPost: null,
@@ -83,7 +86,8 @@
           this.displayData(true)
           console.info('[HB]: Data retrived from store')
         // Check local storage. If data is less than 30 minutes old use it.
-        } else if (localStorage.getItem(`user-${this.slug}`) && Date.now() - JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated < 1800000) {
+        } else if (localStorage.getItem(`user-${this.slug}`) && moment().diff(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated, 'minutes') < 30) {
+          this.updated = moment(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated).fromNow()
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].user
           this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].waifu[0]
           this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].pinnedPost[0]
@@ -222,7 +226,7 @@
         // User doesn't exist - store data
         if (!localStorage.getItem(`user-${this.slug}`)) {
           localStorage.setItem(`user-${this.slug}`, JSON.stringify([
-            { updated: Date.now() },
+            { updated: moment() },
             { user: user },
             { waifu: waifu },
             { pinnedPost: pinnedPost },
@@ -337,6 +341,13 @@
             color: rgba($primary, .8)
             background: $white
             transition: color 100ms ease-in-out
+
+        span
+          @extend .navbar-text
+          @extend .ml-auto
+          color: rgba(black, .3)
+          padding: 10px 20px
+          font-size: 14px
 
       .content
         @extend .container
