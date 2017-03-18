@@ -46,12 +46,6 @@ implement/fix 😃
     npm i
     ```
 
-3. Add this repository as origin:
-
-    ```bash
-    git remote add origin https://github.com/wopian/hibari.git
-    ```
-
 ### Commands
 Display a list of available commands:
 ```bash
