@@ -16,6 +16,11 @@
 
 <script>
   export default {
+    metaInfo () {
+      return {
+        title: this.$t('bugs.title')
+      }
+    },
     data () {
       return {
         VERSION: VERSION
