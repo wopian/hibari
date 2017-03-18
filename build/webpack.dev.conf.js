@@ -7,7 +7,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 var GitRevisionPlugin = require('git-revision-webpack-plugin')
 var gitRevisionPlugin = new GitRevisionPlugin({
-  versionCommand: 'describe --always --tags'
+  versionCommand: 'describe --tags --always'
 })
 
 // add hot-reload related code to entry chunks

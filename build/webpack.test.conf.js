@@ -5,7 +5,7 @@ var merge = require('webpack-merge')
 var baseConfig = require('./webpack.base.conf')
 var GitRevisionPlugin = require('git-revision-webpack-plugin')
 var gitRevisionPlugin = new GitRevisionPlugin({
-  versionCommand: 'describe --always --tags'
+  versionCommand: 'describe --tags --always'
 })
 
 var webpackConfig = merge(baseConfig, {

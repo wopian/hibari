@@ -10,7 +10,7 @@ var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 var OfflinePlugin = require('offline-plugin')
 var GitRevisionPlugin = require('git-revision-webpack-plugin')
 var gitRevisionPlugin = new GitRevisionPlugin({
-  versionCommand: 'describe --always --tags'
+  versionCommand: 'describe --tags --always'
 })
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
