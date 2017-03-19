@@ -252,6 +252,9 @@
   @import ~assets/variables
 
   main.user
+    section.error
+      padding-top: calc(56px + 1rem)
+
     section.content
       .cover
         height: 400px
