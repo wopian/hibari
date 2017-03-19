@@ -134,11 +134,15 @@ var webpackConfig = merge(baseWebpackConfig, {
     // progressive web app
     // uses publicPath in webpack config
     new OfflinePlugin({
+      caches: 'all',
+      responseStrategy: 'network-first',
+      updateStrategy: 'changed',
       relativePaths: false,
-      AppCache: false,
+      // autoUpdate: true // Update every hour. 1000 * 60 * 60 * 5 = 5hrs
       ServiceWorker: {
         events: true
-      }
+      },
+      AppCache: false
     })
   ]
 })
