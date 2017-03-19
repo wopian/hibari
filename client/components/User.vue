@@ -86,7 +86,7 @@
           this.displayData(true)
           console.info('[HB]: Data retrieved from store')
         // Check local storage. If data is less than 30 minutes old use it.
-        } else if (localStorage.getItem(`user-${this.slug}`) && moment().diff(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated, 'minutes') < 30) {
+        } else if (localStorage.getItem(`user-${this.slug}`)) {
           this.updated = moment(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated).fromNow()
           this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].user
           this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].waifu[0]
@@ -94,6 +94,10 @@
           this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].profileLinks
           this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[5].favourites
           console.info('[HB]: Data retrieved from local storage')
+          if (moment().diff(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated, 'minutes') > 30) {
+            this.fetchData()
+            console.info('[HB]: Updated local storage from API')
+          }
         // Local storage is empty  or data is older than 30 minutes
         } else {
           this.loading = true
@@ -101,8 +105,8 @@
           console.info('[HB]: Data retrieved from API')
         }
       },
-      displayData (cached, user, include) {
-        this.updated = moment().fromNow()
+      displayData (cached, updated, user, include) {
+        this.updated = cached ? moment(this.$store.state.updated[this.slug]).fromNow() : moment(updated).fromNow()
         this.user = cached ? this.$store.state.user[this.slug] : user
         this.waifu = cached ? this.$store.state.waifu[this.slug][0] : include.waifu[0]
         this.pinnedPost = cached ? this.$store.state.pinnedPost[this.slug] : include.pinnedPost[0]
@@ -125,6 +129,7 @@
           if (d.meta.count === 0) {
             this.error = 'No user exists'
           } else {
+            const updated = moment()
             let user, included, relation
             let include = {}
 
@@ -193,6 +198,7 @@
             include.favourites.anime.sort(this.numericSort('favRank'))
 
             // Save user data in vuex store
+            this.$store.commit('UPDATED', [updated, this.slug])
             this.$store.commit('USER', [user, this.slug])
             this.$store.commit('WAIFU', [include.waifu, this.slug])
             this.$store.commit('PINNEDPOST', [include.pinnedPost, this.slug])
@@ -201,6 +207,7 @@
 
             // Save user data to local storage
             this.saveToLocalStorage(
+              updated,
               user,
               include.waifu,
               include.pinnedPost,
@@ -209,7 +216,7 @@
             )
 
             // Display user information
-            this.displayData(false, user, include)
+            this.displayData(false, updated, user, include)
           }
         })
         .catch(e => {
@@ -223,11 +230,11 @@
           return 0
         }
       },
-      saveToLocalStorage (user, waifu, pinnedPost, profileLinks, favourites) {
+      saveToLocalStorage (updated, user, waifu, pinnedPost, profileLinks, favourites) {
         // User doesn't exist - store data
         if (!localStorage.getItem(`user-${this.slug}`)) {
           localStorage.setItem(`user-${this.slug}`, JSON.stringify([
-            { updated: moment() },
+            { updated: updated },
             { user: user },
             { waifu: waifu },
             { pinnedPost: pinnedPost },

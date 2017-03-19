@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
+  updated: {},
   user: {},
   waifu: {},
   pinnedPost: {},
@@ -14,6 +15,9 @@ const state = {
 }
 
 const mutations = {
+  UPDATED (state, payload) {
+    state.updated[payload[1]] = payload[0]
+  },
   USER (state, payload) {
     state.user[payload[1]] = payload[0]
   },
