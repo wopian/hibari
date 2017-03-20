@@ -52,6 +52,10 @@ Display a list of available commands:
 npm start
 ```
 
+## Screenshots
+### User Pages
+![](https://cdn.rawgit.com/wopian/hibari/6860ee63/screenshots/user.png)
+
 ## Releases
 See [CHANGELOG][5]
 
