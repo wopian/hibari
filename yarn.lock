@@ -2435,11 +2435,9 @@ file-loader@~0.10.1:
   dependencies:
     loader-utils "^1.0.2"
 
-file-url@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/file-url/-/file-url-1.1.0.tgz#a0f9cf3eb6904c9b1d3a6790b83a976fc40217bb"
-  dependencies:
-    meow "^3.7.0"
+file-url@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/file-url/-/file-url-2.0.2.tgz#e951784d79095127d3713029ab063f40818ca2ae"
 
 filename-regex@^2.0.0:
   version "2.0.0"
@@ -2448,6 +2446,10 @@ filename-regex@^2.0.0:
 filename-reserved-regex@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-1.0.0.tgz#e61cf805f0de1c984567d0386dc5df50ee5af7e4"
+
+filename-reserved-regex@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/filename-reserved-regex/-/filename-reserved-regex-2.0.0.tgz#abf73dfab735d045440abfea2d91f389ebbfa229"
 
 filenamify-url@^1.0.0:
   version "1.0.0"
@@ -2461,6 +2463,14 @@ filenamify@^1.0.0:
   resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-1.2.1.tgz#a9f2ffd11c503bed300015029272378f1f1365a5"
   dependencies:
     filename-reserved-regex "^1.0.0"
+    strip-outer "^1.0.0"
+    trim-repeated "^1.0.0"
+
+filenamify@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/filenamify/-/filenamify-2.0.0.tgz#bd162262c0b6e94bfbcdcf19a3bbb3764f785695"
+  dependencies:
+    filename-reserved-regex "^2.0.0"
     strip-outer "^1.0.0"
     trim-repeated "^1.0.0"
 
@@ -4010,9 +4020,9 @@ modify-filename@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/modify-filename/-/modify-filename-1.1.0.tgz#9a2dec83806fbb2d975f22beec859ca26b393aa1"
 
-moment@~2.17.1:
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
+moment@~2.18.0:
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.18.0.tgz#6cfec6a495eca915d02600a67020ed994937252c"
 
 ms@0.7.1:
   version "0.7.1"
@@ -4364,14 +4374,15 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
-pageres@~4.3.0:
-  version "4.3.0"
-  resolved "https://registry.yarnpkg.com/pageres/-/pageres-4.3.0.tgz#b12d1f6fb3e37b6e73b1a0bd0c42bea0db1e499a"
+pageres@~4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/pageres/-/pageres-4.4.0.tgz#7ef51f685d64172a422b989d8628755189aa297c"
   dependencies:
     array-differ "^1.0.0"
     array-uniq "^1.0.2"
     babel-runtime "^6.6.1"
     easydate "^2.0.0"
+    filenamify "^2.0.0"
     filenamify-url "^1.0.0"
     fs-write-stream-atomic "^1.0.2"
     get-res "^3.0.0"
@@ -4381,7 +4392,7 @@ pageres@~4.3.0:
     mkdirp "^0.5.0"
     pify "^2.3.0"
     plur "^2.0.0"
-    protocolify "^1.0.0"
+    protocolify "^2.0.0"
     rimraf "^2.2.8"
     screenshot-stream "^4.1.0"
     unused-filename "^0.1.0"
@@ -4863,12 +4874,11 @@ proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
 
-protocolify@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/protocolify/-/protocolify-1.0.3.tgz#7afec1888986452a8e5248b2b6c435ee2ce34014"
+protocolify@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/protocolify/-/protocolify-2.0.0.tgz#369b268511249d7c5ec04c707c8916c1f6241998"
   dependencies:
-    file-url "^1.0.0"
-    path-exists "^2.0.0"
+    file-url "^2.0.0"
     prepend-http "^1.0.4"
 
 proxy-addr@~1.1.3:
