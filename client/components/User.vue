@@ -324,7 +324,6 @@
         background: $purewhite
         border-bottom: 1px solid $grey
         padding: 0
-        width: 100vw
         position: sticky
         top: 56px
         z-index: 100
@@ -333,6 +332,7 @@
         div
           @extend .container
           @extend .nav
+          padding-right: 0
 
         a
           @extend .nav-link
@@ -357,7 +357,7 @@
           @extend .navbar-text
           @extend .ml-auto
           color: rgba(black, .3)
-          padding: 10px 20px
+          padding: 10px 0 10px 20px
           font-size: 14px
 
       .content
