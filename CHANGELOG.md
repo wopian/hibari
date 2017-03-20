@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.2.0-rc.1] - 2017-03-20
+### Fixed
+- User pages breaking for users  with default avatar/cover
+- Page content flashing when service worker refreshed its cache
+  - Now network-first instead of cache-first
+
+### Added
+- Icons and meta information for Android and iOS devices :tada:
+- Current version displayed in footer
+- Placeholder avatar/cover displayed while loading profiles
+- Bugs page instead of as a link in a dismissable notice
+- User pages show when cache was last updated
+
+### Changed
+- Fetches fresh user data after 30 minutes - instead of using the cached data forever
+
 ## [0.1.0] - 2017-03-08
 ### Fixed
 - Navbar position on mobile
@@ -43,6 +59,7 @@
 - Basic functionality. No styling or formating, just displaying user, anime & manga information via
 Kitsu's API.
 
+[0.2.0-rc.1]:https://github.com/wopian/hibari/compare/0.1.0...0.2.0-rc.1
 [0.1.0]:https://github.com/wopian/hibari/compare/0.0.1...0.1.0
 [0.0.1]:https://github.com/wopian/hibari/compare/0.0.1-alpha...0.0.1
 [0.0.1-alpha]:https://github.com/wopian/hibari/compare/ac9bd7571d3059482f5868b7419e2ff327aa803c...0.0.1-alpha
