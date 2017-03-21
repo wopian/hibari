@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 import I18n from 'vue-i18n'
 import Cookie from 'vue-cookie'
+import Analytics from 'vue-analytics'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
@@ -12,19 +13,17 @@ const locales = {
   en: en,
   ja: ja
 }
+const id = 'UA-46184267-8'
 
 if (process.env.NODE_ENV === 'production') {
   // Enable Progressive Web App
   require('./pwa')
-
-  // Redirect HTTP to HTTPS
-  // if (window.location.protocol === 'http:') {
-  //   window.location.protocol = 'https'
-  // }
 }
+
 
 sync(store, router)
 
+Vue.use(Analytics, {id, router})
 Vue.use(Cookie)
 Vue.use(I18n)
 
