@@ -20,7 +20,6 @@ if (process.env.NODE_ENV === 'production') {
   require('./pwa')
 }
 
-
 sync(store, router)
 
 Vue.use(Analytics, {id, router})
