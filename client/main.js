@@ -3,6 +3,7 @@ import App from './App'
 import I18n from 'vue-i18n'
 import Cookie from 'vue-cookie'
 import Analytics from 'vue-analytics'
+import Paginate from 'vue-paginate'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
@@ -25,6 +26,7 @@ sync(store, router)
 Vue.use(Analytics, {id, router})
 Vue.use(Cookie)
 Vue.use(I18n)
+Vue.use(Paginate)
 
 // Check if language cookie has been set
 // If so, use it

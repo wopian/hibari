@@ -100,24 +100,57 @@
           .tab-content
             //- Display anime favourites when active
             .tab-pane.active(v-if='favouritesPanel === "anime"')
-              .row
-                .col-3(v-for='fav in favourites.anime')
+              paginate(
+                name='favAnime'
+                v-bind:list='favourites.anime'
+                v-bind:per='16'
+                tag='div'
+                class='row'
+              )
+                .col-3(v-for='fav in paginated("favAnime")')
                   router-link(:to='"/anime/" + fav[0].attributes.slug')
                     img(v-bind:src='fav[0].attributes.posterImage ? fav[0].attributes.posterImage.small : "/kitsu/default_poster.jpg"')
+              paginate-links(
+                for='favAnime'
+                v-bind:simple='{ prev: "Back", next: "Next" }'
+                v-bind:hide-single-page='true'
+              )
 
             //- Display anime favourites when active
             .tab-pane.active(v-else-if='favouritesPanel === "manga"')
-              .row
-                .col-3(v-for='fav in favourites.manga')
+              paginate(
+                name='favManga'
+                v-bind:list='favourites.manga'
+                v-bind:per='16'
+                tag='div'
+                class='row'
+              )
+                .col-3(v-for='fav in paginated("favManga")')
                   router-link(:to='"/manga/" + fav[0].attributes.slug')
                     img(v-bind:src='fav[0].attributes.posterImage ? fav[0].attributes.posterImage.small : "/kitsu/default_poster.jpg"')
+              paginate-links(
+                for='favManga'
+                v-bind:simple='{ prev: "Back", next: "Next" }'
+                v-bind:hide-single-page='true'
+              )
 
             //- Display anime favourites when active
             .tab-pane.active(v-else-if='favouritesPanel === "characters"')
-              .row
-                .col-3(v-for='fav in favourites.characters')
+              paginate(
+                name='favCharacters'
+                v-bind:list='favourites.characters'
+                v-bind:per='16'
+                tag='div'
+                class='row'
+              )
+                .col-3(v-for='fav in paginated("favCharacters")')
                   a
                     img(v-bind:src='fav[0].attributes.image ? fav[0].attributes.image.original : "/kitsu/default_poster.jpg"')
+              paginate-links(
+                for='favCharacters'
+                v-bind:simple='{ prev: "Back", next: "Next" }'
+                v-bind:hide-single-page='true'
+              )
           //- stop: favourites container
 </template>
 
@@ -138,7 +171,8 @@
       return {
         loading: false,
         error: null,
-        favouritesPanel: 'anime'
+        favouritesPanel: 'anime',
+        paginate: ['favAnime', 'favManga', 'favCharacters']
       }
     }
   }
@@ -150,6 +184,7 @@
   @import ~bootstrap/scss/grid
   @import ~bootstrap/scss/card
   @import ~bootstrap/scss/media
+  @import ~bootstrap/scss/buttons
   @import ~assets/variables
 
   section.profile
@@ -209,7 +244,7 @@
         width: 100%
         max-width: 100%
         vertical-align: middle
-      ul
+      ul:not(.paginate-links)
         position: sticky
         top: 98px
         z-index: 1
@@ -225,6 +260,33 @@
           &:hover
             color: $kitsu
             transition: color 100ms ease-in-out
+      .paginate-links
+        list-style: none
+        padding: 9px 0
+        margin-bottom: 0
+        display: flex
+        .prev,
+        .next
+          flex: 1 1 100%
+          text-align: center
+          a
+            @extend .btn
+            width: 100%
+            height: 30px
+            font-size: 12px
+            cursor: not-allowed
+            line-height: 1.5
+            padding: .5em 0
+        .prev:not(.disabled),
+        .next:not(.disabled)
+          a
+            background: $primary
+            color: $white
+            cursor: pointer
+        .prev
+          padding-right: 3px
+        .next
+          padding-left: 3px
 
     .recent-activity
       margin-bottom: 30px

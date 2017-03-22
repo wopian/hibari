@@ -5945,7 +5945,7 @@ sumchecker@^1.2.0:
     debug "^2.2.0"
     es6-promise "^4.0.5"
 
-supports-color@3.1.2:
+supports-color@3.1.2, supports-color@^3.1.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.1.2.tgz#72a262894d9d408b956ca05ff37b2ed8a6e2a2d5"
   dependencies:
@@ -5955,7 +5955,7 @@ supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
 
-supports-color@^3.1.0, supports-color@^3.2.3:
+supports-color@^3.2.3:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-3.2.3.tgz#65ac0504b3954171d8a64946b2ae3cbb8a5f54f6"
   dependencies:
@@ -6351,6 +6351,12 @@ vue-meta@~0.5.3:
     lodash.isplainobject "^4.0.6"
     object-assign "^4.1.0"
 
+vue-paginate@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/vue-paginate/-/vue-paginate-3.4.0.tgz#2bdf2adff37f68ee4e3c6a58eab19ee73db83ab6"
+  dependencies:
+    vue "^2.0.5"
+
 vue-resource@~1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/vue-resource/-/vue-resource-1.2.1.tgz#b3f21dd0e1e491adf8a5be1fe48e586cefeaa8d5"
@@ -6379,7 +6385,7 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.1.tgz#0c36cc57aa3a9ec13e846342cb14a72fcac8bd93"
 
-vue@~2.2.1:
+vue@^2.0.5, vue@~2.2.1:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.2.4.tgz#d0a3a050a80a12356d7950ae5a7b3131048209cc"
 
