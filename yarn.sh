@@ -5,10 +5,10 @@ if [[ $TRAVIS_PULL_REQUEST_BRANCH != *"greenkeeper"* ]]; then
 	exit 0
 fi
 
-git clone "https://"$GH_TOKEN"@github.com/"$TRAVIS_REPO_SLUG".git" repo
-cd repo
+git clone "https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git" repo
+cd repo || exit
 
-git checkout $TRAVIS_PULL_REQUEST_BRANCH
+git checkout "$TRAVIS_PULL_REQUEST_BRANCH"
 
 # See if commit message includes "update"
 git log --name-status HEAD^..HEAD | grep "update" || exit 0
