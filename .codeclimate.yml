@@ -11,11 +11,9 @@ engines:
     - 95ea0e6ac034573af69bc979f6dcc0f5
     - 29898bbee6f210eff6477b087ceb11a1
   eslint:
-    # CodeClimate doesn't support eslint-config-vue yet
-    enabled: false
-    channel: "eslint-3"
+    enabled: true
     config:
-      config: .eslintrc
+      config: .eslintrc.yml
       extensions:
       - .js
       - .vue
@@ -23,10 +21,19 @@ engines:
     enabled: true
   fixme:
     enabled: true
+  nodesecurity:
+    enabled: true
+  markdownlint:
+    enabled: true
+  shellcheck:
+    enabled: true
 ratings:
   paths:
   - "**.js"
   - "**.vue"
+  - "**.sass"
+  - "**.md"
+  - "**.sh"
 exclude_paths:
 - .vscode
 - public
