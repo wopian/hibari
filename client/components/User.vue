@@ -87,18 +87,20 @@
           console.info('[HB]: Data retrieved from store')
         // Check local storage. If data is less than 30 minutes old use it.
         } else if (localStorage.getItem(`user-${this.slug}`)) {
-          this.updated = moment(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated).fromNow()
-          this.user = JSON.parse(localStorage.getItem(`user-${this.slug}`))[1].user
-          this.waifu = JSON.parse(localStorage.getItem(`user-${this.slug}`))[2].waifu[0]
-          this.pinnedPost = JSON.parse(localStorage.getItem(`user-${this.slug}`))[3].pinnedPost[0]
-          this.profileLinks = JSON.parse(localStorage.getItem(`user-${this.slug}`))[4].profileLinks
-          this.favourites = JSON.parse(localStorage.getItem(`user-${this.slug}`))[5].favourites
+          const local = JSON.parse(localStorage.getItem(`user-${this.slug}`))
+          this.updated = moment(local[0].updated).fromNow()
+          this.user = local[1].user
+          this.waifu = local[2].waifu[0]
+          this.pinnedPost = local[3].pinnedPost[0]
+          this.profileLinks = local[4].profileLinks
+          this.favourites = local[5].favourites
           console.info('[HB]: Data retrieved from local storage')
-          if (moment().diff(JSON.parse(localStorage.getItem(`user-${this.slug}`))[0].updated, 'minutes') > 30) {
+          if (moment().diff(local[0].updated, 'minutes') > 30) {
+            console.info('[HB]: Refreshing local storage data')
             this.fetchData()
             console.info('[HB]: Updated local storage from API')
           }
-        // Local storage is empty  or data is older than 30 minutes
+        // Local storage is empty
         } else {
           this.loading = true
           this.fetchData()
@@ -115,7 +117,6 @@
         this.loading = false
       },
       fetchData () {
-        this.error = this.user = null
         // TODO: Get only specific fields: ?fields[attributes]=slug
         // TODO: For libraries sort items by last updated in request, e.g:
         // /people?sort=age,author.name
@@ -231,17 +232,14 @@
         }
       },
       saveToLocalStorage (updated, user, waifu, pinnedPost, profileLinks, favourites) {
-        // User doesn't exist - store data
-        if (!localStorage.getItem(`user-${this.slug}`)) {
-          localStorage.setItem(`user-${this.slug}`, JSON.stringify([
-            { updated: updated },
-            { user: user },
-            { waifu: waifu },
-            { pinnedPost: pinnedPost },
-            { profileLinks: profileLinks },
-            { favourites: favourites }
-          ], null, '\t'))
-        }
+        localStorage.setItem(`user-${this.slug}`, JSON.stringify([
+          { updated: updated },
+          { user: user },
+          { waifu: waifu },
+          { pinnedPost: pinnedPost },
+          { profileLinks: profileLinks },
+          { favourites: favourites }
+        ], null, '\t'))
       }
     }
   }
