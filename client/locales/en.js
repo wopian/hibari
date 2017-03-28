@@ -1,6 +1,7 @@
 export default {
   lang: 'English',
   hibari: 'Hibari',
+  kitsu: 'Kitsu',
   strapline: 'Stats for Kitsu',
   notice: {
     id: '3',
@@ -11,11 +12,12 @@ export default {
     bugs: 'Bugs'
   },
   home: {
+    strapline: 'Stats for <a href=\'//kitsu.io\'><strong>Kitsu</strong></a>',
     user: {
-      head: 'User',
+      head: 'Stats for',
       body: 'Search for {username} on Kitsu',
-      placeholder: 'enter a username...',
-      action: 'Lookup'
+      placeholder: 'Enter a username...',
+      action: 'Lookup User'
     },
     anime: {
       head: 'Anime',

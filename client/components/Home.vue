@@ -2,10 +2,16 @@
   main.home
     section.user
       div
-        p {{ $t('home.user.head') }}
-        p {{ $t('home.user.body', { username: slugify(userInput) || 'a user' }) }}
-        input(v-model='userInput' v-bind:placeholder='$t("home.user.placeholder")' type='text')
-        router-link(:to='"/@" + slugify(userInput)') {{ $t('home.user.action') }}
+        .row
+          .left
+            h1(v-html='$t("home.strapline")')
+            p Hibari provides extended stats for users, anime and manga.
+            //- span
+            //-  kitsu
+          .right
+            //- p {{ $t('home.user.body', { username: slugify(userInput) || 'a user' }) }}
+            input(v-model='userInput' v-bind:placeholder='$t("home.user.placeholder")' type='text')
+            router-link(:to='"/@" + slugify(userInput)') {{ $t('home.user.action') }}
 
     section.anime
       div
@@ -23,11 +29,16 @@
 </template>
 
 <script>
+  import Kitsu from 'components/util/Kitsu'
+
   export default {
     metaInfo () {
       return {
         titleTemplate: `${this.$t('hibari')} - ${this.$t('strapline')}`
       }
+    },
+    components: {
+      Kitsu
     },
     data () {
       return {
@@ -43,6 +54,7 @@
 </script>
 
 <style lang='sass'>
+  // TODO: Cleanup styles
   @import ~bootstrap/scss/variables
   @import ~bootstrap/scss/mixins
   @import ~bootstrap/scss/type
@@ -63,43 +75,10 @@
 
       div
         @extend .container
-        @extend .text-center
-
-      p:first-of-type
-        @extend .display-3
+        // @extend .text-center
 
       p:last-of-type
         @extend .lead
-
-      input
-        @extend .form-control
-        @extend .form-control-lg
-        @extend .col-lg-4
-        @extend .col-sm-6
-        @extend .offset-lg-4
-        @extend .offset-sm-3
-        @extend .text-center
-        background: rgba($white, .1)
-        color: $white
-        border-radius: 0
-        border-color: transparent
-
-        &::-webkit-input-placeholder
-          color: rgba($white, .4)
-          font-weight: 300
-
-      a
-        @extend .btn
-        @extend .btn-lg
-        margin-top: 1rem
-        border-radius: 0
-        border: 1px solid rgba($white, .1)
-        color: $white
-        font-weight: 300
-
-        &:hover
-          background: rgba($white, .1)
-          border-color: transparent
 
     .user
       background-color: $primary
@@ -107,7 +86,57 @@
       color: $white
       height: 400px
       > div
-        margin-top: 56px
-        @include media-breakpoint-up(sm)
-          margin-top: 28px
+        @extend .container
+        height: 100%
+      .row
+        padding: 0
+        height: 100%
+      .left
+        @extend .col-7
+        padding: 0
+        font-weight: 300
+        align-self: center
+        p
+          color: rgba($white, .7)
+        a
+          text-decoration: none
+          color: $white
+          border-bottom: 2px solid rgba($kitsu, .8)
+          transition: color 100ms ease-out
+          &:hover
+            color: rgba($kitsu, .8)
+            transition: color 100ms ease-in-out
+      .right
+        @extend .col-5
+        padding: 0
+        align-self: center
+        a
+          @extend .col-sm-8
+          @extend .btn
+          @extend .btn-lg
+          margin-top: 1rem
+          border-radius: 0
+          border: 1px solid rgba($white, .1)
+          color: $white
+          font-weight: 300
+          &:hover
+            background: rgba($white, .1)
+            border-color: transparent
+      h1
+        font-size: 3rem
+      svg
+        height: 6rem
+        width: 12rem
+      input
+        @extend .form-control
+        @extend .form-control-lg
+        @extend .col-sm-8
+        // @extend .text-center
+        background: rgba($white, .1)
+        color: $white
+        border-radius: 0
+        border-color: transparent
+        &::-webkit-input-placeholder
+          color: rgba($white, .4)
+          font-weight: 300
 </style>
