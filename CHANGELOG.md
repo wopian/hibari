@@ -1,12 +1,15 @@
 # Changelog
 
 ## [0.2.0-rc.1] - 2017-03-20
+
 ### Fixed
+
 - User pages breaking for users  with default avatar/cover
 - Page content flashing when service worker refreshed its cache
   - Now network-first instead of cache-first
 
 ### Added
+
 - Icons and meta information for Android and iOS devices :tada:
 - Current version displayed in footer
 - Placeholder avatar/cover displayed while loading profiles
@@ -14,15 +17,20 @@
 - User pages show when cache was last updated
 
 ### Changed
-- Fetches fresh user data after 30 minutes - instead of using the cached data forever
+
+- Fetches fresh user data after 30 minutes - instead of using the cached data
+forever
 
 ## [0.1.0] - 2017-03-08
+
 ### Fixed
+
 - Navbar position on mobile
 - Mobile padding issue causing horizontal scroll on user pages
 - Usernames with underscores are searchable
 
 ### Added
+
 - Notice remembers dismissal
 - Navbar is translucent on user/media pages while cover is visible
 - Locally caches user data
@@ -30,6 +38,7 @@
 - Favourite anime/manga/characters on user pages
 
 ### Changed
+
 - Colour scheme changed from green to Kitsu purple
 - User/media covers are now 400px - matching Kitsu
 - User profile mimics Kitsu profiles for a seamless transition
@@ -39,10 +48,13 @@
 - 'Kitsu Profile' button on user pages changed to 'View on Kitsu'
 
 ## [0.0.1] - 2017-02-10
+
 ### Fixed
+
 - Outputting debug information to console in production
 
 ### Added
+
 - Development notice to top of pages
 - GitHub Corner in top right of page
 - Formatting for the User section in Home
@@ -50,13 +62,18 @@
 - Localised the current strings
 
 ### Changed
+
 - Use native language in footer, instead of its English name
 - Changed `static` to `public`
-- Changed icon to a green version of Kitsu - like with previous version of Hibari
+- Changed icon to a green version of Kitsu - like with previous version of
+Hibari
 
 ## [0.0.1-alpha] - 2017-02-09
+
 ### Added
-- Basic functionality. No styling or formating, just displaying user, anime & manga information via
+
+- Basic functionality. No styling or formating, just displaying user, anime &
+manga information via
 Kitsu's API.
 
 [0.2.0-rc.1]:https://github.com/wopian/hibari/compare/0.1.0...0.2.0-rc.1

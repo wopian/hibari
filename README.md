@@ -15,8 +15,7 @@ User, anime & manga stats for [Kitsu][0]
 
 PRs are welcome - please read [CONTRIBUTING](CONTRIBUTING.md) before opening
 
-Checkout the [roadmap](https://github.com/wopian/hibari/projects/1) for other tasks you can help
-implement/fix 😃
+Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 
 ## Development
 [![Travis]][2]
@@ -47,7 +46,8 @@ implement/fix 😃
     ```
 
 ### Commands
-Display a list of available commands:
+Display the available commands:
+
 ```bash
 npm start
 ```
@@ -60,7 +60,7 @@ npm start
 See [CHANGELOG][5]
 
 ## License
-All code released under the [MIT license](LICENSE.md)
+All code released under the [MIT license][12]
 
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
 [GitHub Dl]:https://img.shields.io/github/downloads/wopian/hibari/total.svg?style=flat-square
@@ -84,3 +84,5 @@ All code released under the [MIT license](LICENSE.md)
 [8]:https://hb.wopian.me
 [9]:https://codeclimate.com/github/wopian/hibari/coverage
 [10]:https://ci.appveyor.com/project/wopian/hibari
+[11]:https://github.com/wopian/hibari/projects/1
+[12]:https://github.com/wopian/hibari/blob/master/LICENSE.md
