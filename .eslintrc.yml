@@ -1,7 +1,10 @@
+---
 root: true
 parser: babel-eslint
 parserOptions:
   sourceType: module
+  ecmaFeatures:
+    jsx: false
 extends: standard
 plugins:
 - html
