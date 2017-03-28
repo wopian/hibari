@@ -10,12 +10,6 @@ import store from './store'
 import en from 'locales/en'
 import ja from 'locales/ja'
 
-const locales = {
-  en: en,
-  ja: ja
-}
-const id = 'UA-46184267-8'
-
 if (process.env.NODE_ENV === 'production') {
   // Enable Progressive Web App
   require('./pwa')
@@ -23,26 +17,27 @@ if (process.env.NODE_ENV === 'production') {
 
 sync(store, router)
 
+const id = 'UA-46184267-8'
 Vue.use(Analytics, {id, router})
 Vue.use(Cookie)
-Vue.use(I18n)
 Vue.use(Paginate)
 
-// Check if language cookie has been set
-// If so, use it
-// Else use English
-Vue.config.lang = Vue.cookie.get('lang') ? Vue.cookie.get('lang') : 'en'
-
-// Set fallback used for untranslated strings
-Vue.config.fallbackLang = 'en'
-
-Object.keys(locales).forEach(lang => {
-  Vue.locale(lang, locales[lang])
+const messages = {
+  en: en,
+  ja: ja
+}
+const i18n = new I18n({
+  // Check if language cookie set, if so use it. Fallback to English
+  locale: Vue.cookie.get('lang') ? Vue.cookie.get('lang') : 'en',
+  fallbackLocale: 'en',
+  messages
 })
+Vue.use(I18n)
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n,
   router,
   store,
   render: h => h(App)
