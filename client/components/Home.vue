@@ -109,7 +109,10 @@
       .right
         @extend .col-5
         padding: 0
+        display: flex
+        flex-direction: column
         align-self: center
+        align-items: flex-end
         a
           @extend .col-sm-8
           @extend .btn
