@@ -14,16 +14,16 @@ const locales = {
   en: en,
   ja: ja
 }
-const id = 'UA-46184267-8'
 
 if (process.env.NODE_ENV === 'production') {
   // Enable Progressive Web App
   require('./pwa')
+  // Enable Google Analytics
+  const id = 'UA-46184267-8'
+  Vue.use(Analytics, {id, router})
 }
 
 sync(store, router)
-
-Vue.use(Analytics, {id, router})
 Vue.use(Cookie)
 Vue.use(I18n)
 Vue.use(Paginate)
