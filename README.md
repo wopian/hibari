@@ -1,9 +1,11 @@
 # Hibari
+
 [![Website]][8]
 
 User, anime & manga stats for [Kitsu][0]
 
 ## Usage
+
 [![GitHub Rl]][1]
 [![Github Dl]][1]
 
@@ -18,6 +20,7 @@ PRs are welcome - please read [CONTRIBUTING](CONTRIBUTING.md) before opening
 Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 
 ## Development
+
 [![Travis]][2]
 [![AppVeyor]][10]
 [![CC Coverage]][9]
@@ -27,18 +30,21 @@ Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 [![DavidD]][7]
 
 ### Requirements
+
 - [git](https://git-scm.com/) 2.0.0 or newer
 - [node.js](https://nodejs.org) 7.0.0 or newer
 - npm 3.10.8 or newer (installed with node.js)
   - run `npm install npm -g` to update to latest version
 
 ### Setup
+
 1. Download source code:
 
     ```bash
     git clone https://github.com/wopian/hibari.git
     cd hibari
     ```
+
 1. Install dependencies:
 
     ```bash
@@ -46,6 +52,7 @@ Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
     ```
 
 ### Commands
+
 Display the available commands:
 
 ```bash
@@ -53,13 +60,17 @@ npm start
 ```
 
 ## Screenshots
+
 ### User Pages
+
 ![](https://cdn.rawgit.com/wopian/hibari/6860ee63/screenshots/user.png)
 
 ## Releases
+
 See [CHANGELOG][5]
 
 ## License
+
 All code released under the [MIT license][12]
 
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square

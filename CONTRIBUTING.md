@@ -12,7 +12,7 @@ Localisation of Hibari is greatly appreciated! Locale files are located at
 ### The Basics
 
 1. Copy & rename the `en.js` English localisation using the ISO 639 code of the
-new language, e.g `ja.js` for Japanese
+  new language, e.g `ja.js` for Japanese
 1. Add your translations
 
 ### Going Further
@@ -21,10 +21,10 @@ I'm happy to do this step for you, which fully integrates the language into
 Hibari. This step should become unnecessary with a newer version of `vue-i18n`.
 
 1. In [`client/main.js`][5] add `import ja from locales/ja` below the other
-locale imports (replace ja with the correct code)
+  locale imports (replace ja with the correct code)
 1. Add `ja: ja` into the `locales` object just below them
 1. In [`client/components/app/LanguageSwitcher.vue`][6] add your language code
-to the languages array (search for `EN`)
+  to the languages array (search for `EN`)
 
 ## Code Standard
 

@@ -19,7 +19,7 @@
 ### Changed
 
 - Fetches fresh user data after 30 minutes - instead of using the cached data
-forever
+  forever
 
 ## [0.1.0] - 2017-03-08
 
@@ -66,15 +66,14 @@ forever
 - Use native language in footer, instead of its English name
 - Changed `static` to `public`
 - Changed icon to a green version of Kitsu - like with previous version of
-Hibari
+  Hibari
 
 ## [0.0.1-alpha] - 2017-02-09
 
 ### Added
 
 - Basic functionality. No styling or formating, just displaying user, anime &
-manga information via
-Kitsu's API.
+  manga information via Kitsu's API.
 
 [0.2.0-rc.1]:https://github.com/wopian/hibari/compare/0.1.0...0.2.0-rc.1
 [0.1.0]:https://github.com/wopian/hibari/compare/0.0.1...0.1.0
