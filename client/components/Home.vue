@@ -1,13 +1,11 @@
 <template lang='pug'>
   main.home
-    section.user
+    section.top
       div
         .row
           .left
             h1(v-html='$t("home.strapline")')
-            p Hibari provides extended stats for users, anime and manga.
-            //- span
-            //-  kitsu
+            p Extended stats for users, anime and manga.
           .right
             //- p {{ $t('home.user.body', { username: slugify(userInput) || 'a user' }) }}
             input(v-model='userInput' v-bind:placeholder='$t("home.user.placeholder")' type='text')
@@ -29,16 +27,11 @@
 </template>
 
 <script>
-  import Kitsu from 'components/util/Kitsu'
-
   export default {
     metaInfo () {
       return {
         titleTemplate: `${this.$t('hibari')} - ${this.$t('strapline')}`
       }
-    },
-    components: {
-      Kitsu
     },
     data () {
       return {
@@ -54,7 +47,6 @@
 </script>
 
 <style lang='sass'>
-  // TODO: Cleanup styles
   @import ~bootstrap/scss/variables
   @import ~bootstrap/scss/mixins
   @import ~bootstrap/scss/type
@@ -62,7 +54,6 @@
   @import ~bootstrap/scss/forms
   @import ~bootstrap/scss/buttons
   @import ~bootstrap/scss/jumbotron
-  @import ~bootstrap/scss/utilities
   @import ~assets/variables
 
   main.home
@@ -72,30 +63,24 @@
       height: 400px
       margin-bottom: 0
       background: $white
-
       div
         @extend .container
-        // @extend .text-center
-
-      p:last-of-type
+      p
         @extend .lead
-
-    .user
+    .top
       background-color: $primary
       position: relative
       color: $white
-      height: 400px
       > div
         @extend .container
         height: 100%
       .row
         padding: 0
         height: 100%
+        align-items: center
       .left
         @extend .col-7
         padding: 0
-        font-weight: 300
-        align-self: center
         p
           color: rgba($white, .7)
         a
@@ -111,7 +96,6 @@
         padding: 0
         display: flex
         flex-direction: column
-        align-self: center
         align-items: flex-end
         a
           @extend .col-sm-8
@@ -121,20 +105,15 @@
           border-radius: 0
           border: 1px solid rgba($white, .1)
           color: $white
-          font-weight: 300
           &:hover
             background: rgba($white, .1)
             border-color: transparent
       h1
         font-size: 3rem
-      svg
-        height: 6rem
-        width: 12rem
       input
         @extend .form-control
         @extend .form-control-lg
         @extend .col-sm-8
-        // @extend .text-center
         background: rgba($white, .1)
         color: $white
         border-radius: 0

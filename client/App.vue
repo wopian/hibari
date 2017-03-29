@@ -27,25 +27,20 @@ export default {
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
   @import ~assets/variables
-
   #app
-    // -webkit-font-smoothing: antialiased
-    // -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
     display: flex
     flex-direction: column
     min-height: 100vh
-    font-family: 'Asap', sans-serif
+    font-family: 'Asap', apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
     background: $white
-
     main
       flex: 3
-
   .os
-    font-family: 'Open Sans', sans-serif
+    font-family: 'Open Sans', apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif
     font-size: 14px
-
   .title
     display: block
     overflow: hidden
@@ -55,11 +50,9 @@ export default {
     font-size: 14px
     font-weight: 700
     color: $black
-
     span
       position: relative
       display: inline-block
-
       &:before,
       &:after
         content: ''
@@ -68,11 +61,9 @@ export default {
         width: 100vw
         height: 1px
         background: $grey
-
       &:before
         right: 100%
         margin-right: 1rem
-
       &:after
         left: 100%
         margin-left: 1rem

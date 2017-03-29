@@ -20,7 +20,6 @@
     width: 100px
     position: relative
     margin: 2rem auto 0
-
     &::before
       content: ''
       height: 1px
@@ -32,7 +31,6 @@
       position: relative
       top: 77px
       left: 41px
-
     img
       position: relative
       bottom: -1px
@@ -43,7 +41,6 @@
       object-position: left
       filter: drop-shadow(1px 1px 1px rgba($primary, .3))
       margin-left: 21px
-
     p
       text-align: center
       margin-top: .5rem
