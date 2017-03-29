@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Resource from 'vue-resource'
 import Meta from 'vue-meta'
 import Home from 'components/Home'
 import User from 'components/User'
@@ -12,7 +11,6 @@ import Bugs from 'components/Bugs'
 import E404 from 'components/404'
 
 Vue.use(Router)
-Vue.use(Resource)
 Vue.use(Meta)
 
 export default new Router({

@@ -64,7 +64,7 @@
       fetchData () {
         this.error = this.manga = null
         this.loading = true
-        this.$http.get(`https://kitsu.io/api/edge/manga?filter[slug]=${this.$route.params.query}`, {}, {
+        /* this.$http.get(`https://kitsu.io/api/edge/manga?filter[slug]=${this.$route.params.query}`, {}, {
           headers: {
             'Content-Type': 'application/vnd.api+json',
             'Accept': 'application/vnd.api+json',
@@ -87,7 +87,7 @@
         })
         .catch((error) => {
           this.error = error.toString()
-        })
+        }) */
       }
     }
   }
