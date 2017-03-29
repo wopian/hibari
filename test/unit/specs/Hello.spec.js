@@ -13,6 +13,7 @@ describe('Hello.vue', () => {
   it('renders to a nice snapshot', () => {
     const renderer = require('vue-server-renderer').createRenderer()
     renderer.renderToString(vm, (err, str) => {
+      if (err) console.error(err)
       expect(str).toMatchSnapshot()
     })
   })
