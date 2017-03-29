@@ -4,12 +4,11 @@ platform:
 - x64
 cache:
 - node_modules
+- "%LOCALAPPDATA%\\Yarn"
 install:
 - ps: Install-Product node $env:nodejs_version $env:platform
-- npm update
-- npm prune
-- npm i
+- yarn
 test_script:
-- npm start test
+- yarn test
 - npm start build
 build: off

@@ -10,7 +10,7 @@ scripts:
       script: node build/build.js --report
       description: build from source code & generate a report on file size
   test:
-    script: jest
+    script: jest --coverage
     description: run tests with jest
   lint:
     script: eslint --ext .js,.vue client test/unit/specs

@@ -17,14 +17,14 @@ install:
 - travis_retry yarn global add phantomjs-prebuilt
 - travis_retry yarn install
 before_script:
-- npm start test
+- yarn test
 script:
 - npm start build
 after_success:
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test $TRAVIS_OS_NAME == "linux" && bash deploy.sh
 - bash yarn.sh
 - travis_retry yarn global add codeclimate-test-reporter
-- codeclimate-test-reporter < test/unit/coverage/lcov.info
+- codeclimate-test-reporter < test/coverage/lcov.info
 addons:
   code_climate:
     repo_token: d4e9d96b88184c8841c0f11761fe17e51e4f2ee53e07b5204f7049a7f286bd61
