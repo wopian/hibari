@@ -86,13 +86,11 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "client/**/*.vue",
-      "client/**/*.js"
+      "client/**/*.{js,vue}"
     ],
     "coveragePathIgnorePatterns": [
-      "<rootDir>/client/(main|pwa).js",
-      "<rootDir>/client/components/util/(Kitsu|Spinner).vue",
-      "<rootDir>/client/locales"
+      "client/components/util/(Kitsu|Spinner).vue",
+      "client/(locales|(main|pwa).js)"
     ],
     "coverageDirectory": "<rootDir>/test/coverage",
     "coverageReporters": [
@@ -105,9 +103,7 @@
     ],
     "moduleNameMapper": {
       "client/components/([^\\.]*)$": "<rootDir>/client/components/$1.vue",
-      "^vue$": "vue/dist/vue.common.js",
-      "client/([^\\.]*)$": "<rootDir>/client/$1.vue",
-      "(.*)/(.*)$": "$1/$2.vue"
+      "client/([^\\.]*)$": "<rootDir>/client/$1.vue"
     },
     "transform": {
       "^.+\\.js$": "<rootDir>/node_modules/babel-jest",

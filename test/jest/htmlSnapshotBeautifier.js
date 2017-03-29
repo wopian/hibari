@@ -1,4 +1,3 @@
-const snapshot = require('jest-snapshot')
 const beautify = require('js-beautify').html
 
 module.exports = {
