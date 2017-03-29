@@ -17,8 +17,6 @@ engines:
       extensions:
       - .js
       - .vue
-  stylelint:
-    enabled: true
   fixme:
     enabled: true
   # Waiting on https://github.com/nodesecurity/nsp/pull/142 to support yarn.lock
