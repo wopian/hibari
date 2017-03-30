@@ -56,6 +56,7 @@
     @extend .navbar
     @extend .navbar-light
     @extend .fixed-top
+    padding: calc(.4rem + 1px) 1rem
     background: $primary
     transition: background 400ms ease-out
     overflow-y: hidden
