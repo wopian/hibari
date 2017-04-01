@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.2.0] - 2017-04-01
+
+### Fixed
+
+- X-overflow caused by user nav width
+- Displaying placeholder content while refreshing cache
+
+### Changed
+
+- User favourites are paginated instead of as a huge list
+- Improved the homepage layout
+- Header height tweaked to match Kitsu
+
 ## [0.2.0-rc.1] - 2017-03-20
 
 ### Fixed
@@ -75,6 +88,7 @@
 - Basic functionality. No styling or formating, just displaying user, anime &
   manga information via Kitsu's API.
 
+[0.2.0]:https://github.com/wopian/hibari/compare/0.2.0-rc.1...0.2.0
 [0.2.0-rc.1]:https://github.com/wopian/hibari/compare/0.1.0...0.2.0-rc.1
 [0.1.0]:https://github.com/wopian/hibari/compare/0.0.1...0.1.0
 [0.0.1]:https://github.com/wopian/hibari/compare/0.0.1-alpha...0.0.1
