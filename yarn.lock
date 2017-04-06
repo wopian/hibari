@@ -1920,9 +1920,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-standard@~10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-10.0.0.tgz#29f3625eafc490b89592506d25e3f4477770b973"
+eslint-config-standard@~10.1.0:
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-10.1.0.tgz#56fa94642f70a431cfd2c4e749debe1210c065ba"
 
 eslint-friendly-formatter@~2.0.7:
   version "2.0.7"
