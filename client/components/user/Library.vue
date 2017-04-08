@@ -21,11 +21,11 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/grid
+<style lang='sass' scoped>
+  // @import ~bootstrap/scss/variables
+  // @import ~bootstrap/scss/mixins
+  // @import ~bootstrap/scss/grid
 
   .library
-    @extend .container
+    // @extend .container
 </style>

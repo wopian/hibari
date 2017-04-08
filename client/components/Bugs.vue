@@ -1,5 +1,5 @@
 <template lang='pug'>
-  main.bugs
+  main.container
     h2 {{ $t('bugs.title') }}
     p(v-html='$t("bugs.body")')
     p {{ $t('bugs.requirements') }}
@@ -29,19 +29,15 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/grid
+<style lang='sass' scoped>
   @import ~assets/variables
 
-  main.bugs
-    @extend .container
+  main
     padding-top: calc(56px + 1rem)
 
-    pre
-      padding: 1rem
-      border-radius: 3px
-      border: 1px solid rgba($primary, .1)
-      background: darken($white, 1)
+  pre
+    padding: 1rem
+    border-radius: 3px
+    border: 1px solid rgba($primary, .1)
+    background: darken($white, 1)
 </style>

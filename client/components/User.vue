@@ -245,8 +245,10 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/bootstrap.scss
+<style lang='sass' scoped>
+  // @import ~bootstrap/scss/bootstrap.scss
+  // @import ~bootstrap/scss/variables
+  // @import ~bootstrap/scss/mixins
   @import ~assets/variables
 
   main.user
@@ -309,7 +311,7 @@
             line-height: 1
 
         a
-          @extend .btn
+          // @extend .btn
           font-size: 12px
           padding: 8px 40px
           margin-bottom: 10px
@@ -318,7 +320,7 @@
           line-height: 1.25
 
       nav
-        @extend .navbar
+        // @extend .navbar
         background: $purewhite
         border-bottom: 1px solid $grey
         padding: 0
@@ -328,12 +330,12 @@
         transition: background 300ms ease-out
 
         div
-          @extend .container
-          @extend .nav
+          // @extend .container
+          // @extend .nav
           padding-right: 0
 
         a
-          @extend .nav-link
+          // @extend .nav-link
           color: rgba(black, .3)
           transition: color 100ms ease-out
           padding: 10px 20px
@@ -352,28 +354,28 @@
             transition: color 100ms ease-in-out
 
         span
-          @extend .navbar-text
-          @extend .ml-auto
+          // @extend .navbar-text
+          // @extend .ml-auto
           color: rgba(black, .3)
           padding: 10px 0 10px 20px
           font-size: 14px
 
       .content
-        @extend .container
+        // @extend .container
         margin-top: 1rem
 
         > div
-          @extend .row
+          // @extend .row
 
         .left, .right
-          @extend .col
+          // @extend .col
 
-        @include media-breakpoint-up(md)
+        // @include media-breakpoint-up(md)
           .right
             text-align: right
 
         h1, .waifu
-          @extend .display-4
+          // @extend .display-4
 
         span
           display: block

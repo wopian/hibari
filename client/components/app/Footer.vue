@@ -1,7 +1,7 @@
 <template lang='pug'>
-  footer
-    div
-      a.mr-auto(href='https://github.com/wopian/hibari' rel='noopener' target='_blank') Github
+  footer.navbar
+    .container.nav
+      a.nav-link.mr-auto(href='https://github.com/wopian/hibari' rel='noopener' target='_blank') Github
       span.navbar-text Version {{ VERSION }}
 </template>
 
@@ -15,33 +15,17 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/grid
-  @import ~bootstrap/scss/nav
-  @import ~bootstrap/scss/navbar
+<style lang='sass' scoped>
   @import ~assets/variables
 
-  // Push footer up if notice visible
-  // Else footer is hidden behind it
-  #app > footer:nth-child(4)
-    margin-bottom: 6rem
-
   footer
-    @extend .navbar
     height: 54px
     background: $grey
     margin-top: 1rem
 
-    div
-      @extend .container
-      @extend .nav
-
-    a
-      @extend .nav-link
-      cursor: pointer
-      color: $black
-      &:hover
-        color: $primary
+  a
+    cursor: pointer
+    color: $black
+    &:hover
+      color: $primary
 </style>

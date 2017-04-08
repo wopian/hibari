@@ -178,56 +178,56 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/grid
-  @import ~bootstrap/scss/card
-  @import ~bootstrap/scss/media
-  @import ~bootstrap/scss/buttons
+<style lang='sass' scoped>
+  // @import ~bootstrap/scss/variables
+  // @import ~bootstrap/scss/mixins
+  // @import ~bootstrap/scss/grid
+  // @import ~bootstrap/scss/card
+  // @import ~bootstrap/scss/media
+  // @import ~bootstrap/scss/buttons
   @import ~assets/variables
 
   section.profile
-    @extend .container
+    // @extend .container
     padding: 0 15px
     margin-top: 30px
 
-    @include media-breakpoint-up(sm)
+    // @include media-breakpoint-up(sm)
       &
         padding: 0
 
     > div:first-of-type
-      @extend .row
+      // @extend .row
 
     .left
-      @extend .col-md-8
-      @extend .col-sm-12
+      // @extend .col-md-8
+      // @extend .col-sm-12
 
     .right
-      @extend .col-md-4
-      @extend .col-sm-12
+      // @extend .col-md-4
+      // @extend .col-sm-12
       order: -1
-      @include media-breakpoint-up(md)
+      // @include media-breakpoint-up(md)
         order: 1
 
     .sociability
-      @extend .row
+      // @extend .row
       display: flex
       flex-flow: row wrap
 
     .card
-      @extend .card-block
+      // @extend .card-block
       text-align: center
       box-shadow: 0 1px 4px rgba($black, .04)
       border: 1px solid rgba($black, .09)
       margin: 0 7.5px 15px
       min-width: 10rem
       p:first-of-type
-        @extend .card-title
+        // @extend .card-title
         font-size: 2rem
         margin-bottom: 0
       p:last-of-type
-        @extend .card-text
+        // @extend .card-text
 
     .favourites
       a
@@ -270,7 +270,7 @@
           flex: 1 1 100%
           text-align: center
           a
-            @extend .btn
+            // @extend .btn
             width: 100%
             height: 30px
             font-size: 12px

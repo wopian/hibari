@@ -1,7 +1,7 @@
 <template lang='pug'>
-  section.notice(v-if='show && !matches || !cookie')
-    div
-      button(@click='Hide()')
+  section.alert.alert-dismissible(v-if='show && !matches || !cookie')
+    .container
+      button.close(@click='Hide()')
         span &times;
       div
         p(v-html='$t("notice.content")')
@@ -37,18 +37,10 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/grid
-  @import ~bootstrap/scss/alert
-  @import ~bootstrap/scss/close
-  @import ~bootstrap/scss/utilities
+<style lang='sass' scoped>
   @import ~assets/variables
 
-  section.notice
-    @extend .alert
-    @extend .alert-dismissible
+  section
     border-radius: 0
     margin-bottom: 0
     background: $primary
@@ -57,39 +49,37 @@
     z-index: 1
     position: sticky
     bottom: 0
-    padding: 1.5rem 0
 
-    > div
-      @extend .container
-      display: flex
-      flex-direction: row
-      flex-wrap: nowrap
-      justify-content: space-between
-      align-content: stretch
-      align-items: center
-      height: 100%
+  .container
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-between
+    align-content: stretch
+    align-items: center
+    height: 100%
 
-      div
-        order: 0
-        flex: 1 1 auto
-        align-self: auto
-        text-align: center
+    div
+      order: 0
+      flex: 1 1 auto
+      align-self: auto
+      text-align: center
 
-    p:last-of-type
-      @extend .mb-0
+  p
+    margin-bottom: 0
 
-    a
-      color: $kitsu
+  a
+    color: $kitsu
 
-    button
-      @extend .close
-      order: 1
-      flex: 0 1 auto
-      align-self: center
-      top: 0
-      right: 0
-      padding-left: 15px
+  button
+    order: 1
+    flex: 0 1 auto
+    align-self: center
+    top: 0
+    right: 0
+    padding-left: 15px
+    position: inherit
 
-      span
-        color: $white
+    span
+      color: $white
 </style>

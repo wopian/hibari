@@ -1,10 +1,10 @@
 <template lang='pug'>
-  header(v-bind:class='{ transparent: position }')
-    nav
-      h1 {{ $t('hibari') }}
+  header.navbar.fixed-top.navbar-light(v-bind:class='{ transparent: position }')
+    nav.nav.container
+      h1.navbar-brand.mb-0 {{ $t('hibari') }}
         span(v-if='development') Dev
-      router-link(:to='{ name: "Home" }') {{ $t('navigation.home') }}
-      router-link(:to='{ name: "Bugs" }') {{ $t('navigation.bugs') }}
+      router-link.nav-link(:to='{ name: "Home" }') {{ $t('navigation.home') }}
+      router-link.nav-link(:to='{ name: "Bugs" }') {{ $t('navigation.bugs') }}
       language-switcher
 </template>
 
@@ -43,55 +43,38 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/grid
-  @import ~bootstrap/scss/nav
-  @import ~bootstrap/scss/navbar
-  @import ~bootstrap/scss/utilities
+<style lang='sass' scoped>
   @import ~assets/variables
 
   header
-    @extend .navbar
-    @extend .navbar-light
-    @extend .fixed-top
     padding: calc(.4rem + 1px) 1rem
     background: $primary
     transition: background 400ms ease-out
     overflow-y: hidden
-
     &.transparent
       background: transparent
       transition: background 400ms ease-in-out
-
       &:hover
         background: rgba($primary, .95)
         transition: background 300ms ease-in-out
 
-    nav
-      @extend .nav
-      @extend .container
-      flex-align: flex-start
+  nav
+    flex-align: flex-start
 
-    h1
-      @extend .navbar-brand
-      @extend .mb-0
-      padding-left: 15px
+  h1
+    padding-left: 15px
+    color: $white
+    font-weight: 700
+    cursor: default
+    &:hover
       color: $white
-      font-weight: 700
-      cursor: default
-      &:hover
-        color: $white
-      span
-        font-weight: 400
+    span
+      font-weight: 400
 
-    a
-      @extend .nav-link
-      transition: color 200ms ease-out
-      color: rgba($white, .7)
-
-      &:hover
-        color: $white
-        transition: color 100ms ease-in
+  a
+    transition: color 200ms ease-out
+    color: rgba($white, .7)
+    &:hover
+      color: $white
+      transition: color 100ms ease-in
 </style>

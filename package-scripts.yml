@@ -1,13 +1,13 @@
 scripts:
   dev:
-    script: babel-node build/dev-server.js
+    script: babel-node --presets env,stage-0 build/dev-server.js
     description: run server and watch for changes
   build:
     default:
-      script: babel-node build/build.js
+      script: babel-node --presets env,stage-0 build/build.js
       description: build from source code
     report:
-      script: babel-node build/build.js --report
+      script: babel-node --presets env,stage-0 build/build.js --report
       description: build from source code & generate a report on file size
   test:
     script: jest --coverage

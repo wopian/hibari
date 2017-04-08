@@ -12,7 +12,7 @@ export default {
     bugs: 'Bugs'
   },
   home: {
-    strapline: 'Stats for <a href=\'//kitsu.io\'><strong>Kitsu</strong></a>',
+    strapline: 'Stats for ',
     user: {
       head: 'Stats for',
       body: 'Search for {username} on Kitsu',

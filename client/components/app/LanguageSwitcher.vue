@@ -1,6 +1,6 @@
 <template lang='pug'>
-  .switcher
-    button(v-for='lang in languages' @click='Select(lang.code)') {{ lang.code }}
+  .nav.ml-auto
+    button.nav-link(v-for='lang in languages' @click='Select(lang.code)') {{ lang.code }}
 </template>
 
 <script>
@@ -34,29 +34,22 @@
   }
 </script>
 
-<style lang='sass'>
-  @import ~bootstrap/scss/variables
-  @import ~bootstrap/scss/mixins
-  @import ~bootstrap/scss/nav
-  @import ~bootstrap/scss/utilities/spacing
+<style lang='sass' scoped>
   @import ~assets/variables
 
-  .switcher
-    @extend .nav
-    @extend .ml-auto
+  .nav
     position: relative
     top: 2px
 
-    button
-      @extend .nav-link
-      flex: 0 1 auto
-      cursor: pointer
-      color: rgba($white, .7)
-      background: transparent
-      border: 0
-      padding: .5em .5rem
-      font-size: .75rem
+  button
+    flex: 0 1 auto
+    cursor: pointer
+    color: rgba($white, .7)
+    background: transparent
+    border: 0
+    padding: .5em .5rem
+    font-size: .75rem
 
-      &:hover
-        color: $white
+    &:hover
+      color: $white
 </style>
