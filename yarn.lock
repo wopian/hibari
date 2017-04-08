@@ -1368,9 +1368,9 @@ commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/commondir/-/commondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
 
-compression-webpack-plugin@~0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/compression-webpack-plugin/-/compression-webpack-plugin-0.3.2.tgz#1edfb0e749d7366d3e701670c463359b2c0cf704"
+compression-webpack-plugin@~0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/compression-webpack-plugin/-/compression-webpack-plugin-0.4.0.tgz#811de04215f811ea6a12d4d8aed8457d758f13ac"
   dependencies:
     async "0.2.x"
     webpack-sources "^0.1.0"
@@ -2067,7 +2067,7 @@ eslint-plugin-import@~2.2.0:
     minimatch "^3.0.3"
     pkg-up "^1.0.0"
 
-eslint-plugin-jest@^19.0.1:
+eslint-plugin-jest@~19.0.1:
   version "19.0.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-19.0.1.tgz#42a420e90e81aa74e162c16166e43a31b890eece"
 
@@ -5711,7 +5711,7 @@ uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
 
-uglifyjs-webpack-plugin@^0.4.1:
+uglifyjs-webpack-plugin@~0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-0.4.1.tgz#7a3fb941ba43986ebf66fbec5accf04731f9f293"
   dependencies:
@@ -5886,9 +5886,9 @@ vue-paginate@~3.4.0:
   dependencies:
     vue "^2.0.5"
 
-vue-router@~2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.3.0.tgz#a25c8359e8ca989d22ce79f64322eb0ad0c8670f"
+vue-router@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.4.0.tgz#56a635e1434a1966ac095f2a485bebdcfc36cec5"
 
 vue-server-renderer@~2.2.6:
   version "2.2.6"
