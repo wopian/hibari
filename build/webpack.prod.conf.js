@@ -7,6 +7,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 var OfflinePlugin = require('offline-plugin')
 var GitRevisionPlugin = require('git-revision-webpack-plugin')
 var gitRevisionPlugin = new GitRevisionPlugin({
@@ -35,11 +36,24 @@ var webpackConfig = merge(baseWebpackConfig, {
       'process.env': env,
       'VERSION': JSON.stringify(gitRevisionPlugin.version()),
     }),
+    // UglifyJS2 doesn't support ES6 still
+    // https://github.com/mishoo/UglifyJS2/issues/448
+    /*
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      sourceMap: true
+      sourceMap: false
+    }),
+    */
+    // Workaround for above
+    // Remove uglify-js and uglifyjs-webpack-plugin when resolved
+    new UglifyJSPlugin({
+      compress: {
+        warnings: false
+      },
+      comments: false,
+      sourceMap: false,
     }),
     // extract css into its own file
     new ExtractTextPlugin({
