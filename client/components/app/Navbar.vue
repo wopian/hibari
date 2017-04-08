@@ -1,11 +1,11 @@
 <template lang='pug'>
   header.navbar.fixed-top.navbar-light(v-bind:class='{ transparent: position }')
-    nav.nav
-      h1.navbar-brand.mb-0 {{ $t('hibari') }}
-        span(v-if='development') Dev
-      router-link.nav-link(:to='{ name: "Home" }') {{ $t('navigation.home') }}
-      router-link.nav-link(:to='{ name: "Bugs" }') {{ $t('navigation.bugs') }}
-      language-switcher
+      nav.nav.container
+        h1.navbar-brand.mb-0 {{ $t('hibari') }}
+          span(v-if='development') Dev
+        router-link.nav-link(:to='{ name: "Home" }') {{ $t('navigation.home') }}
+        router-link.nav-link(:to='{ name: "Bugs" }') {{ $t('navigation.bugs') }}
+        language-switcher
 </template>
 
 <script>
@@ -60,9 +60,10 @@
 
   nav
     flex-align: flex-start
+    padding-right: 0
 
   .navbar-brand
-    padding-left: 15px
+    padding-left: 0
     color: $white
     font-weight: 700
     cursor: default
