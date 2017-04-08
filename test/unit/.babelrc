@@ -1,0 +1,11 @@
+// babel-jest is a PITA and only looks for .babelrc
+{
+  "presets":["env","stage-0"],
+  "plugins":["transform-runtime"],
+  "comments":false,
+  "env":{
+    "test":{
+      "plugins":["istanbul"]
+    }
+  }
+}
