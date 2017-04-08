@@ -1,6 +1,6 @@
 <template lang='pug'>
   header.navbar.fixed-top.navbar-light(v-bind:class='{ transparent: position }')
-    nav.nav.container
+    nav.nav
       h1.navbar-brand.mb-0 {{ $t('hibari') }}
         span(v-if='development') Dev
       router-link.nav-link(:to='{ name: "Home" }') {{ $t('navigation.home') }}
@@ -61,7 +61,7 @@
   nav
     flex-align: flex-start
 
-  h1
+  .navbar-brand
     padding-left: 15px
     color: $white
     font-weight: 700
