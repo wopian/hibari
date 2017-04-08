@@ -1,10 +1,10 @@
 <template lang='pug'>
   section.alert.alert-dismissible(v-if='show && !matches || !cookie')
     .container
-      button.close(@click='Hide()')
-        span &times;
       div
         p(v-html='$t("notice.content")')
+      button.close(@click='Hide()')
+        span &times;
 </template>
 
 <script>
@@ -60,7 +60,6 @@
     height: 100%
 
     div
-      order: 0
       flex: 1 1 auto
       align-self: auto
       text-align: center
@@ -72,13 +71,10 @@
     color: $kitsu
 
   button
-    order: 1
-    flex: 0 1 auto
-    align-self: center
-    top: 0
-    right: 0
-    padding-left: 15px
-    position: inherit
+    // Fix .alert-dismissible .close
+    // specificity overiding this
+    top: 0 !important
+    right: -2rem !important
 
     span
       color: $white
