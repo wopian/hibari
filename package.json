@@ -29,7 +29,7 @@
     "vue-i18n": "~5.0.3",
     "vue-meta": "~0.5.3",
     "vue-paginate": "^3.4.0",
-    "vue-router": "~2.3.0",
+    "vue-router": "~2.4.0",
     "vuex": "~2.2.1",
     "vuex-router-sync": "~4.1.2"
   },
