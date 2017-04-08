@@ -11,7 +11,7 @@
           .right.col-5
             //- p {{ $t('home.user.body', { username: slugify(userInput) || 'a user' }) }}
             input.form-control.form-control-lg(v-model='userInput' v-bind:placeholder='$t("home.user.placeholder")' type='text')
-            router-link.col-sm-8.btn.btn-lg.col-sm-8(:to='"/@" + slugify(userInput)') {{ $t('home.user.action') }}
+            router-link.btn.btn-lg.btn-block(:to='"/@" + slugify(userInput)') {{ $t('home.user.action') }}
 
     section.jumbotron
       .container
@@ -70,7 +70,7 @@
         padding: 0
         p
           color: rgba($white, .7)
-        h1 > a
+        a
           text-decoration: none
           color: $white
           border-bottom: 2px solid rgba($kitsu, .8)
