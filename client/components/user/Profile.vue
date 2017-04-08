@@ -228,7 +228,7 @@
         vertical-align: middle
       ul:not(.paginate-links)
         position: sticky
-        top: 98px
+        top: 54.78px + 42px
         z-index: 1
         background: rgba($white, .96)
         margin: -15px 0
