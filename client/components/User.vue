@@ -1,9 +1,9 @@
 <template lang='pug'>
-  main.user
+  main
 
-    section.error(v-if='error') Error: {{ error }}
+    .error(v-if='error') Error: {{ error }}
 
-    section.content(v-else)
+    .content(v-else)
       //- Cover to display  when data loaded
       .cover(
         v-if='user'
@@ -14,7 +14,7 @@
           div
             h2 {{ user.attributes.name }}
               span(v-if='user.attributes.title') {{ user.attributes.title }}
-            a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
+            a.btn(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
       //- Placeholder cover while data loads
       .cover(
@@ -25,13 +25,13 @@
           img(src='/kitsu/default_avatar.png')
           div
             h2 {{ slug }}
-            a(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
+            a.btn(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
-      nav
-        div
-          router-link(:to='{ name: "Profile" }' exact) {{ $t('user.navigation.profile') }}
-          router-link(:to='{ name: "Library" }' exact) {{ $t('user.navigation.library') }}
-          span(v-if='updated') Updated {{ updated }}
+      nav.navbar
+        .container.nav
+          router-link.nav-link(:to='{ name: "Profile" }' exact) {{ $t('user.navigation.profile') }}
+          router-link.nav-link(:to='{ name: "Library" }' exact) {{ $t('user.navigation.library') }}
+          .navbar-text.ml-auto(v-if='updated') Updated {{ updated }}
 
       router-view(
         v-bind:slug='slug'
@@ -251,134 +251,104 @@
   // @import ~bootstrap/scss/mixins
   @import ~assets/variables
 
-  main.user
-    section.error
-      padding-top: calc(56px + 1rem)
+  .error
+    padding-top: calc(56px + 1rem)
 
-    section.content
-      .cover
-        height: 400px
-        background-color: $primary
-        background-size: cover
-        background-position: center
-        position: relative
+  .content
+    .cover
+      height: 400px
+      background-color: $primary
+      background-size: cover
+      background-position: center
+      position: relative
+      display: flex
+      align-items: flex-end
+
+      &:before
+        content: ''
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background: rgba(black, .5)
+
+      > div
+        padding-bottom: 30px
+        padding-left: 0
         display: flex
+        flex-direction: row
+        justify-content: flex-start
         align-items: flex-end
 
-        &:before
-          content: ''
-          position: absolute
-          top: 0
-          right: 0
-          bottom: 0
-          left: 0
-          background: rgba(black, .5)
-
-        > div
-          padding-bottom: 30px
-          padding-left: 0
-          display: flex
-          flex-direction: row
-          justify-content: flex-start
-          align-items: flex-end
-
-          div
-            padding-left: 1px
-
-        img
-          border-radius: 999rem
-          width: 100px
-          z-index: 501
-          pointer-events: none
-          margin-right: 24px
-
-        h2
-          color: $white
-          font-weight: 500
-          font-size: 30px
-          padding-bottom: 1px
-
-          span
-            background: $kitsu
-            border-radius: 3px
-            text-transform: uppercase
-            font-size: 13px
-            padding: 3px 10px
-            position: relative
-            left: 8px
-            top: -4px
-            font-weight: 400
-            line-height: 1
-
-        a
-          // @extend .btn
-          font-size: 12px
-          padding: 8px 40px
-          margin-bottom: 10px
-          background: $kitsu
-          color: $white
-          line-height: 1.25
-
-      nav
-        // @extend .navbar
-        background: $purewhite
-        border-bottom: 1px solid $grey
-        padding: 0
-        position: sticky
-        top: 56px
-        z-index: 100
-        transition: background 300ms ease-out
-
         div
-          // @extend .container
-          // @extend .nav
-          padding-right: 0
+          padding-left: 1px
 
-        a
-          // @extend .nav-link
-          color: rgba(black, .3)
-          transition: color 100ms ease-out
-          padding: 10px 20px
-          font-size: 14px
-          border-left: 1px solid $grey
+      img
+        border-radius: 999rem
+        width: 100px
+        z-index: 501
+        pointer-events: none
+        margin-right: 24px
 
-          &.router-link-active
-            color: $primary
-
-          &:last-of-type
-            border-right: 1px solid $grey
-
-          &:hover:not(.router-link-active)
-            color: rgba($primary, .8)
-            background: $white
-            transition: color 100ms ease-in-out
+      h2
+        color: $white
+        font-weight: 500
+        font-size: 30px
+        padding-bottom: 1px
 
         span
-          // @extend .navbar-text
-          // @extend .ml-auto
-          color: rgba(black, .3)
-          padding: 10px 0 10px 20px
-          font-size: 14px
+          background: $kitsu
+          border-radius: 3px
+          text-transform: uppercase
+          font-size: 13px
+          padding: 3px 10px
+          position: relative
+          left: 8px
+          top: -4px
+          font-weight: 400
+          line-height: 1
 
-      .content
-        // @extend .container
-        margin-top: 1rem
+      a
+        font-size: 12px
+        padding: 8px 40px
+        margin-bottom: 10px
+        background: $kitsu
+        color: $white
+        line-height: 1.25
 
-        > div
-          // @extend .row
+    nav
+      background: $purewhite
+      border-bottom: 1px solid $grey
+      padding: 0
+      position: sticky
+      top: 54.78px
+      z-index: 100
+      transition: background 300ms ease-out
 
-        .left, .right
-          // @extend .col
+      div
+        padding-right: 0
 
-        // @include media-breakpoint-up(md)
-          .right
-            text-align: right
+      a
+        color: rgba(black, .3)
+        transition: color 100ms ease-out
+        padding: 10px 20px
+        font-size: 14px
+        border-left: 1px solid $grey
 
-        h1, .waifu
-          // @extend .display-4
+        &.router-link-active
+          color: $primary
 
-        span
-          display: block
-          padding-top: .5rem
-          font-size: 1.5rem
+        &:last-of-type
+          border-right: 1px solid $grey
+
+        &:hover:not(.router-link-active)
+          color: rgba($primary, .8)
+          background: $white
+          transition: color 100ms ease-in-out
+
+      .navbar-text
+        color: rgba(black, .3)
+        padding: 10px 0 10px 20px
+        font-size: 14px
 </style>

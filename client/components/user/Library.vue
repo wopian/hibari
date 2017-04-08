@@ -1,5 +1,5 @@
 <template lang='pug'>
-  .library
+  .section.container
     p Whelp
 </template>
 

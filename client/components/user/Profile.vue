@@ -1,28 +1,28 @@
 <template lang='pug'>
-  section.profile(v-if='user')
-    div
-      .left
+  section.container(v-if='user')
+    .row
+      .left.col-md-8.col-sm-12
         .title
           span {{ $t('user.sociability.title') }}
-        .sociability
-          .card
-            p {{ user.attributes.postsCount }}
-            p {{ $t('user.sociability.postsCount') }}
-          .card
-            p {{ user.attributes.commentsCount }}
-            p {{ $t('user.sociability.commentsCount') }}
-          .card
-            p {{ user.attributes.likesGivenCount }}
-            p {{ $t('user.sociability.likesGivenCount') }}
-          .card
-            p {{ user.attributes.likesReceivedCount }}
-            p {{ $t('user.sociability.likesReceivedCount') }}
-          .card
-            p {{ user.attributes.followingCount }}
-            p {{ $t('user.sociability.followingCount') }}
-          .card
-            p {{ user.attributes.followersCount }}
-            p {{ $t('user.sociability.followersCount') }}
+        .sociability.row
+          .card.card-block
+            p.card-title {{ user.attributes.postsCount }}
+            p.card-text {{ $t('user.sociability.postsCount') }}
+          .card.card-block
+            p.card-title {{ user.attributes.commentsCount }}
+            p.card-text {{ $t('user.sociability.commentsCount') }}
+          .card.card-block
+            p.card-title {{ user.attributes.likesGivenCount }}
+            p.card-text {{ $t('user.sociability.likesGivenCount') }}
+          .card.card-block
+            p.card-title {{ user.attributes.likesReceivedCount }}
+            p.card-text {{ $t('user.sociability.likesReceivedCount') }}
+          .card.card-block
+            p.card-title {{ user.attributes.followingCount }}
+            p.card-text {{ $t('user.sociability.followingCount') }}
+          .card.card-block
+            p.card-title {{ user.attributes.followersCount }}
+            p.card-text {{ $t('user.sociability.followersCount') }}
 
         .title
           span Recent Activity
@@ -35,8 +35,6 @@
 
         .title
           span Manga Stats
-
-
 
         //- RAW API DUMP START
         .title
@@ -70,7 +68,7 @@
           pre(v-else) User has no favourites
         //- RAW API DUMP END
 
-      .right
+      .right.col-md-4.col-sm-12
         .title
           span About Me
         p.os {{ user.attributes.about }}
@@ -114,6 +112,7 @@
                 for='favAnime'
                 v-bind:simple='{ prev: "Back", next: "Next" }'
                 v-bind:hide-single-page='true'
+                v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
 
             //- Display anime favourites when active
@@ -132,6 +131,7 @@
                 for='favManga'
                 v-bind:simple='{ prev: "Back", next: "Next" }'
                 v-bind:hide-single-page='true'
+                v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
 
             //- Display anime favourites when active
@@ -150,6 +150,7 @@
                 for='favCharacters'
                 v-bind:simple='{ prev: "Back", next: "Next" }'
                 v-bind:hide-single-page='true'
+                v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
           //- stop: favourites container
 </template>
@@ -179,55 +180,36 @@
 </script>
 
 <style lang='sass' scoped>
-  // @import ~bootstrap/scss/variables
-  // @import ~bootstrap/scss/mixins
-  // @import ~bootstrap/scss/grid
-  // @import ~bootstrap/scss/card
-  // @import ~bootstrap/scss/media
-  // @import ~bootstrap/scss/buttons
+  @import ~bootstrap/scss/variables
+  @import ~bootstrap/scss/mixins/breakpoints
   @import ~assets/variables
 
-  section.profile
-    // @extend .container
+  section.container
     padding: 0 15px
     margin-top: 30px
 
-    // @include media-breakpoint-up(sm)
+    @include media-breakpoint-up(sm)
       &
         padding: 0
 
-    > div:first-of-type
-      // @extend .row
-
-    .left
-      // @extend .col-md-8
-      // @extend .col-sm-12
-
     .right
-      // @extend .col-md-4
-      // @extend .col-sm-12
       order: -1
-      // @include media-breakpoint-up(md)
+      @include media-breakpoint-up(md)
         order: 1
 
     .sociability
-      // @extend .row
       display: flex
       flex-flow: row wrap
 
     .card
-      // @extend .card-block
       text-align: center
       box-shadow: 0 1px 4px rgba($black, .04)
       border: 1px solid rgba($black, .09)
       margin: 0 7.5px 15px
       min-width: 10rem
       p:first-of-type
-        // @extend .card-title
         font-size: 2rem
         margin-bottom: 0
-      p:last-of-type
-        // @extend .card-text
 
     .favourites
       a
@@ -260,33 +242,6 @@
           &:hover
             color: $kitsu
             transition: color 100ms ease-in-out
-      .paginate-links
-        list-style: none
-        padding: 9px 0
-        margin-bottom: 0
-        display: flex
-        .prev,
-        .next
-          flex: 1 1 100%
-          text-align: center
-          a
-            // @extend .btn
-            width: 100%
-            height: 30px
-            font-size: 12px
-            cursor: not-allowed
-            line-height: 1.5
-            padding: .5em 0
-        .prev:not(.disabled),
-        .next:not(.disabled)
-          a
-            background: $primary
-            color: $white
-            cursor: pointer
-        .prev
-          padding-right: 3px
-        .next
-          padding-left: 3px
 
     .recent-activity
       margin-bottom: 30px
@@ -299,4 +254,35 @@
         max-width: 100%
         vertical-align: middle
         border-radius: 3px
+</style>
+
+<style lang='sass'>
+  @import ~assets/variables
+
+  .paginate-links
+    list-style: none
+    padding: 9px 0
+    margin-bottom: 0
+    display: flex
+    .prev,
+    .next
+      flex: 1 1 100%
+      text-align: center
+      a
+        width: 100%
+        height: 30px
+        font-size: 12px
+        cursor: not-allowed
+        line-height: 1.5
+        padding: .5em 0
+    .prev:not(.disabled),
+    .next:not(.disabled)
+      .btn
+        background: $primary
+        color: $white
+        cursor: pointer
+    .prev
+      padding-right: 3px
+    .next
+      padding-left: 3px
 </style>
