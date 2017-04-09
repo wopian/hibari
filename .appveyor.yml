@@ -10,5 +10,5 @@ install:
 - yarn
 test_script:
 - yarn test
-- npm start build
+- yarn start build
 build: off
