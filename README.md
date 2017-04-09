@@ -1,17 +1,9 @@
 # Hibari
 
 [![Website]][8]
+[![GitHub Rl]][1]
 
 User, anime & manga stats for [Kitsu][0]
-
-## Usage
-
-[![GitHub Rl]][1]
-[![Github Dl]][1]
-
-- Download the [latest release][1]
-- Extract the zip
-- Upload to web server
 
 ## Contributing
 
