@@ -83,7 +83,7 @@
     "url-loader": "~0.5.8",
     "vue-loader": "~11.3.4",
     "vue-server-renderer": "~2.2.6",
-    "vue-style-loader": "~2.0.3",
+    "vue-style-loader": "~3.0.0",
     "vue-template-compiler": "~2.2.1",
     "webpack": "~2.3.3",
     "webpack-bundle-analyzer": "~2.4.0",
