@@ -85,7 +85,7 @@
     "vue-server-renderer": "~2.2.6",
     "vue-style-loader": "~3.0.0",
     "vue-template-compiler": "~2.2.1",
-    "webpack": "~2.3.3",
+    "webpack": "~2.4.1",
     "webpack-bundle-analyzer": "~2.4.0",
     "webpack-dev-middleware": "~1.10.1",
     "webpack-hot-middleware": "~2.18.0",
