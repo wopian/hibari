@@ -25,7 +25,7 @@
     "moment": "~2.18.0",
     "offline-plugin": "~4.7.0",
     "vue": "~2.2.1",
-    "vue-analytics": "~3.2.0",
+    "vue-analytics": "~4.0.0",
     "vue-cookie": "~1.1.4",
     "vue-i18n": "~5.0.3",
     "vue-meta": "~0.5.6",
