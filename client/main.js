@@ -28,6 +28,12 @@ Vue.use(Cookie)
 Vue.use(I18n)
 Vue.use(Paginate)
 
+// Scroll to top of page on route change
+router.beforeEach((to, from, next) => {
+  window.scrollTo(0, 0)
+  next()
+})
+
 // Check if language cookie has been set
 // If so, use it
 // Else use English
