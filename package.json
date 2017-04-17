@@ -32,6 +32,7 @@
     "vue-paginate": "~3.4.0",
     "vue-router": "~2.4.0",
     "vuex": "~2.3.0",
+    "vuex-localstorage": "~1.0.0",
     "vuex-router-sync": "~4.1.2"
   },
   "devDependencies": {

@@ -1,10 +1,10 @@
-import axios from 'axios'
+import JsonApi from 'devour-client'
+// import axios from 'axios'
 
-export const Kitsu = axios.create({
-  baseURL: 'https://kitsu.io/api/edge/',
-  headers: {
-    'Content-Type': 'application/vnd.api+json',
-    'Accept': 'application/vnd.api+json'
-    // 'User-Agent': 'hibari'
-  }
+export const Kitsu = new JsonApi({
+  apiUrl: 'https://kitsu.io/api/edge',
+  logger: true
 })
+
+Kitsu.headers['X-Requested-With'] = 'Hibari (wopian)'
+Kitsu.headers['X-Forwarded-Host'] = 'hb.wopian.me'

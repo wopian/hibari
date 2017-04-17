@@ -1,37 +1,32 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import createPersist from 'vuex-localstorage'
 
 Vue.use(Vuex)
 
 const state = {
-  updated: {},
-  user: {},
-  waifu: {},
-  pinnedPost: {},
-  profileLinks: {},
-  favourites: {},
+  user: {
+    /*
+    'wopian': {
+      data: {},
+      updated: null
+    }
+    */
+  },
   anime: {},
   manga: {}
 }
 
 const mutations = {
-  UPDATED (state, payload) {
-    state.updated[payload[1]] = payload[0]
-  },
   USER (state, payload) {
-    state.user[payload[1]] = payload[0]
-  },
-  WAIFU (state, payload) {
-    state.waifu[payload[1]] = payload[0]
-  },
-  PINNEDPOST (state, payload) {
-    state.pinnedPost[payload[1]] = payload[0]
-  },
-  PROFILELINKS (state, payload) {
-    state.profileLinks[payload[1]] = payload[0]
-  },
-  FAVOURITES (state, payload) {
-    state.favourites[payload[1]] = payload[0]
+    // Create child objects if don't exist
+    if (!state.user[payload.slug]) {
+      state.user[payload.slug] = { user: {}, updated: null }
+    }
+
+    // Update store
+    state.user[payload.slug].user = payload.data.user
+    state.user[payload.slug].updated = payload.data.updated
   },
   ANIME (state, payload) {
     state.anime[payload[1]] = payload[0]
@@ -45,6 +40,12 @@ const actions = {
 }
 
 const store = new Vuex.Store({
+  plugins: [createPersist({
+    namespace: 'hibari',
+    initialState: {},
+    // ONE_WEEK
+    expires: 7 * 24 * 60 * 60 * 1e3
+  })],
   state,
   mutations,
   actions

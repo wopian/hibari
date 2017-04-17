@@ -7,13 +7,13 @@
       //- Cover to display  when data loaded
       .cover(
         v-if='user'
-        v-bind:style='{ backgroundImage: "url(" + (user.attributes.coverImage ? user.attributes.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
+        v-bind:style='{ backgroundImage: "url(" + (user.coverImage ? user.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
       )
         .container
-          img(v-bind:src='user.attributes.avatar ? user.attributes.avatar.large : "/kitsu/default_avatar.png"')
+          img(v-bind:src='user.avatar ? user.avatar.large : "/kitsu/default_avatar.png"')
           div
-            h2 {{ user.attributes.name }}
-              span(v-if='user.attributes.title') {{ user.attributes.title }}
+            h2 {{ user.name }}
+              span(v-if='user.title') {{ user.title }}
             a.btn(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
       //- Placeholder cover while data loads
@@ -36,10 +36,6 @@
       router-view(
         v-bind:slug='slug'
         v-bind:user='user'
-        v-bind:waifu='waifu'
-        v-bind:pinned='pinnedPost'
-        v-bind:profile-links='profileLinks'
-        v-bind:favourites='favourites'
       )
 
       spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
@@ -50,10 +46,91 @@
   import { Kitsu } from 'api'
   import Spinner from 'components/util/Loader'
 
+  Kitsu.define('user', {
+    name: '',
+    about: '',
+    location: '',
+    waifuOrHusbando: '',
+    followersCount: '',
+    createdAt: '',
+    followingCount: '',
+    lifeSpentOnAnime: '',
+    birthday: '',
+    gender: '',
+    updatedAt: '',
+    commentsCount: '',
+    favoritesCount: '',
+    likesGivenCount: '',
+    reviewsCount: '',
+    likesReceivedCount: '',
+    postsCount: '',
+    ratingsCount: '',
+    proExpiresAt: '',
+    title: '',
+    avatar: '',
+    coverImage: '',
+    waifu: {
+      jsonApi: 'hasOne',
+      type: 'characters'
+    },
+    pinnedPost: {
+      jsonApi: 'hasOne',
+      type: 'posts'
+    },
+    profileLinks: {
+      jsonApi: 'hasMany',
+      type: 'profileLinks'
+    },
+    favorites: {
+      jsonApi: 'hasMany',
+      type: 'favorites'
+    }
+  })
+
+  Kitsu.define('character', {
+    slug: '',
+    name: '',
+    image: ''
+  })
+
+  Kitsu.define('post', {
+    contentFormatted: '',
+    commentsCount: '',
+    postLikesCount: '',
+    spoiler: '',
+    nsfw: '',
+    createdAt: '',
+    editedAt: ''
+  })
+
+  Kitsu.define('profileLink', {
+    url: ''
+  })
+
+  Kitsu.define('favorite', {
+    favRank: '',
+    item: {
+      jsonApi: 'hasOne',
+      type: ['characters', 'anime', 'manga']
+    }
+  })
+
+  Kitsu.define('anime', {
+    slug: '',
+    canonicalTitle: '',
+    posterImage: ''
+  })
+
+  Kitsu.define('manga', {
+    slug: '',
+    canonicalTitle: '',
+    posterImage: ''
+  })
+
   export default {
     metaInfo () {
       return {
-        titleTemplate: `${this.user ? this.user.attributes.name : this.slug}'s %s | ${this.$t('hibari')}`
+        titleTemplate: `${this.user ? this.user.name : this.slug}'s %s | ${this.$t('hibari')}`
       }
     },
     components: {
@@ -65,11 +142,7 @@
         error: null,
         slug: this.$route.params.slug,
         updated: null,
-        user: null,
-        waifu: null,
-        pinnedPost: null,
-        profileLinks: null,
-        favourites: null
+        user: null
       }
     },
     created () {
@@ -81,40 +154,33 @@
       // Second we check local storage
       // Else download the data and add it to the vuex store and local storage
       checkStore () {
-        // Check vuex store
+        // Check vuex store for user
         if (this.$store.state.user[this.$route.params.slug] !== undefined) {
-          this.displayData(true)
+          this.displayData()
           console.info('[HB]: Data retrieved from store')
-        // Check local storage. If data is less than 30 minutes old use it.
-        } else if (localStorage.getItem(`user-${this.slug}`)) {
-          const local = JSON.parse(localStorage.getItem(`user-${this.slug}`))
-          this.updated = moment(local[0].updated).fromNow()
-          this.user = local[1].user
-          this.waifu = local[2].waifu[0]
-          this.pinnedPost = local[3].pinnedPost[0]
-          this.profileLinks = local[4].profileLinks
-          this.favourites = local[5].favourites
-          console.info('[HB]: Data retrieved from local storage')
-          if (moment().diff(local[0].updated, 'minutes') > 30) {
-            console.info('[HB]: Refreshing local storage data')
-            this.fetchData()
-            console.info('[HB]: Updated local storage from API')
-          }
-        // Local storage is empty
+        // Store is empty
         } else {
           this.loading = true
           this.fetchData()
           console.info('[HB]: Data retrieved from API')
         }
       },
-      displayData (cached, updated, user, include) {
-        this.updated = cached ? moment(this.$store.state.updated[this.slug]).fromNow() : moment(updated).fromNow()
-        this.user = cached ? this.$store.state.user[this.slug] : user
-        this.waifu = cached ? this.$store.state.waifu[this.slug][0] : include.waifu[0]
-        this.pinnedPost = cached ? this.$store.state.pinnedPost[this.slug] : include.pinnedPost[0]
-        this.profileLinks = cached ? this.$store.state.profileLinks[this.slug] : include.profileLinks
-        this.favourites = cached ? this.$store.state.favourites[this.slug] : include.favourites
+      displayData (updated, user, include) {
+        let userStore = this.$store.state.user[this.$route.params.slug]
+
+        // Push data to state
+        this.updated = moment(userStore.updated).fromNow()
+        this.user = userStore.user
+
+        // Disable loading state
         this.loading = false
+
+        // Refresh data if older than 30 minutes
+        if (moment().diff(userStore.updated, 'minutes') > 30) {
+          console.info('[HB]: Refreshing data')
+          this.fetchData()
+          console.info('[HB]: Updated store from API')
+        }
       },
       fetchData () {
         // TODO: Get only specific fields: ?fields[attributes]=slug
@@ -124,104 +190,41 @@
         // //kitsu.io/api/edge/users/42603/library-entries?include=anime&filter[since]=2017-01-08
         // GLobal:
         // //kitsu.io/api/edge/library-entries?filter[kind]=anime&filter[since]=2017-02-10&page[limit]=10
-        Kitsu.get(`users?include=waifu,pinnedPost,profileLinks,favorites.item&fields[characters]=slug,image&fields[manga]=slug,posterImage&fields[anime]=slug,posterImage&filter[name]=${this.$route.params.slug}`)
-        .then(d => {
-          d = d.data
-          if (d.meta.count === 0) {
-            this.error = 'No user exists'
-          } else {
-            const updated = moment()
-            let user, included, relation
-            let include = {}
+        // -----------------------------------------------------------------------------------------
 
-            user = d.data[0]
-            // delete user.relationships
-
-            relation = d.data[0].relationships
-            included = d.included
-            include.waifu = []
-            include.pinnedPost = []
-            include.profileLinks = []
-            include.favourites = {characters: [], manga: [], anime: []}
-
-            // Bind waifu relation to included data
-            if (relation.waifu.data !== null) {
-              included.forEach(link => {
-                if (relation.waifu.data.id === link.id) {
-                  include.waifu.push(link)
-                }
-              })
-            }
-
-            // Bind pinnedPost relation to included data
-            if (relation.pinnedPost.data !== null) {
-              included.forEach(link => {
-                if (relation.pinnedPost.data.id === link.id) {
-                  include.pinnedPost.push(link)
-                }
-              })
-            }
-
-            // Bind profileLinks relation to included data
-            relation.profileLinks.data.forEach(item => {
-              included.forEach(link => {
-                if (item.id === link.id) {
-                  include.profileLinks.push(link)
-                }
-              })
-            })
-
-            // Bind favourites relation to included data
-            relation.favorites.data.forEach(item => {
-              included.forEach(link => {
-                if (item.id === link.id) {
-                  const type = link.relationships.item.data.type
-                  include.favourites[type].push(
-                    Object.assign(
-                      link.attributes,
-                      included.filter(
-                        function (el) {
-                          if (el.id === link.relationships.item.data.id) {
-                            return true
-                          }
-                          return false
-                        }
-                      )
-                    )
-                  )
-                }
-              })
-            })
-
-            // Sort favourites by their rank
-            include.favourites.characters.sort(this.numericSort('favRank'))
-            include.favourites.manga.sort(this.numericSort('favRank'))
-            include.favourites.anime.sort(this.numericSort('favRank'))
-
-            // Save user data in vuex store
-            this.$store.commit('UPDATED', [updated, this.slug])
-            this.$store.commit('USER', [user, this.slug])
-            this.$store.commit('WAIFU', [include.waifu, this.slug])
-            this.$store.commit('PINNEDPOST', [include.pinnedPost, this.slug])
-            this.$store.commit('PROFILELINKS', [include.profileLinks, this.slug])
-            this.$store.commit('FAVOURITES', [include.favourites, this.slug])
-
-            // Save user data to local storage
-            this.saveToLocalStorage(
-              updated,
-              user,
-              include.waifu,
-              include.pinnedPost,
-              include.profileLinks,
-              include.favourites
-            )
-
-            // Display user information
-            this.displayData(false, updated, user, include)
+        Kitsu.findAll('user', {
+          filter: { name: this.$route.params.slug },
+          include: 'waifu,pinnedPost,profileLinks,favorites.item',
+          fields: {
+            characters: 'slug,image,name',
+            manga: 'slug,posterImage,canonicalTitle',
+            anime: 'slug,posterImage,canonicalTitle'
           }
         })
-        .catch(e => {
-          this.error = e.toString()
+        .then(res => {
+          if (res.meta.count === 0) this.error = 'No user exists'
+          else {
+            const updated = moment()
+
+            res = res[0]
+
+            console.log(res)
+
+            // Sort favourites by their rank
+            res.favorites.sort(this.numericSort('favRank'))
+
+            // Add data to store
+            this.$store.commit('USER', {
+              data: { user: res, updated },
+              slug: this.slug
+            })
+
+            // Display (updated) data
+            this.displayData()
+          }
+        })
+        .catch(err => {
+          this.error = err.toString()
         })
       },
       numericSort (key) {
@@ -230,16 +233,6 @@
           if (a[key] < b[key]) return -1
           return 0
         }
-      },
-      saveToLocalStorage (updated, user, waifu, pinnedPost, profileLinks, favourites) {
-        localStorage.setItem(`user-${this.slug}`, JSON.stringify([
-          { updated: updated },
-          { user: user },
-          { waifu: waifu },
-          { pinnedPost: pinnedPost },
-          { profileLinks: profileLinks },
-          { favourites: favourites }
-        ], null, '\t'))
       }
     }
   }

@@ -6,22 +6,22 @@
           span {{ $t('user.sociability.title') }}
         .sociability.row
           .card.card-block
-            p.card-title {{ user.attributes.postsCount }}
+            p.card-title {{ user.postsCount }}
             p.card-text {{ $t('user.sociability.postsCount') }}
           .card.card-block
-            p.card-title {{ user.attributes.commentsCount }}
+            p.card-title {{ user.commentsCount }}
             p.card-text {{ $t('user.sociability.commentsCount') }}
           .card.card-block
-            p.card-title {{ user.attributes.likesGivenCount }}
+            p.card-title {{ user.likesGivenCount }}
             p.card-text {{ $t('user.sociability.likesGivenCount') }}
           .card.card-block
-            p.card-title {{ user.attributes.likesReceivedCount }}
+            p.card-title {{ user.likesReceivedCount }}
             p.card-text {{ $t('user.sociability.likesReceivedCount') }}
           .card.card-block
-            p.card-title {{ user.attributes.followingCount }}
+            p.card-title {{ user.followingCount }}
             p.card-text {{ $t('user.sociability.followingCount') }}
           .card.card-block
-            p.card-title {{ user.attributes.followersCount }}
+            p.card-title {{ user.followersCount }}
             p.card-text {{ $t('user.sociability.followersCount') }}
 
         .title
@@ -42,72 +42,48 @@
         details
           summary Show
           pre(v-if='user') {{ user }}
-        .title
-          span API Waifu
-        details
-          summary Show
-          pre(v-if='waifu') {{ waifu }}
-          pre(v-else) User has no waifu
-        .title
-          span API Pinned Post
-        details
-          summary Show
-          pre(v-if='pinned') {{ pinned }}
-          pre(v-else) User has no pinned post
-        .title
-          span API Profile Links
-        details
-          summary Show
-          pre(v-if='profileLinks') {{ profileLinks }}
-          pre(v-else) User has no profile links
-        .title
-          span API Favourites
-        details
-          summary Show
-          pre(v-if='favourites') {{ favourites }}
-          pre(v-else) User has no favourites
         //- RAW API DUMP END
 
       .right.col-md-4.col-sm-12
         .title
           span About Me
-        p.os {{ user.attributes.about }}
-        p.waifu(v-if='waifu') {{ waifu.attributes.name }}
-          span {{ user.attributes.waifuOrHusbando }}
-        .favourites(v-if='favourites')
+        p.os {{ user.about }}
+        p.waifu(v-if='user.waifu') {{ user.waifu.name }}
+          span {{ user.waifuOrHusbando }}
+        .favourites(v-if='user.favorites.length > 0')
           .title
             span Favourites
           ul.nav.nav-pills.nav-justified
             li.nav-item
               a.nav-link(
-                :class='{ active: favouritesPanel === "anime" }'
-                @click='favouritesPanel = "anime"'
+                :class='{ active: favoritesPanel === "anime" }'
+                @click='favoritesPanel = "anime"'
               ) Anime
             li.nav-item
               a.nav-link(
-                :class='{ active: favouritesPanel === "manga" }'
-                @click='favouritesPanel = "manga"'
+                :class='{ active: favoritesPanel === "manga" }'
+                @click='favoritesPanel = "manga"'
               ) Manga
             li.nav-item
               a.nav-link(
-                :class='{ active: favouritesPanel === "characters" }'
-                @click='favouritesPanel = "characters"'
+                :class='{ active: favoritesPanel === "characters" }'
+                @click='favoritesPanel = "characters"'
               ) Characters
 
           //- start: favourites container
           .tab-content
             //- Display anime favourites when active
-            .tab-pane.active(v-if='favouritesPanel === "anime"')
+            .tab-pane.active(v-if='favoritesPanel === "anime"')
               paginate(
                 name='favAnime'
-                v-bind:list='favourites.anime'
+                v-bind:list='favoriteAnime'
                 v-bind:per='16'
                 tag='div'
                 class='row'
               )
                 .col-3(v-for='fav in paginated("favAnime")')
-                  router-link(:to='"/anime/" + fav[0].attributes.slug')
-                    img(v-bind:src='fav[0].attributes.posterImage ? fav[0].attributes.posterImage.small : "/kitsu/default_poster.jpg"')
+                  router-link(:to='"/anime/" + fav.item.slug')
+                    img(v-bind:src='fav.item.posterImage ? fav.item.posterImage.small : "/kitsu/default_poster.jpg"')
               paginate-links(
                 for='favAnime'
                 v-bind:simple='{ prev: "Back", next: "Next" }'
@@ -115,18 +91,18 @@
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
 
-            //- Display anime favourites when active
-            .tab-pane.active(v-else-if='favouritesPanel === "manga"')
+            //- Display manga favourites when active
+            .tab-pane.active(v-else-if='favoritesPanel === "manga"')
               paginate(
                 name='favManga'
-                v-bind:list='favourites.manga'
+                v-bind:list='favoriteManga'
                 v-bind:per='16'
                 tag='div'
                 class='row'
               )
                 .col-3(v-for='fav in paginated("favManga")')
-                  router-link(:to='"/manga/" + fav[0].attributes.slug')
-                    img(v-bind:src='fav[0].attributes.posterImage ? fav[0].attributes.posterImage.small : "/kitsu/default_poster.jpg"')
+                  router-link(:to='"/manga/" + fav.item.slug')
+                    img(v-bind:src='fav.item.posterImage ? fav.item.posterImage.small : "/kitsu/default_poster.jpg"')
               paginate-links(
                 for='favManga'
                 v-bind:simple='{ prev: "Back", next: "Next" }'
@@ -134,18 +110,18 @@
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
 
-            //- Display anime favourites when active
-            .tab-pane.active(v-else-if='favouritesPanel === "characters"')
+            //- Display character favourites when active
+            .tab-pane.active(v-else-if='favoritesPanel === "characters"')
               paginate(
                 name='favCharacters'
-                v-bind:list='favourites.characters'
+                v-bind:list='favoriteCharacters'
                 v-bind:per='16'
                 tag='div'
                 class='row'
               )
                 .col-3(v-for='fav in paginated("favCharacters")')
                   a
-                    img(v-bind:src='fav[0].attributes.image ? fav[0].attributes.image.original : "/kitsu/default_poster.jpg"')
+                    img(v-bind:src='fav.item.image ? fav.item.image.original : "/kitsu/default_poster.jpg"')
               paginate-links(
                 for='favCharacters'
                 v-bind:simple='{ prev: "Back", next: "Next" }'
@@ -162,18 +138,23 @@
     },
     props: [
       'slug',
-      'user',
-      'waifu',
-      'pinned',
-      'profileLinks',
-      'favourites'
+      'user'
     ],
     data () {
       return {
         loading: false,
         error: null,
-        favouritesPanel: 'anime',
-        paginate: ['favAnime', 'favManga', 'favCharacters']
+        paginate: ['favAnime', 'favManga', 'favCharacters'],
+        favoritesPanel: 'anime',
+        favoriteAnime: this.user.favorites.filter(fav => {
+          return (fav.item.type === 'anime')
+        }),
+        favoriteManga: this.user.favorites.filter(fav => {
+          return (fav.item.type === 'manga')
+        }),
+        favoriteCharacters: this.user.favorites.filter(fav => {
+          return (fav.item.type === 'characters')
+        })
       }
     }
   }
