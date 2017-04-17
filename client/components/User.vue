@@ -208,8 +208,6 @@
 
             res = res[0]
 
-            console.log(res)
-
             // Sort favourites by their rank
             res.favorites.sort(this.numericSort('favRank'))
 
