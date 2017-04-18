@@ -211,6 +211,15 @@
             // Sort favourites by their rank
             res.favorites.sort(this.numericSort('favRank'))
 
+            // Pre-filter favorites by type
+            let favorites = res.favorites
+            res.favorites = { anime: [], manga: [], characters: [] }
+            res.favorites.anime = this.filterFavorites(favorites, 'anime')
+            res.favorites.manga = this.filterFavorites(favorites, 'manga')
+            res.favorites.characters = this.filterFavorites(favorites, 'characters')
+
+            console.log(res.favorites.manga)
+
             // Add data to store
             this.$store.commit('USER', {
               data: { user: res, updated },
@@ -223,6 +232,11 @@
         })
         .catch(err => {
           this.error = err.toString()
+        })
+      },
+      filterFavorites (array, type) {
+        return array.filter(fav => {
+          return (fav.item.type === type)
         })
       },
       numericSort (key) {

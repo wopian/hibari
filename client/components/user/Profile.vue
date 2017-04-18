@@ -50,7 +50,7 @@
         p.os {{ user.about }}
         p.waifu(v-if='user.waifu') {{ user.waifu.name }}
           span {{ user.waifuOrHusbando }}
-        .favourites(v-if='user.favorites.length > 0')
+        .favourites(v-if='user.favorites')
           .title
             span Favourites
           ul.nav.nav-pills.nav-justified
@@ -73,10 +73,10 @@
           //- start: favourites container
           .tab-content
             //- Display anime favourites when active
-            .tab-pane.active(v-if='favoritesPanel === "anime"')
+            .tab-pane.active(v-if='favoritesPanel === "anime" && user.favorites.anime.length > 0')
               paginate(
                 name='favAnime'
-                v-bind:list='favoriteAnime'
+                v-bind:list='user.favorites.anime'
                 v-bind:per='16'
                 tag='div'
                 class='row'
@@ -90,12 +90,13 @@
                 v-bind:hide-single-page='true'
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
+            p(v-else-if='favoritesPanel === "anime" && user.favorites.manga.length === 0') No favourite anime
 
             //- Display manga favourites when active
-            .tab-pane.active(v-else-if='favoritesPanel === "manga"')
+            .tab-pane.active(v-else-if='favoritesPanel === "manga" && user.favorites.manga.length > 0')
               paginate(
                 name='favManga'
-                v-bind:list='favoriteManga'
+                v-bind:list='user.favorites.manga'
                 v-bind:per='16'
                 tag='div'
                 class='row'
@@ -109,12 +110,13 @@
                 v-bind:hide-single-page='true'
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
+            p(v-else-if='favoritesPanel === "manga" && user.favorites.manga.length === 0') No favourite manga
 
             //- Display character favourites when active
-            .tab-pane.active(v-else-if='favoritesPanel === "characters"')
+            .tab-pane.active(v-else-if='favoritesPanel === "characters" && user.favorites.characters.length > 0')
               paginate(
                 name='favCharacters'
-                v-bind:list='favoriteCharacters'
+                v-bind:list='user.favorites.characters'
                 v-bind:per='16'
                 tag='div'
                 class='row'
@@ -128,6 +130,7 @@
                 v-bind:hide-single-page='true'
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
+            p(v-else-if='favoritesPanel === "characters" && user.favorites.characters.length === 0') No favourite characters
           //- stop: favourites container
 </template>
 
@@ -142,19 +145,9 @@
     ],
     data () {
       return {
-        loading: false,
         error: null,
         paginate: ['favAnime', 'favManga', 'favCharacters'],
-        favoritesPanel: 'anime',
-        favoriteAnime: this.user.favorites.filter(fav => {
-          return (fav.item.type === 'anime')
-        }),
-        favoriteManga: this.user.favorites.filter(fav => {
-          return (fav.item.type === 'manga')
-        }),
-        favoriteCharacters: this.user.favorites.filter(fav => {
-          return (fav.item.type === 'characters')
-        })
+        favoritesPanel: 'anime'
       }
     }
   }
@@ -193,6 +186,9 @@
         margin-bottom: 0
 
     .favourites
+      p
+        margin-top: 1rem
+        text-align: center
       a
         font-size: 12px
       .row
