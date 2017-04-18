@@ -2,4 +2,6 @@
 node_modules
 dist
 test/coverage
+server/data/**
+!server/data/.gitkeep
 *.log
