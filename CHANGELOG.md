@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.3.0] - 2017-04-18
+
+### Fixed
+
+- Changing pages now scrolls you to the top automatically
+- Favourites not showing up on initial load
+
+### Changed
+
+- CSS is now scoped
+- Switched from Axios to Devour for HTTP requests
+
+### Removed
+
+- Orientation in manifest, as it overrides user preferences
+
 ## [0.2.0] - 2017-04-01
 
 ### Fixed

@@ -247,12 +247,6 @@ axios@^0.11.0:
   dependencies:
     follow-redirects "0.0.7"
 
-axios@~0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.16.0.tgz#6ed9771d815f429e7510f2838262957c4953d3b6"
-  dependencies:
-    follow-redirects "1.0.0"
-
 babel-cli@~6.24.1:
   version "6.24.1"
   resolved "https://registry.yarnpkg.com/babel-cli/-/babel-cli-6.24.1.tgz#207cd705bba61489b2ea41b5312341cf6aca2283"
@@ -306,9 +300,9 @@ babel-core@^6.0.0, babel-core@^6.24.1, babel-core@~6, babel-core@~6.24.1:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@~7.2.0:
-  version "7.2.1"
-  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-7.2.1.tgz#079422eb73ba811e3ca0865ce87af29327f8c52f"
+babel-eslint@~7.2.2:
+  version "7.2.2"
+  resolved "https://registry.yarnpkg.com/babel-eslint/-/babel-eslint-7.2.2.tgz#0da2cbe6554fd0fb069f19674f2db2f9c59270ff"
   dependencies:
     babel-code-frame "^6.22.0"
     babel-traverse "^6.23.1"
@@ -2007,9 +2001,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-config-standard@~10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-10.2.0.tgz#9e5a495c32aae8aa8aeb580b703ef645a1765e9b"
+eslint-config-standard@~10.2.1:
+  version "10.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-10.2.1.tgz#c061e4d066f379dc17cd562c64e819b4dd454591"
 
 eslint-friendly-formatter@~2.0.7:
   version "2.0.7"
@@ -2461,12 +2455,6 @@ follow-redirects@0.0.7:
   dependencies:
     debug "^2.2.0"
     stream-consume "^0.1.0"
-
-follow-redirects@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.0.0.tgz#8e34298cbd2e176f254effec75a1c78cc849fd37"
-  dependencies:
-    debug "^2.2.0"
 
 for-in@^0.1.3:
   version "0.1.8"
@@ -4111,9 +4099,9 @@ normalize-url@^1.4.0:
     gauge "~2.7.1"
     set-blocking "~2.0.0"
 
-nps@~5.0.4:
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/nps/-/nps-5.0.5.tgz#52fee585d650c8aa093936e78d78d036899f2ea8"
+nps@~5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/nps/-/nps-5.0.6.tgz#03e5e421a9aa308b4ad4102b4051821157d1a360"
   dependencies:
     arrify "^1.0.1"
     chalk "^1.1.3"
@@ -4208,9 +4196,9 @@ optimist@^0.6.1:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
-optimize-css-assets-webpack-plugin@~1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-1.3.0.tgz#331b3dc7ac0b2b3597f68d18fd555f5a0c81b15c"
+optimize-css-assets-webpack-plugin@~1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-1.3.1.tgz#e2f198cdf63fe92ac2e3e321f1ade8faf1b59179"
   dependencies:
     cssnano "^3.4.0"
     underscore "^1.8.3"
@@ -5711,9 +5699,9 @@ uglify-to-browserify@~1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz#6e0924d6bda6b5afe349e39a6d632850a0f882b7"
 
-uglifyjs-webpack-plugin@~0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-0.4.1.tgz#7a3fb941ba43986ebf66fbec5accf04731f9f293"
+uglifyjs-webpack-plugin@~0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/uglifyjs-webpack-plugin/-/uglifyjs-webpack-plugin-0.4.3.tgz#a672a7d6655f94dfa7e09670d48030f37cc93267"
   dependencies:
     source-map "^0.5.6"
     webpack-sources "^0.2.3"
