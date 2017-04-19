@@ -59,7 +59,7 @@
     "vue": "~2.2.1",
     "vue-analytics": "~4.0.0",
     "vue-cookie": "~1.1.4",
-    "vue-i18n": "~5.0.3",
+    "vue-i18n": "~6.1.1",
     "vue-loader": "~11.3.4",
     "vue-meta": "~0.5.6",
     "vue-paginate": "~3.4.0",
