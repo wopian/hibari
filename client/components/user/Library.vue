@@ -72,7 +72,10 @@
 
         .media-box(slot='drop-content')
           .media-title {{ media.media.canonicalTitle }}
-          .media-rating(v-if='media.media.averageRating') {{ media.media.averageRating }}%
+          .media-rating(
+            v-if='media.media.averageRating'
+            v-bind:class='colourAverageRating(media.media.averageRating)'
+          ) {{ media.media.averageRating }}%
           .media-synopsis {{ media.media.synopsis }}
           .library
             .library-status {{ $t('user.library.status.' + kind + '.' + media.status) }}
@@ -162,6 +165,13 @@
       },
       humanise: function (time) {
         return this.capitalise(moment(time).fromNow())
+      },
+      colourAverageRating: function (rating) {
+        if (!rating) return ''
+        else if (rating <= 25) return 'awful'
+        else if (rating <= 50) return 'meh'
+        else if (rating <= 75) return 'good'
+        else if (rating <= 100) return 'great'
       },
       loadMore: function () {
         this.loading = true
@@ -327,6 +337,14 @@
     .media-rating
       margin: 1px 0 5px
       height: 24px
+      &.awful
+        color: rgba(231, 76, 60,1.0)
+      &.meh
+        color: rgba(230, 126, 34,1.0)
+      &.good
+        color: rgba(243, 156, 18,1.0)
+      &.great
+        color: rgba(26, 188, 156,1.0)
     .media-synopsis
       font-size: .75rem
       // max-height: calc(12px * 5 * 1.5)
