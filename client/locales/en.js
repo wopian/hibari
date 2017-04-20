@@ -78,7 +78,8 @@ export default {
         }
       },
       mediaBox: {
-        episode: 'Ep {episode} of {episodeCount}',
+        episode: 'Ep {episode} of {total}',
+        chapter: 'Ch {chapter} of {total}',
         rating: 'Rated {rating}/10'
       }
     }

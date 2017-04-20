@@ -76,17 +76,20 @@
           .media-synopsis {{ media.media.synopsis }}
           .library
             .library-status {{ $t('user.library.status.' + kind + '.' + media.status) }}
-            .library-progress {{ $t('user.library.mediaBox.episode', { episode: media.progress, episodeCount: media.media.episodeCount || media.media.chapterCount || '∞' }) }}
+            .library-progress(v-if='kind === "anime"') {{ $t('user.library.mediaBox.episode', { episode: media.progress, total: media.media.episodeCount || '∞' }) }}
+            .library-progress(v-if='kind === "manga"') {{ $t('user.library.mediaBox.chapter', { chapter: media.progress, total: media.media.chapterCount || '∞' }) }}
             .library-rating(v-if='media.ratingTwenty') {{ $t('user.library.mediaBox.rating', { rating: media.ratingTwenty / 2 }) }}
             .library-rating(v-else) Unrated
             .library-updated {{ humanise(media.updatedAt) }}
 
     p(v-if='loading && error === null') Fetching library entries...
     p(v-if='error') {{ error }}
+    spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
 </template>
 
 <script>
   import Droppler from 'vue-droppler'
+  import Spinner from 'components/util/Loader'
   import moment from 'moment'
   import { Kitsu } from 'api'
 
@@ -133,7 +136,8 @@
       title: 'Library'
     },
     components: {
-      Droppler
+      Droppler,
+      Spinner
     },
     props: [
       'slug',
@@ -141,7 +145,7 @@
     ],
     data () {
       return {
-        loading: false,
+        loading: true,
         error: undefined,
         loadingError: this.error || this.loading === true,
         kind: 'anime', // current library type (anime|manga)
@@ -161,8 +165,7 @@
       },
       loadMore: function () {
         this.loading = true
-        this.getLibraryEntries(200) // 48
-        this.loading = false
+        this.getLibraryEntries(200) // 48, 36
       },
       changeKind: function (kind) {
         if (kind !== this.kind) {
@@ -208,6 +211,8 @@
         } else {
           this.error = 'No media found'
         }
+
+        this.loading = await false
       }
     }
   }
