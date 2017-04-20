@@ -45,11 +45,11 @@ export default new Router({
       ]
     },
     {
-      path: '/anime/:query',
+      path: '/anime/:slug',
       component: Anime
     },
     {
-      path: '/manga/:query',
+      path: '/manga/:slug',
       component: Manga
     },
     {

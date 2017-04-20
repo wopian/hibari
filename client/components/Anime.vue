@@ -4,17 +4,17 @@
 
     section.content(v-else)
       .cover(
-        v-if='anime && anime.attributes.slug === query'
-        v-bind:style='{ backgroundImage: "url(" + anime.attributes.coverImage.original + ")"}'
+        v-if='anime && anime.slug === slug'
+        v-bind:style='{ backgroundImage: "url(" + anime.coverImage.original + ")"}'
       )
         img(
-          v-if='anime.attributes.posterImage.large'
-          v-bind:src='anime.attributes.posterImage.large')
+          v-if='anime.posterImage.large'
+          v-bind:src='anime.posterImage.large')
       .cover(v-else)
 
       nav
         div
-          a(:href='"//kitsu.io/anime/" + query' rel='noopener' target='_blank') Kitsu
+          a(:href='"//kitsu.io/anime/" + slug' rel='noopener' target='_blank') Kitsu
 
       spinner(v-if='loading')
 
@@ -25,12 +25,27 @@
 </template>
 
 <script>
+  import moment from 'moment'
   import Spinner from 'components/util/Loader'
+  import { Kitsu } from 'api'
+
+  Kitsu.define('anime', {
+    slug: '',
+    titles: '',
+    canonicalTitle: '',
+    averageRating: '',
+    ageRating: '',
+    subtype: '',
+    posterImage: '',
+    coverImage: '',
+    episodeCount: '',
+    synopsis: ''
+  }, { collectionPath: 'anime' })
 
   export default {
     metaInfo () {
       return {
-        title: `${this.anime ? this.anime.attributes.canonicalTitle : this.query}`
+        title: `${this.anime ? this.anime.canonicalTitle : this.slug}`
       }
     },
     components: {
@@ -40,7 +55,7 @@
       return {
         loading: false,
         error: null,
-        query: this.$route.params.query,
+        slug: this.$route.params.slug,
         anime: null
       }
     },
@@ -49,45 +64,64 @@
     },
     methods: {
       checkStore () {
-        this.loading = true
-        if (this.$store.state.anime[this.$route.params.query] !== undefined) {
+        // Check vuex store for user
+        if (this.$store.state.anime[this.$route.params.slug] !== undefined) {
+          this.displayData()
           console.info('[HB]: Data retrieved from store')
-          this.displayData(true)
+        // Store is empty
         } else {
-          console.info('[HB]: Data retrieved from API')
+          this.loading = true
           this.fetchData()
+          console.info('[HB]: Data retrieved from API')
         }
       },
-      displayData (cached, anime) {
-        this.anime = cached ? this.$store.state.anime[this.query] : anime
+      displayData (updated, anime) {
+        let animeStore = this.$store.state.anime[this.$route.params.slug]
+
+        // Push data to state
+        this.updated = moment(animeStore.updated).fromNow()
+        this.anime = animeStore.anime
+
+        // Disable loading state
+        this.loading = false
+
+        // Refresh data if older than 30 minutes
+        if (moment().diff(animeStore.updated, 'minutes') > 30) {
+          console.info('[HB]: Refreshing data')
+          this.fetchData()
+          console.info('[HB]: Updated store from API')
+        }
       },
       fetchData () {
         this.error = this.anime = null
         this.loading = true
-        /* this.$http.get(`https://kitsu.io/api/edge/anime?filter[slug]=${this.$route.params.query}`, {}, {
-          headers: {
-            'Content-Type': 'application/vnd.api+json',
-            'Accept': 'application/vnd.api+json',
-            'User-Agent': 'hibari'
+
+        Kitsu.findAll('anime', {
+          filter: { slug: this.$route.params.slug },
+          fields: {
+          },
+          page: { limit: 1 }
+        })
+        .then(res => {
+          if (res.meta.count === 0) this.error = 'No anime exists'
+          else {
+            const updated = moment()
+
+            res = res[0]
+
+            // Add data to store
+            this.$store.commit('ANIME', {
+              data: { anime: res, updated },
+              slug: this.slug
+            })
+
+            // Display (updated) data
+            this.displayData()
           }
         })
-        .then((data) => {
-          this.loading = false
-          if (data.body.meta.count === 0) {
-            this.error = 'No anime exists'
-          } else {
-            let anime
-
-            anime = data.body.data[0]
-            // delete anime.relationships
-            this.$store.commit('ANIME', [anime, this.query])
-
-            this.displayData(false, anime)
-          }
+        .catch(err => {
+          this.error = err.toString()
         })
-        .catch((error) => {
-          this.error = error.toString()
-        }) */
       }
     }
   }

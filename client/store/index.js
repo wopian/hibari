@@ -8,12 +8,19 @@ const state = {
   user: {
     /*
     'wopian': {
-      data: {},
+      user: {},
       updated: null
     }
     */
   },
-  anime: {},
+  anime: {
+    /*
+    'slug': {
+      anime: {},
+      updated: null
+    }
+    */
+  },
   manga: {}
 }
 
@@ -29,10 +36,24 @@ const mutations = {
     state.user[payload.slug].updated = payload.data.updated
   },
   ANIME (state, payload) {
-    state.anime[payload[1]] = payload[0]
+    // Create child objects if don't exist
+    if (!state.anime[payload.slug]) {
+      state.anime[payload.slug] = { anime: {}, updated: null }
+    }
+
+    // Update store
+    state.anime[payload.slug].anime = payload.data.anime
+    state.anime[payload.slug].updated = payload.data.updated
   },
   MANGA (state, payload) {
-    state.manga[payload[1]] = payload[0]
+    // Create child objects if don't exist
+    if (!state.manga[payload.slug]) {
+      state.manga[payload.slug] = { manga: {}, updated: null }
+    }
+
+    // Update store
+    state.manga[payload.slug].manga = payload.data.manga
+    state.manga[payload.slug].updated = payload.data.updated
   }
 }
 

@@ -1,20 +1,20 @@
 <template lang='pug'>
-  main.anime
+  main.manga
     section.error(v-if='error') Error: {{ error }}
 
     section.content(v-else)
       .cover(
-        v-if='manga && manga.attributes.slug === query'
-        v-bind:style='{ backgroundImage: "url(" + manga.attributes.coverImage.original + ")"}'
+        v-if='manga && manga.slug === slug'
+        v-bind:style='{ backgroundImage: "url(" + manga.coverImage.original + ")"}'
       )
         img(
-          v-if='manga.attributes.posterImage.large'
-          v-bind:src='manga.attributes.posterImage.large')
+          v-if='manga.posterImage.large'
+          v-bind:src='manga.posterImage.large')
       .cover(v-else)
 
       nav
         div
-          a(:href='"//kitsu.io/manga/" + query' rel='noopener' target='_blank') Kitsu
+          a(:href='"//kitsu.io/manga/" + slug' rel='noopener' target='_blank') Kitsu
 
       spinner(v-if='loading')
 
@@ -25,12 +25,27 @@
 </template>
 
 <script>
+  import moment from 'moment'
   import Spinner from 'components/util/Loader'
+  import { Kitsu } from 'api'
+
+  Kitsu.define('manga', {
+    slug: '',
+    titles: '',
+    canonicalTitle: '',
+    averageRating: '',
+    ageRating: '',
+    subtype: '',
+    posterImage: '',
+    coverImage: '',
+    chapterCount: '',
+    synopsis: ''
+  }, { collectionPath: 'manga' })
 
   export default {
     metaInfo () {
       return {
-        title: `${this.manga ? this.manga.attributes.canonicalTitle : this.query}`
+        title: `${this.manga ? this.manga.canonicalTitle : this.slug}`
       }
     },
     components: {
@@ -40,7 +55,7 @@
       return {
         loading: false,
         error: null,
-        query: this.$route.params.query,
+        slug: this.$route.params.slug,
         manga: null
       }
     },
@@ -49,49 +64,68 @@
     },
     methods: {
       checkStore () {
-        this.loading = true
-        if (this.$store.state.manga[this.$route.params.query] !== undefined) {
+        // Check vuex store for user
+        if (this.$store.state.manga[this.$route.params.slug] !== undefined) {
+          this.displayData()
           console.info('[HB]: Data retrieved from store')
-          this.displayData(true)
+        // Store is empty
         } else {
-          console.info('[HB]: Data retrieved from API')
+          this.loading = true
           this.fetchData()
+          console.info('[HB]: Data retrieved from API')
         }
       },
-      displayData (cached, manga) {
-        this.manga = cached ? this.$store.state.manga[this.query] : manga
+      displayData (updated, manga) {
+        let mangaStore = this.$store.state.manga[this.$route.params.slug]
+
+        // Push data to state
+        this.updated = moment(mangaStore.updated).fromNow()
+        this.manga = mangaStore.manga
+
+        // Disable loading state
+        this.loading = false
+
+        // Refresh data if older than 30 minutes
+        if (moment().diff(mangaStore.updated, 'minutes') > 30) {
+          console.info('[HB]: Refreshing data')
+          this.fetchData()
+          console.info('[HB]: Updated store from API')
+        }
       },
       fetchData () {
         this.error = this.manga = null
         this.loading = true
-        /* this.$http.get(`https://kitsu.io/api/edge/manga?filter[slug]=${this.$route.params.query}`, {}, {
-          headers: {
-            'Content-Type': 'application/vnd.api+json',
-            'Accept': 'application/vnd.api+json',
-            'User-Agent': 'hibari'
+
+        Kitsu.findAll('manga', {
+          filter: { slug: this.$route.params.slug },
+          fields: {
+          },
+          page: { limit: 1 }
+        })
+        .then(res => {
+          if (res.meta.count === 0) this.error = 'No manga exists'
+          else {
+            const updated = moment()
+
+            res = res[0]
+
+            // Add data to store
+            this.$store.commit('MANGA', {
+              data: { manga: res, updated },
+              slug: this.slug
+            })
+
+            // Display (updated) data
+            this.displayData()
           }
         })
-        .then((data) => {
-          this.loading = false
-          if (data.body.meta.count === 0) {
-            this.error = 'No manga exists'
-          } else {
-            let manga
-
-            manga = data.body.data[0]
-            // delete manga.relationships
-            this.$store.commit('MANGA', [manga, this.query])
-
-            this.displayData(false, manga)
-          }
+        .catch(err => {
+          this.error = err.toString()
         })
-        .catch((error) => {
-          this.error = error.toString()
-        }) */
       }
     }
   }
 </script>
 
-<style lang='sass'>
+<style lang='sass' scoped>
 </style>
