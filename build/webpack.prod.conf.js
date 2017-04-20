@@ -93,7 +93,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         reduceInitial: true,
         reducePositions: true,
         reduceTimingFunctions: true,
-        reduceTransforms: true,
+        reduceTransforms: false,
         svgo: true,
         uniqueSelectors: true,
         zindex: true // unsafe
