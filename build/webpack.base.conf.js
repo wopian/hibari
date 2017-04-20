@@ -27,6 +27,7 @@ module.exports = {
     alias: {
       'client': resolve('client'),
       'assets': resolve('client/assets'),
+      'styles': resolve('client/styles'),
       'components': resolve('client/components'),
       'locales': resolve('client/locales'),
       'api': resolve('client/api')

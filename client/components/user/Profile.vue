@@ -156,7 +156,7 @@
 <style lang='sass' scoped>
   @import ~bootstrap/scss/variables
   @import ~bootstrap/scss/mixins/breakpoints
-  @import ~assets/variables
+  @import ~styles/variables
 
   section.container
     padding: 0 15px
@@ -234,7 +234,7 @@
 </style>
 
 <style lang='sass'>
-  @import ~assets/variables
+  @import ~styles/variables
 
   .paginate-links
     list-style: none

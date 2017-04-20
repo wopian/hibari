@@ -44,7 +44,7 @@
 </script>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   header
     padding: calc(.4rem + 1px) 1rem

@@ -1,27 +1,51 @@
 <template lang='pug'>
-  main.anime
-    section.error(v-if='error') Error: {{ error }}
+  main
 
-    section.content(v-else)
+    .error(v-if='error') Error: {{ error }}
+
+    .content(v-else)
+      //- Cover to display  when data loaded
       .cover(
-        v-if='anime && anime.slug === slug'
-        v-bind:style='{ backgroundImage: "url(" + anime.coverImage.original + ")"}'
+        v-if='anime'
+        v-bind:style='{ backgroundImage: "url(" + (anime.coverImage ? anime.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
       )
-        img(
-          v-if='anime.posterImage.large'
-          v-bind:src='anime.posterImage.large')
-      .cover(v-else)
+        .container
+          img(v-bind:src='anime.posterImage ? anime.posterImage.large : "/kitsu/default_poster.jpg"')
+          div
+            h2 {{ anime.canonicalTitle }}
+            a.btn(:href='"//kitsu.io/anime/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
-      nav
-        div
-          a(:href='"//kitsu.io/anime/" + slug' rel='noopener' target='_blank') Kitsu
+      //- Placeholder cover while data loads
+      .cover(
+        v-else
+        v-bind:style='{ backgroundImage: "url(/kitsu/default_cover.png)" }'
+      )
+        .container
+          img(src='/kitsu/default_poster.jpg')
+          div
+            h2 {{ slug }}
+            a.btn(:href='"//kitsu.io/anime/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
-      spinner(v-if='loading')
+      nav.navbar
+        .container.nav
+          router-link.nav-link(:to='{ name: "Stats" }' exact) {{ $t('user.navigation.profile') }}
+          .navbar-text.ml-auto(v-if='updated') Updated {{ updated }}
 
+      router-view(
+        v-bind:slug='slug'
+        v-bind:anime='anime'
+      )
+
+      spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
+
+      //- RAW API DUMP START
       .container
-        hr
-        p Anime
-        pre(v-if='anime') {{ anime }}
+        .title
+          span API Anime
+        details
+          summary Show
+          pre(v-if='anime') {{ anime }}
+        //- RAW API DUMP END
 </template>
 
 <script>

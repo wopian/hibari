@@ -229,7 +229,7 @@
 </script>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   section
     padding-top: 1rem
@@ -280,7 +280,7 @@
 </style>
 
 <style lang='sass'>
-  @import ~assets/variables
+  @import ~styles/variables
 
   // Tether tooltip
   .drop.media-tooltip

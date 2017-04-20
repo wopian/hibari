@@ -38,7 +38,7 @@
 </script>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   section
     border-radius: 0

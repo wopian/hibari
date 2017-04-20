@@ -65,7 +65,7 @@ export default {
 </style>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   #app
     -webkit-font-smoothing: antialiased
@@ -80,7 +80,7 @@ export default {
 </style>
 
 <style lang='sass'>
-  @import ~assets/variables
+  @import ~styles/variables
 
   .os
     font-family: 'Open Sans', apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif

@@ -16,7 +16,7 @@
 </script>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   footer
     height: 54px

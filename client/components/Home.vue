@@ -57,7 +57,7 @@
 </script>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   h1
     font-size: 3rem

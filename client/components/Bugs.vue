@@ -30,7 +30,7 @@
 </script>
 
 <style lang='sass' scoped>
-  @import ~assets/variables
+  @import ~styles/variables
 
   main
     padding-top: calc(56px + 1rem)

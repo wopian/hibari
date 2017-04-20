@@ -1,27 +1,51 @@
 <template lang='pug'>
-  main.manga
-    section.error(v-if='error') Error: {{ error }}
+  main
 
-    section.content(v-else)
+    .error(v-if='error') Error: {{ error }}
+
+    .content(v-else)
+      //- Cover to display  when data loaded
       .cover(
-        v-if='manga && manga.slug === slug'
-        v-bind:style='{ backgroundImage: "url(" + manga.coverImage.original + ")"}'
+        v-if='manga'
+        v-bind:style='{ backgroundImage: "url(" + (manga.coverImage ? manga.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
       )
-        img(
-          v-if='manga.posterImage.large'
-          v-bind:src='manga.posterImage.large')
-      .cover(v-else)
+        .container
+          img(v-bind:src='manga.posterImage ? manga.posterImage.large : "/kitsu/default_poster.jpg"')
+          div
+            h2 {{ manga.canonicalTitle }}
+            a.btn(:href='"//kitsu.io/manga/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
-      nav
-        div
-          a(:href='"//kitsu.io/manga/" + slug' rel='noopener' target='_blank') Kitsu
+      //- Placeholder cover while data loads
+      .cover(
+        v-else
+        v-bind:style='{ backgroundImage: "url(/kitsu/default_cover.png)" }'
+      )
+        .container
+          img(src='/kitsu/default_poster.jpg')
+          div
+            h2 {{ slug }}
+            a.btn(:href='"//kitsu.io/manga/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
-      spinner(v-if='loading')
+      nav.navbar
+        .container.nav
+          router-link.nav-link(:to='{ name: "Stats" }' exact) {{ $t('user.navigation.profile') }}
+          .navbar-text.ml-auto(v-if='updated') Updated {{ updated }}
 
+      router-view(
+        v-bind:slug='slug'
+        v-bind:manga='manga'
+      )
+
+      spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
+
+      //- RAW API DUMP START
       .container
-        hr
-        p Manga
-        pre(v-if='manga') {{ manga }}
+        .title
+          span API Manga
+        details
+          summary Show
+          pre(v-if='manga') {{ manga }}
+        //- RAW API DUMP END
 </template>
 
 <script>
