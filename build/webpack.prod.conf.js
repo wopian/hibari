@@ -117,8 +117,8 @@ var webpackConfig = merge(baseWebpackConfig, {
         minifyCSS: true,
         minifyJS: true,
         minifyURLS: true,
-        sortAttributes: false,
-        sortClassName: false
+        sortAttributes: true,
+        sortClassName: true
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
