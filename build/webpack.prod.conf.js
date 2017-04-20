@@ -72,11 +72,11 @@ var webpackConfig = merge(baseWebpackConfig, {
         discardDuplicates: true,
         discardEmpty: true,
         discardOverridden: true,
-        discardUnused: true, // unsafe
+        discardUnused: false, // unsafe
         filterOptimiser: true,
         functionOptimiser: true,
         mergeIdents: true, // unsafe
-        // mergeLonghand: true,
+        mergeLonghand: true,
         mergeRules: true,
         minifyFontValues: true,
         minifyGradients: true,
