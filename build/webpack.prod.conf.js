@@ -63,7 +63,6 @@ var webpackConfig = merge(baseWebpackConfig, {
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
       cssProcessor: require('cssnano'),
-      /*
       cssProcessorOptions: {
         calc: true,
         colormin: true,
@@ -100,7 +99,6 @@ var webpackConfig = merge(baseWebpackConfig, {
         zindex: true // unsafe
         // options: cssnano.co/optimisations
       },
-      */
       canPrint: true
     }),
     // generate dist index.html with correct asset hash for caching.
@@ -119,8 +117,8 @@ var webpackConfig = merge(baseWebpackConfig, {
         minifyCSS: true,
         minifyJS: true,
         minifyURLS: true,
-        sortAttributes: true,
-        sortClassName: true
+        sortAttributes: false,
+        sortClassName: false
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
