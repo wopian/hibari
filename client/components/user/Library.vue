@@ -56,7 +56,7 @@
         constrainToWindow='true'
         constrainToScrollParent='true'
         remove='true'
-        tetherOptions='{ attachment: "right top", targetAttachment: "right top" }'
+        position='right center'
       )
         router-link.card(
           slot='drop-trigger'
