@@ -51,6 +51,19 @@ export default {
       title: 'About'
     }
   },
+  library: {
+    kind: {
+      anime: 'Anime',
+      manga: 'Manga'
+    },
+    status: {
+      current: 'Currently Watching',
+      planned: 'Plan to Watch',
+      dropped: 'Dropped',
+      completed: 'Completed',
+      on_hold: 'On Hold'
+    }
+  },
   bugs: {
     title: 'Bugs',
     body: 'Please create a <a href=\'//github.com/wopian/hibari/issues/new\'>GitHub Issue</a> ' +

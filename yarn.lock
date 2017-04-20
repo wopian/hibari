@@ -5660,7 +5660,13 @@ test-exclude@^4.0.3:
     read-pkg-up "^1.0.1"
     require-main-filename "^1.0.1"
 
-tether@^1.4.0:
+tether-drop@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/tether-drop/-/tether-drop-1.4.2.tgz#28e240cce077f4ae1d8e5990a03b71e0cd6fbfec"
+  dependencies:
+    tether "^1.1.0"
+
+tether@^1.1.0, tether@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
 
@@ -5911,6 +5917,12 @@ vue-cookie@~1.1.4:
   resolved "https://registry.yarnpkg.com/vue-cookie/-/vue-cookie-1.1.4.tgz#b8b46d112bda9f93a2f47017c2ed5282d2064fda"
   dependencies:
     tiny-cookie "^1.0"
+
+vue-droppler@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/vue-droppler/-/vue-droppler-0.1.4.tgz#e3e920a6ef236e28e4e189042bb909d7e7fc5e94"
+  dependencies:
+    tether-drop "^1.4.2"
 
 vue-hot-reload-api@^2.0.11:
   version "2.0.11"
