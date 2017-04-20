@@ -251,9 +251,6 @@
 </script>
 
 <style lang='sass' scoped>
-  // @import ~bootstrap/scss/bootstrap.scss
-  // @import ~bootstrap/scss/variables
-  // @import ~bootstrap/scss/mixins
   @import ~assets/variables
 
   .error

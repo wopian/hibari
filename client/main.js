@@ -4,6 +4,7 @@ import I18n from 'vue-i18n'
 import Cookie from 'vue-cookie'
 import Analytics from 'vue-analytics'
 import Paginate from 'vue-paginate'
+import InfiniteScroll from 'vue-infinite-scroll'
 import { sync } from 'vuex-router-sync'
 import router from './router'
 import store from './store'
@@ -27,6 +28,7 @@ sync(store, router)
 Vue.use(Cookie)
 Vue.use(I18n)
 Vue.use(Paginate)
+Vue.use(InfiniteScroll)
 
 // Scroll to top of page on route change
 router.beforeEach((to, from, next) => {
