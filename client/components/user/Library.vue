@@ -8,37 +8,37 @@
         button.btn.btn-secondary(
           v-on:click='changeKind("anime")'
           v-bind:class='{ active: kind === "anime" }'
-        ) Anime Library
+        ) {{ $t('user.library.toggle.anime') }}
         button.btn.btn-secondary(
           v-on:click='changeKind("manga")'
           v-bind:class='{ active: kind === "manga" }'
-        ) Manga Library
+        ) {{ $t('user.library.toggle.manga') }}
 
       .btn-group
         button.btn.btn-secondary(
           v-on:click='changeStatus("1,2,3,4,5")'
           v-bind:class='{ active: status === "1,2,3,4,5" }'
-        ) All {{ capitalise(kind) }}
+        ) {{ $t('user.library.status.' + kind + '.all') }}
         button.btn.btn-secondary(
           v-on:click='changeStatus("1")'
           v-bind:class='{ active: status === "1" }'
-        ) Currently Watching
+        ) {{ $t('user.library.status.' + kind + '.current') }}
         button.btn.btn-secondary(
           v-on:click='changeStatus("2")'
           v-bind:class='{ active: status === "2" }'
-        ) Plan to Watch
+        ) {{ $t('user.library.status.' + kind + '.planned') }}
         button.btn.btn-secondary(
           v-on:click='changeStatus("3")'
           v-bind:class='{ active: status === "3" }'
-        ) Completed
+        ) {{ $t('user.library.status.' + kind + '.completed') }}
         button.btn.btn-secondary(
           v-on:click='changeStatus("4")'
           v-bind:class='{ active: status === "4" }'
-        ) On Hold
+        ) {{ $t('user.library.status.' + kind + '.on_hold') }}
         button.btn.btn-secondary(
           v-on:click='changeStatus("5")'
           v-bind:class='{ active: status === "5" }'
-        ) Dropped
+        ) {{ $t('user.library.status.' + kind + '.dropped') }}
 
     //- TODO: Re-implement infinite scrolling
       .row(
@@ -76,9 +76,9 @@
           .media-rating(v-if='media.media.averageRating') {{ media.media.averageRating }}%
           .media-synopsis {{ media.media.synopsis }}
           .library
-            .library-status {{ $t('library.status.' + media.status) }}
-            .library-progress Ep {{ media.progress }} of {{ media.media.episodeCount || media.media.chapterCount || '∞' }}
-            .library-rating(v-if='media.ratingTwenty') Rated {{ media.ratingTwenty / 2 }}/10
+            .library-status {{ $t('user.library.status.' + kind + '.' + media.status) }}
+            .library-progress {{ $t('user.library.mediaBox.episode', { episode: media.progress, episodeCount: media.media.episodeCount || media.media.chapterCount || '∞' }) }}
+            .library-rating(v-if='media.ratingTwenty') {{ $t('user.library.mediaBox.rating', { rating: media.ratingTwenty / 2 }) }}
             .library-rating(v-else) Unrated
             .library-updated {{ humanise(media.updatedAt) }}
 
@@ -271,6 +271,7 @@
   // Tether tooltip
   .drop.media-tooltip
     z-index: 50
+    pointer-events: none
     @media (max-width: 768px)
       display: none
       visibility: hidden

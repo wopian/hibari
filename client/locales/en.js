@@ -49,19 +49,38 @@ export default {
     },
     about: {
       title: 'About'
-    }
-  },
-  library: {
-    kind: {
-      anime: 'Anime',
-      manga: 'Manga'
     },
-    status: {
-      current: 'Currently Watching',
-      planned: 'Plan to Watch',
-      dropped: 'Dropped',
-      completed: 'Completed',
-      on_hold: 'On Hold'
+    library: {
+      kind: {
+        anime: 'Anime',
+        manga: 'Manga'
+      },
+      toggle: {
+        anime: '@:user.library.kind.anime Library',
+        manga: '@:user.library.kind.manga Library'
+      },
+      status: {
+        anime: {
+          all: 'All @:user.library.kind.anime',
+          current: 'Currently Watching',
+          planned: 'Plan to Watch',
+          dropped: 'Dropped',
+          completed: 'Completed',
+          on_hold: 'On Hold'
+        },
+        manga: {
+          all: 'All @:user.library.kind.manga',
+          current: 'Currently Reading',
+          planned: 'Plan to Read',
+          dropped: '@:user.library.status.anime.dropped',
+          completed: '@:user.library.status.anime.completed',
+          on_hold: '@:user.library.status.anime.on_hold'
+        }
+      },
+      mediaBox: {
+        episode: 'Ep {episode} of {episodeCount}',
+        rating: 'Rated {rating}/10'
+      }
     }
   },
   bugs: {
