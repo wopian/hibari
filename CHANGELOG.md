@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1] - 2017-04-20
+
+### Added
+
+- User library (anime & manga)
+  - *Note: Only shows first 200 until a pagination issue is fixed)*
+
 ## [0.3.0] - 2017-04-18
 
 ### Fixed
@@ -104,6 +111,8 @@
 - Basic functionality. No styling or formating, just displaying user, anime &
   manga information via Kitsu's API.
 
+[0.3.1]:https://github.com/wopian/hibari/compare/0.3.0...0.3.1
+[0.3.0]:https://github.com/wopian/hibari/compare/0.2.0-...0.3.0
 [0.2.0]:https://github.com/wopian/hibari/compare/0.2.0-rc.1...0.2.0
 [0.2.0-rc.1]:https://github.com/wopian/hibari/compare/0.1.0...0.2.0-rc.1
 [0.1.0]:https://github.com/wopian/hibari/compare/0.0.1...0.1.0

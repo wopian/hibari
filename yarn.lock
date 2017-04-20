@@ -5918,7 +5918,7 @@ vue-cookie@~1.1.4:
   dependencies:
     tiny-cookie "^1.0"
 
-vue-droppler@^0.1.4:
+vue-droppler@~0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/vue-droppler/-/vue-droppler-0.1.4.tgz#e3e920a6ef236e28e4e189042bb909d7e7fc5e94"
   dependencies:
