@@ -327,7 +327,7 @@
       align-items: stretch
       height: 100%
     .media-title,
-    .media-rating,
+    .media-rating
     .library
       flex: 0 1 auto
       align-self: auto
@@ -335,7 +335,6 @@
       font-size: 1rem
       font-weight: 500
     .media-rating
-      margin: 1px 0 5px
       height: 24px
       &.awful
         color: rgba(231, 76, 60,1.0)
