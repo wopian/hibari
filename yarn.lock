@@ -4144,9 +4144,9 @@ normalize-url@^1.4.0:
     gauge "~2.7.1"
     set-blocking "~2.0.0"
 
-nps@~5.0.6:
-  version "5.0.6"
-  resolved "https://registry.yarnpkg.com/nps/-/nps-5.0.6.tgz#03e5e421a9aa308b4ad4102b4051821157d1a360"
+nps@~5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/nps/-/nps-5.1.0.tgz#d362feec5fcfe6fc463401f3ecc3aef2d9a3cd8f"
   dependencies:
     arrify "^1.0.1"
     chalk "^1.1.3"
