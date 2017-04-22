@@ -8,9 +8,7 @@ User, anime & manga stats for [Kitsu][0]
 
 ## Contributing
 
-PRs are welcome - please read [CONTRIBUTING](CONTRIBUTING.md) before opening
-
-Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
+PRs are welcome - check out [CONTRIBUTING](CONTRIBUTING.md) for more info!
 
 ## Development
 
@@ -25,8 +23,7 @@ Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 
 - [git](https://git-scm.com/) 2.0.0 or newer
 - [node.js](https://nodejs.org) 7.0.0 or newer
-- npm 3.10.8 or newer (installed with node.js)
-  - run `npm install npm -g` to update to latest version
+- [yarn](https://https://yarnpkg.com) 0.21.0 or newer (optional)
 
 ### Setup
 
@@ -40,7 +37,9 @@ Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 1. Install dependencies:
 
     ```bash
-    npm i
+    yarn install
+    # or
+    npm install
     ```
 
 ### Commands
@@ -48,6 +47,8 @@ Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 Display the available commands:
 
 ```bash
+yarn start
+# or
 npm start
 ```
 
@@ -63,7 +64,7 @@ See [CHANGELOG][5]
 
 ## License
 
-All code released under the [MIT license][12]
+All code released under the [MIT license][11]
 
 [Website]:https://img.shields.io/website-up-down-green-red/https/hb.wopian.me.svg?style=flat-square
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
@@ -86,5 +87,4 @@ All code released under the [MIT license][12]
 [8]:https://hb.wopian.me
 [9]:https://codeclimate.com/github/wopian/hibari/coverage
 [10]:https://ci.appveyor.com/project/wopian/hibari
-[11]:https://github.com/wopian/hibari/projects/1
-[12]:https://github.com/wopian/hibari/blob/master/LICENSE.md
+[11]:https://github.com/wopian/hibari/blob/master/LICENSE.md
