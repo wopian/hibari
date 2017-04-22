@@ -2,6 +2,7 @@
 
 [![Website]][8]
 [![GitHub Rl]][1]
+[![David]][6]
 
 User, anime & manga stats for [Kitsu][0]
 
@@ -18,7 +19,6 @@ Checkout the [roadmap][11] for other tasks you can help implement/fix 😃
 [![CC Coverage]][9]
 [![CC Score]][3]
 [![CC Issues]][4]
-[![David]][6]
 [![DavidD]][7]
 
 ### Requirements
