@@ -1,5 +1,16 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- Localised user library
+- Colourised media ratings to match Kitsu
+
+### Fixed
+
+- Media pages are reimplimented and no longer 404
+
 ## [0.3.1] - 2017-04-20
 
 ### Added
@@ -111,6 +122,7 @@
 - Basic functionality. No styling or formating, just displaying user, anime &
   manga information via Kitsu's API.
 
+[Unreleased]:https://github.com/wopian/hibari/compare/0.3.1...HEAD
 [0.3.1]:https://github.com/wopian/hibari/compare/0.3.0...0.3.1
 [0.3.0]:https://github.com/wopian/hibari/compare/0.2.0-...0.3.0
 [0.2.0]:https://github.com/wopian/hibari/compare/0.2.0-rc.1...0.2.0
