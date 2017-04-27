@@ -93,7 +93,7 @@
     "jest": "~19.0.2",
     "jest-vue-preprocessor": "~0.2.0",
     "js-beautify": "~1.6.12",
-    "vue-server-renderer": "~2.2.6"
+    "vue-server-renderer": "~2.3.0"
   },
   "jest": {
     "collectCoverageFrom": [
