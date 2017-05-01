@@ -10,8 +10,12 @@ scripts:
       script: babel-node --presets env,stage-0 build/build.js --report
       description: build from source code & generate a report on file size
   test:
-    script: jest --coverage
-    description: run tests with jest
+    default:
+      script: jest --coverage
+      description: run tests with jest
+    update:
+      script: jest --updateSnapshot
+      description: update jest snapshots
   lint:
     script: eslint --ext .js,.vue client test/unit/specs
     description: lint files with eslint
