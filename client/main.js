@@ -10,10 +10,12 @@ import router from './router'
 import store from './store'
 import en from 'locales/en'
 import ja from 'locales/ja'
+import nl from 'locales/nl'
 
 const locales = {
   en: en,
-  ja: ja
+  ja: ja,
+  nl: nl
 }
 
 if (process.env.NODE_ENV === 'production') {
