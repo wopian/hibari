@@ -22,6 +22,9 @@
           },
           {
             code: 'JA'
+          },
+          {
+            code: 'NL'
           }
         ],
         Select: langNew => {
