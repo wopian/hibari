@@ -42,3 +42,4 @@ exclude_paths:
 - .vscode
 - public
 - tests
+- client/locales
