@@ -1,11 +1,13 @@
 import Vue from 'vue'
-import App from './App'
+import Raven from 'raven-js'
+import RavenVue from 'raven-js/plugins/vue'
 import I18n from 'vue-i18n'
 import Cookie from 'vue-cookie'
 import Analytics from 'vue-analytics'
 import Paginate from 'vue-paginate'
 import InfiniteScroll from 'vue-infinite-scroll'
 import { sync } from 'vuex-router-sync'
+import App from './App'
 import router from './router'
 import store from './store'
 import en from 'locales/en'
@@ -19,6 +21,11 @@ const locales = {
 }
 
 if (process.env.NODE_ENV === 'production') {
+  // Raven error tracking
+  Raven.config('https://d4a1fd4efa3442e598a874b92c24e11a@sentry.io/164720')
+  .addPlugin(RavenVue, Vue)
+  .install()
+
   // Enable Progressive Web App
   require('./pwa')
   // Enable Google Analytics
