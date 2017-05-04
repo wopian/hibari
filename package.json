@@ -70,7 +70,7 @@
     "vuex": "~2.3.0",
     "vuex-localstorage": "~1.0.0",
     "vuex-router-sync": "~4.1.2",
-    "webpack": "~2.4.1",
+    "webpack": "~2.5.0",
     "webpack-bundle-analyzer": "~2.4.0",
     "webpack-dev-middleware": "~1.10.1",
     "webpack-hot-middleware": "~2.18.0",
