@@ -1,5 +1,6 @@
 <template lang='pug'>
-  section.container
+  section.container(v-if='true') Library is coming back soon!
+  section.container(v-else)
 
     .controls
       //- TODO: Add dropdown to select anime/manga
@@ -108,7 +109,7 @@
     },
     props: [
       'slug',
-      'user'
+      'profile'
     ],
     data () {
       return {
@@ -162,7 +163,7 @@
       getLibraryEntries: async function (limit) {
         let response = await Kitsu.findAll('libraryEntry', {
           filter: {
-            userId: this.user.id,
+            userId: this.profile.id,
             kind: this.kind,
             status: this.status
           },

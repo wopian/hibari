@@ -160,24 +160,32 @@
           else this.error = 'Unidentified error occured while fetching profile'
         }
       },
-      async fetchLibrary (id, kind, offset) {
+      async fetchLibrary (id, kind = 'anime', offset = 0) {
         try {
           const limit = 1 // 500
+          const fields = {
+            all: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,',
+            anime: 'episodeCount,episodeLength',
+            manga: 'chapterCount,volumeCount,serialization'
+          }
 
           console.log(`Getting library ${offset}`)
+          console.log(fields.all + fields.anime)
 
           let response = await Kitsu.findAll('libraryEntry', {
             filter: { kind, user_id: id },
             fields: {
-              libraryEntries: 'anime,manga,status,progress,reconsumeCount,updatedAt,ratingTwenty',
-              anime: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,episodeCount,episodeLength',
-              manga: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,chapterCount,volumeCount,serialization',
+              libraryEntries: `${kind},status,progress,reconsumeCount,updatedAt,ratingTwenty`,
+              anime: kind === 'anime' ? fields.all + fields.anime : 'id',
+              manga: kind === 'manga' ? fields.all + fields.manga : 'id',
               genres: 'name'
             },
-            include: kind === 'anime' ? 'anime.genres' : 'manga.genres',
+            include: `${kind}.genres`,
             sort: '-updatedAt',
             page: { limit, offset }
           })
+
+          console.log(response)
 
           console.log(`Loaded library ${offset}`)
 

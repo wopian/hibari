@@ -137,4 +137,4 @@ Kitsu.define('manga', {
 
 Kitsu.define('genres', {
   name: ''
-})
+}, { collectionPath: 'genres' })
