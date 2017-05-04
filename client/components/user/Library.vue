@@ -96,42 +96,6 @@
   import moment from 'moment'
   import { Kitsu } from 'api'
 
-  Kitsu.define('anime', {
-    slug: '',
-    titles: '',
-    canonicalTitle: '',
-    averageRating: '',
-    ageRating: '',
-    subtype: '',
-    posterImage: '',
-    episodeCount: '',
-    synopsis: ''
-  }, { collectionPath: 'anime' })
-
-  Kitsu.define('manga', {
-    slug: '',
-    titles: '',
-    canonicalTitle: '',
-    averageRating: '',
-    ageRating: '',
-    subtype: '',
-    posterImage: '',
-    chapterCount: '',
-    synopsis: ''
-  }, { collectionPath: 'manga' })
-
-  Kitsu.define('libraryEntry', {
-    status: '',
-    progress: '',
-    rating: '',
-    ratingTwenty: '',
-    updatedAt: '',
-    media: {
-      jsonApi: 'hasOne',
-      type: 'anime' | 'manga'
-    }
-  }, { collectionPath: 'library-entries' })
-
   let offset = 0
 
   export default {

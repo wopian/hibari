@@ -6,14 +6,14 @@
     .content(v-else)
       //- Cover to display  when data loaded
       .cover(
-        v-if='user'
-        v-bind:style='{ backgroundImage: "url(" + (user.coverImage ? user.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
+        v-if='profile'
+        v-bind:style='{ backgroundImage: "url(" + (profile.coverImage ? profile.coverImage.original : "/kitsu/default_cover.png" )  + ")"}'
       )
         .container
-          img(v-bind:src='user.avatar ? user.avatar.large : "/kitsu/default_avatar.png"')
+          img(v-bind:src='profile.avatar ? profile.avatar.large : "/kitsu/default_avatar.png"')
           div
-            h2 {{ user.name }}
-              span(v-if='user.title') {{ user.title }}
+            h2 {{ profile.name }}
+              span(v-if='profile.title') {{ profile.title }}
             a.btn(:href='"//kitsu.io/users/" + slug' rel='noopener' target='_blank') {{ $t('user.kitsuProfile') }}
 
       //- Placeholder cover while data loads
@@ -35,7 +35,8 @@
 
       router-view(
         v-bind:slug='slug'
-        v-bind:user='user'
+        v-bind:profile='profile'
+        v-bind:library='library'
       )
 
       spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
@@ -46,91 +47,10 @@
   import { Kitsu } from 'api'
   import Spinner from 'components/util/Loader'
 
-  Kitsu.define('user', {
-    name: '',
-    about: '',
-    location: '',
-    waifuOrHusbando: '',
-    followersCount: '',
-    createdAt: '',
-    followingCount: '',
-    lifeSpentOnAnime: '',
-    birthday: '',
-    gender: '',
-    updatedAt: '',
-    commentsCount: '',
-    favoritesCount: '',
-    likesGivenCount: '',
-    reviewsCount: '',
-    likesReceivedCount: '',
-    postsCount: '',
-    ratingsCount: '',
-    proExpiresAt: '',
-    title: '',
-    avatar: '',
-    coverImage: '',
-    waifu: {
-      jsonApi: 'hasOne',
-      type: 'characters'
-    },
-    pinnedPost: {
-      jsonApi: 'hasOne',
-      type: 'posts'
-    },
-    profileLinks: {
-      jsonApi: 'hasMany',
-      type: 'profileLinks'
-    },
-    favorites: {
-      jsonApi: 'hasMany',
-      type: 'favorites'
-    }
-  })
-
-  Kitsu.define('character', {
-    slug: '',
-    name: '',
-    image: ''
-  })
-
-  Kitsu.define('post', {
-    contentFormatted: '',
-    commentsCount: '',
-    postLikesCount: '',
-    spoiler: '',
-    nsfw: '',
-    createdAt: '',
-    editedAt: ''
-  })
-
-  Kitsu.define('profileLink', {
-    url: ''
-  })
-
-  Kitsu.define('favorite', {
-    favRank: '',
-    item: {
-      jsonApi: 'hasOne',
-      type: ['characters', 'anime', 'manga']
-    }
-  })
-
-  Kitsu.define('anime', {
-    slug: '',
-    canonicalTitle: '',
-    posterImage: ''
-  })
-
-  Kitsu.define('manga', {
-    slug: '',
-    canonicalTitle: '',
-    posterImage: ''
-  })
-
   export default {
     metaInfo () {
       return {
-        titleTemplate: `${this.user ? this.user.name : this.slug}'s %s | ${this.$t('hibari')}`
+        titleTemplate: `${this.profile ? this.profile.name : this.slug}'s %s | ${this.$t('hibari')}`
       }
     },
     components: {
@@ -142,7 +62,8 @@
         error: null,
         slug: this.$route.params.slug,
         updated: null,
-        user: null
+        profile: null,
+        library: null
       }
     },
     created () {
@@ -154,36 +75,39 @@
       // Second we check local storage
       // Else download the data and add it to the vuex store and local storage
       checkStore () {
-        // Check vuex store for user
-        if (this.$store.state.user[this.$route.params.slug] !== undefined) {
-          this.displayData()
+        // Check vuex store for user && fallback for old session states
+        if (this.$store.state.user[this.slug] !== undefined &&
+        this.$store.state.user[this.slug].profile !== {} &&
+        this.$store.state.user[this.slug].library.anime.length > 0) {
+          this.displayProfile()
+          this.displayLibrary()
           console.info('[HB]: Data retrieved from store')
         // Store is empty
         } else {
           this.loading = true
-          this.fetchData()
+          this.fetchProfile()
           console.info('[HB]: Data retrieved from API')
         }
       },
-      displayData (updated, user, include) {
-        let userStore = this.$store.state.user[this.$route.params.slug]
-
-        // Push data to state
-        this.updated = moment(userStore.updated).fromNow()
-        this.user = userStore.user
+      displayProfile () {
+        // Get data from state
+        this.updated = moment(this.$store.state.user[this.slug].updated).fromNow()
+        this.profile = this.$store.state.user[this.slug].profile
 
         // Disable loading state
         this.loading = false
 
-        // Refresh data if older than 30 minutes
-        if (moment().diff(userStore.updated, 'minutes') > 30) {
+        // Refresh data if older than 12 hours
+        if (moment().diff(this.$store.state.user[this.slug].updated, 'hours') > 12) {
           console.info('[HB]: Refreshing data')
           this.fetchData()
           console.info('[HB]: Updated store from API')
         }
       },
-      fetchData () {
-        // TODO: Get only specific fields: ?fields[attributes]=slug
+      displayLibrary () {
+        this.library = this.$store.state.user[this.slug].library
+      },
+      async fetchProfile () {
         // TODO: For libraries sort items by last updated in request, e.g:
         // /people?sort=age,author.name
         // TODO: Stats for past week, month, year
@@ -191,48 +115,90 @@
         // GLobal:
         // //kitsu.io/api/edge/library-entries?filter[kind]=anime&filter[since]=2017-02-10&page[limit]=10
         // -----------------------------------------------------------------------------------------
+        try {
+          let response = await Kitsu.findAll('user', {
+            filter: { name: this.$route.params.slug },
+            include: 'waifu,pinnedPost,profileLinks,favorites.item',
+            fields: {
+              characters: 'slug,image,name',
+              manga: 'slug,posterImage,canonicalTitle',
+              anime: 'slug,posterImage,canonicalTitle'
+            }
+          })
 
-        Kitsu.findAll('user', {
-          filter: { name: this.$route.params.slug },
-          include: 'waifu,pinnedPost,profileLinks,favorites.item',
-          fields: {
-            characters: 'slug,image,name',
-            manga: 'slug,posterImage,canonicalTitle',
-            anime: 'slug,posterImage,canonicalTitle'
-          }
-        })
-        .then(res => {
-          if (res.meta.count === 0) this.error = 'No user exists'
+          if (response.meta.count === 0) this.error = 'No user exists'
           else {
             const updated = moment()
 
-            res = res[0]
+            response = await response[0]
+
+            // Get library data
+            this.fetchLibrary(response.id, 'anime', 0)
+            this.fetchLibrary(response.id, 'manga', 0)
 
             // Sort favourites by their rank
-            res.favorites.sort(this.numericSort('favRank'))
+            response.favorites.sort(this.numericSort('favRank'))
 
             // Pre-filter favorites by type
-            let favorites = res.favorites
-            res.favorites = { anime: [], manga: [], characters: [] }
-            res.favorites.anime = this.filterFavorites(favorites, 'anime')
-            res.favorites.manga = this.filterFavorites(favorites, 'manga')
-            res.favorites.characters = this.filterFavorites(favorites, 'characters')
-
-            console.log(res.favorites.manga)
+            let favorites = response.favorites
+            response.favorites = { anime: [], manga: [], characters: [] }
+            response.favorites.anime = this.filterFavorites(favorites, 'anime')
+            response.favorites.manga = this.filterFavorites(favorites, 'manga')
+            response.favorites.characters = this.filterFavorites(favorites, 'characters')
 
             // Add data to store
-            this.$store.commit('USER', {
-              data: { user: res, updated },
+            this.$store.commit('PROFILE', {
+              data: { profile: response, updated },
               slug: this.slug
             })
 
             // Display (updated) data
-            this.displayData()
+            this.displayProfile()
           }
-        })
-        .catch(err => {
-          this.error = err.toString()
-        })
+        } catch (err) {
+          if (err) this.error = err.toString()
+          else this.error = 'Unidentified error occured while fetching profile'
+        }
+      },
+      async fetchLibrary (id, kind, offset) {
+        try {
+          const limit = 1 // 500
+
+          console.log(`Getting library ${offset}`)
+
+          let response = await Kitsu.findAll('libraryEntry', {
+            filter: { kind, user_id: id },
+            fields: {
+              libraryEntries: 'anime,manga,status,progress,reconsumeCount,updatedAt,ratingTwenty',
+              anime: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,episodeCount,episodeLength',
+              manga: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,chapterCount,volumeCount,serialization',
+              genres: 'name'
+            },
+            include: kind === 'anime' ? 'anime.genres' : 'manga.genres',
+            sort: '-updatedAt',
+            page: { limit, offset }
+          })
+
+          console.log(`Loaded library ${offset}`)
+
+          // await delete response.type
+
+          // Add data to store
+          await this.$store.commit('LIBRARY', {
+            data: response,
+            slug: this.slug,
+            kind
+          })
+
+          console.log(`Stored library ${offset}`)
+
+          this.displayLibrary()
+
+          // if (response.links.next) await this.fetchLibrary(id, kind, offset + limit)
+        } catch (err) {
+          if (err) this.error = err.toString()
+          else this.error = `Unidentified error occured while fetching ${kind} library`
+        }
       },
       filterFavorites (array, type) {
         return array.filter(fav => {

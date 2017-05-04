@@ -1,27 +1,27 @@
 <template lang='pug'>
-  section.container(v-if='user')
+  section.container(v-if='profile')
     .row
       .left.col-md-8.col-sm-12
         .title
           span {{ $t('user.sociability.title') }}
         .sociability.row
           .card.card-block
-            p.card-title {{ user.postsCount }}
+            p.card-title {{ profile.postsCount }}
             p.card-text {{ $t('user.sociability.postsCount') }}
           .card.card-block
-            p.card-title {{ user.commentsCount }}
+            p.card-title {{ profile.commentsCount }}
             p.card-text {{ $t('user.sociability.commentsCount') }}
           .card.card-block
-            p.card-title {{ user.likesGivenCount }}
+            p.card-title {{ profile.likesGivenCount }}
             p.card-text {{ $t('user.sociability.likesGivenCount') }}
           .card.card-block
-            p.card-title {{ user.likesReceivedCount }}
+            p.card-title {{ profile.likesReceivedCount }}
             p.card-text {{ $t('user.sociability.likesReceivedCount') }}
           .card.card-block
-            p.card-title {{ user.followingCount }}
+            p.card-title {{ profile.followingCount }}
             p.card-text {{ $t('user.sociability.followingCount') }}
           .card.card-block
-            p.card-title {{ user.followersCount }}
+            p.card-title {{ profile.followersCount }}
             p.card-text {{ $t('user.sociability.followersCount') }}
 
         .title
@@ -36,21 +36,24 @@
         .title
           span Manga Stats
 
-        //- RAW API DUMP START
+        //- DUMP START
         .title
-          span API User
-        details
-          summary Show
-          pre(v-if='user') {{ user }}
-        //- RAW API DUMP END
+          span 🚧 User State Dump 🚧
+        details(v-if='profile')
+          summary Profile
+          pre {{ profile }}
+        details(v-if='library')
+          summary Library
+          pre {{ library }}
+        //- DUMP END
 
       .right.col-md-4.col-sm-12
         .title
           span About Me
-        p.os {{ user.about }}
-        p.waifu(v-if='user.waifu') {{ user.waifu.name }}
-          span {{ user.waifuOrHusbando }}
-        .favourites(v-if='user.favorites')
+        p.os {{ profile.about }}
+        p.waifu(v-if='profile.waifu') {{ profile.waifu.name }}
+          span {{ profile.waifuOrHusbando }}
+        .favourites(v-if='profile.favorites')
           .title
             span Favourites
           ul.nav.nav-pills.nav-justified
@@ -73,10 +76,10 @@
           //- start: favourites container
           .tab-content
             //- Display anime favourites when active
-            .tab-pane.active(v-if='favoritesPanel === "anime" && user.favorites.anime.length > 0')
+            .tab-pane.active(v-if='favoritesPanel === "anime" && profile.favorites.anime.length > 0')
               paginate(
                 name='favAnime'
-                v-bind:list='user.favorites.anime'
+                v-bind:list='profile.favorites.anime'
                 v-bind:per='16'
                 tag='div'
                 class='row'
@@ -90,13 +93,13 @@
                 v-bind:hide-single-page='true'
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
-            p(v-else-if='favoritesPanel === "anime" && user.favorites.manga.length === 0') No favourite anime
+            p(v-else-if='favoritesPanel === "anime" && profile.favorites.manga.length === 0') No favourite anime
 
             //- Display manga favourites when active
-            .tab-pane.active(v-else-if='favoritesPanel === "manga" && user.favorites.manga.length > 0')
+            .tab-pane.active(v-else-if='favoritesPanel === "manga" && profile.favorites.manga.length > 0')
               paginate(
                 name='favManga'
-                v-bind:list='user.favorites.manga'
+                v-bind:list='profile.favorites.manga'
                 v-bind:per='16'
                 tag='div'
                 class='row'
@@ -110,13 +113,13 @@
                 v-bind:hide-single-page='true'
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
-            p(v-else-if='favoritesPanel === "manga" && user.favorites.manga.length === 0') No favourite manga
+            p(v-else-if='favoritesPanel === "manga" && profile.favorites.manga.length === 0') No favourite manga
 
             //- Display character favourites when active
-            .tab-pane.active(v-else-if='favoritesPanel === "characters" && user.favorites.characters.length > 0')
+            .tab-pane.active(v-else-if='favoritesPanel === "characters" && profile.favorites.characters.length > 0')
               paginate(
                 name='favCharacters'
-                v-bind:list='user.favorites.characters'
+                v-bind:list='profile.favorites.characters'
                 v-bind:per='16'
                 tag='div'
                 class='row'
@@ -130,7 +133,7 @@
                 v-bind:hide-single-page='true'
                 v-bind:classes='{ ".next > a": "btn", ".prev > a": "btn" }'
               )
-            p(v-else-if='favoritesPanel === "characters" && user.favorites.characters.length === 0') No favourite characters
+            p(v-else-if='favoritesPanel === "characters" && profile.favorites.characters.length === 0') No favourite characters
           //- stop: favourites container
 </template>
 
@@ -141,7 +144,8 @@
     },
     props: [
       'slug',
-      'user'
+      'profile',
+      'library'
     ],
     data () {
       return {
@@ -157,6 +161,9 @@
   @import ~bootstrap/scss/variables
   @import ~bootstrap/scss/mixins/breakpoints
   @import ~styles/variables
+
+  pre
+    max-height: 10rem * 1.5
 
   section.container
     padding: 0 15px

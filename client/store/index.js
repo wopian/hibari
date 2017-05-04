@@ -4,55 +4,67 @@ import createPersist from 'vuex-localstorage'
 
 Vue.use(Vuex)
 
-const state = {
+const defaults = {
   user: {
-    /*
-    'wopian': {
-      user: {},
-      updated: null
-    }
-    */
+    profile: {},
+    library: {
+      anime: [],
+      manga: []
+    },
+    updated: null
   },
-  anime: {
-    /*
-    'slug': {
-      anime: {},
-      updated: null
-    }
-    */
-  },
+  media: {
+    media: {},
+    updated: null
+  }
+}
+
+const state = {
+  user: {},
+  anime: {},
   manga: {}
 }
 
 const mutations = {
-  USER (state, payload) {
+  PROFILE (state, payload) {
     // Create child objects if don't exist
     if (!state.user[payload.slug]) {
-      state.user[payload.slug] = { user: {}, updated: null }
+      state.user[payload.slug] = defaults.user
     }
 
     // Update store
-    state.user[payload.slug].user = payload.data.user
+    state.user[payload.slug].profile = payload.data.profile
     state.user[payload.slug].updated = payload.data.updated
+  },
+  LIBRARY (state, payload) {
+    if (!state.user[payload.slug]) {
+      state.user[payload.slug] = defaults.user
+    } else if (!state.user[payload.slug].library) {
+      // If it's an old session state
+      state.user[payload.slug].library = defaults.user.library
+    }
+
+    // Update store
+    state.user[payload.slug].library[payload.kind] = state.user[payload.slug].library[payload.kind].concat(payload.data)
   },
   ANIME (state, payload) {
     // Create child objects if don't exist
     if (!state.anime[payload.slug]) {
-      state.anime[payload.slug] = { anime: {}, updated: null }
+      state.anime[payload.slug] = defaults.media
     }
 
     // Update store
-    state.anime[payload.slug].anime = payload.data.anime
+    state.anime[payload.slug].media = payload.data.anime
     state.anime[payload.slug].updated = payload.data.updated
   },
   MANGA (state, payload) {
     // Create child objects if don't exist
     if (!state.manga[payload.slug]) {
-      state.manga[payload.slug] = { manga: {}, updated: null }
+      state.manga[payload.slug] = defaults.media
     }
 
     // Update store
-    state.manga[payload.slug].manga = payload.data.manga
+    state.manga[payload.slug].media = payload.data.manga
     state.manga[payload.slug].updated = payload.data.updated
   }
 }

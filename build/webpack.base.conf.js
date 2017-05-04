@@ -30,7 +30,8 @@ module.exports = {
       'styles': resolve('client/styles'),
       'components': resolve('client/components'),
       'locales': resolve('client/locales'),
-      'api': resolve('client/api')
+      'api': resolve('client/api'),
+      'util': resolve('client/util')
     }
   },
   module: {
