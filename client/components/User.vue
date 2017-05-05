@@ -76,9 +76,7 @@
       // Else download the data and add it to the vuex store and local storage
       checkStore () {
         // Check vuex store for user && fallback for old session states
-        if (this.$store.state.user[this.slug] !== undefined &&
-        this.$store.state.user[this.slug].profile !== {} &&
-        this.$store.state.user[this.slug].library.anime.length > 0) {
+        if (this.$store.state.user[this.slug] !== undefined) {
           this.displayProfile()
           this.displayLibrary()
           console.info('[HB]: Data retrieved from store')
@@ -100,7 +98,7 @@
         // Refresh data if older than 12 hours
         if (moment().diff(this.$store.state.user[this.slug].updated, 'hours') > 12) {
           console.info('[HB]: Refreshing data')
-          this.fetchData()
+          this.fetchProfile()
           console.info('[HB]: Updated store from API')
         }
       },
