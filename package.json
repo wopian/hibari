@@ -15,7 +15,7 @@
     "npm": ">= 3.10.8"
   },
   "dependencies": {
-    "autoprefixer": "~6.7.6",
+    "autoprefixer": "~7.0.0",
     "babel-cli": "~6.24.1",
     "babel-core": "~6.24.1",
     "babel-loader": "~7.0.0",
