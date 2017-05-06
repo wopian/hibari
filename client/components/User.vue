@@ -178,12 +178,41 @@
             page: { limit, offset }
           })
 
+          // Remove unneeded properties
+          for (let entry of await this.removeEmpty(response)) {
+            if (entry.id) delete entry.id
+            if (entry.type) delete entry.type
+            if (entry.links) delete entry.links
+            if (entry.anime) {
+              if (entry.anime.id) delete entry.anime.id
+              if (entry.anime.type) delete entry.anime.type
+              if (entry.anime.links) delete entry.anime.links
+              for (let genre of entry.anime.genres) {
+                if (genre.id) delete genre.id
+                if (genre.type) delete genre.type
+                if (genre.links) delete genre.links
+              }
+              if (entry.anime.genres) entry.anime.genres = entry.anime.genres.map(item => item.name)
+            }
+            if (entry.manga) {
+              if (entry.manga.id) delete entry.manga.id
+              if (entry.manga.type) delete entry.manga.type
+              if (entry.manga.links) delete entry.manga.links
+              for (let genre of entry.manga.genres) {
+                if (genre.id) delete genre.id
+                if (genre.type) delete genre.type
+                if (genre.links) delete genre.links
+              }
+              if (entry.manga.genres) entry.manga.genres = entry.manga.genres.map(item => item.name)
+            }
+          }
+
           // Add data to store
           await this.$store.commit('LIBRARY', {
             data: response,
             slug: this.slug,
             kind
-          })
+          }, offset === 0)
 
           this.displayLibrary()
 
@@ -204,6 +233,13 @@
           if (a[key] < b[key]) return -1
           return 0
         }
+      },
+      removeEmpty (obj) {
+        Object.entries(obj).forEach(([key, val]) => {
+          if (val && typeof val === 'object') this.removeEmpty(val)
+          else if (val === null) delete obj[key]
+        })
+        return obj
       }
     }
   }

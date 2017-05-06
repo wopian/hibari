@@ -36,7 +36,7 @@ const mutations = {
     state.user[payload.slug].profile = payload.data.profile
     state.user[payload.slug].updated = payload.data.updated
   },
-  LIBRARY (state, payload) {
+  LIBRARY (state, payload, overwrite = false) {
     if (!state.user[payload.slug]) {
       state.user[payload.slug] = defaults.user
     } else if (!state.user[payload.slug].library) {
@@ -45,7 +45,7 @@ const mutations = {
     }
 
     // Update store
-    state.user[payload.slug].library[payload.kind] = state.user[payload.slug].library[payload.kind].concat(payload.data)
+    state.user[payload.slug].library[payload.kind] = overwrite ? payload.data : state.user[payload.slug].library[payload.kind].concat(payload.data)
   },
   ANIME (state, payload) {
     // Create child objects if don't exist
