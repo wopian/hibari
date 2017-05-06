@@ -11,8 +11,8 @@
   },
   "main": "client/main.js",
   "engines": {
-    "node": ">= 7.0.0",
-    "npm": ">= 3.10.8"
+    "node": ">= 6.10.3",
+    "npm": ">= 3.10.10"
   },
   "dependencies": {
     "autoprefixer": "~7.0.0",
