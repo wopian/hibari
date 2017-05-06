@@ -53,19 +53,6 @@
   import Spinner from 'components/util/Loader'
   import { Kitsu } from 'api'
 
-  Kitsu.define('anime', {
-    slug: '',
-    titles: '',
-    canonicalTitle: '',
-    averageRating: '',
-    ageRating: '',
-    subtype: '',
-    posterImage: '',
-    coverImage: '',
-    episodeCount: '',
-    synopsis: ''
-  }, { collectionPath: 'anime' })
-
   export default {
     metaInfo () {
       return {

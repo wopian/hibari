@@ -1,5 +1,4 @@
 import JsonApi from 'devour-client'
-// import axios from 'axios'
 
 export const Kitsu = new JsonApi({
   apiUrl: 'https://kitsu.io/api/edge',
@@ -112,7 +111,7 @@ Kitsu.define('anime', {
     jsonApi: 'hasMany',
     type: 'genres'
   }
-}, { collectionPath: 'anime' })
+})
 
 Kitsu.define('manga', {
   slug: '',
@@ -133,8 +132,8 @@ Kitsu.define('manga', {
     jsonApi: 'hasMany',
     type: 'genres'
   }
-}, { collectionPath: 'manga' })
+})
 
-Kitsu.define('genres', {
+Kitsu.define('genre', {
   name: ''
-}, { collectionPath: 'genres' })
+})

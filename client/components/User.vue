@@ -106,11 +106,9 @@
         this.library = this.$store.state.user[this.slug].library
       },
       async fetchProfile () {
-        // TODO: For libraries sort items by last updated in request, e.g:
-        // /people?sort=age,author.name
         // TODO: Stats for past week, month, year
         // //kitsu.io/api/edge/users/42603/library-entries?include=anime&filter[since]=2017-01-08
-        // GLobal:
+        // Global:
         // //kitsu.io/api/edge/library-entries?filter[kind]=anime&filter[since]=2017-02-10&page[limit]=10
         // -----------------------------------------------------------------------------------------
         try {
@@ -160,15 +158,12 @@
       },
       async fetchLibrary (id, kind = 'anime', offset = 0) {
         try {
-          const limit = 1 // 500
+          const limit = 500
           const fields = {
             all: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,',
             anime: 'episodeCount,episodeLength',
             manga: 'chapterCount,volumeCount,serialization'
           }
-
-          console.log(`Getting library ${offset}`)
-          console.log(fields.all + fields.anime)
 
           let response = await Kitsu.findAll('libraryEntry', {
             filter: { kind, user_id: id },
@@ -183,12 +178,6 @@
             page: { limit, offset }
           })
 
-          console.log(response)
-
-          console.log(`Loaded library ${offset}`)
-
-          // await delete response.type
-
           // Add data to store
           await this.$store.commit('LIBRARY', {
             data: response,
@@ -196,11 +185,9 @@
             kind
           })
 
-          console.log(`Stored library ${offset}`)
-
           this.displayLibrary()
 
-          // if (response.links.next) await this.fetchLibrary(id, kind, offset + limit)
+          if (response.links.next) await this.fetchLibrary(id, kind, offset + limit)
         } catch (err) {
           if (err) this.error = err.toString()
           else this.error = `Unidentified error occured while fetching ${kind} library`
