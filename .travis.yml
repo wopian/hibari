@@ -17,6 +17,7 @@ before_script:
 script:
 - npm start build
 after_success:
+- echo $TRAVIS_BUILD_NUMBER
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test $TRAVIS_BUILD_NUMBER == 1 && bash deploy.sh
 - bash yarn.sh
 - travis_retry yarn global add codeclimate-test-reporter
