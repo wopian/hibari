@@ -1,5 +1,5 @@
 <template lang='pug'>
-  header.navbar.fixed-top.navbar-light(v-bind:class='{ transparent: position }')
+  header.navbar.fixed-top.navbar-light(v-bind:class='{ transparent }')
       nav.nav.container
         h1.navbar-brand.mb-0 {{ $t('hibari') }}
           span(v-if='development') Dev
@@ -22,22 +22,20 @@
     },
     data () {
       return {
-        position: (this.$route.params.slug || this.$route.params.query) ? ((window.pageYOffset || document.documentElement.scrollTop) < 100) : false
+        transparent: this.$route.params.slug ? (window.pageYOffset || document.documentElement.scrollTop) < 100 : false
       }
+    },
+    watch: {
+      '$route': 'setTransparency'
     },
     methods: {
-      handleScroll (event) {
-        if (this.$route.params.slug || this.$route.params.query) {
-          this.position = (window.pageYOffset || document.documentElement.scrollTop) < 100
-        }
+      setTransparency () {
+        this.transparent = this.$route.params.slug ? (window.pageYOffset || document.documentElement.scrollTop) < 100 : false
       }
-    },
-    beforeDestroy: function () {
-      window.removeEventListener('scroll', this.handleScroll)
     },
     mounted () {
       window.addEventListener('scroll', () => {
-        setTimeout(this.handleScroll, 250)
+        setTimeout(this.setTransparency, 250)
       })
     }
   }
