@@ -17,7 +17,7 @@ before_script:
 script:
 - npm start build
 after_success:
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test $TRAVIS_OS_NAME == "linux" && bash deploy.sh
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test $TRAVIS_BUILD_NUMBER == 1 && bash deploy.sh
 - bash yarn.sh
 - travis_retry yarn global add codeclimate-test-reporter
 - codeclimate-test-reporter < test/coverage/lcov.info
