@@ -32,6 +32,8 @@
 
         .title
           span Anime Stats
+        .row
+          genres.col-6(v-bind:chartData='chartGenres')
 
         .title
           span Manga Stats
@@ -138,6 +140,8 @@
 </template>
 
 <script>
+  import Genres from 'components/charts/Genres'
+
   export default {
     metaInfo: {
       title: 'Profile'
@@ -147,11 +151,23 @@
       'profile',
       'library'
     ],
+    components: {
+      Genres
+    },
     data () {
       return {
         error: null,
         paginate: ['favAnime', 'favManga', 'favCharacters'],
-        favoritesPanel: 'anime'
+        favoritesPanel: 'anime',
+        chartGenres: {
+          labels: ['Kitsu', 'Hibari', 'MyAnimeList'],
+          datasets: [
+            {
+              backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+              data: [40, 20, 5]
+            }
+          ]
+        }
       }
     }
   }
