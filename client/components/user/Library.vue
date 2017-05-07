@@ -1,6 +1,5 @@
 <template lang='pug'>
-  section.container(v-if='true') Library is coming back soon!
-  section.container(v-else)
+  section.container
 
     .controls
       //- TODO: Add dropdown to select anime/manga
@@ -48,10 +47,10 @@
         infinite-scroll-distance='10'
       )
 
-    .row
+    .row(v-if='$store.state.user[$route.params.slug] && libraryDownloaded[kind]')
       droppler.col-6.col-sm-3.col-lg-2(
-        v-for='(media, index) in library'
-        v-bind:key='media.id'
+        v-for='(entry, index) in $store.state.user[$route.params.slug].library[kind]'
+        v-bind:key='entry[kind].slug'
         openOn='hover'
         classes='media-tooltip'
         constrainToWindow='true'
@@ -61,9 +60,9 @@
       )
         router-link.card(
           slot='drop-trigger'
-          v-bind:to='"/" + kind + "/" + media.media.slug'
+          v-bind:to='"/" + kind + "/" + entry[kind].slug'
         )
-          img.card-img-top(:src='media.media.posterImage.medium')
+          img.card-img-top(:src='entry[kind].posterImage')
 
           //- TODO: Replace this component with Tether
             http://tether.io/docs/welcome/
@@ -72,34 +71,30 @@
             http://github.hubspot.com/tooltip/docs/welcome/
 
         .media-box(slot='drop-content')
-          .media-title {{ media.media.canonicalTitle }}
+          .media-title {{ entry[kind].canonicalTitle }}
           .media-rating(
-            v-if='media.media.averageRating'
-            v-bind:class='colourAverageRating(media.media.averageRating)'
-          ) {{ media.media.averageRating }}%
-          .media-synopsis {{ media.media.synopsis }}
+            v-if='entry[kind].averageRating'
+            v-bind:class='colourAverageRating(entry[kind].averageRating)'
+          ) {{ entry[kind].averageRating }}%
+          .media-synopsis {{ entry[kind].synopsis }}
           .library
-            .library-status {{ $t('user.library.status.' + kind + '.' + media.status) }}
-            .library-progress(v-if='kind === "anime"') {{ $t('user.library.mediaBox.episode', { episode: media.progress, total: media.media.episodeCount || '∞' }) }}
-            .library-progress(v-if='kind === "manga"') {{ $t('user.library.mediaBox.chapter', { chapter: media.progress, total: media.media.chapterCount || '∞' }) }}
-            .library-rating(v-if='media.ratingTwenty') {{ $t('user.library.mediaBox.rating', { rating: media.ratingTwenty / 2 }) }}
+            .library-status {{ $t('user.library.status.' + kind + '.' + entry.status) }}
+            .library-progress(v-if='kind === "anime"') {{ $t('user.library.mediaBox.episode', { episode: entry.progress, total: entry[kind].episodeCount || '∞' }) }}
+            .library-progress(v-if='kind === "manga"') {{ $t('user.library.mediaBox.chapter', { chapter: entry.progress, total: entry[kind].chapterCount || '∞' }) }}
+            .library-rating(v-if='entry.ratingTwenty') {{ $t('user.library.mediaBox.rating', { rating: entry.ratingTwenty / 2 }) }}
             .library-rating(v-else) Unrated
-            .library-updated {{ humanise(media.updatedAt) }}
+            .library-updated {{ humanise(entry.updatedAt) }}
 
-    p(v-if='loading && error === null') Fetching library entries...
     p(v-if='error') {{ error }}
-    spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
 </template>
 
 <script>
   import Droppler from 'vue-droppler'
   import Spinner from 'components/util/Loader'
-  import moment from 'moment'
-  import { Kitsu } from 'api'
-
-  let offset = 0
+  import libraryEntryMixin from 'util/libraryEntryMixin'
 
   export default {
+    mixins: [libraryEntryMixin],
     metaInfo: {
       title: 'Library'
     },
@@ -109,85 +104,27 @@
     },
     props: [
       'slug',
-      'profile'
+      'profile',
+      'libraryDownloaded'
     ],
     data () {
       return {
-        loading: true,
         error: undefined,
-        loadingError: this.error || this.loading === true,
         kind: 'anime', // current library type (anime|manga)
-        status: '1,2,3,4,5', // current status type (1=current)
+        status: '', // current status type (''=all,current,completed,planned,on_hold,dropped)
         library: []
       }
     },
-    created () {
-      this.loadMore()
-    },
     methods: {
-      capitalise: function (string) {
-        return string.charAt(0).toUpperCase() + string.slice(1)
-      },
-      humanise: function (time) {
-        return this.capitalise(moment(time).fromNow())
-      },
-      colourAverageRating: function (rating) {
-        if (!rating) return ''
-        else if (rating <= 25) return 'awful'
-        else if (rating <= 50) return 'meh'
-        else if (rating <= 75) return 'good'
-        else if (rating <= 100) return 'great'
-      },
-      loadMore: function () {
-        this.loading = true
-        this.getLibraryEntries(200) // 48, 36
-      },
       changeKind: function (kind) {
         if (kind !== this.kind) {
-          this.library = []
           this.kind = kind
-          this.error = undefined
-          offset = 0
-          this.loadMore()
         }
       },
       changeStatus: function (status) {
         if (status !== this.status) {
-          this.library = []
           this.status = status
-          this.error = undefined
-          offset = 0
-          this.loadMore()
         }
-      },
-      getLibraryEntries: async function (limit) {
-        let response = await Kitsu.findAll('libraryEntry', {
-          filter: {
-            userId: this.profile.id,
-            kind: this.kind,
-            status: this.status
-          },
-          include: 'media',
-          sort: '-updated_at',
-          page: {
-            limit,
-            offset
-          }
-        })
-
-        delete response.links
-        delete response.meta
-
-        if (response.length !== 0) {
-          for (let media of response) {
-            this.library.push(media)
-          }
-          offset += limit
-        } else {
-          this.error = 'No media found'
-        }
-
-        this.loading = await false
       }
     }
   }
@@ -242,140 +179,4 @@
 
     .btn-group
       float: right
-</style>
-
-<style lang='sass'>
-  @import ~styles/variables
-
-  // Tether tooltip
-  .drop.media-tooltip
-    z-index: 50
-    pointer-events: none
-    @media (max-width: 768px)
-      display: none
-      visibility: hidden
-    > div
-      background-color: $primary
-      color: lighten($primary, 60)
-      border-radius: 3px
-      padding: .75rem 1rem 1rem
-      position: relative
-      height: 189px
-      width: 282px
-      @media (min-width: 1221px)
-        height: 249px
-        width: 366px
-      @media (max-width: 1220px)
-        height: 206px
-        width: 306px
-      @media (max-width: 990px)
-        height: 236px
-        width: 348px
-      &:before,
-      &:after
-        width: 0
-        height: 0
-        content: ''
-        border-top: 10px solid transparent
-        border-bottom: 10px solid transparent
-        position: absolute
-        top: .9rem
-    .drop-content
-      > div
-        height: 100%
-    .media-box
-      display: flex
-      flex-direction: column
-      flex-wrap: nowrap
-      justify-content: flex-start
-      align-content: stretch
-      align-items: stretch
-      height: 100%
-    .media-title,
-    .media-rating
-    .library
-      flex: 0 1 auto
-      align-self: auto
-    .media-title
-      font-size: 1rem
-      font-weight: 500
-    .media-rating
-      height: 24px
-      &.awful
-        color: rgba(231, 76, 60,1.0)
-      &.meh
-        color: rgba(230, 126, 34,1.0)
-      &.good
-        color: rgba(243, 156, 18,1.0)
-      &.great
-        color: rgba(26, 188, 156,1.0)
-    .media-synopsis
-      font-size: .75rem
-      // max-height: calc(12px * 5 * 1.5)
-      overflow: hidden
-      flex: 1 1 auto
-      align-self: auto
-    .library
-      border-top: 1px solid lighten($primary, 4)
-      border-radius: 0 0 3px 3px
-      background: lighten($primary, 1)
-      padding-top: .5rem
-      padding-left: 1rem
-      padding-right: 1rem
-      padding-bottom: 2.25rem
-      margin-top: .5rem
-      margin-bottom: calc(-1rem + 1px)
-      width: calc(100% + 2rem - 2px)
-      left: calc(-1rem + 1px)
-      position: relative
-      height: 2rem
-      min-height: 2rem
-      max-height: 2rem
-      font-size: .75rem
-      line-height: 1.5rem
-
-      display: flex
-      flex-direction: row
-      flex-wrap: nowrap
-      justify-content: space-between
-      align-content: stretch
-      align-items: stretch
-
-      @media (max-width: 1220px)
-        flex-wrap: wrap
-        height: 4.25rem
-        min-height: 4.25rem
-        max-height: 4.25rem
-        margin-top: .75rem
-    .library-status,
-    .library-rating,
-    .library-progress
-      flex: 0 1 auto
-      align-self: auto
-      @media (max-width: 1220px)
-        flex: 1 1 60%
-    @media (max-width: 1220px)
-      .library-status
-        order: 4
-        text-align: right
-        flex: 1 1 40%
-      .library-updated
-        order: -1
-        text-align: right
-      .library-progress
-        order: -3
-    &.drop-target-attached-right
-      > div
-        left: 16px
-        &:before
-          left: -10px
-          border-right: 10px solid $primary
-    &.drop-target-attached-left
-      > div
-        right: 16px
-        &:after
-          right: -10px
-          border-left: 10px solid $primary
-        @media (max-width: 990px)
-          left: -16px
 </style>

@@ -1,0 +1,133 @@
+@import ~styles/variables
+
+// Tether tooltip
+.drop.media-tooltip
+  z-index: 50
+  pointer-events: none
+  @media (max-width: 768px)
+    display: none
+    visibility: hidden
+  > div
+    background-color: $primary
+    color: lighten($primary, 60)
+    border-radius: 3px
+    padding: .75rem 1rem 1rem
+    position: relative
+    height: 189px
+    width: 282px
+    @media (min-width: 1221px)
+      height: 249px
+      width: 366px
+    @media (max-width: 1220px)
+      height: 206px
+      width: 306px
+    @media (max-width: 990px)
+      height: 236px
+      width: 348px
+    &:before,
+    &:after
+      width: 0
+      height: 0
+      content: ''
+      border-top: 10px solid transparent
+      border-bottom: 10px solid transparent
+      position: absolute
+      top: .9rem
+  .drop-content
+    > div
+      height: 100%
+  .media-box
+    display: flex
+    flex-direction: column
+    flex-wrap: nowrap
+    justify-content: flex-start
+    align-content: stretch
+    align-items: stretch
+    height: 100%
+  .media-title,
+  .media-rating
+  .library
+    flex: 0 1 auto
+    align-self: auto
+  .media-title
+    font-size: 1rem
+    font-weight: 500
+  .media-rating
+    height: 24px
+    &.awful
+      color: rgba(231, 76, 60,1.0)
+    &.meh
+      color: rgba(230, 126, 34,1.0)
+    &.good
+      color: rgba(243, 156, 18,1.0)
+    &.great
+      color: rgba(26, 188, 156,1.0)
+  .media-synopsis
+    font-size: .75rem
+    // max-height: calc(12px * 5 * 1.5)
+    overflow: hidden
+    flex: 1 1 auto
+    align-self: auto
+  .library
+    border-top: 1px solid lighten($primary, 4)
+    border-radius: 0 0 3px 3px
+    background: lighten($primary, 1)
+    padding-top: .5rem
+    padding-left: 1rem
+    padding-right: 1rem
+    padding-bottom: 2.25rem
+    margin-top: .5rem
+    margin-bottom: calc(-1rem + 1px)
+    width: calc(100% + 2rem - 2px)
+    left: calc(-1rem + 1px)
+    position: relative
+    height: 2rem
+    min-height: 2rem
+    max-height: 2rem
+    font-size: .75rem
+    line-height: 1.5rem
+
+    display: flex
+    flex-direction: row
+    flex-wrap: nowrap
+    justify-content: space-between
+    align-content: stretch
+    align-items: stretch
+
+    @media (max-width: 1220px)
+      flex-wrap: wrap
+      height: 4.25rem
+      min-height: 4.25rem
+      max-height: 4.25rem
+      margin-top: .75rem
+  .library-status,
+  .library-rating,
+  .library-progress
+    flex: 0 1 auto
+    align-self: auto
+    @media (max-width: 1220px)
+      flex: 1 1 60%
+  @media (max-width: 1220px)
+    .library-status
+      order: 4
+      text-align: right
+      flex: 1 1 40%
+    .library-updated
+      order: -1
+      text-align: right
+    .library-progress
+      order: -3
+  &.drop-target-attached-right
+    > div
+      left: 16px
+      &:before
+        left: -10px
+        border-right: 10px solid $primary
+  &.drop-target-attached-left
+    > div
+      right: 16px
+      &:after
+        right: -10px
+        border-left: 10px solid $primary
+      @media (max-width: 990px)
+        left: -16px

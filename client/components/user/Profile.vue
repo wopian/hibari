@@ -1,34 +1,69 @@
 <template lang='pug'>
-  section.container(v-if='profile')
+  section.container
     .row
       .left.col-md-8.col-sm-12
         .title
           span {{ $t('user.sociability.title') }}
+        //- TODO: Split this into a reusable component
         .sociability.row
           .card.card-block
-            p.card-title {{ profile.postsCount }}
+            p.card-title(v-if='profile') {{ profile.postsCount }}
+            p.card-title.loading(v-else)
             p.card-text {{ $t('user.sociability.postsCount') }}
           .card.card-block
-            p.card-title {{ profile.commentsCount }}
+            p.card-title(v-if='profile') {{ profile.commentsCount }}
+            p.card-title.loading(v-else)
             p.card-text {{ $t('user.sociability.commentsCount') }}
           .card.card-block
-            p.card-title {{ profile.likesGivenCount }}
+            p.card-title(v-if='profile') {{ profile.likesGivenCount }}
+            p.card-title.loading(v-else)
             p.card-text {{ $t('user.sociability.likesGivenCount') }}
           .card.card-block
-            p.card-title {{ profile.likesReceivedCount }}
+            p.card-title(v-if='profile') {{ profile.likesReceivedCount }}
+            p.card-title.loading(v-else)
             p.card-text {{ $t('user.sociability.likesReceivedCount') }}
           .card.card-block
-            p.card-title {{ profile.followingCount }}
+            p.card-title(v-if='profile') {{ profile.followingCount }}
+            p.card-title.loading(v-else)
             p.card-text {{ $t('user.sociability.followingCount') }}
           .card.card-block
-            p.card-title {{ profile.followersCount }}
+            p.card-title(v-if='profile') {{ profile.followersCount }}
+            p.card-title.loading(v-else)
             p.card-text {{ $t('user.sociability.followersCount') }}
 
         .title
-          span Recent Activity
-        .recent-activity.row
-          .col-3(v-for='n in 4')
-            img(src='//media.kitsu.io/anime/poster_images/11178/small.jpg?1452886316')
+          span Recent Anime Activity
+        //- TODO: Split this into a reusable component
+        .recent-activity.row(v-if='$store.state.user[$route.params.slug] && libraryDownloaded.anime')
+          droppler.col-6.col-sm-3(
+            v-for='entry in getRecent("anime")'
+            v-bind:key='entry.anime.slug'
+            openOn='hover'
+            classes='media-tooltip'
+            constrainToWindow='true'
+            constrainToScrollParent='true'
+            remove='true'
+            position='right center'
+          )
+            router-link.card(
+              slot='drop-trigger'
+              v-bind:to='"/anime/" + entry.anime.slug'
+            )
+              img.card-img-top(:src='entry.anime.posterImage')
+
+            .media-box(slot='drop-content')
+              .media-title {{ entry.anime.canonicalTitle }}
+              .media-rating(
+                v-if='entry.anime.averageRating'
+                v-bind:class='colourAverageRating(entry.anime.averageRating)'
+              ) {{ entry.anime.averageRating }}%
+              .media-synopsis {{ entry.anime.synopsis }}
+              .library
+                .library-status {{ $t('user.library.status.anime.' + entry.status) }}
+                .library-progress {{ $t('user.library.mediaBox.episode', { episode: entry.progress, total: entry.anime.episodeCount || '∞' }) }}
+                .library-rating(v-if='entry.ratingTwenty') {{ $t('user.library.mediaBox.rating', { rating: entry.ratingTwenty / 2 }) }}
+                .library-rating(v-else) Unrated
+                .library-updated {{ humanise(entry.updatedAt) }}
 
         .title
           span Anime Stats
@@ -38,6 +73,7 @@
         .title
           span Manga Stats
 
+      //-
         //- DUMP START
         .title
           span 🚧 User State Dump 🚧
@@ -49,12 +85,15 @@
           pre {{ library }}
         //- DUMP END
 
-      .right.col-md-4.col-sm-12
+      .right.col-md-4.col-sm-12(v-if='profile')
         .title
           span About Me
+        //- TODO: Split this into a reusable component
         p.os {{ profile.about }}
         p.waifu(v-if='profile.waifu') {{ profile.waifu.name }}
           span {{ profile.waifuOrHusbando }}
+
+        //- TODO: Split this into a reusable component
         .favourites(v-if='profile.favorites')
           .title
             span Favourites
@@ -137,21 +176,26 @@
               )
             p(v-else-if='favoritesPanel === "characters" && profile.favorites.characters.length === 0') No favourite characters
           //- stop: favourites container
+    p {{ libraryDownloaded }} - if 'false' it either errored or is still loading
 </template>
 
 <script>
+  import Droppler from 'vue-droppler'
   import Genres from 'components/charts/Genres'
+  import libraryEntryMixin from 'util/libraryEntryMixin'
 
   export default {
+    mixins: [libraryEntryMixin],
     metaInfo: {
       title: 'Profile'
     },
     props: [
       'slug',
       'profile',
-      'library'
+      'libraryDownloaded'
     ],
     components: {
+      Droppler,
       Genres
     },
     data () {
@@ -159,6 +203,7 @@
         error: null,
         paginate: ['favAnime', 'favManga', 'favCharacters'],
         favoritesPanel: 'anime',
+        stats: {},
         chartGenres: {
           labels: ['Kitsu', 'Hibari', 'MyAnimeList'],
           datasets: [
@@ -168,6 +213,11 @@
             }
           ]
         }
+      }
+    },
+    methods: {
+      getRecent (kind = 'anime') {
+        return this.$store.state.user[this.$route.params.slug].library[kind].slice(0, 8)
       }
     }
   }
@@ -191,12 +241,15 @@
 
     .right
       order: -1
+      padding-left: 2px
       @include media-breakpoint-up(md)
         order: 1
 
     .sociability
       display: flex
       flex-flow: row wrap
+      padding-left: 7px
+      padding-right: 7px
 
     .card
       text-align: center
@@ -243,17 +296,27 @@
             color: $kitsu
             transition: color 100ms ease-in-out
 
-    .recent-activity
-      margin-bottom: 30px
-      margin-left: -7.5px
-      margin-right: -7.5px
-      div
-        padding: 0 7.5px
-      img
-        width: 100%
-        max-width: 100%
-        vertical-align: middle
-        border-radius: 3px
+  .loading
+    overflow: hidden
+    height: 3rem
+    vertical-align: text-bottom
+    &:after
+      display: inline-table
+      white-space: pre
+      text-align: left
+      content: '⠋\a⠙\a⠹\a⠸\a⠼\a⠴\a⠦\a⠧\a⠇\a⠏'
+      animation: spin10 1s steps(10, end) infinite
+
+  @keyframes spin10
+    to
+      transform: translateY(-15.0em)
+
+  .col-6.col-sm-3
+    position: relative
+
+    img
+      width: 100%
+      height: auto
 </style>
 
 <style lang='sass'>

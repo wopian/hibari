@@ -36,10 +36,10 @@
       router-view(
         v-bind:slug='slug'
         v-bind:profile='profile'
-        v-bind:library='library'
+        v-bind:libraryDownloaded='libraryDownloaded'
       )
 
-      spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
+      //- spinner(v-if='loading' v-bind:message='$t("loader.collectingData")')
 </template>
 
 <script>
@@ -59,11 +59,11 @@
     data () {
       return {
         loading: false,
+        libraryDownloaded: { anime: false, manga: false },
         error: null,
         slug: this.$route.params.slug,
         updated: null,
-        profile: null,
-        library: null
+        profile: null
       }
     },
     created () {
@@ -78,8 +78,13 @@
         // Check vuex store for user && fallback for old session states
         if (this.$store.state.user[this.slug] !== undefined) {
           this.displayProfile()
-          this.displayLibrary()
+
           console.info('[HB]: Data retrieved from store')
+
+          // Check if library kinds are filled - no point trying to generate stats for empty libraries
+          if (this.$store.state.user[this.slug].library.anime.length > 0) this.libraryDownloaded.anime = true
+          if (this.$store.state.user[this.slug].library.manga.length > 0) this.libraryDownloaded.manga = true
+
         // Store is empty
         } else {
           this.loading = true
@@ -101,9 +106,6 @@
           this.fetchProfile()
           console.info('[HB]: Updated store from API')
         }
-      },
-      displayLibrary () {
-        this.library = this.$store.state.user[this.slug].library
       },
       async fetchProfile () {
         // TODO: Stats for past week, month, year
@@ -160,7 +162,7 @@
         try {
           const limit = 500
           const fields = {
-            all: 'genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,',
+            all: 'posterImage,genres,slug,canonicalTitle,averageRating,userCount,startDate,endDate,popularityRank,ratingRank,ageRating,subtype,',
             anime: 'episodeCount,episodeLength',
             manga: 'chapterCount,volumeCount,serialization'
           }
@@ -178,6 +180,9 @@
             page: { limit, offset }
           })
 
+          const downloaded = Math.round(((offset + limit) / response.meta.count) * 100)
+          console.log(`[HB]: Downloaded ${downloaded > 100 ? 100 : downloaded}% of library (${kind})`)
+
           // Remove unneeded properties
           for (let entry of await this.removeEmpty(response)) {
             if (entry.id) delete entry.id
@@ -187,6 +192,7 @@
               if (entry.anime.id) delete entry.anime.id
               if (entry.anime.type) delete entry.anime.type
               if (entry.anime.links) delete entry.anime.links
+              if (entry.anime.posterImage) entry.anime.posterImage = entry.anime.posterImage.medium
               for (let genre of entry.anime.genres) {
                 if (genre.id) delete genre.id
                 if (genre.type) delete genre.type
@@ -198,6 +204,7 @@
               if (entry.manga.id) delete entry.manga.id
               if (entry.manga.type) delete entry.manga.type
               if (entry.manga.links) delete entry.manga.links
+              if (entry.anime.posterImage) entry.anime.posterImage = entry.anime.posterImage.medium
               for (let genre of entry.manga.genres) {
                 if (genre.id) delete genre.id
                 if (genre.type) delete genre.type
@@ -214,12 +221,12 @@
             kind
           }, offset === 0)
 
-          this.displayLibrary()
-
+          // Get next page of library entries
           if (response.links.next) await this.fetchLibrary(id, kind, offset + limit)
+          else this.libraryDownloaded[kind] = true
         } catch (err) {
-          if (err) this.error = err.toString()
-          else this.error = `Unidentified error occured while fetching ${kind} library`
+          if (err) console.error(err.toString())
+          else console.error(`Unidentified error occured while fetching ${kind} library`)
         }
       },
       filterFavorites (array, type) {

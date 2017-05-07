@@ -112,3 +112,7 @@ export default {
         left: 100%
         margin-left: 1rem
 </style>
+
+<style lang='sass'>
+  @import ~styles/components/mediaBox
+</style>
