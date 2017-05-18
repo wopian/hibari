@@ -6023,11 +6023,11 @@ vue-meta@~1.0.2:
     lodash.isplainobject "^4.0.6"
     object-assign "^4.1.0"
 
-vue-paginate@~3.4.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/vue-paginate/-/vue-paginate-3.4.0.tgz#2bdf2adff37f68ee4e3c6a58eab19ee73db83ab6"
+vue-paginate@~3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/vue-paginate/-/vue-paginate-3.5.0.tgz#ca849431dab2f5abae10998da33858b40abc60de"
   dependencies:
-    vue "^2.0.5"
+    vue "2.3.3"
 
 vue-router@~2.5.0:
   version "2.5.3"
@@ -6064,7 +6064,11 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.2.tgz#a0a6c50c941d2a4abda963f2f42c337ac450ee95"
 
-vue@^2.0.5, vue@~2.3.0:
+vue@2.3.3:
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.3.tgz#d1eaa8fde5240735a4563e74f2c7fead9cbb064c"
+
+vue@~2.3.0:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.3.2.tgz#9e52aae3593480be235ff227557837e69f98203a"
 
