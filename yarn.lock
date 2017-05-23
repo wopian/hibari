@@ -5821,18 +5821,18 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
-uglify-js@^2.6, uglify-js@^2.6.1, "uglify-js@git://github.com/mishoo/UglifyJS2#harmony", uglify-js@~2.8.22:
-  version "2.8.22"
-  resolved "git://github.com/mishoo/UglifyJS2#73d6438773a40aa5aa06354781334af79a67e42d"
+uglify-js@^2.6, uglify-js@^2.6.1, uglify-js@^2.8.27, uglify-js@~2.8.22:
+  version "2.8.27"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.27.tgz#47787f912b0f242e5b984343be8e35e95f694c9c"
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
 
-uglify-js@^2.8.27:
-  version "2.8.27"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-2.8.27.tgz#47787f912b0f242e5b984343be8e35e95f694c9c"
+"uglify-js@git://github.com/mishoo/UglifyJS2#harmony":
+  version "2.8.22"
+  resolved "git://github.com/mishoo/UglifyJS2#73d6438773a40aa5aa06354781334af79a67e42d"
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
