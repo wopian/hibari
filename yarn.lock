@@ -6023,9 +6023,9 @@ vue-hot-reload-api@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.1.0.tgz#9ca58a6e0df9078554ce1708688b6578754d86de"
 
-vue-i18n@~5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-5.0.3.tgz#b6d96cc832604237e6139de471e0d4c820aedbed"
+vue-i18n@~7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.0.0.tgz#732c2f2e624e44f703bee960e34d82f4a060bbf6"
 
 vue-infinite-scroll@~2.0.1:
   version "2.0.1"
