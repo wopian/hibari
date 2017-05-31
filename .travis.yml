@@ -3,8 +3,8 @@ os:
 - osx
 language: node_js
 node_js:
-- node
 - 7
+- node
 - 6
 cache:
   yarn: true
