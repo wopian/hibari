@@ -71,7 +71,7 @@
     "vue-template-compiler": "~2.3.0",
     "vuex": "~2.3.0",
     "vuex-localstorage": "~1.0.0",
-    "vuex-router-sync": "~4.1.2",
+    "vuex-router-sync": "~4.2.0",
     "webpack": "~2.6.0",
     "webpack-bundle-analyzer": "~2.8.0",
     "webpack-dev-middleware": "~1.10.1",
