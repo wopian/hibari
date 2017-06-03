@@ -29,6 +29,7 @@
     "compression-webpack-plugin": "~0.4.0",
     "connect-history-api-fallback": "~1.3.0",
     "css-loader": "~0.28.0",
+    "cssnano": "~3.10.0",
     "devour-client": "~1.4.1",
     "eventsource-polyfill": "~0.9.6",
     "express": "~4.15.2",
