@@ -792,7 +792,7 @@ babel-plugin-transform-regenerator@^6.22.0:
   dependencies:
     regenerator-transform "0.9.11"
 
-babel-plugin-transform-runtime@^6.23.0, babel-plugin-transform-runtime@~6.23.0:
+babel-plugin-transform-runtime@6.23.0, babel-plugin-transform-runtime@~6.23.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-transform-runtime/-/babel-plugin-transform-runtime-6.23.0.tgz#88490d446502ea9b8e7efb0fe09ec4d99479b1ee"
   dependencies:
@@ -1170,12 +1170,12 @@ caniuse-api@^1.5.2:
     lodash.uniq "^4.5.0"
 
 caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
-  version "1.0.30000676"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000676.tgz#82ea578237637c8ff34a28acaade373b624c4ea8"
+  version "1.0.30000679"
+  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000679.tgz#dd7be12f16577e5d6ae6db880c6d619e77dca365"
 
 caniuse-lite@^1.0.30000670:
-  version "1.0.30000676"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000676.tgz#1e962123f48073f0c51c4ea0651dd64d25786498"
+  version "1.0.30000679"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000679.tgz#0fb5bb3658d4d4448f8f86a1c48df15664aa05ef"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -1887,6 +1887,10 @@ domutils@^1.5.1:
     dom-serializer "0"
     domelementtype "1"
 
+double-ended-queue@^2.1.0-0:
+  version "2.1.0-0"
+  resolved "https://registry.yarnpkg.com/double-ended-queue/-/double-ended-queue-2.1.0-0.tgz#103d3527fd31528f40188130c841efdd78264e5c"
+
 duplexer@^0.1.1, duplexer@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/duplexer/-/duplexer-0.1.1.tgz#ace6ff808c1ce66b57d1ebf97977acb02334cfc1"
@@ -1970,8 +1974,8 @@ error-stack-parser@^2.0.0:
     stackframe "^1.0.3"
 
 es5-ext@^0.10.14, es5-ext@^0.10.9, es5-ext@~0.10.14:
-  version "0.10.22"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.22.tgz#1876c51f990769c112c781ea3ebe89f84fd39071"
+  version "0.10.23"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.23.tgz#7578b51be974207a5487821b56538c224e4e7b38"
   dependencies:
     es6-iterator "2"
     es6-symbol "~3.1"
@@ -2418,8 +2422,8 @@ file-entry-cache@^2.0.0:
     object-assign "^4.0.1"
 
 file-loader@~0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.1.tgz#6b328ee1234a729e4e47d36375dd6d35c0e1db84"
+  version "0.11.2"
+  resolved "https://registry.yarnpkg.com/file-loader/-/file-loader-0.11.2.tgz#4ff1df28af38719a6098093b88c82c71d1794a34"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -2460,7 +2464,7 @@ finalhandler@~1.0.3:
     statuses "~1.3.1"
     unpipe "~1.0.0"
 
-find-babel-config@^1.0.1:
+find-babel-config@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/find-babel-config/-/find-babel-config-1.1.0.tgz#acc01043a6749fec34429be6b64f542ebb5d6355"
   dependencies:
@@ -3494,12 +3498,16 @@ jest-validate@^20.0.3:
     leven "^2.1.0"
     pretty-format "^20.0.3"
 
-jest-vue-preprocessor@~0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/jest-vue-preprocessor/-/jest-vue-preprocessor-0.2.0.tgz#1a79a48e0e761c78a31f341e026eb6741d4666c2"
+jest-vue-preprocessor@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/jest-vue-preprocessor/-/jest-vue-preprocessor-1.0.0.tgz#1ef8bf97d2e9ab5192375e7a7fdab26f8e643c0c"
   dependencies:
-    babel-plugin-transform-runtime "^6.23.0"
-    find-babel-config "^1.0.1"
+    babel-plugin-transform-runtime "6.23.0"
+    find-babel-config "1.1.0"
+    typescript "2.3.4"
+    vue-property-decorator "4.0.0"
+    vue-template-compiler "2.2.6"
+    vue-template-es2015-compiler "1.3.2"
 
 jest@~20.0.0:
   version "20.0.4"
@@ -3848,8 +3856,8 @@ lru-cache@^3.2.0:
     pseudomap "^1.0.1"
 
 lru-cache@^4.0.1:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.0.2.tgz#1d17679c069cda5d040991a09dbc2c0db377e55e"
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.0.tgz#59be49a683b8d986a939f1ca60fdb6989f4b2046"
   dependencies:
     pseudomap "^1.0.1"
     yallist "^2.0.0"
@@ -5064,14 +5072,14 @@ readable-stream@1.0:
     string_decoder "~0.10.x"
 
 readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.4, readable-stream@^2.2.2, readable-stream@^2.2.6:
-  version "2.2.10"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.10.tgz#effe72bb7c884c0dd335e2379d526196d9d011ee"
+  version "2.2.11"
+  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.2.11.tgz#0796b31f8d7688007ff0b93a8088d34aa17c0f72"
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"
     isarray "~1.0.0"
     process-nextick-args "~1.0.6"
-    safe-buffer "^5.0.1"
+    safe-buffer "~5.0.1"
     string_decoder "~1.0.0"
     util-deprecate "~1.0.1"
 
@@ -5122,6 +5130,10 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
+
+reflect-metadata@^0.1.9:
+  version "0.1.10"
+  resolved "https://registry.yarnpkg.com/reflect-metadata/-/reflect-metadata-0.1.10.tgz#b4f83704416acad89988c9b15635d47e03b9344a"
 
 regenerate@^1.2.1:
   version "1.3.2"
@@ -5644,10 +5656,10 @@ string_decoder@^0.10.25, string_decoder@~0.10.x:
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
 
 string_decoder@~1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.1.tgz#62e200f039955a6810d8df0a33ffc0f013662d98"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.0.2.tgz#b29e1f4e1125fa97a10382b8a533737b7491e179"
   dependencies:
-    safe-buffer "^5.0.1"
+    safe-buffer "~5.0.1"
 
 stringstream@~0.0.4:
   version "0.0.5"
@@ -5770,8 +5782,10 @@ text-table@^0.2.0, text-table@~0.2.0:
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
 throat@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/throat/-/throat-3.0.0.tgz#e7c64c867cbb3845f10877642f7b60055b8ec0d6"
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/throat/-/throat-3.1.0.tgz#ef22d8855963b3fdc626d043508f24c4cdf7d3c3"
+  dependencies:
+    double-ended-queue "^2.1.0-0"
 
 through@2, through@^2.3.6, through@~2.3, through@~2.3.1:
   version "2.3.8"
@@ -5864,6 +5878,10 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
 
+typescript@2.3.4:
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
+
 uglify-js@3.0.x:
   version "3.0.15"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.15.tgz#aacb323a846b234602270dead8a32441a8806f42"
@@ -5882,7 +5900,7 @@ uglify-js@^2.6, uglify-js@^2.6.1, uglify-js@^2.8.27:
 
 "uglify-js@git://github.com/mishoo/UglifyJS2#harmony":
   version "3.0.15"
-  resolved "git://github.com/mishoo/UglifyJS2#1edbd6556f312bcb4061a2adc6f8f433285bdeda"
+  resolved "git://github.com/mishoo/UglifyJS2#82fefc5d297bfd10c1bbe00bd425648a1550ced1"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
@@ -6026,10 +6044,14 @@ vue-analytics@~4.1.0:
     load-script "^1.0.0"
 
 vue-chartjs@~2.6.2:
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-2.6.3.tgz#ef94f4e919a11845bfd72dd6d543f86d602ea324"
+  version "2.6.4"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-2.6.4.tgz#ffb2b31349c09aac599def227b3e66ffe19f2d64"
   dependencies:
     lodash "^4.17.4"
+
+vue-class-component@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-5.0.1.tgz#feda06c3da266cee9064e224ba491e089923dce8"
 
 vue-cookie@~1.1.4:
   version "1.1.4"
@@ -6087,6 +6109,13 @@ vue-paginate@~3.5.0:
   dependencies:
     vue "2.3.3"
 
+vue-property-decorator@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-4.0.0.tgz#42a0b00d30e53ffc57af0ae10498777981c6d2c4"
+  dependencies:
+    reflect-metadata "^0.1.9"
+    vue-class-component "^5.0.0"
+
 vue-router@~2.5.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.5.3.tgz#073783f564b6aece6c8a59c63e298dc2aabfb51b"
@@ -6111,12 +6140,23 @@ vue-style-loader@^3.0.0, vue-style-loader@~3.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
+vue-template-compiler@2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.2.6.tgz#2e2928daf0cd0feca9dfc35a9729adeae173ec68"
+  dependencies:
+    de-indent "^1.0.2"
+    he "^1.1.0"
+
 vue-template-compiler@~2.3.0:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.3.3.tgz#b5bab9ec57309c906b82a78c81a02179dbc2f470"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
+
+vue-template-es2015-compiler@1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.3.2.tgz#c04080227514929ba540de7a7a93ac430467bdc0"
 
 vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
