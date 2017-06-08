@@ -3498,15 +3498,15 @@ jest-validate@^20.0.3:
     leven "^2.1.0"
     pretty-format "^20.0.3"
 
-jest-vue-preprocessor@~1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/jest-vue-preprocessor/-/jest-vue-preprocessor-1.0.0.tgz#1ef8bf97d2e9ab5192375e7a7fdab26f8e643c0c"
+jest-vue-preprocessor@~1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/jest-vue-preprocessor/-/jest-vue-preprocessor-1.0.1.tgz#d4ed91580869bd8fb0727acf16b74c6589a19985"
   dependencies:
     babel-plugin-transform-runtime "6.23.0"
     find-babel-config "1.1.0"
     typescript "2.3.4"
     vue-property-decorator "4.0.0"
-    vue-template-compiler "2.2.6"
+    vue-template-compiler "^2.2.6"
     vue-template-es2015-compiler "1.3.2"
 
 jest@~20.0.0:
@@ -5882,9 +5882,9 @@ typescript@2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
 
-uglify-js@3.0.x:
+uglify-js@3.0.x, "uglify-js@git://github.com/mishoo/UglifyJS2#harmony":
   version "3.0.15"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.15.tgz#aacb323a846b234602270dead8a32441a8806f42"
+  resolved "git://github.com/mishoo/UglifyJS2#82fefc5d297bfd10c1bbe00bd425648a1550ced1"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
@@ -5897,13 +5897,6 @@ uglify-js@^2.6, uglify-js@^2.6.1, uglify-js@^2.8.27:
     yargs "~3.10.0"
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
-
-"uglify-js@git://github.com/mishoo/UglifyJS2#harmony":
-  version "3.0.15"
-  resolved "git://github.com/mishoo/UglifyJS2#82fefc5d297bfd10c1bbe00bd425648a1550ced1"
-  dependencies:
-    commander "~2.9.0"
-    source-map "~0.5.1"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
@@ -6140,14 +6133,7 @@ vue-style-loader@^3.0.0, vue-style-loader@~3.0.0:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
 
-vue-template-compiler@2.2.6:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.2.6.tgz#2e2928daf0cd0feca9dfc35a9729adeae173ec68"
-  dependencies:
-    de-indent "^1.0.2"
-    he "^1.1.0"
-
-vue-template-compiler@~2.3.0:
+vue-template-compiler@^2.2.6, vue-template-compiler@~2.3.0:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/vue-template-compiler/-/vue-template-compiler-2.3.3.tgz#b5bab9ec57309c906b82a78c81a02179dbc2f470"
   dependencies:
