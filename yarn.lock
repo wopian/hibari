@@ -5020,9 +5020,9 @@ range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raven-js@~3.15.0:
-  version "3.15.0"
-  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.15.0.tgz#ebf95466b7d40fbbc3d6a5085af7c1431607926c"
+raven-js@~3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.16.0.tgz#a799da4fdd04c63943f67deb93daa0ecfe101eab"
 
 rc@^1.1.7:
   version "1.2.1"
@@ -5892,9 +5892,9 @@ typescript@2.3.4:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.3.4.tgz#3d38321828231e434f287514959c37a82b629f42"
 
-uglify-js@3.0.x:
+uglify-js@3.0.x, "uglify-js@git://github.com/mishoo/UglifyJS2#harmony":
   version "3.0.15"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.0.15.tgz#aacb323a846b234602270dead8a32441a8806f42"
+  resolved "git://github.com/mishoo/UglifyJS2#a7971f4e347587ee45e676c644036edb395382a7"
   dependencies:
     commander "~2.9.0"
     source-map "~0.5.1"
@@ -5907,13 +5907,6 @@ uglify-js@^2.6, uglify-js@^2.6.1, uglify-js@^2.8.27:
     yargs "~3.10.0"
   optionalDependencies:
     uglify-to-browserify "~1.0.0"
-
-"uglify-js@git://github.com/mishoo/UglifyJS2#harmony":
-  version "3.0.15"
-  resolved "git://github.com/mishoo/UglifyJS2#a7971f4e347587ee45e676c644036edb395382a7"
-  dependencies:
-    commander "~2.9.0"
-    source-map "~0.5.1"
 
 uglify-to-browserify@~1.0.0:
   version "1.0.2"
