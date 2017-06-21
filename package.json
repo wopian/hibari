@@ -85,7 +85,7 @@
     "eslint": "~3.19.0",
     "eslint-config-standard": "~10.2.1",
     "eslint-friendly-formatter": "~3.0.0",
-    "eslint-loader": "~1.7.1",
+    "eslint-loader": "~1.8.0",
     "eslint-plugin-html": "~2.0.3",
     "eslint-plugin-import": "~2.3.0",
     "eslint-plugin-jest": "~20.0.0",
