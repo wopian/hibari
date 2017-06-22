@@ -1,6 +1,7 @@
 # Hibari
 
 [![Website]][8]
+[![Uptime]][8]
 [![GitHub Rl]][1]
 [![David]][6]
 
@@ -75,6 +76,7 @@ All code released under the [MIT license][11]
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
 [David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
 [DavidD]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
+[Uptime]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
 
 [0]:https://kitsu.io
 [1]:https://github.com/wopian/hibari/releases
