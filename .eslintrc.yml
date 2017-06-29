@@ -13,3 +13,8 @@ rules:
   arrow-parens: 0
   # Allow async-await
   generator-star-spacing: 0
+  # MemberExpression
+  indent:
+  - error
+  - 2
+  - MemberExpression: 0
