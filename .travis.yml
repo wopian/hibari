@@ -12,7 +12,6 @@ sudo: false
 matrix:
   fast_finish: true
 install:
-- travis_retry yarn install
 - travis_retry yarn upgrade
 before_script:
 - yarn test

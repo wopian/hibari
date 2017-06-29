@@ -11,7 +11,7 @@ cache:
 - "%LOCALAPPDATA%\\Yarn"
 install:
 - ps: Install-Product node $env:nodejs_version $env:platform
-- yarn
+- yarn upgrade
 test_script:
 - yarn test
 - yarn start build
