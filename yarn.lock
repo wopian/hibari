@@ -6282,9 +6282,9 @@ vue-property-decorator@4.0.0:
     reflect-metadata "^0.1.9"
     vue-class-component "^5.0.0"
 
-vue-router@~2.6.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.6.0.tgz#77b271f6e0ac6d57e8e556da58c6582fce0ab712"
+vue-router@~2.7.0:
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.7.0.tgz#16d424493aa51c3c8cce8b7c7210ea4c3a89aff1"
 
 vue-server-renderer@~2.3.0:
   version "2.3.4"
