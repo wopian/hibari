@@ -64,7 +64,7 @@
     "vue-droppler": "~0.1.4",
     "vue-i18n": "~5.0.3",
     "vue-infinite-scroll": "~2.0.1",
-    "vue-loader": "~12.2.1",
+    "vue-loader": "~13.0.0",
     "vue-meta": "~1.0.2",
     "vue-paginate": "~3.5.0",
     "vue-router": "~2.6.0",
