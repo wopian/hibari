@@ -61,7 +61,7 @@ export default {
       },
       status: {
         anime: {
-          all: 'All @:user.library.kind.anime',
+          all: '全部の@:user.library.kind.anime',
           current: '今見ている',
           planned: '見たい',
           dropped: 'Dropped',
@@ -69,7 +69,7 @@ export default {
           on_hold: 'On Hold'
         },
         manga: {
-          all: 'All @:user.library.kind.manga',
+          all: '全部の@:user.library.kind.manga',
           current: '今読んでいる',
           planned: '読みたい',
           dropped: '@:user.library.status.anime.dropped',
