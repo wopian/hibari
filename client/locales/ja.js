@@ -33,27 +33,27 @@ export default {
     }
   },
   user: {
-    kitsuProfile: 'View on Kitsu',
+    kitsuProfile: 'キツで見る',
     navigation: {
-      profile: 'Profile',
-      library: 'Library'
+      profile: 'プロファイル',
+      library: 'ライブラリー'
     },
     sociability: {
       title: 'Sociability',
       postsCount: 'Posts',
-      commentsCount: 'Comments',
-      likesGivenCount: 'Likes Given',
-      likesReceivedCount: 'Likes Received',
+      commentsCount: 'コメント',
+      likesGivenCount: '「いいね！」押した',
+      likesReceivedCount: '「いいね！」もらいました',
       followingCount: 'Followed',
       followersCount: 'Followers'
     },
     about: {
-      title: 'About'
+      title: '概要'
     },
     library: {
       kind: {
-        anime: 'Anime',
-        manga: 'Manga'
+        anime: 'アニメ',
+        manga: 'マンガ'
       },
       toggle: {
         anime: '@:user.library.kind.anime Library',
@@ -61,19 +61,19 @@ export default {
       },
       status: {
         anime: {
-          all: 'All @:user.library.kind.anime',
-          current: 'Currently Watching',
-          planned: 'Plan to Watch',
+          all: '全部の@:user.library.kind.anime',
+          current: '今見ている',
+          planned: '見たい',
           dropped: 'Dropped',
-          completed: 'Completed',
+          completed: '見た',
           on_hold: 'On Hold'
         },
         manga: {
-          all: 'All @:user.library.kind.manga',
-          current: 'Currently Reading',
-          planned: 'Plan to Read',
+          all: '全部の@:user.library.kind.manga',
+          current: '今読んでいる',
+          planned: '読みたい',
           dropped: '@:user.library.status.anime.dropped',
-          completed: '@:user.library.status.anime.completed',
+          completed: '読んだ',
           on_hold: '@:user.library.status.anime.on_hold'
         }
       },
@@ -85,19 +85,19 @@ export default {
     }
   },
   bugs: {
-    title: 'Bugs',
-    body: 'Please create a <a href=\'//github.com/wopian/hibari/issues/new\'>GitHub Issue</a> ' +
-    'for any bugs you encounter.',
-    requirements: 'The following information is required to aid replication and fixing:',
+    title: 'バグ',
+    body: '問題があれば<a href=\'//github.com/wopian/hibari/issues/new\'>GitHub Issue</a>を' +
+    '書いてください.',
+    requirements: '必要な情報:',
     include: {
-      version: 'Version:',
-      os: 'Operating System:',
-      browser: 'Browser:',
-      browserVer: 'Browser Version:',
-      replicate: 'Steps to replicate:'
+      version: 'バージョン:',
+      os: 'システム:',
+      browser: 'ブラウザ:',
+      browserVer: 'ブラウザのバージョン:',
+      replicate: '何をすると問題が見えるようになりますか:'
     }
   },
   loader: {
-    collectingData: 'Collecting Data'
+    collectingData: 'データ回収中'
   }
 }
