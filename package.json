@@ -41,7 +41,7 @@
     "html-webpack-plugin": "~2.29.0",
     "http-proxy-middleware": "~0.17.4",
     "inject-loader": "~3.0.0",
-    "lolex": "~1.6.0",
+    "lolex": "~2.0.0",
     "moment": "~2.18.0",
     "node-sass": "~4.5.2",
     "nps": "~5.4.0",
