@@ -3914,9 +3914,9 @@ log-symbols@^1.0.2:
   dependencies:
     chalk "^1.0.0"
 
-lolex@~2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/lolex/-/lolex-2.0.0.tgz#2f09c1a72d5e387c113a73087fb9693fbaf1cf05"
+lolex@~2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/lolex/-/lolex-2.1.0.tgz#b4d613f948a9879df9ef568399001ec353da74c6"
 
 longest@^1.0.1:
   version "1.0.1"
