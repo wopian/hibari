@@ -67,7 +67,7 @@ See [CHANGELOG][5]
 
 All code released under the [MIT license][11]
 
-[Website]:https://img.shields.io/website-up-down-green-red/https/hb.wopian.me.svg?style=flat-square
+[Website]:https://img.shields.io/website-up-down-green-red/https/hibari.moe.svg?style=flat-square
 [GitHub Rl]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
 [Travis]:https://img.shields.io/travis/wopian/hibari/master.svg?style=flat-square&label=linux%20%26%20macOS
 [AppVeyor]:https://img.shields.io/appveyor/ci/wopian/hibari/master.svg?style=flat-square&label=windows
@@ -86,7 +86,7 @@ All code released under the [MIT license][11]
 [5]:https://github.com/wopian/hibari/blob/master/CHANGELOG.md
 [6]:https://david-dm.org/wopian/hibari
 [7]:https://david-dm.org/wopian/hibari?type=dev
-[8]:https://hb.wopian.me
+[8]:https://hibari.moe
 [9]:https://codeclimate.com/github/wopian/hibari/coverage
 [10]:https://ci.appveyor.com/project/wopian/hibari
 [11]:https://github.com/wopian/hibari/blob/master/LICENSE.md
