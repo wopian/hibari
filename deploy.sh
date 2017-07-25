@@ -20,7 +20,7 @@ git remote add upstream "https://$GH_TOKEN@github.com/wopian/hibari.git"
 git fetch upstream
 git reset upstream/gh-pages
 
-echo "hb.wopian.me" > CNAME
+echo "hibari.moe" > CNAME
 # SPA hack for GitHub Pages
 cp index.html 404.html
 
