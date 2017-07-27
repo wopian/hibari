@@ -111,7 +111,7 @@ Kitsu.define('anime', {
     jsonApi: 'hasMany',
     type: 'genres'
   }
-})
+}, { collectionPath: 'anime' })
 
 Kitsu.define('manga', {
   slug: '',
@@ -132,7 +132,7 @@ Kitsu.define('manga', {
     jsonApi: 'hasMany',
     type: 'genres'
   }
-})
+}, { collectionPath: 'manga' })
 
 Kitsu.define('genre', {
   name: ''
