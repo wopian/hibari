@@ -9,15 +9,14 @@ cache:
 sudo: false
 matrix:
   fast_finish: true
-install:
-- travis_retry yarn upgrade
-before_script:
-- yarn test
+before_install: yarn global add greenkeeper-lockfile@1
+before_script: greenkeeper-lockfile-update
 script:
+- yarn test
 - npm start build
+after_script: greenkeeper-lockfile-upload
 after_success:
 - test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test ${TRAVIS_JOB_NUMBER#*.} == 1 && bash deploy.sh
-- bash yarn.sh
 - travis_retry yarn global add codeclimate-test-reporter
 - codeclimate-test-reporter < test/coverage/lcov.info
 addons:
