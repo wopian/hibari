@@ -3,9 +3,7 @@ os:
 - osx
 language: node_js
 node_js:
-- 7
 - node
-- 6
 cache:
   yarn: true
 sudo: false
