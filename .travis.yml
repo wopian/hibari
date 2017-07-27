@@ -16,7 +16,6 @@ script:
 - npm start build
 after_script: greenkeeper-lockfile-upload
 after_success:
-- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && test ${TRAVIS_JOB_NUMBER#*.} == 1 && bash deploy.sh
 - travis_retry yarn global add codeclimate-test-reporter
 - codeclimate-test-reporter < test/coverage/lcov.info
 addons:
