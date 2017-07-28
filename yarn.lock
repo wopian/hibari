@@ -4362,9 +4362,9 @@ npm-run-path@^2.0.0:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
-nps@~5.6.0:
-  version "5.6.0"
-  resolved "https://registry.yarnpkg.com/nps/-/nps-5.6.0.tgz#d3eb4ec56c9b4bd32855b32a873aa86aefa538a4"
+nps@5.7.0:
+  version "5.7.0"
+  resolved "https://registry.yarnpkg.com/nps/-/nps-5.7.0.tgz#a2e8dd230068997fac078e94623968a2581cc852"
   dependencies:
     arrify "^1.0.1"
     chalk "^2.0.1"
