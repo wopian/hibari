@@ -38,7 +38,7 @@
     "friendly-errors-webpack-plugin": "~1.6.1",
     "function-bind": "~1.1.0",
     "git-revision-webpack-plugin": "~2.5.0",
-    "html-webpack-plugin": "~2.29.0",
+    "html-webpack-plugin": "~2.30.0",
     "http-proxy-middleware": "~0.17.4",
     "inject-loader": "~3.0.0",
     "lolex": "~2.1.0",
