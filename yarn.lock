@@ -4362,7 +4362,7 @@ npm-run-path@^2.0.0:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
-nps@5.7.0:
+nps@~5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/nps/-/nps-5.7.0.tgz#a2e8dd230068997fac078e94623968a2581cc852"
   dependencies:
@@ -6282,9 +6282,9 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-vue-analytics@~4.1.0:
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-4.1.2.tgz#ea8be43810e3505c668f9b114fa5451baa435877"
+vue-analytics@4.2.0:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-4.2.0.tgz#439ebd6160a0459c676766f29d4614cbe6a7e1ff"
   dependencies:
     load-script "^1.0.0"
 
