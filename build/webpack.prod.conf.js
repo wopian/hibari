@@ -11,7 +11,7 @@ var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 var OfflinePlugin = require('offline-plugin')
 var GitRevisionPlugin = require('git-revision-webpack-plugin')
 var gitRevisionPlugin = new GitRevisionPlugin({
-  versionCommand: 'describe --tags --always'
+  versionCommand: 'describe HEAD^1 --tags --always'
 })
 var env = process.env.NODE_ENV === 'testing'
   ? require('../config/test.env')
