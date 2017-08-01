@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
   }).addPlugin(RavenVue, Vue).install()
 
   // Enable Progressive Web App
-  require('./pwa')
+  // require('./pwa')
   // Enable Google Analytics
   const id = 'UA-46184267-8'
   Vue.use(Analytics, {id, router})
