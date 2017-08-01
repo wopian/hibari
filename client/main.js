@@ -59,9 +59,13 @@ Object.keys(locales).forEach(lang => {
 })
 
 /* eslint-disable no-new */
-new Vue({
+const root = new Vue({
   el: '#app',
   router,
   store,
   render: h => h(App)
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+  root.$mount('#app')
 })
