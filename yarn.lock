@@ -2938,7 +2938,7 @@ html-minifier@^3.2.3:
     relateurl "0.2.x"
     uglify-js "3.0.x"
 
-html-webpack-plugin@2.30.1:
+html-webpack-plugin@~2.30.1:
   version "2.30.1"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-2.30.1.tgz#7f9c421b7ea91ec460f56527d78df484ee7537d5"
   dependencies:
@@ -6286,15 +6286,15 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-vue-analytics@4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-4.2.0.tgz#439ebd6160a0459c676766f29d4614cbe6a7e1ff"
+vue-analytics@~4.2.0:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-4.2.1.tgz#cee8c26b6108b1aa92cb73c4f76bcc99f470b2f2"
   dependencies:
     load-script "^1.0.0"
 
-vue-chartjs@~2.7.0:
-  version "2.7.1"
-  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-2.7.1.tgz#4e8a01168f10bf747630930c3f9f1130fd00694a"
+vue-chartjs@2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-2.8.0.tgz#1e047f341f3e51aafe6a0cb84cfd201798b3dbbf"
   dependencies:
     lodash "^4.17.4"
 
@@ -6466,7 +6466,7 @@ webpack-bundle-analyzer@~2.8.0:
     opener "^1.4.3"
     ws "^2.3.1"
 
-webpack-dev-middleware@1.12.0:
+webpack-dev-middleware@~1.12.0:
   version "1.12.0"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-1.12.0.tgz#d34efefb2edda7e1d3b5dbe07289513219651709"
   dependencies:
