@@ -1927,7 +1927,7 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-devour-client@2.0.0:
+devour-client@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/devour-client/-/devour-client-2.0.0.tgz#d44c23d025970eebaa136b59b3256412469d241a"
   dependencies:
@@ -2011,16 +2011,9 @@ domutils@1.1:
   dependencies:
     domelementtype "1"
 
-domutils@1.5.1:
+domutils@1.5.1, domutils@^1.5.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.5.1.tgz#dcd8488a26f563d61079e48c9f7b7e32373682cf"
-  dependencies:
-    dom-serializer "0"
-    domelementtype "1"
-
-domutils@^1.5.1:
-  version "1.6.2"
-  resolved "https://registry.yarnpkg.com/domutils/-/domutils-1.6.2.tgz#1958cc0b4c9426e9ed367fb1c8e854891b0fa3ff"
   dependencies:
     dom-serializer "0"
     domelementtype "1"
@@ -2235,9 +2228,9 @@ eslint-module-utils@^2.1.1:
     debug "^2.6.8"
     pkg-dir "^1.0.0"
 
-eslint-plugin-html@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-3.1.0.tgz#2eb999b48840b7184edf1c953976a73307151e44"
+eslint-plugin-html@3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-html/-/eslint-plugin-html-3.2.0.tgz#fb64c2789e9582b97f580a38814a57966f91a7b2"
   dependencies:
     htmlparser2 "^3.8.2"
 
