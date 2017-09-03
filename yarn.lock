@@ -6830,9 +6830,9 @@ vuex-localstorage@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/vuex-localstorage/-/vuex-localstorage-1.0.0.tgz#3d680e9f6feee26d1a72a9c84ebd9daa64a06536"
 
-vuex-router-sync@~4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.2.0.tgz#ebfc497d69b4018a9266a8f18b54bfca4d52125f"
+vuex-router-sync@4.3.0:
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.3.0.tgz#6e2fdb3d495d1b3b477eecb414be882f64d36fbe"
 
 vuex@2.4.0:
   version "2.4.0"
