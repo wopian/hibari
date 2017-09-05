@@ -6728,9 +6728,9 @@ void-elements@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/void-elements/-/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
 
-vue-analytics@~4.3.0:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-4.3.1.tgz#5ed94ab53f13ddd3c08f410848cee29df4e5b997"
+vue-analytics@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-4.4.0.tgz#a64a94a20f0d04259ce4a5f5240c9d53ac834244"
   dependencies:
     load-script "^1.0.0"
 
