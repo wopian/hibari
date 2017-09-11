@@ -65,7 +65,7 @@
     "vue-i18n": "~5.0.3",
     "vue-infinite-scroll": "~2.0.1",
     "vue-loader": "~13.0.0",
-    "vue-meta": "~1.1.0",
+    "vue-meta": "~1.2.0",
     "vue-paginate": "~3.5.0",
     "vue-router": "~2.7.0",
     "vue-style-loader": "~3.0.0",
