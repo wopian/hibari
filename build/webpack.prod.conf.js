@@ -4,18 +4,12 @@ var webpack = require('webpack')
 var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-var UglifyJSPlugin = require('uglifyjs-webpack-plugin')
-var OfflinePlugin = require('offline-plugin')
-var GitRevisionPlugin = require('git-revision-webpack-plugin')
-var gitRevisionPlugin = new GitRevisionPlugin({
-  versionCommand: 'describe --tags --always'
-})
-var env = process.env.NODE_ENV === 'testing'
-  ? require('../config/test.env')
-  : config.build.env
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+
+var env = config.build.env
 
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -33,89 +27,44 @@ var webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env,
-      'VERSION': JSON.stringify(gitRevisionPlugin.version()),
+      'process.env': env
     }),
-    // UglifyJS2 doesn't support ES6 still
-    // https://github.com/mishoo/UglifyJS2/issues/448
-    /*
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
       },
-      sourceMap: false
-    }),
-    */
-    // Workaround for above
-    // Remove uglify-js and uglifyjs-webpack-plugin when resolved
-    new UglifyJSPlugin({
-      compress: {
-        warnings: false
-      },
-      comments: false,
-      sourceMap: false,
+      sourceMap: true
     }),
     // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
-    // Optimize css
-    new OptimizeCssAssetsPlugin({
-      assetNameRegExp: /\.css$/g,
-      cssProcessor: require('cssnano'),
+    // Compress extracted CSS. We are using this plugin so that possible
+    // duplicated CSS from different components can be deduped.
+    new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        calc: true,
-        colormin: true,
-        convertValues: true,
-        core: true,
-        discardComments: { removeAll: true },
-        discardDuplicates: true,
-        discardEmpty: true,
-        discardOverridden: true,
-        discardUnused: false, // unsafe
-        filterOptimiser: true,
-        functionOptimiser: true,
-        mergeIdents: false, // unsafe
-        mergeLonghand: true,
-        mergeRules: true,
-        minifyFontValues: true,
-        minifyGradients: true,
-        minifyParams: true,
-        minifySelectors: true,
-        normalizeCharset: true,
-        normalizeString: { preferredQuote: 'single' },
-        normalizeUnicode: true,
-        normalizeUrl: true,
-        orderedValues: true,
-        reduceBackgroundRepeat: true,
-        reduceDisplayValues: true,
-        reduceIdents: false, // unsafe
-        reduceInitial: true,
-        reducePositions: true,
-        reduceTimingFunctions: true,
-        reduceTransforms: false,
-        svgo: true,
-        uniqueSelectors: true,
-        zindex: true // unsafe
-        // options: cssnano.co/optimisations
-      },
-      canPrint: true
+        safe: true
+      }
     }),
     // generate dist index.html with correct asset hash for caching.
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: process.env.NODE_ENV === 'testing'
-        ? 'index.html'
-        : config.build.index,
-      template: 'client/index.html',
+      filename: config.build.index,
+      template: 'index.html',
       inject: true,
       minify: {
-        removeComments: true
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+        // more options:
+        // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency'
     }),
+    // keep module.id stable when vender modules does not change
+    new webpack.HashedModuleIdsPlugin(),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -136,19 +85,14 @@ var webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor']
     }),
-    // progressive web app
-    // uses publicPath in webpack config
-    new OfflinePlugin({
-      caches: 'all',
-      responseStrategy: 'network-first',
-      updateStrategy: 'changed',
-      relativePaths: false,
-      // autoUpdate: true // Update every hour. 1000 * 60 * 60 * 5 = 5hrs
-      ServiceWorker: {
-        events: true
-      },
-      AppCache: false
-    })
+    // copy custom static assets
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: config.build.assetsSubDirectory,
+        ignore: ['.*']
+      }
+    ])
   ]
 })
 

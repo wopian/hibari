@@ -1,10 +1,9 @@
----
 root: true
 parser: babel-eslint
 parserOptions:
   sourceType: module
-  ecmaFeatures:
-    jsx: false
+env:
+  browser: true
 extends: standard
 plugins:
 - html
@@ -13,8 +12,3 @@ rules:
   arrow-parens: 0
   # Allow async-await
   generator-star-spacing: 0
-  # MemberExpression
-  indent:
-  - error
-  - 2
-  - MemberExpression: 0
