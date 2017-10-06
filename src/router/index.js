@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Landing from '@/components/Landing'
-import Login from '@/components/Login'
 import User from '@/components/User'
 import UserProfile from '@/components/User/Profile'
 import UserLibrary from '@/components/User/Library'
@@ -18,11 +17,6 @@ export default new Router({
       path: '/',
       name: 'Landing',
       component: Landing
-    },
-    {
-      path: '/login',
-      name: 'Login',
-      component: Login
     },
     {
       path: '/@:slug',

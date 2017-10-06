@@ -9,7 +9,7 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
 
     .navbar-nav
       a.nav-item.dropdown(
-        v-if='authed'
+        v-if='$store.getters.isAuth'
         v-bind:class='{ show: showDropdown.user }'
         @click='toggleDropdown("user")'
       )
@@ -19,31 +19,65 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
         )
           router-link.dropdown-item(:to='{ name: "Profile", params: { slug: "wopian" }}' ) Profile
           .dropdown-divider
-          a.dropdown-item(@click='logout' href='') Logout
-      router-link.nav-item.nav-link(:to='{ name: "Login" }' active-class='active' v-else) Login
+          a.dropdown-item(@click='$store.commit("REMOVE_TOKEN")' href='') Logout
+      a.nav-item.dropdown(
+        v-else
+        v-bind:class='{ show: showDropdown.login }'
+      )
+        a.nav-link(@click='toggleDropdown("login")') Login
+        .dropdown-menu.dropdown-login(
+          v-bind:class='{ show: showDropdown.login }'
+        )
+          .form-group
+            input.form-control(
+              type='text'
+              placeholder='Username'
+              v-model='credentials.username'
+            )
+          .form-group
+            input.form-control(
+              type='password'
+              placeholder='Password'
+              v-model='credentials.password'
+            )
+          button.btn.btn-block.btn-primary(@click='submit()') Login with Kitsu
 </template>
 
 <script>
-  import auth from '@/api/auth'
+  import OAuth2 from 'client-oauth2'
 
   export default {
     name: 'navigation',
     data () {
       return {
+        credentials: {
+          username: '',
+          password: ''
+        },
         showDropdown: {
-          user: false
+          user: false,
+          login: false
         }
       }
     },
-    computed: {
-      authed: () => auth.checkAuth()
-    },
     methods: {
+      async submit () {
+        if (!this.$store.getters.getAuth) {
+          const { username, password } = this.credentials
+
+          const { owner } = new OAuth2({
+            clientId: '',
+            clientSecret: '',
+            accessTokenUri: 'https://kitsu.io/api/oauth/token'
+          })
+
+          let { accessToken } = await owner.getToken(username, password)
+          this.$store.commit('SET_TOKEN', accessToken)
+        }
+      },
+
       toggleDropdown (dropdown) {
         this.showDropdown[dropdown] = !this.showDropdown[dropdown]
-      },
-      logout () {
-        auth.logout()
       }
     }
   }
@@ -64,4 +98,9 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
 
   .dropdown-menu
     position: absolute
+
+  .dropdown-login
+    padding: .5rem
+    .form-group
+      margin-bottom: .5rem
 </style>

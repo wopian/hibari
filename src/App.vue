@@ -11,6 +11,10 @@ export default {
   name: 'app',
   components: {
     Navigation
+  },
+  created () {
+    const token = localStorage.getItem('token')
+    if (token) this.$store.commit('SET_TOKEN', token)
   }
 }
 </script>
