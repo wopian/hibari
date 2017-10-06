@@ -5,6 +5,7 @@ import User from '@/components/User'
 import UserProfile from '@/components/User/Profile'
 import UserLibrary from '@/components/User/Library'
 import Media from '@/components/Media'
+import Explore from '@/components/Explore'
 import Bugs from '@/components/Bugs'
 import Error404 from '@/components/Errors/404'
 
@@ -41,6 +42,14 @@ export default new Router({
       ]
     },
     {
+      path: '/anime',
+      name: 'Explore Anime',
+      component: Explore,
+      meta: {
+        type: 'anime'
+      }
+    },
+    {
       path: '/anime/:slug',
       name: 'Anime',
       component: Media,
@@ -49,11 +58,27 @@ export default new Router({
       }
     },
     {
+      path: '/drama',
+      name: 'Explore Drama',
+      component: Explore,
+      meta: {
+        type: 'drama'
+      }
+    },
+    {
       path: '/drama/:slug',
       name: 'Drama',
       component: Media,
       meta: {
         type: 'drama'
+      }
+    },
+    {
+      path: '/manga',
+      name: 'Explore Manga',
+      component: Explore,
+      meta: {
+        type: 'manga'
       }
     },
     {
