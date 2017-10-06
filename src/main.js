@@ -8,9 +8,12 @@ Vue.config.productionTip = false
 
 sync(store, router)
 
-/* eslint-disable no-new */
-new Vue({
+const app = new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+  app.$mount('#app')
+})

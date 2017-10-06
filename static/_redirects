@@ -1,0 +1,3 @@
+http://hibari.moe/*     https://hibari.moe/:splat     301!
+http://new.hibari.moe/* https://new.hibari.moe/:splat 301!
+/*                      /index.html                   200
