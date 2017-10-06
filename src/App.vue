@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style lang='sass'>
-  @import ~bootstrap/scss/bootstrap
+  @import styles/bootstrap
   // @import ~bootstrap/scss/functions
   // @import ~bootstrap/scss/variables
   // @import ~bootstrap/scss/mixins/hover
