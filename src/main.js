@@ -8,12 +8,16 @@ Vue.config.productionTip = false
 
 sync(store, router)
 
-const app = new Vue({
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
   router,
   store,
   render: h => h(App)
 })
 
+/* TODO: Find why Netlify prerendering still doesn't work
 document.addEventListener('DOMContentLoaded', () => {
   app.$mount('#app')
 })
+*/
