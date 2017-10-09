@@ -1,13 +1,3 @@
 <template lang='pug'>
-    div Template for {{ type }}
+    p Template for {{ $store.state.route.name }}
 </template>
-
-<script>
-  export default {
-    data () {
-      return {
-        type: this.$route.meta.type
-      }
-    }
-  }
-</script>

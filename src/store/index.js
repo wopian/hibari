@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import api from '../api'
 
 Vue.use(Vuex)
 
@@ -15,14 +16,21 @@ const getters = {
 }
 
 const mutations = {
-  SET_TOKEN (state, payload) {
+  async LOGIN (state, payload) {
+    api.headers['Authorization'] = `Bearer ${payload}`
     state.token = payload
+    if (localStorage.getItem('me')) state.me = JSON.parse(localStorage.getItem('me'))
+    state.me = await api.self()
     localStorage.setItem('token', payload)
+    localStorage.setItem('me', JSON.stringify(state.me))
   },
 
-  REMOVE_TOKEN (state) {
+  LOGOUT (state) {
+    api.headers['Authorization'] = undefined
     state.token = null
+    state.me = null
     localStorage.removeItem('token')
+    localStorage.removeItem('me')
   }
 }
 

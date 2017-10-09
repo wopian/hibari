@@ -14,7 +14,7 @@ export default {
   },
   created () {
     const token = localStorage.getItem('token')
-    if (token) this.$store.commit('SET_TOKEN', token)
+    if (token) this.$store.commit('LOGIN', token)
   }
 }
 </script>

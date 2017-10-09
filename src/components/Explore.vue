@@ -1,3 +1,3 @@
 <template lang='pug'>
-  div Template for {{ $store.state.route.meta.type }} explore
+    p Template for {{ $store.state.route.name }}
 </template>

@@ -13,13 +13,13 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
         v-bind:class='{ show: showDropdown.user }'
         @click='toggleDropdown("user")'
       )
-        a.nav-link.dropdown-toggle Wopian
+        a.nav-link.dropdown-toggle {{ $store.state.me.name }}
         .dropdown-menu(
           v-bind:class='{ show: showDropdown.user }'
         )
-          router-link.dropdown-item(:to='{ name: "Profile", params: { slug: "wopian" }}' ) Profile
+          router-link.dropdown-item(:to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
           .dropdown-divider
-          a.dropdown-item(@click='$store.commit("REMOVE_TOKEN")' href='') Logout
+          a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
       a.nav-item.dropdown(
         v-else
         v-bind:class='{ show: showDropdown.login }'
@@ -72,7 +72,7 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
           })
 
           let { accessToken } = await owner.getToken(username, password)
-          this.$store.commit('SET_TOKEN', accessToken)
+          this.$store.commit('LOGIN', accessToken)
         }
       },
 

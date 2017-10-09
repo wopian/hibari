@@ -1,8 +1,3 @@
-<template>
-  <p>404</p>
+<template lang='pug'>
+    p Template for {{ $store.state.route.name }}
 </template>
-
-<style lang='sass' scoped>
-  p
-    height: 200vh
-</style>
