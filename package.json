@@ -42,7 +42,7 @@
     "http-proxy-middleware": "~0.17.4",
     "inject-loader": "~3.0.0",
     "lolex": "~2.1.0",
-    "moment": "~2.18.0",
+    "moment": "~2.19.0",
     "node-sass": "~4.5.2",
     "nps": "~5.7.0",
     "offline-plugin": "~4.8.0",
