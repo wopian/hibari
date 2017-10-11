@@ -6858,9 +6858,9 @@ vuex-router-sync@~4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/vuex-router-sync/-/vuex-router-sync-4.3.0.tgz#6e2fdb3d495d1b3b477eecb414be882f64d36fbe"
 
-vuex@~2.4.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/vuex/-/vuex-2.4.0.tgz#e1d0430646282b40007fdd06ec6ae88a9f5a1e14"
+vuex@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/vuex/-/vuex-2.5.0.tgz#20f0265ade6c9a5ac6724a405d3ffdb4726c9741"
 
 walker@~1.0.5:
   version "1.0.7"
@@ -6914,9 +6914,9 @@ webpack-dev-middleware@~1.12.0:
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
 
-webpack-hot-middleware@2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.19.0.tgz#7ab2607159496ff3f3314dda491cd96d8f2d5124"
+webpack-hot-middleware@~2.19.0:
+  version "2.19.1"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.19.1.tgz#5db32c31c955c1ead114d37c7519ea554da0d405"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
