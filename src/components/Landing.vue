@@ -1,15 +1,16 @@
 <template lang='pug'>
   feed(v-if='$store.getters.isAuth')
-  .jumbotron(v-else)
-    .container Hello World
+  welcome(v-else)
 </template>
 
 <script>
   import Feed from '@/components/Feed'
+  import Welcome from '@/components/Welcome'
 
   export default {
     components: {
-      Feed
+      Feed,
+      Welcome
     }
   }
 </script>
