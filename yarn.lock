@@ -6811,9 +6811,9 @@ vue-router@~2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-2.7.0.tgz#16d424493aa51c3c8cce8b7c7210ea4c3a89aff1"
 
-vue-server-renderer@~2.4.0:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.4.1.tgz#9a1986c459387eaa319c16ca5c0d0f2ebb2c66c5"
+vue-server-renderer@2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/vue-server-renderer/-/vue-server-renderer-2.5.0.tgz#ddbb3531c9ca2b2eee3e4188ab2d915a3af4e3b1"
   dependencies:
     chalk "^1.1.3"
     hash-sum "^1.0.2"
@@ -6914,9 +6914,9 @@ webpack-dev-middleware@~1.12.0:
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
 
-webpack-hot-middleware@2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.19.0.tgz#7ab2607159496ff3f3314dda491cd96d8f2d5124"
+webpack-hot-middleware@~2.19.0:
+  version "2.19.1"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.19.1.tgz#5db32c31c955c1ead114d37c7519ea554da0d405"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
