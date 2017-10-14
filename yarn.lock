@@ -4106,6 +4106,10 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
 
+lodash.merge@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.0.tgz#69884ba144ac33fe699737a6086deffadd0f89c5"
+
 lodash.mergewith@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.0.tgz#150cf0a16791f5903b8891eab154609274bdea55"
@@ -6734,11 +6738,11 @@ vue-analytics@~4.3.0:
   dependencies:
     load-script "^1.0.0"
 
-vue-chartjs@~2.8.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-2.8.0.tgz#1e047f341f3e51aafe6a0cb84cfd201798b3dbbf"
+vue-chartjs@3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/vue-chartjs/-/vue-chartjs-3.0.0.tgz#a94f79072ed9a6d51b62c23269d874af0bc48718"
   dependencies:
-    lodash "^4.17.4"
+    lodash.merge "^4.6.0"
 
 vue-class-component@^5.0.0:
   version "5.0.2"
@@ -6914,9 +6918,9 @@ webpack-dev-middleware@~1.12.0:
     range-parser "^1.0.3"
     time-stamp "^2.0.0"
 
-webpack-hot-middleware@2.19.0:
-  version "2.19.0"
-  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.19.0.tgz#7ab2607159496ff3f3314dda491cd96d8f2d5124"
+webpack-hot-middleware@~2.19.0:
+  version "2.19.1"
+  resolved "https://registry.yarnpkg.com/webpack-hot-middleware/-/webpack-hot-middleware-2.19.1.tgz#5db32c31c955c1ead114d37c7519ea554da0d405"
   dependencies:
     ansi-html "0.0.7"
     html-entities "^1.2.0"
