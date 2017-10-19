@@ -1,21 +1,38 @@
-# hibari
+# Hibari
 
-> A Vue.js project
+[![Website]][1]
+[![Uptime]][1]
+[![Github Release]][2]
 
-## Build Setup
+A work in progress [Vue][3] web app alternative for [Kitsu][4] users
 
-``` bash
-# install dependencies
-npm install
+## Features
 
-# serve with hot reload at localhost:8080
-npm run dev
+- Login to your Kitsu account
 
-# build for production with minification
-npm run build
+## Contributing
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
+PRs are welcome :tada: 
+Check out [CONTRIBUTING][5] for information on localisation and code standards
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## Development
+
+[![Travis]][5]
+[![AppVeyor]][6]
+[![CC Coverage]][7]
+[![CC Score]][8]
+[![CC Issues]][9]
+[![David DevDependencies]][10]
+
+### Requirements
+
+- [git] `>2.0.0`
+- [node] `>7.0.0`
+- [yarn] `>1.0.0`
+
+### Setup
+
+1. `git clone -b new git@github.com:wopian/hibari.git`
+2. `git checkout -b myFeature`
+3. `yarn install` Install dependencies
+4. `yarn dev` Build & run a local dev server
