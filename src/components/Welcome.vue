@@ -15,19 +15,21 @@
     },
     methods: {
       async getAnime () {
-        const { data } = await api.get('anime', {
-          sort: '-startDate',
-          filter: {
-            averageRating: '75..'
-          },
-          fields: {
-            anime: 'posterImage'
-          },
-          page: {
-            limit: 20
-          }
-        })
-        this.$store.commit('SET_POSTERWALL', data)
+        if (!this.$store.state.welcome.posterWall) {
+          const { data } = await api.get('anime', {
+            sort: '-startDate',
+            filter: {
+              averageRating: '75..'
+            },
+            fields: {
+              anime: 'posterImage'
+            },
+            page: {
+              limit: 20
+            }
+          })
+          this.$store.commit('SET_POSTERWALL', data)
+        }
       }
     }
   }

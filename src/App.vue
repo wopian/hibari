@@ -2,6 +2,7 @@
   #app
     navigation
     router-view
+    pre {{ $store.state }}
 </template>
 
 <script>

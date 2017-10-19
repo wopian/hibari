@@ -29,15 +29,31 @@ export default new Router({
           component: UserProfile
         },
         {
-          path: 'library',
-          name: 'Library',
-          component: UserLibrary,
-          children: [
-            {
-              path: ':status',
-              component: UserLibrary
-            }
-          ]
+          path: 'anime/:status',
+          name: 'Anime Library',
+          component: UserLibrary
+        },
+        {
+          path: 'anime',
+          redirect: 'anime/all'
+        },
+        {
+          path: 'manga/:status',
+          name: 'Manga Library',
+          component: UserLibrary
+        },
+        {
+          path: 'manga',
+          redirect: 'manga/all'
+        },
+        {
+          path: 'drama/:status',
+          name: 'Drama Library',
+          component: UserLibrary
+        },
+        {
+          path: 'drama',
+          redirect: 'drama/all'
         }
       ]
     },

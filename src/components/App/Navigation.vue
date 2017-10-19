@@ -3,24 +3,25 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
   .container
     router-link.navbar-brand(to='/') Hibari
     .navbar-nav.mr-auto
-      router-link.nav-item.nav-link(to='/anime' active-class='active') Anime
-      router-link.nav-item.nav-link(to='/manga' active-class='active') Manga
-      router-link.nav-item.nav-link(to='/drama' active-class='active') Drama
+      router-link.nav-item.nav-link(v-if='$store.state.me' :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}') Library
+      router-link.nav-item.nav-link(:to='{ name: "Explore Anime" }' active-class='active') Anime
+      router-link.nav-item.nav-link(:to='{ name: "Explore Manga" }' active-class='active') Manga
+      router-link.nav-item.nav-link(:to='{ name: "Explore Drama" }' active-class='active') Drama
 
     .navbar-nav
-      a.nav-item.dropdown(
+      .nav-item.dropdown(
         v-if='$store.getters.isAuth'
         v-bind:class='{ show: showDropdown.user }'
         @click='toggleDropdown("user")'
       )
-        a.nav-link.dropdown-toggle {{ $store.state.me.name }}
+        a.nav-link.dropdown-toggle(v-if='$store.state.me') {{ $store.state.me.name }}
         .dropdown-menu(
           v-bind:class='{ show: showDropdown.user }'
         )
-          router-link.dropdown-item(:to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
+          router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
           .dropdown-divider
           a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
-      a.nav-item.dropdown(
+      .nav-item.dropdown(
         v-else
         v-bind:class='{ show: showDropdown.login }'
       )
@@ -72,7 +73,7 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
           })
 
           let { accessToken } = await owner.getToken(username, password)
-          this.$store.commit('LOGIN', accessToken)
+          this.$store.dispatch('LOGIN', accessToken)
         }
       },
 
