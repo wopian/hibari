@@ -64,7 +64,7 @@ All code released under the [MIT] license
 [Uptime]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
 [GitHub Release]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
 [David]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
-[DavidD]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
+[David DevDependencies]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
 [Travis]:https://img.shields.io/travis/wopian/hibari/new.svg?style=flat-square&label=linux%20%26%20macOS
 [AppVeyor]:https://img.shields.io/appveyor/ci/wopian/hibari/new.svg?style=flat-square&label=windows
 [CC Coverage]:https://img.shields.io/codeclimate/coverage/github/wopian/hibari.svg?style=flat-square
