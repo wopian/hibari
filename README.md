@@ -13,7 +13,7 @@ A work in progress [Vue] web app alternative for [Kitsu] users
 
 ## Contributing
 
-PRs are welcome :tada: 
+PRs are welcome :tada:
 Check out [CONTRIBUTING] for information on localisation and code standards
 
 ## Development
@@ -34,8 +34,9 @@ Check out [CONTRIBUTING] for information on localisation and code standards
 ### Setup
 
 1. `git clone -b new git@github.com:wopian/hibari.git`
-2. `git checkout -b myFeature` Create a new branch for your feature/bugfix
-3. `yarn install` Install dependencies
+2. `cd hibari`
+3. `git checkout -b myFeature` Create a new branch for your feature/bugfix
+4. `yarn install` Install dependencies
 
 ### Commands
 
