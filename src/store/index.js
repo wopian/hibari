@@ -3,7 +3,9 @@ import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
 // import localforage from 'localforage'
 import api from '../api'
-import moduleRoute from './moduleRoute'
+import landing from './modules/landing'
+import preferences from './modules/preferences'
+import route from './modules/route'
 
 Vue.use(Vuex)
 
@@ -14,12 +16,8 @@ const persist = new VuexPersist({
 })
 
 const state = {
-  route: null,
   token: null,
-  me: null,
-  welcome: {
-    posterWall: null
-  }
+  me: null
 }
 
 const getters = {
@@ -42,10 +40,6 @@ const mutations = {
     api.headers['Authorization'] = undefined
     state.me = null
     state.token = null
-  },
-
-  SET_POSTERWALL (state, payload) {
-    state.welcome.posterWall = payload
   }
 }
 
@@ -63,7 +57,9 @@ const actions = {
 const store = new Vuex.Store({
   plugins: [ persist.plugin ],
   modules: {
-    route: moduleRoute
+    landing,
+    preferences,
+    route
   },
   state,
   getters,

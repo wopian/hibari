@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Landing from '@/components/Landing'
+import Dashboard from '@/components/Dashboard'
 import User from '@/components/User'
 import UserProfile from '@/components/User/Profile'
 import UserLibrary from '@/components/User/Library'
 import Media from '@/components/Media'
 import Explore from '@/components/Explore'
+import Preferences from '@/components/Preferences'
 import Bugs from '@/components/Bugs'
 import Error404 from '@/components/Errors/404'
 
@@ -16,8 +17,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Landing',
-      component: Landing
+      name: 'Dashboard',
+      component: Dashboard
     },
     {
       path: '/@:slug',
@@ -45,15 +46,6 @@ export default new Router({
         {
           path: 'manga',
           redirect: 'manga/all'
-        },
-        {
-          path: 'drama/:status',
-          name: 'Drama Library',
-          component: UserLibrary
-        },
-        {
-          path: 'drama',
-          redirect: 'drama/all'
         }
       ]
     },
@@ -74,22 +66,6 @@ export default new Router({
       }
     },
     {
-      path: '/drama',
-      name: 'Explore Drama',
-      component: Explore,
-      meta: {
-        type: 'drama'
-      }
-    },
-    {
-      path: '/drama/:slug',
-      name: 'Drama',
-      component: Media,
-      meta: {
-        type: 'drama'
-      }
-    },
-    {
       path: '/manga',
       name: 'Explore Manga',
       component: Explore,
@@ -104,6 +80,11 @@ export default new Router({
       meta: {
         type: 'manga'
       }
+    },
+    {
+      path: '/preferences',
+      name: 'Preferences',
+      component: Preferences
     },
     {
       path: '/bugs',

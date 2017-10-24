@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import locale from './locale'
 import router from './router'
 import store from './store'
 import App from './App'
@@ -10,9 +11,13 @@ router.afterEach(to => {
 })
 
 /* eslint-disable no-new */
-new Vue({
+export const app = new Vue({
   el: '#app',
+  locale,
   router,
   store,
   render: h => h(App)
 })
+
+window.vue = app
+window.store = store

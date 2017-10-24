@@ -6,7 +6,6 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
       router-link.nav-item.nav-link(v-if='$store.state.me' :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}') Library
       router-link.nav-item.nav-link(:to='{ name: "Explore Anime" }' active-class='active') Anime
       router-link.nav-item.nav-link(:to='{ name: "Explore Manga" }' active-class='active') Manga
-      router-link.nav-item.nav-link(:to='{ name: "Explore Drama" }' active-class='active') Drama
 
     .navbar-nav
       .nav-item.dropdown(
@@ -19,6 +18,7 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
           v-bind:class='{ show: showDropdown.user }'
         )
           router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
+          router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Preferences" }') Preferences
           .dropdown-divider
           a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
       .nav-item.dropdown(
