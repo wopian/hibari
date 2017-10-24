@@ -58,7 +58,6 @@
     align-items: flex-start
     position: relative
     pointer-events: none
-
     &:before
       content: ''
       position: absolute
