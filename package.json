@@ -128,6 +128,7 @@
   },
   "renovate": {
     "extends": [ "config:base" ],
+    "baseBranch": "new",
     "assignees": [ "wopian" ],
     "pinVersions": false,
     "automerge": false,
