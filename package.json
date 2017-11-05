@@ -163,8 +163,12 @@
         "groupName": "babel"
       },
       {
-        "packagePatterns": ["^react"],
-        "groupName": "react"
+        "packagePatterns": ["^jest"],
+        "groupName": "jest"
+      },
+      {
+        "packagePatterns": ["^vue"],
+        "groupName": "vue"
       }
     ]
   }
