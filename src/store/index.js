@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
-// import localforage from 'localforage'
+import localforage from 'localforage'
 import api from '../api'
 import landing from './modules/landing'
 import preferences from './modules/preferences'
@@ -9,10 +9,11 @@ import route from './modules/route'
 
 Vue.use(Vuex)
 
-// https://github.com/championswimmer/vuex-persist/issues/3
-// const db = localforage.createInstance({ name: 'vuex' })
+const db = localforage.createInstance({ name: 'vuex' })
 const persist = new VuexPersist({
-  storage: window.localStorage
+  storage: db,
+  saveState: (key, state, storage) => Promise.resolve(storage.setItem(key, state)),
+  restoreState: (key, storage) => Promise.resolve(storage.getItem(key))
 })
 
 const state = {
