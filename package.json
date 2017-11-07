@@ -20,7 +20,7 @@
     "vue-i18n": "~7.3.2",
     "vue-router": "~3.0.1",
     "vuex": "~3.0.0",
-    "vuex-persist": "0.2.0"
+    "vuex-persist": "0.4.0"
   },
   "devDependencies": {
     "autoprefixer": "~7.1.5",
@@ -31,12 +31,12 @@
     "babel-preset-env": "~1.6.1",
     "babel-preset-stage-0": "~6.24.1",
     "babel-register": "~6.26.0",
-    "chalk": "~2.2.0",
+    "chalk": "~2.3.0",
     "connect-history-api-fallback": "~1.4.0",
     "copy-webpack-plugin": "~4.2.0",
     "css-loader": "~0.28.7",
     "cssnano": "~3.10.0",
-    "eslint": "~4.9.0",
+    "eslint": "~4.10.0",
     "eslint-config-standard": "~10.2.1",
     "eslint-friendly-formatter": "~3.0.0",
     "eslint-loader": "~1.9.0",
@@ -53,7 +53,7 @@
     "generate-changelog": "~1.5.0",
     "html-webpack-plugin": "~2.30.1",
     "http-proxy-middleware": "~0.17.4",
-    "node-sass": "~4.5.3",
+    "node-sass": "~4.6.0",
     "opn": "~5.1.0",
     "optimize-css-assets-webpack-plugin": "~3.2.0",
     "ora": "~1.3.0",
@@ -64,7 +64,7 @@
     "shelljs": "~0.7.8",
     "uglifyjs-webpack-plugin": "~1.0.0-beta.3",
     "url-loader": "~0.6.2",
-    "vue-loader": "~13.3.0",
+    "vue-loader": "~13.4.0",
     "vue-style-loader": "~3.0.3",
     "vue-template-compiler": "~2.5.2",
     "webpack": "~3.8.1",
@@ -87,43 +87,65 @@
     "last 2 iOS versions"
   ],
   "renovate": {
-    "extends": [ "config:base" ],
+    "extends": [
+      "config:base"
+    ],
     "baseBranch": "new",
-    "assignees": [ "wopian" ],
+    "assignees": [
+      "wopian"
+    ],
     "pinVersions": false,
     "automerge": false,
     "commitMessage": "{{semanticPrefix}}update {{depName}} to {{newVersion}}",
-    "labels": [ "dependencies" ],
-    "lockFileMaintenance": { "enabled": false },
+    "labels": [
+      "dependencies"
+    ],
+    "lockFileMaintenance": {
+      "enabled": false
+    },
     "semanticCommits": true,
     "separateMajorReleases": false,
     "unpublishSafe": true,
-    "schedule": [ "before 5am on monday" ],
+    "schedule": [
+      "before 5am on monday"
+    ],
     "prCreation": "not-pending",
     "prTitle": "{{semanticPrefix}}{{#if isPin}}pin{{else}}update{{/if}} {{depName}} to {{#if isRange}}{{newVersion}}{{else}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}{{/if}}",
     "packageRules": [
       {
-        "packagePatterns": ["^eslint"],
+        "packagePatterns": [
+          "^eslint"
+        ],
         "groupName": "eslint"
       },
       {
-        "packagePatterns": ["^webpack"],
+        "packagePatterns": [
+          "^webpack"
+        ],
         "groupName": "webpack"
       },
       {
-        "packagePatterns": ["^babel"],
+        "packagePatterns": [
+          "^babel"
+        ],
         "groupName": "babel"
       },
       {
-        "packagePatterns": ["^jest"],
+        "packagePatterns": [
+          "^jest"
+        ],
         "groupName": "jest"
       },
       {
-        "packagePatterns": ["^vue"],
+        "packagePatterns": [
+          "^vue"
+        ],
         "groupName": "vue"
       },
       {
-        "packagePatterns": ["^vuex"],
+        "packagePatterns": [
+          "^vuex"
+        ],
         "groupName": "vuex"
       }
     ]
