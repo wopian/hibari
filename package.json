@@ -5,6 +5,7 @@
   "author": "James Harris <wopian@wopian.me>",
   "private": true,
   "scripts": {
+    "test": " ",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
