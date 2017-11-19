@@ -1,10 +1,10 @@
 const state = {
-  posterWall: null
+  latest: null
 }
 
 const mutations = {
-  SET_POSTERWALL (state, payload) {
-    state.posterWall = payload
+  SAVE_LANDING_LATEST (state, payload) {
+    state.latest = payload
   }
 }
 

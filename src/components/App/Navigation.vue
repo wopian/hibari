@@ -6,7 +6,7 @@ nav.navbar
 
     .navbar-menu
       .navbar-start
-        router-link.navbar-item(v-if='$store.state.me' :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}') Library
+        router-link.navbar-item(v-if='$store.state.me && $store.state.me.name' :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}') Library
         router-link.navbar-item(:to='{ name: "Explore Anime" }' active-class='active') Anime
         router-link.navbar-item(:to='{ name: "Explore Manga" }' active-class='active') Manga
 
@@ -90,6 +90,20 @@ nav.navbar
 </script>
 
 <style lang='sass' scoped>
+  nav
+    z-index: 9999999
+    top: 0
+    position: sticky
+    background: rgba(white, .3)
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      right: 0
+      bottom: 0
+      left: 0
+      backdrop-filter: blur(.5rem)
+
   .modal-card
     max-width: 300px
 

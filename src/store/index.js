@@ -10,9 +10,7 @@ import route from './modules/route'
 Vue.use(Vuex)
 
 const persist = new VuexPersist({
-  storage: localforage,
-  saveState: (key, state, storage) => Promise.resolve(storage.setItem(key, state)),
-  restoreState: (key, storage) => Promise.resolve(storage.getItem(key))
+  storage: localforage
 })
 
 const state = {

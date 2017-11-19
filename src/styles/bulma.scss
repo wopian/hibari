@@ -1,7 +1,11 @@
 @import '~bulma/sass/utilities/_all';
 
-$primary: #8c67ef;
+$primary: #F75239;
 $primary-invert: findColorInvert($primary);
+$dark: #402F3F;
+$dark-invert: findColorInvert($dark);
+$success: #16A085;
+$siccess-invert: findColorInvert($success);
 
 // e.g is-white
 $colors: (
@@ -19,6 +23,8 @@ $colors: (
 $link: $primary;
 $link-invert: $primary-invert;
 $link-focus-border: $primary;
+
+$dimensions: (16, 24, 32, 48, 64, 96, 128);
 
 @import '~bulma';
 @import '~buefy/src/scss/buefy';
