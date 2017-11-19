@@ -11,7 +11,6 @@ nav.navbar
         router-link.navbar-item(:to='{ name: "Explore Manga" }' active-class='active') Manga
 
       .navbar-end
-
         // User Menu Dropdown
         b-dropdown(
           v-if='$store.getters.isAuth && $store.state.me'
@@ -24,18 +23,9 @@ nav.navbar
             router-link(:to='{ name: "Profile", params: { slug: $store.state.me.name } }') Profile
           hr.dropdown-divider
           b-dropdown-item(has-link)
-            router-link(:to='{ name: "Profile", params: { slug: $store.state.me.name } }') Preferences
+            router-link(:to='{ name: "Preferences" }') Preferences
           b-dropdown-item(has-link)
             a(@click='$store.commit("LOGOUT")' href='') Logout
-
-
-          //
-            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
-            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Preferences" }') Preferences
-            .dropdown-divider
-            a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
-
-
 
         // Login Dropdown
         b-dropdown(
@@ -67,21 +57,6 @@ nav.navbar
                       required
                     )
                   button.button.is-primary.button-block(@click='submit()') Login with Kitsu
-
-      //
-        .nav-item.dropdown(
-          v-if='$store.getters.isAuth'
-          v-bind:class='{ show: showDropdown.user }'
-          @click='toggleDropdown("user")'
-        )
-          a.nav-link.dropdown-toggle(v-if='$store.state.me') {{ $store.state.me.name }}
-          .dropdown-menu(
-            v-bind:class='{ show: showDropdown.user }'
-          )
-            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
-            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Preferences" }') Preferences
-            .dropdown-divider
-            a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
 </template>
 
 <script>
