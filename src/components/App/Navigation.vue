@@ -1,47 +1,87 @@
 <template lang='pug'>
-nav.navbar.navbar-dark.bg-secondary.sticky-top
+nav.navbar
   .container
-    router-link.navbar-brand(to='/') Hibari
-    .navbar-nav.mr-auto
-      router-link.nav-item.nav-link(v-if='$store.state.me' :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}') Library
-      router-link.nav-item.nav-link(:to='{ name: "Explore Anime" }' active-class='active') Anime
-      router-link.nav-item.nav-link(:to='{ name: "Explore Manga" }' active-class='active') Manga
+    .navbar-brand
+      router-link.navbar-item(to='/') Hibari
 
-    .navbar-nav
-      .nav-item.dropdown(
-        v-if='$store.getters.isAuth'
-        v-bind:class='{ show: showDropdown.user }'
-        @click='toggleDropdown("user")'
-      )
-        a.nav-link.dropdown-toggle(v-if='$store.state.me') {{ $store.state.me.name }}
-        .dropdown-menu(
+    .navbar-menu
+      .navbar-start
+        router-link.navbar-item(v-if='$store.state.me' :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}') Library
+        router-link.navbar-item(:to='{ name: "Explore Anime" }' active-class='active') Anime
+        router-link.navbar-item(:to='{ name: "Explore Manga" }' active-class='active') Manga
+
+      .navbar-end
+
+        // User Menu Dropdown
+        b-dropdown(
+          v-if='$store.getters.isAuth && $store.state.me'
+          position='is-bottom-left'
+        )
+          a.navbar-item(slot='trigger')
+            span {{ $store.state.me.name }}
+            b-icon(icon='menu-down')
+          b-dropdown-item(has-link)
+            router-link(:to='{ name: "Profile", params: { slug: $store.state.me.name } }') Profile
+          hr.dropdown-divider
+          b-dropdown-item(has-link)
+            router-link(:to='{ name: "Profile", params: { slug: $store.state.me.name } }') Preferences
+          b-dropdown-item(has-link)
+            a(@click='$store.commit("LOGOUT")' href='') Logout
+
+
+          //
+            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
+            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Preferences" }') Preferences
+            .dropdown-divider
+            a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
+
+
+
+        // Login Dropdown
+        b-dropdown(
+          v-else
+          position='is-bottom-left'
+        )
+          a.navbar-item(slot='trigger')
+            span Login
+            b-icon(icon='menu-down')
+          b-dropdown-item(custom paddingless)
+            form(
+              action=''
+              v-on:submit.prevent=''
+            )
+              .modal-card
+                .modal-card-body
+                  b-field(label='Email / Username')
+                    b-input(
+                      v-model='credentials.username'
+                      type='text'
+                      placeholder='Your Email or Username'
+                      required
+                    )
+                  b-field(label='Password')
+                    b-input(
+                      v-model='credentials.password'
+                      type='password'
+                      placeholder='Your password'
+                      required
+                    )
+                  button.button.is-primary.button-block(@click='submit()') Login with Kitsu
+
+      //
+        .nav-item.dropdown(
+          v-if='$store.getters.isAuth'
           v-bind:class='{ show: showDropdown.user }'
+          @click='toggleDropdown("user")'
         )
-          router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
-          router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Preferences" }') Preferences
-          .dropdown-divider
-          a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
-      .nav-item.dropdown(
-        v-else
-        v-bind:class='{ show: showDropdown.login }'
-      )
-        a.nav-link(@click='toggleDropdown("login")') Login
-        .dropdown-menu.dropdown-login(
-          v-bind:class='{ show: showDropdown.login }'
-        )
-          .form-group
-            input.form-control(
-              type='text'
-              placeholder='Username'
-              v-model='credentials.username'
-            )
-          .form-group
-            input.form-control(
-              type='password'
-              placeholder='Password'
-              v-model='credentials.password'
-            )
-          button.btn.btn-block.btn-primary(@click='submit()') Login with Kitsu
+          a.nav-link.dropdown-toggle(v-if='$store.state.me') {{ $store.state.me.name }}
+          .dropdown-menu(
+            v-bind:class='{ show: showDropdown.user }'
+          )
+            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Profile", params: { slug: $store.state.me.name }}') Profile
+            router-link.dropdown-item(v-if='$store.state.me' :to='{ name: "Preferences" }') Preferences
+            .dropdown-divider
+            a.dropdown-item(@click='$store.commit("LOGOUT")' href='') Logout
 </template>
 
 <script>
@@ -54,10 +94,6 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
         credentials: {
           username: '',
           password: ''
-        },
-        showDropdown: {
-          user: false,
-          login: false
         }
       }
     },
@@ -65,24 +101,23 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
       async submit () {
         if (!this.$store.getters.getAuth) {
           const { username, password } = this.credentials
-
           const { owner } = new OAuth2({
             clientId: '',
             clientSecret: '',
             accessTokenUri: 'https://kitsu.io/api/oauth/token'
           })
-
           let { accessToken } = await owner.getToken(username, password)
           this.$store.dispatch('LOGIN', accessToken)
         }
-      },
-
-      toggleDropdown (dropdown) {
-        this.showDropdown[dropdown] = !this.showDropdown[dropdown]
       }
     }
   }
 </script>
 
 <style lang='sass' scoped>
+  .modal-card
+    max-width: 300px
+
+  .button-block
+    width: 100%
 </style>

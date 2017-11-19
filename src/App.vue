@@ -18,10 +18,5 @@ export default {
 
 <style lang='sass'>
   @import styles/bulma
-  // @import styles/tailwind
-  // @import styles/bootstrap
-  // @import ~bootstrap/scss/functions
-  // @import ~bootstrap/scss/variables
-  // @import ~bootstrap/scss/mixins/hover
-  // @import ~bootstrap/scss/reboot
+  @import ~mdi/css/materialdesignicons.min.css
 </style>

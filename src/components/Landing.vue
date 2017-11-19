@@ -11,7 +11,7 @@
 
   export default {
     created () {
-      this.getAnime()
+      // this.getAnime()
     },
     methods: {
       async getAnime () {

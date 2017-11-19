@@ -16,8 +16,8 @@ const persist = new VuexPersist({
 })
 
 const state = {
-  token: null,
-  me: null
+  token: localStorage.getItem('token') || null,
+  me: JSON.parse(localStorage.getItem('me')) || null
 }
 
 const getters = {
@@ -30,16 +30,20 @@ const mutations = {
   LOGIN (state, payload) {
     api.headers['Authorization'] = `Bearer ${payload}`
     state.token = payload
+    localStorage.setItem('token', payload)
   },
 
   LOGIN_USERDATA (state, payload) {
     state.me = payload
+    localStorage.setItem('me', JSON.stringify(payload))
   },
 
   LOGOUT (state) {
     api.headers['Authorization'] = undefined
     state.me = null
     state.token = null
+    localStorage.removeItem('me')
+    localStorage.removeItem('token')
   }
 }
 
