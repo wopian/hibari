@@ -7,13 +7,11 @@ engines:
     checks:
       Similar code:
         enabled: true
-    exclude_fingerprints:
-    - 95ea0e6ac034573af69bc979f6dcc0f5
-    - 29898bbee6f210eff6477b087ceb11a1
   eslint:
     enabled: true
     config:
       # config: .eslintrc.yml
+      channel: eslint-4
       extensions:
       - .js
       - .vue
@@ -27,9 +25,11 @@ engines:
     checks:
       MD024:
         enabled: false
+      MD029:
+        enabled: false
       MD033:
         enabled: false
-  shellcheck:
+  scss-lint:
     enabled: true
 ratings:
   paths:
@@ -37,9 +37,9 @@ ratings:
   - "**.vue"
   - "**.sass"
   - "**.md"
-  - "**.sh"
 exclude_paths:
 - .vscode
-- public
-- tests
+- static
+- build
+- config
 - src/locales
