@@ -74,9 +74,10 @@
     object-position: top
     margin-top: -52px
     pointer-events: none
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0))
 
   section
-    padding-top: .85rem
+    padding-top: .6rem
 
   .title.is-6
     display: block
