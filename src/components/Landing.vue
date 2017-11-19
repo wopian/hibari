@@ -68,7 +68,8 @@
 <style lang='sass' scoped>
   .banner
     width: 100vw
-    height: 70vh
+    min-height: 70vh
+    max-height: 70vh
     object-fit: cover
     object-position: top
     margin-top: -52px
