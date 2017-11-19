@@ -3,7 +3,9 @@ import locale from './locale'
 import router from './router'
 import store from './store'
 import App from './App'
+import Buefy from 'buefy'
 
+Vue.use(Buefy)
 Vue.config.productionTip = false
 
 router.afterEach(to => {

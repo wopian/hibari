@@ -57,29 +57,4 @@
       }
     }
   }
-/*
-  import auth from '@/api/auth'
-
-  export default {
-    data () {
-      return {
-        credentials: {
-          username: '',
-          password: ''
-        },
-        error: ''
-      }
-    },
-    methods: {
-      async submit () {
-        const credentials = {
-          username: this.credentials.username,
-          password: this.credentials.password
-        }
-
-        await auth.login(this, credentials)
-      }
-    }
-  }
-*/
 </script>

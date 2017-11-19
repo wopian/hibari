@@ -85,23 +85,4 @@ nav.navbar.navbar-dark.bg-secondary.sticky-top
 </script>
 
 <style lang='sass' scoped>
-
-  nav
-    flex-direction: row
-    flex-wrap: nowrap
-    justify-content: flex-start
-    .container
-      justify-content: flex-start
-    .navbar-nav
-      flex-direction: row
-    .nav-link
-      padding: .5rem
-
-  .dropdown-menu
-    position: absolute
-
-  .dropdown-login
-    padding: .5rem
-    .form-group
-      margin-bottom: .5rem
 </style>
