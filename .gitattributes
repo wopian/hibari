@@ -1,2 +1,2 @@
-^build/** linguist-vendored
-^config/** linguist-vendored
+build/** linguist-vendored=true
+config/** linguist-vendored=true
