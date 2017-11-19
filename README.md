@@ -69,7 +69,7 @@ All code released under the [MIT] license
 [Travis]:https://img.shields.io/travis/wopian/hibari/new.svg?style=flat-square&label=linux%20%26%20macOS
 [AppVeyor]:https://img.shields.io/appveyor/ci/wopian/hibari/new.svg?style=flat-square&label=windows
 [CC Coverage]:https://img.shields.io/codeclimate/coverage/github/wopian/hibari.svg?style=flat-square
-[CC Maintainability]:https://img.shields.io/codeclimate/maintainability/wopian/hibari.svg
+[CC Maintainability]:https://img.shields.io/codeclimate/maintainability/wopian/hibari.svg?style=flat-square
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
 
 [1]:https://new.hibari.moe
