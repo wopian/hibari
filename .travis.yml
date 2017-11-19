@@ -10,7 +10,7 @@ sudo: false
 matrix:
   fast_finish: true
 script: yarn test
-after_success:
+after_script:
 - yarn global add codeclimate-test-reporter
 - codeclimate-test-reporter < test/coverage/lcov.info
 addons:
