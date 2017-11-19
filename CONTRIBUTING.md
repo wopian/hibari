@@ -16,8 +16,7 @@ done on the GitHub website.
 ### Guide for new languages
 
 1. Copy the contents of `en.js`
-2. Create a [new file][1] inside `src/locales` using the [ISO 639-1]
-code for the new language (e.g `ja.js` for Japanese)
+2. Create a [new file][1] inside `src/locales` using the [ISO 639-1] code for the new language (e.g `ja.js` for Japanese)
 3. Start translating the English strings
 4. Commit the translation
     1. Add a commit message, e.g `localise: added Japanese`
@@ -58,7 +57,7 @@ feat: implement user pages
 | fix       | Bug fix for user, not for build script
 | localise  | Modifying localisation strings
 | refactor  | Refactoring production code, e.g renaming variables
-| style     | Dormatting etc, no code change
+| style     | Formatting etc, no code change
 | test      | Adding tests, refactoring tests, no production code change
 
 [Visual Studio Code]:https://code.visualstudio.com

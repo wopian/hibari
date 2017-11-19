@@ -31,6 +31,9 @@ engines:
         enabled: false
   scss-lint:
     enabled: true
+    checks:
+      NameFormat:
+        enabled: false
 ratings:
   paths:
   - "**.js"
