@@ -5,7 +5,7 @@
 [![Github Release]][2]
 [![David]][8]
 
-A work in progress [Vue] web app alternative for [Kitsu] users
+A work in progress [Vue] alternative for [Kitsu] users
 
 ## Features
 
