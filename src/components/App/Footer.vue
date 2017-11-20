@@ -7,9 +7,11 @@
           | &nbsp;by&nbsp;
           a(href='//wopian.me') wopian
           br
+          br
           | Source code licensed under&nbsp;
           a(href='//github.com/wopian/hibari#license') MIT
           br
           | All content provided by&nbsp;
           a(href='//kitsu.io') Kitsu.io
+      pre {{ $store.state }}
 </template>

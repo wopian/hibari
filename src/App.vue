@@ -3,7 +3,6 @@
     navigation(v-once)
     router-view
     aFooter(v-once)
-    pre {{ $store.state }}
 </template>
 
 <script>

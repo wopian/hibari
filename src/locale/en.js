@@ -1,3 +1,9 @@
 export default {
-  lang: 'English'
+  lang: 'English',
+  hibari: 'Hibari',
+  kitsu: 'Kitsu',
+
+  footer: {
+    developedBy: ''
+  }
 }
