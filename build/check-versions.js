@@ -1,4 +1,4 @@
-const chalk = require('chalk')
+const { green, yellow, red } = require('chalk')
 const { clean, satisfies } = require('semver')
 const { engines } = require('../package.json')
 const { which } = require('shelljs')
@@ -22,23 +22,29 @@ if (which('npm')) {
   })
 }
 
+if (which('yarn')) {
+  versionRequirements.push({
+    name: 'yarn',
+    currentVersion: exec('yarn --version'),
+    versionRequirement: engines.yarn
+  })
+}
+
 module.exports = function () {
   const warnings = []
   for (let i = 0; i < versionRequirements.length; i++) {
-    const mod = versionRequirements[i]
-    if (!satisfies(mod.currentVersion, mod.versionRequirement)) {
-      warnings.push(mod.name + ': ' +
-        chalk.red(mod.currentVersion) + ' should be ' +
-        chalk.green(mod.versionRequirement)
-      )
+    const { currentVersion, versionRequirement, name } = versionRequirements[i]
+    if (!satisfies(currentVersion, versionRequirement)) {
+      warnings.push(`${name}: ${red(currentVersion)} should be ${green(versionRequirement)}`)
     }
   }
 
   if (warnings.length) {
-    console.log(chalk.yellow('\nPlease update the following modules:\n'))
+    console.log(yellow('\n  Please update the following packages:\n'))
     for (let i = 0; i < warnings.length; i++) {
       console.log('  ' + warnings[i])
     }
+    console.log()
     process.exit(1)
   }
 }
