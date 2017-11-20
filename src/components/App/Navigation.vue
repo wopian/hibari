@@ -94,15 +94,8 @@ nav.navbar
     z-index: 999
     top: 0
     position: sticky
-    background: rgba(white, .3)
-    &::before
-      content: ''
-      position: absolute
-      top: 0
-      right: 0
-      bottom: 0
-      left: 0
-      backdrop-filter: blur(.5rem)
+    background: rgba(white, .4)
+    backdrop-filter: blur(.5rem)
 
   .modal-card
     max-width: 300px
