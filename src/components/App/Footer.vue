@@ -15,3 +15,8 @@
           a(href='//kitsu.io') Kitsu.io
       pre {{ $store.state }}
 </template>
+
+<style lang='sass' scoped>
+  footer
+    margin-top: 1.5rem
+</style>
