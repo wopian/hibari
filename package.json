@@ -69,7 +69,7 @@
     "semver": "~5.4.1",
     "shelljs": "~0.7.8",
     "tailwindcss": "~0.2.1",
-    "uglifyjs-webpack-plugin": "~1.0.0-beta.3",
+    "uglifyjs-webpack-plugin": "~1.1.0",
     "url-loader": "~0.6.2",
     "vue-jest": "^1.0.3",
     "vue-loader": "~13.5.0",
