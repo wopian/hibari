@@ -2,16 +2,19 @@
   #app
     navigation(v-once)
     router-view
+    aFooter(v-once)
     pre {{ $store.state }}
 </template>
 
 <script>
   import Navigation from '=/App/Navigation'
+  import AFooter from '=/App/Footer'
 
   export default {
     name: 'app',
     components: {
-      Navigation
+      Navigation,
+      AFooter
     }
   }
 </script>
