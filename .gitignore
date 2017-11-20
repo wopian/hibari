@@ -3,8 +3,8 @@ node_modules
 dist
 test/coverage
 
-# Editor directories and files
 .idea
+.bundlesize.yml
 *.suo
 *.ntvs*
 *.njsproj

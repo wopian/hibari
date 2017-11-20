@@ -1,19 +1,19 @@
 <template lang='pug'>
   #app
-    navigation
+    navigation(v-once)
     router-view
     pre {{ $store.state }}
 </template>
 
 <script>
-import Navigation from '@/components/App/Navigation'
+  import Navigation from '=/App/Navigation'
 
-export default {
-  name: 'app',
-  components: {
-    Navigation
+  export default {
+    name: 'app',
+    components: {
+      Navigation
+    }
   }
-}
 </script>
 
 <style lang='sass'>

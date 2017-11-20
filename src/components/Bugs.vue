@@ -1,3 +1,3 @@
 <template lang='pug'>
-    p Template for {{ $store.state.route.name }}
+  p Template for {{ $store.state.route.name }}
 </template>

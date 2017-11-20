@@ -42,7 +42,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       cache: true
     }),
     new webpack.NoEmitOnErrorsPlugin(),
-    // extract css into its own file
     new ExtractTextPlugin({
       filename: utils.assetsPath('css/[name].[contenthash].css')
     }),
@@ -50,7 +49,41 @@ const webpackConfig = merge(baseWebpackConfig, {
     // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        safe: true
+        autoprefixer: true,
+        rawCache: true,
+        calc: true,
+        colormin: true,
+        convertValues: true,
+        discardComments: true,
+        discardDuplicates: true,
+        discardEmpty: true,
+        discardOverridden: true,
+        discardUnused: true, // May be unsafe
+        mergeIdents: true,
+        mergeLonghand: true,
+        mergeRules: true,
+        minifyFontValues: true,
+        minifyGradients: true,
+        minifyParams: true,
+        minifySelectors: true,
+        normalizeCharset: true,
+        normalizeDisplayValues: true,
+        normalizePositions: true,
+        normalizeRepeatStyle: true,
+        normalizeString: {
+          preferredQuote: 'single'
+        },
+        normalizeTimingFunctions: true,
+        normalizeUnicode: true,
+        normalizeUrl: true,
+        normalizeWhitespace: true,
+        orderedValues: true,
+        reduceIdents: true, // May be unsafe
+        reduceInitial: true,
+        reduceTransforms: true,
+        svgo: true,
+        uniqueSelectors: true,
+        zindex: true // May be unsafe
       }
     }),
     // generate dist index.html with correct asset hash for caching.
@@ -91,7 +124,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       chunks: ['vendor']
     }),
-    // copy custom static assets
     new CopyWebpackPlugin([
       {
         from: path.resolve(__dirname, '../static'),
@@ -99,7 +131,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
-    new BundleSizePlugin('../build-report.txt')
+    new BundleSizePlugin('../.bundlesize.yml')
   ]
 })
 

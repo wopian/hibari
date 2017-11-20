@@ -6,8 +6,8 @@
 <script>
   export default {
     components: {
-      Feed: () => import('@/components/Feed'),
-      Landing: () => import('@/components/Landing')
+      Feed: () => import(/* webpackChunkName: 'feed' */ '=/Feed'),
+      Landing: () => import(/* webpackChunkName: 'landing' */ '=/Landing')
     }
   }
 </script>

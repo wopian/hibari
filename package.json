@@ -108,10 +108,8 @@
     ],
     "mapCoverage": true,
     "moduleNameMapper": {
-      "@/components/([^\\.]*)$": "<rootDir>/src/components/$1.vue",
-      "src/components/([^\\.]*)$": "<rootDir>/src/components/$1.vue",
-      "@/([^\\.]*)$": "<rootDir>/src/$1.vue",
-      "src/([^\\.]*)$": "<rootDir>/src/$1.vue"
+      "=/([^\\.]*)$": "<rootDir>/src/components/$1.vue",
+      "@/([^\\.]*)$": "<rootDir>/src/$1.vue"
     },
     "moduleFileExtensions": [
       "js",
