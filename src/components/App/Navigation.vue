@@ -91,7 +91,7 @@ nav.navbar
 
 <style lang='sass' scoped>
   nav
-    z-index: 9999999
+    z-index: 999
     top: 0
     position: sticky
     background: rgba(white, .3)

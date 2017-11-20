@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
-import localforage from 'localforage'
+// import localforage from 'localforage'
 import api from '../api'
 import landing from './modules/landing'
 import preferences from './modules/preferences'
@@ -10,12 +10,12 @@ import route from './modules/route'
 Vue.use(Vuex)
 
 const persist = new VuexPersist({
-  storage: localforage
+  storage: localStorage // localforage
 })
 
 const state = {
-  token: localStorage.getItem('token') || null,
-  me: JSON.parse(localStorage.getItem('me')) || null
+  token: null,
+  me: null
 }
 
 const getters = {

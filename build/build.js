@@ -2,16 +2,16 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
-var rm = require('rimraf')
-var path = require('path')
-var chalk = require('chalk')
-var webpack = require('webpack')
-var config = require('../config')
-var webpackConfig = require('./webpack.prod.conf')
+const rm = require('rimraf')
+const { join } = require('path')
+const chalk = require('chalk')
+const webpack = require('webpack')
+const { build } = require('../config')
+const webpackConfig = require('./webpack.prod.conf')
 
-rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
+rm(join(build.assetsRoot, build.assetsSubDirectory), err => {
   if (err) throw err
-  webpack(webpackConfig, function (err, stats) {
+  webpack(webpackConfig, (err, stats) => {
     if (err) throw err
     process.stdout.write(stats.toString({
       colors: true,

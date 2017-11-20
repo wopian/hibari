@@ -4,5 +4,18 @@
     "javascript",
     "vue"
   ],
-  "jest.autoEnable": true
+  "jest.autoEnable": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "files.exclude":{
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/dist": true,
+    "**/coverage": true
+  }
 }

@@ -1,14 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Dashboard from '@/components/Dashboard'
-import User from '@/components/User'
-import UserProfile from '@/components/User/Profile'
-import UserLibrary from '@/components/User/Library'
-import Media from '@/components/Media'
-import Explore from '@/components/Explore'
-import Preferences from '@/components/Preferences'
-import Bugs from '@/components/Bugs'
-import Error404 from '@/components/Errors/404'
 
 Vue.use(Router)
 
@@ -18,21 +9,21 @@ export default new Router({
     {
       path: '/',
       name: 'Dashboard',
-      component: Dashboard
+      component: () => import('@/components/Dashboard')
     },
     {
       path: '/@:slug',
-      component: User,
+      component: () => import('@/components/User'),
       children: [
         {
           path: '',
           name: 'Profile',
-          component: UserProfile
+          component: () => import('@/components/User')
         },
         {
           path: 'anime/:status',
           name: 'Anime Library',
-          component: UserLibrary
+          component: () => import('@/components/User/Library')
         },
         {
           path: 'anime',
@@ -41,7 +32,7 @@ export default new Router({
         {
           path: 'manga/:status',
           name: 'Manga Library',
-          component: UserLibrary
+          component: () => import('@/components/User/Library')
         },
         {
           path: 'manga',
@@ -52,7 +43,7 @@ export default new Router({
     {
       path: '/anime',
       name: 'Explore Anime',
-      component: Explore,
+      component: () => import('@/components/Explore'),
       meta: {
         type: 'anime'
       }
@@ -60,7 +51,7 @@ export default new Router({
     {
       path: '/anime/:slug',
       name: 'Anime',
-      component: Media,
+      component: () => import('@/components/Media'),
       meta: {
         type: 'anime'
       }
@@ -68,7 +59,7 @@ export default new Router({
     {
       path: '/manga',
       name: 'Explore Manga',
-      component: Explore,
+      component: () => import('@/components/Explore'),
       meta: {
         type: 'manga'
       }
@@ -76,7 +67,7 @@ export default new Router({
     {
       path: '/manga/:slug',
       name: 'Manga',
-      component: Media,
+      component: () => import('@/components/Media'),
       meta: {
         type: 'manga'
       }
@@ -84,17 +75,17 @@ export default new Router({
     {
       path: '/preferences',
       name: 'Preferences',
-      component: Preferences
+      component: () => import('@/components/Preferences')
     },
     {
       path: '/bugs',
       name: 'Bugs',
-      component: Bugs
+      component: () => import('@/components/Bugs')
     },
     {
       path: '*',
       name: '404',
-      component: Error404
+      component: () => import('@/components/Errors/404')
     }
   ]
 })

@@ -36,7 +36,6 @@
     "babel-preset-stage-0": "~6.24.1",
     "babel-register": "~6.26.0",
     "chalk": "~2.3.0",
-    "compression-webpack-plugin": "~1.0.1",
     "connect-history-api-fallback": "~1.5.0",
     "copy-webpack-plugin": "~4.2.0",
     "css-loader": "~0.28.7",
@@ -77,6 +76,7 @@
     "vue-template-compiler": "~2.5.2",
     "vue-test-utils": "~1.0.0-beta.5",
     "webpack": "~3.8.1",
+    "webpack-bundle-size-analyzer": "^2.7.0",
     "webpack-dev-middleware": "~1.12.0",
     "webpack-hot-middleware": "~2.20.0",
     "webpack-merge": "~4.1.0"
@@ -99,7 +99,7 @@
       "src/**/*.{js,vue}"
     ],
     "coveragePathIgnorePatterns": [
-      "src/(locale|api|main.js)"
+      "src/(locale|api|store|router|main.js)"
     ],
     "coverageDirectory": "<rootDir>/test/coverage",
     "coverageReporters": [

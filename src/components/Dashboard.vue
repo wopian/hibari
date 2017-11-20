@@ -4,13 +4,10 @@
 </template>
 
 <script>
-  import Feed from '@/components/Feed'
-  import Landing from '@/components/Landing'
-
   export default {
     components: {
-      Feed,
-      Landing
+      Feed: () => import('@/components/Feed'),
+      Landing: () => import('@/components/Landing')
     }
   }
 </script>
