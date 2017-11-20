@@ -9,7 +9,7 @@ git heavily integrated, an integrated terminal (`ctrl`+`'`) and the
 Localisation of Hibari into your language, or expanding existing
 translations is greatly appreciated.
 
-Locale files are located in `src/locales` and uses the [ISO 639-1]
+Locale files are located in `src/locale` and uses the [ISO 639-1]
 standard for language codes. All changes for localisation can be
 done on the GitHub website.
 
@@ -19,9 +19,10 @@ done on the GitHub website.
 2. Create a [new file][1] inside `src/locales` using the [ISO 639-1] code for the new language (e.g `ja.js` for Japanese)
 3. Start translating the English strings
 4. Commit the translation
-    1. Add a commit message, e.g `localise: added Japanese`
+    1. Add a commit message, e.g `localise: add Japanese`
     2. Click `Propose new file`
     3. Finally click `Create pull request`
+    4. Check your translations live with Netlify's preview build
 
 ## Code Standard
 
