@@ -14,6 +14,7 @@ A work in progress [Vue] alternative for [Kitsu] users
 ## Contributing
 
 PRs are welcome :tada:
+
 Check out [CONTRIBUTING] for information on localisation and code standards
 
 ## Development
