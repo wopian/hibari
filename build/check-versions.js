@@ -22,14 +22,6 @@ if (which('npm')) {
   })
 }
 
-if (which('yarn')) {
-  versionRequirements.push({
-    name: 'yarn',
-    currentVersion: exec('yarn --version'),
-    versionRequirement: engines.yarn
-  })
-}
-
 module.exports = function () {
   const warnings = []
   for (let i = 0; i < versionRequirements.length; i++) {
