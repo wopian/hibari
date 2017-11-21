@@ -1,3 +1,4 @@
+const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -8,6 +9,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
+const ProgressiveManifest = require('webpack-pwa-manifest')
 
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -34,6 +36,23 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new FriendlyErrorsPlugin(),
-    new BundleSizePlugin('../.bundlesize.yml')
+    new BundleSizePlugin('../.bundlesize.yml'),
+    new ProgressiveManifest({
+      name: 'Hibari',
+      short_name: 'Hibari',
+      description: 'Vue alternative for Kitsu.io users',
+      start_url: '.',
+      theme_color: '#f75239',
+      background_color: '#fff',
+      icons: [
+        {
+          src: path.resolve('static/icon.png'),
+          sizes: [ 16, 32, 96, 128, 192, 256, 512 ]
+        }
+      ],
+      inject: true,
+      fingerprints: true,
+      ios: true
+    })
   ]
 })

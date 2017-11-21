@@ -12,6 +12,7 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
+const ProgressiveManifest = require('webpack-pwa-manifest')
 
 const env = config.build.env
 
@@ -131,7 +132,24 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ]),
-    new BundleSizePlugin('../.bundlesize.yml')
+    new BundleSizePlugin('../.bundlesize.yml'),
+    new ProgressiveManifest({
+      name: 'Hibari',
+      short_name: 'Hibari',
+      description: 'Vue alternative for Kitsu.io users',
+      start_url: '.',
+      theme_color: '#f75239',
+      background_color: '#fff',
+      icons: [
+        {
+          src: path.resolve('static/icon.png'),
+          sizes: [ 16, 32, 96, 128, 192 ]
+        }
+      ],
+      inject: true,
+      fingerprints: true,
+      ios: true
+    })
   ]
 })
 
