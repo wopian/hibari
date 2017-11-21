@@ -7,9 +7,9 @@ Vue.use(I18n)
 const locale = store.state.preferences.language || 'en'
 
 const messages = {
-  en: import('./en'),
-  ja: import('./ja'),
-  nl: import('./nl')
+  en: () => import(/* webpackChunkName: 'locale-en' */ './en'),
+  ja: () => import(/* webpackChunkName: 'locale-ja' */ './ja'),
+  nl: () => import(/* webpackChunkName: 'locale-nl' */ './nl')
 }
 
 export default new I18n({
