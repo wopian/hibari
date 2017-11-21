@@ -38,7 +38,7 @@ module.exports = merge(baseWebpackConfig, {
     new FriendlyErrorsPlugin(),
     new BundleSizePlugin('../.bundlesize.yml'),
     new ProgressiveManifest({
-      name: 'Hibari',
+      name: 'Hibari for Kitsu.io',
       short_name: 'Hibari',
       description: 'Vue alternative for Kitsu.io users',
       start_url: '.',
