@@ -74,7 +74,7 @@
     object-position: top
     margin-top: -52px
     pointer-events: none
-    filter: blur(.125rem)
+    filter: blur(.0625rem)
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0))
 
   section

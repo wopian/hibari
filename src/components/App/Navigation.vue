@@ -102,7 +102,7 @@ nav.navbar
       left: 0
       right: 0
       bottom: 0
-      backdrop-filter: blur(.5rem)
+      backdrop-filter: blur(1rem)
 
   .modal-card
     max-width: 300px
