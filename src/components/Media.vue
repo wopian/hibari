@@ -43,6 +43,11 @@
         this.coverImage = data.coverImage.large
         this.posterImage = data.posterImage.small
       }
+    },
+    meta () {
+      return {
+        title: this.canonicalTitle
+      }
     }
   }
 </script>
@@ -50,15 +55,15 @@
 <style lang='sass' scoped>
   .banner
     width: 100vw
-    min-height: 35vh
-    max-height: 35vh
+    min-height: 45vh
+    max-height: 45vh
     object-fit: cover
     object-position: top
     margin-top: -52px
     pointer-events: none
 
   .poster
-    width: 18rem
-    margin-top: -21rem
+    width: 14rem
+    margin-top: -15rem
     border-radius: .25rem
 </style>

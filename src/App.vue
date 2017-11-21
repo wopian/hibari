@@ -14,6 +14,9 @@
     components: {
       Navigation,
       AFooter
+    },
+    meta: {
+      titleTemplate: title => title ? `${title} | Hibari` : 'Hibari'
     }
   }
 </script>

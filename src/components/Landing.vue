@@ -61,6 +61,9 @@
           this.$store.commit('SAVE_LANDING_LATEST', data)
         }
       }
+    },
+    meta: {
+      titleTemplate: 'Hibari'
     }
   }
 </script>

@@ -4,6 +4,9 @@
 
 <script>
   export default {
-    name: 'feed'
+    name: 'feed',
+    meta: {
+      title: 'Feed'
+    }
   }
 </script>

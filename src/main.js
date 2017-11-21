@@ -1,11 +1,17 @@
 import Vue from 'vue'
+import Buefy from 'buefy'
+import Meta from 'vue-meta'
 import locale from './locale'
 import router from './router'
 import store from './store'
 import App from './App'
-import Buefy from 'buefy'
 
 Vue.use(Buefy)
+Vue.use(Meta, {
+  keyName: 'meta',
+  attribute: 'vue'
+})
+
 Vue.config.productionTip = false
 
 router.afterEach(to => {
