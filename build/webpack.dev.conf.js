@@ -18,6 +18,10 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 module.exports = merge(baseWebpackConfig, {
   module: { rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap }) },
   devtool: '#cheap-module-eval-source-map',
+  output: {
+    filename: utils.assetsPath('[name].js'),
+    chunkFilename: utils.assetsPath('[name].js')
+  },
   plugins: [
     new ProgressBarPlugin({
       format: '  ' + chalk.green.bold(':percent') + ' :elapseds :msg',

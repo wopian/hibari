@@ -4,15 +4,16 @@ import store from '../store'
 
 Vue.use(I18n)
 
-const locale = store.state.preferences.language || 'en'
+let locale = store.state.preferences.language
 
 const messages = {
-  en: () => import(/* webpackChunkName: 'locale-en' */ './en'),
-  ja: () => import(/* webpackChunkName: 'locale-ja' */ './ja'),
-  nl: () => import(/* webpackChunkName: 'locale-nl' */ './nl')
+  en: () => import('./en' /* webpackChunkName: 'locale-en' */),
+  ja: () => import('./ja' /* webpackChunkName: 'locale-ja' */),
+  nl: () => import('./nl' /* webpackChunkName: 'locale-nl' */)
 }
 
 export default new I18n({
   locale,
+  fallbackLocale: 'en',
   messages
 })

@@ -1,19 +1,16 @@
 <template lang='pug'>
   #app
-    navigation(v-once)
+    navigation
     router-view
-    aFooter(v-once)
+    aFooter
 </template>
 
 <script>
-  import Navigation from '=/Layout/Navigation'
-  import AFooter from '=/Layout/Footer'
-
   export default {
     name: 'app',
     components: {
-      Navigation,
-      AFooter
+      Navigation: () => import('=/Core/Navigation' /* webpackChunkName: 'core-navigation' */),
+      AFooter: () => import('=/Core/Footer' /* webpackChunkName: 'core-footer' */)
     },
     meta: {
       titleTemplate: title => title ? `${title} | Hibari` : 'Hibari'

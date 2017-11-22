@@ -9,21 +9,21 @@ export default new Router({
     {
       path: '/',
       name: 'Dashboard',
-      component: () => import(/* webpackChunkName: 'dashboard' */ '+/Dashboard')
+      component: () => import('+/Dashboard' /* webpackChunkName: 'dashboard' */)
     },
     {
       path: '/@:slug',
-      component: () => import(/* webpackChunkName: 'user' */ '+/User'),
+      component: () => import('+/User' /* webpackChunkName: 'user' */),
       children: [
         {
           path: '',
           name: 'Profile',
-          component: () => import(/* webpackChunkName: 'user' */ '+/User/Profile')
+          component: () => import('+/User/Profile' /* webpackChunkName: 'user' */)
         },
         {
           path: 'anime/:status',
           name: 'Anime Library',
-          component: () => import(/* webpackChunkName: 'library' */ '+/User/Library'),
+          component: () => import('+/User/Library' /* webpackChunkName: 'library' */),
           meta: {
             type: 'anime'
           }
@@ -35,7 +35,7 @@ export default new Router({
         {
           path: 'manga/:status',
           name: 'Manga Library',
-          component: () => import(/* webpackChunkName: 'library' */ '+/User/Library'),
+          component: () => import('+/User/Library' /* webpackChunkName: 'library' */),
           meta: {
             type: 'manga'
           }
@@ -49,7 +49,7 @@ export default new Router({
     {
       path: '/anime',
       name: 'Explore Anime',
-      component: () => import(/* webpackChunkName: 'explore' */ '+/Explore'),
+      component: () => import('+/Explore' /* webpackChunkName: 'explore' */),
       meta: {
         type: 'anime'
       }
@@ -57,7 +57,7 @@ export default new Router({
     {
       path: '/anime/:slug',
       name: 'Anime',
-      component: () => import(/* webpackChunkName: 'media' */ '+/Media'),
+      component: () => import('+/Media' /* webpackChunkName: 'media' */),
       meta: {
         type: 'anime'
       }
@@ -65,7 +65,7 @@ export default new Router({
     {
       path: '/manga',
       name: 'Explore Manga',
-      component: () => import(/* webpackChunkName: 'explore' */ '+/Explore'),
+      component: () => import('+/Explore' /* webpackChunkName: 'explore' */),
       meta: {
         type: 'manga'
       }
@@ -73,7 +73,7 @@ export default new Router({
     {
       path: '/manga/:slug',
       name: 'Manga',
-      component: () => import(/* webpackChunkName: 'media' */ '+/Media'),
+      component: () => import('+/Media' /* webpackChunkName: 'media' */),
       meta: {
         type: 'manga'
       }
@@ -81,17 +81,17 @@ export default new Router({
     {
       path: '/preferences',
       name: 'Preferences',
-      component: () => import(/* webpackChunkName: 'preferences' */ '+/Preferences')
+      component: () => import('+/Preferences' /* webpackChunkName: 'preferences' */)
     },
     {
       path: '/bugs',
       name: 'Bugs',
-      component: () => import(/* webpackChunkName: 'bugs' */ '+/Bugs')
+      component: () => import('+/Bugs' /* webpackChunkName: 'bugs' */)
     },
     {
       path: '*',
       name: '404',
-      component: () => import(/* webpackChunkName: 'errors' */ '+/Errors/404')
+      component: () => import('+/Errors/404' /* webpackChunkName: 'errors' */)
     }
   ]
 })
