@@ -24,13 +24,20 @@
                 required
               )
 
-            button.button.is-primary.button-block(@click='submit()') Login with Kitsu
+            button.button.is-primary.button-block(
+              @click='submit()'
+              :class='{ "is-loading": loggingIn }'
+            ) Login with Kitsu
+
+            p.help.is-danger(v-if='loginError') {{ loginError }}
 </template>
 
 <script>
   export default {
     data () {
       return {
+        loggingIn: false,
+        loginError: null,
         credentials: {
           username: '',
           password: ''
@@ -39,11 +46,25 @@
     },
     methods: {
       async submit () {
-        if (!this.$store.getters.getAuth) {
-          const { username, password } = this.credentials
-          const { owner } = await import('@/api/oauth' /*  webpackChunkName: 'oauth2' */)
-          let { accessToken } = await owner.getToken(username, password)
-          this.$store.dispatch('LOGIN', accessToken)
+        if (!this.$store.getters.getAuth && this.credentials.username && this.credentials.password) {
+          try {
+            this.loggingIn = true
+            const { username, password } = this.credentials
+            const { owner } = await import('@/api/oauth' /*  webpackChunkName: 'oauth2' */)
+            let { accessToken } = await owner.getToken(username, password)
+            this.$store.dispatch('LOGIN', accessToken)
+          } catch (error) {
+            this.loggingIn = false
+            if (error.code) {
+              switch (error.code) {
+                case 'EAUTH':
+                  this.loginError = 'Incorrect username or password'
+                  break
+                default:
+                  this.loginError = `Unknown error: ${error.code}`
+              }
+            }
+          }
         }
       }
     }
