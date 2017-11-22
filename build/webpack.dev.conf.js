@@ -6,6 +6,7 @@ const merge = require('webpack-merge')
 const chalk = require('chalk')
 const baseWebpackConfig = require('./webpack.base.conf')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPluginExt = require('script-ext-html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
@@ -38,6 +39,9 @@ module.exports = merge(baseWebpackConfig, {
       filename: 'index.html',
       template: 'index.html',
       inject: true
+    }),
+    new HtmlWebpackPluginExt({
+      defaultAttribute: 'async'
     }),
     new FriendlyErrorsPlugin(),
     new BundleSizePlugin('../.bundlesize.yml'),
