@@ -6,8 +6,8 @@
 </template>
 
 <script>
-  import Navigation from '=/layout/navigation'
-  import AFooter from '=/layout/footer'
+  import Navigation from '=/Layout/Navigation'
+  import AFooter from '=/Layout/Footer'
 
   export default {
     name: 'app',
