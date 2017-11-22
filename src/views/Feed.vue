@@ -1,10 +1,9 @@
 <template lang='pug'>
-  p Template for {{ $store.state.route.name }}
+  p View for Feed
 </template>
 
 <script>
   export default {
-    name: 'feed',
     meta: {
       title: 'Feed'
     }

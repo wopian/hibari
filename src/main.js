@@ -1,16 +1,22 @@
 import Vue from 'vue'
-import Buefy from 'buefy'
 import Meta from 'vue-meta'
+import Bulma from 'buefy'
 import locale from './locale'
 import router from './router'
 import store from './store'
 import App from './App'
 
-Vue.use(Buefy)
 Vue.use(Meta, {
   keyName: 'meta',
   attribute: 'vue'
 })
+
+Vue.component(Bulma.Dropdown.name, Bulma.Dropdown)
+Vue.component(Bulma.DropdownItem.name, Bulma.DropdownItem)
+Vue.component(Bulma.Icon.name, Bulma.Icon)
+Vue.component(Bulma.Tooltip.name, Bulma.Tooltip)
+Vue.component(Bulma.Input.name, Bulma.Input)
+Vue.component(Bulma.Field.name, Bulma.Field)
 
 Vue.config.productionTip = false
 

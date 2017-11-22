@@ -1,3 +1,11 @@
 <template lang='pug'>
-  p Template for {{ $store.state.route.name }}
+  p View for {{ $store.state.route.name }}
 </template>
+
+<script>
+  export default {
+    meta: {
+      title: 'Bugs'
+    }
+  }
+</script>

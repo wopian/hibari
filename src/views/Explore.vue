@@ -1,3 +1,13 @@
 <template lang='pug'>
-  p(v-if='$store.state.route') Template for {{ $store.state.route.name }}
+  p View for {{ $store.state.route.name }}
 </template>
+
+<script>
+  export default {
+    meta () {
+      return {
+        title: `Explore ${this.$store.state.route.meta.type}`
+      }
+    }
+  }
+</script>

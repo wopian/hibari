@@ -25,6 +25,11 @@
         response: null
       }
     },
+    meta () {
+      return {
+        title: this.canonicalTitle
+      }
+    },
     created () {
       this.getMedia()
     },
@@ -42,11 +47,6 @@
         this.canonicalTitle = data.canonicalTitle
         this.coverImage = data.coverImage.large
         this.posterImage = data.posterImage.small
-      }
-    },
-    meta () {
-      return {
-        title: this.canonicalTitle
       }
     }
   }

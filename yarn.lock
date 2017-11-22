@@ -6700,7 +6700,7 @@ vue-loader@~13.5.0:
     vue-style-loader "^3.0.0"
     vue-template-es2015-compiler "^1.6.0"
 
-vue-meta@^1.3.1:
+vue-meta@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/vue-meta/-/vue-meta-1.3.1.tgz#1c46c9af6119c61934a5b2783538b062c03be2c7"
   dependencies:
@@ -6792,7 +6792,7 @@ webidl-conversions@^4.0.0:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/webidl-conversions/-/webidl-conversions-4.0.2.tgz#a855980b1f0b6b359ba1d5d9fb39ae941faa63ad"
 
-webpack-bundle-size-analyzer@^2.7.0:
+webpack-bundle-size-analyzer@~2.7.0:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/webpack-bundle-size-analyzer/-/webpack-bundle-size-analyzer-2.7.0.tgz#2ec0539fd57f8716083898b38b892fe94c88c6bc"
   dependencies:
@@ -6825,7 +6825,7 @@ webpack-merge@~4.1.0:
   dependencies:
     lodash "^4.17.4"
 
-webpack-pwa-manifest@^3.3.2:
+webpack-pwa-manifest@~3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/webpack-pwa-manifest/-/webpack-pwa-manifest-3.3.2.tgz#1c52a480a08c4aa089f8a8d64f4534a637c63532"
   dependencies:
