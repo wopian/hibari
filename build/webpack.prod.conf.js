@@ -92,7 +92,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: config.build.index,
-      template: 'src/index.pug',
+      template: '!!pug-loader!src/index.pug',
       inject: true,
       minify: {
         removeComments: true,
