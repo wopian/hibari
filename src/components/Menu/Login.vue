@@ -41,12 +41,7 @@
       async submit () {
         if (!this.$store.getters.getAuth) {
           const { username, password } = this.credentials
-          const OAuth2 = await import('client-oauth2' /* webpackChunkName: 'oauth2' */)
-          const { owner } = new OAuth2({
-            clientId: '',
-            clientSecret: '',
-            accessTokenUri: 'https://kitsu.io/api/oauth/token'
-          })
+          const { owner } = await import('@/api/oauth' /*  webpackChunkName: 'oauth2' */)
           let { accessToken } = await owner.getToken(username, password)
           this.$store.dispatch('LOGIN', accessToken)
         }
