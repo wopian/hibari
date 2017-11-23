@@ -17,6 +17,8 @@ const ProgressiveManifest = require('webpack-pwa-manifest')
 const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
 
 const env = config.build.env
+const now = new Date()
+const serviceWorker = `sw.${now.getUTCFullYear()}-${now.getMonth()}-${now.getDate()}.${now.getTime()}.js`
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -105,7 +107,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-      production: (process.env.NODE_ENV === 'production')
+      production: (process.env.NODE_ENV === 'production'),
+      serviceWorker
     }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
@@ -162,7 +165,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     new ServiceWorkerPlugin({
       cacheId: name,
-      filename: 'service-worker.js',
+      filename: serviceWorker,
       staticFileGlobs: [ 'dist/**/*.{js,css}' ],
       minify: true,
       stripPrefix: 'dist/'

@@ -1,4 +1,5 @@
 - const production = htmlWebpackPlugin.options.production
+- const serviceWorker = htmlWebpackPlugin.options.serviceWorker
 
 doctype html
 html
@@ -18,7 +19,7 @@ html
           window.addEventListener('load', () => {
             if ('serviceWorker' in navigator &&
                 (window.location.protocol === 'https:')) {
-              navigator.serviceWorker.register('service-worker.js')
+              navigator.serviceWorker.register('#{serviceWorker}')
               .then(register => {
                 // updatefound is fired if service-worker.js changes.
                 register.onupdatefound = () => {
@@ -49,6 +50,6 @@ html
             }
           })
         })()
-      script(type='text/javascript' src='/service-worker.js')
+      script(type='text/javascript' src='/'+serviceWorker)
     else
       p(style='pointer-events:none;position:fixed;left:1rem;bottom:.75rem;z-index:999999') Development Build
