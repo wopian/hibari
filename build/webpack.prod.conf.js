@@ -1,4 +1,4 @@
-const path = require('path')
+const { join, resolve } = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -104,7 +104,9 @@ const webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-      chunksSortMode: 'dependency'
+      chunksSortMode: 'dependency',
+      production: (process.env.NODE_ENV === 'production'),
+      serviceWorkerLoader: `<script>${join(__dirname, './service-worker.js')}</script>`
     }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
@@ -123,7 +125,7 @@ const webpackConfig = merge(baseWebpackConfig, {
           module.resource &&
           /\.js$/.test(module.resource) &&
           module.resource.indexOf(
-            path.join(__dirname, '../node_modules')
+            join(__dirname, '../node_modules')
           ) === 0
         )
       }
@@ -136,7 +138,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     new CopyWebpackPlugin([
       {
-        from: path.resolve(__dirname, '../static'),
+        from: resolve(__dirname, '../static'),
         to: config.build.assetsSubDirectory,
         ignore: ['.*']
       }
@@ -151,7 +153,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       background_color: '#fff',
       icons: [
         {
-          src: path.resolve('static/icon.png'),
+          src: resolve('static/icon.png'),
           sizes: [ 16, 32, 96, 128, 192 ]
         }
       ],
