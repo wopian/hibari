@@ -24,4 +24,9 @@
   .navbar-item:hover,
   .navbar-link:hover
     background: transparent !important
+
+  // Prevent page content from touching border on mobile devices
+  @media screen and (max-width: 1023px)
+    main > .container
+      padding: 0 1rem
 </style>

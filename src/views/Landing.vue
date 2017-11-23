@@ -4,8 +4,10 @@
 
     section.container
       h1.title.has-text-weight-bold Track The Latest Shows
-      .columns.is-multiline
-        .column.is-one-fifth(v-if='$store.state.landing.latest' v-for='item in $store.state.landing.latest')
+      .columns.is-multiline.is-mobile
+        .column.is-one-third-mobile.is-one-quarter-tablet.is-one-fifth-desktop(
+          v-if='$store.state.landing.latest'
+          v-for='item in $store.state.landing.latest')
           .card
             .card-image
               router-link.image(:to='{ name: "Anime", params: { slug: item.slug } }')
