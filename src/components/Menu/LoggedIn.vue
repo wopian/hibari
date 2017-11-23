@@ -1,8 +1,8 @@
 <template lang='pug'>
   b-dropdown(position='is-bottom-left')
-    a.navbar-item(slot='trigger')
-      span {{ $store.state.me.name }}
-      b-icon(icon='menu-down')
+    .navbar-item.has-dropdown(slot='trigger')
+      a.navbar-link
+        span {{ $store.state.me.name }}
 
     b-dropdown-item(has-link)
       router-link(:to='{ name: "Profile", params: { slug: $store.state.me.name } }') Profile

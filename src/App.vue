@@ -20,5 +20,8 @@
 
 <style lang='sass'>
   @import styles/bulma
-  @import ~mdi/css/materialdesignicons.min.css
+
+  .navbar-item:hover,
+  .navbar-link:hover
+    background: transparent !important
 </style>

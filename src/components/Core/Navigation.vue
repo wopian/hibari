@@ -46,6 +46,9 @@ nav.navbar
       bottom: 0
       backdrop-filter: blur(1rem)
 
+  .navbar-brand a
+    font-weight: 700
+
   .navbar-burger
     background: transparent
     border: 0

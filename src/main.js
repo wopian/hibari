@@ -13,7 +13,6 @@ Vue.use(Meta, {
 
 Vue.component(Bulma.Dropdown.name, Bulma.Dropdown)
 Vue.component(Bulma.DropdownItem.name, Bulma.DropdownItem)
-Vue.component(Bulma.Icon.name, Bulma.Icon)
 Vue.component(Bulma.Tooltip.name, Bulma.Tooltip)
 Vue.component(Bulma.Input.name, Bulma.Input)
 Vue.component(Bulma.Field.name, Bulma.Field)

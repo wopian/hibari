@@ -1,8 +1,8 @@
 <template lang='pug'>
   b-dropdown(position='is-bottom-left')
-    a.navbar-item(slot='trigger')
-      span Login
-      b-icon(icon='menu-down')
+    .navbar-item.has-dropdown(slot='trigger')
+      a.navbar-link
+        span Login
 
     b-dropdown-item(custom paddingless)
       form(action='' v-on:submit.prevent='')
