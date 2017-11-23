@@ -13,7 +13,6 @@
           br
           | All content provided by&nbsp;
           a(href='//kitsu.io') Kitsu.io
-      pre {{ $store.state }}
 </template>
 
 <style lang='sass' scoped>
