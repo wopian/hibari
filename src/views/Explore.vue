@@ -1,5 +1,5 @@
 <template lang='pug'>
-  p View for {{ $store.state.route.name }}
+  p.container View for {{ $store.state.route.name }}
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template lang='pug'>
-  p View for Feed
+  p.container View for Feed
 </template>
 
 <script>
