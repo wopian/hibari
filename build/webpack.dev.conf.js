@@ -36,8 +36,9 @@ module.exports = merge(baseWebpackConfig, {
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: '!!pug-loader!src/index.pug',
-      inject: true
+      template: 'src/index.pug',
+      inject: true,
+      production: (process.env.NODE_ENV === 'production')
     }),
     new FriendlyErrorsPlugin(),
     new BundleSizePlugin('../.bundlesize.yml'),

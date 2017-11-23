@@ -94,7 +94,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
       filename: config.build.index,
-      template: '!!pug-loader!src/index.pug',
+      template: 'src/index.pug',
       inject: true,
       minify: {
         removeComments: true,
@@ -105,8 +105,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
-      production: (process.env.NODE_ENV === 'production'),
-      serviceWorkerLoader: `<script>${join(__dirname, './service-worker.js')}</script>`
+      production: (process.env.NODE_ENV === 'production')
     }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
