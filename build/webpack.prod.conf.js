@@ -162,7 +162,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     new ServiceWorkerPlugin({
       cacheId: name,
-      filename: 'service-worker.[contenthash].js',
+      filename: 'service-worker.js',
       staticFileGlobs: [ 'dist/**/*.{js,css}' ],
       minify: true,
       stripPrefix: 'dist/'
