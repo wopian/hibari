@@ -2,6 +2,7 @@ const path = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
+const { name } = require('../package')
 const merge = require('webpack-merge')
 const chalk = require('chalk')
 const baseWebpackConfig = require('./webpack.base.conf')
@@ -13,6 +14,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
 const ProgressiveManifest = require('webpack-pwa-manifest')
+const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
 
 const env = config.build.env
 
@@ -156,6 +158,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       inject: true,
       fingerprints: true,
       ios: true
+    }),
+    new ServiceWorkerPlugin({
+      cacheId: name,
+      filename: 'service-worker.js',
+      staticFileGlobs: [ 'dist/**/*.{js,html,css}' ],
+      minify: true,
+      stripPrefix: 'dist/'
     })
   ]
 })
