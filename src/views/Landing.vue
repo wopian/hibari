@@ -56,7 +56,7 @@
           data.forEach(item => {
             delete item.links
             delete item.type
-            item.posterImage = item.posterImage.small
+            item.posterImage = item.posterImage.medium
           })
           this.$store.commit('SAVE_LANDING_LATEST', data)
         }
