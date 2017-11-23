@@ -13,3 +13,5 @@ html
     noscript Please enable JavaScript to use Hibari.
     if production
       script(type='text/javascript' src='/service-worker.js')
+    else
+      p(style='pointer-events:none;position:fixed;left:1rem;bottom:.75rem;z-index:999999') Development Build
