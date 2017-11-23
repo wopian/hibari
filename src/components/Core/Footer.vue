@@ -13,7 +13,18 @@
           br
           | All content provided by&nbsp;
           a(href='//kitsu.io') Kitsu.io
+      pre(v-if='development') {{ $store.state }}
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+        development: process.env.NODE_ENV === 'development'
+      }
+    }
+  }
+</script>
 
 <style lang='sass' scoped>
   footer
