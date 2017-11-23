@@ -20,15 +20,9 @@
               )
                 .title.is-6 {{ item.canonicalTitle }}
               .card-space.is-size-7
-                span
-                  b-icon(icon='star' size='is-small')
-                  | {{ item.averageRating }}%
-                span
-                  b-icon(icon='account' size='is-small')
-                  | {{ item.userCount }}
-                span
-                  b-icon(icon='heart' size='is-small')
-                  | {{ item.ratingRank }}th
+                span {{ item.averageRating }}%
+                span {{ item.userCount }}
+                span {{ item.ratingRank }}th
 </template>
 
 <script>
