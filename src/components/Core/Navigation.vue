@@ -1,11 +1,13 @@
 <template lang='pug'>
-nav.navbar
+nav.navbar(v-bind:class='{ "is-active": menuActive }')
   .container
     .navbar-brand
-      router-link.navbar-item(to='/') Hibari
+      router-link.navbar-item(
+        to='/'
+        @click.native='close()') Hibari
 
       button.button.navbar-burger(
-        @click='toggleMenu()'
+        @click='toggle()'
         v-bind:class='{ "is-active": menuActive }')
         span
         span
@@ -16,16 +18,20 @@ nav.navbar
         router-link.navbar-item(
           v-if='$store.state.me && $store.state.me.name'
           :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}'
-          active-class='has-text-primary') Library
+          active-class='has-text-primary'
+          @click.native='close()') Library
         router-link.navbar-item(
           :to='{ name: "Explore Anime" }'
-          active-class='has-text-primary') Anime
+          active-class='has-text-primary'
+          @click.native='close()') Anime
         router-link.navbar-item(
           :to='{ name: "Explore Manga" }'
-          active-class='has-text-primary') Manga
+          active-class='has-text-primary'
+          @click.native='close()') Manga
         router-link.navbar-item(
           :to='{ name: "Bugs" }'
-          active-class='has-text-primary') Bugs & Features
+          active-class='has-text-primary'
+          @click.native='close()') Bugs & Features
 
       .navbar-end
         loggedIn(v-if='$store.getters.isAuth && $store.state.me')
@@ -45,8 +51,11 @@ nav.navbar
       }
     },
     methods: {
-      async toggleMenu () {
+      async toggle () {
         this.menuActive = !this.menuActive
+      },
+      async close () {
+        this.menuActive = false
       }
     }
   }
