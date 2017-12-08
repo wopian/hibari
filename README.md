@@ -5,7 +5,9 @@
 [![Github Release]][2]
 [![David]][8]
 
-A work in progress [Vue] alternative for [Kitsu] users
+A work in progress [Vue] alternative for [Kitsu] users.
+
+**Note:** [new.hibari.moe][1] is currently not in a functional state, only the old [hibari.moe][0] is.
 
 ## Features
 
@@ -73,6 +75,7 @@ All code released under the [MIT] license
 [CC Maintainability]:https://img.shields.io/codeclimate/maintainability/wopian/hibari.svg?style=flat-square
 [CC Issues]:https://img.shields.io/codeclimate/issues/github/wopian/hibari.svg?style=flat-square
 
+[0]:https://hibari.moe
 [1]:https://new.hibari.moe
 [2]:https://github.com/wopian/hibari/releases
 [3]:https://travis-ci.org/wopian/hibari
