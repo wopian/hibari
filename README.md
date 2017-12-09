@@ -4,7 +4,6 @@
 [![uptime badge]][website]
 [![commit badge]][commit]
 [![contributors badge]][contributors]
-[![david badge]][david]
 [![donate badge]][donate]
 
 A work in progress [Vue] alternative for [Kitsu] users.
@@ -27,6 +26,7 @@ Check out [CONTRIBUTING] for information on localisation and code standards
 [![appveyor badge]][appveyor]
 [![cc coverage badge]][cc coverage]
 [![cc maintainability badge]][cc maintainability]
+[![david badge]][david]
 [![david dev badge]][david dev]
 
 ### Requirements
