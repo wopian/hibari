@@ -2,7 +2,7 @@
 
 [![website badge]][website]
 [![uptime badge]][website]
-[![release badge]][release]
+[![commit badge]][commit]
 [![contributors badge]][contributors]
 [![david badge]][david]
 
@@ -69,8 +69,8 @@ All code released under the [MIT] license
 [website badge]:https://img.shields.io/website-up-down-green-red/https/new.hibari.moe.svg?style=flat-square
 [uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
 
-[release]:https://github.com/wopian/hibari/releases
-[release badge]:https://img.shields.io/github/release/wopian/hibari.svg?style=flat-square
+[commit]:https://github.com/wopian/hibari/commits/new
+[commit badge]:https://img.shields.io/github/last-commit/wopian/hibari/new.svg?style=flat-square
 
 [david]:https://david-dm.org/wopian/hibari
 [david badge]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
