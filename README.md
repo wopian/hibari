@@ -5,6 +5,7 @@
 [![commit badge]][commit]
 [![contributors badge]][contributors]
 [![david badge]][david]
+[![donate badge]][donate]
 
 A work in progress [Vue] alternative for [Kitsu] users.
 
@@ -90,3 +91,6 @@ All code released under the [MIT] license
 
 [contributors]:https://github.com/wopian/hibari/graphs/contributors
 [contributors badge]:https://img.shields.io/github/contributors/wopian/hibari.svg?style=flat-square
+
+[donate]:https://www.paypal.me/wopian
+[donate badge]:https://img.shields.io/badge/£-donate-ff69b4.svg?style=flat-square
