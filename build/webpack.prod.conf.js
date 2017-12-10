@@ -18,7 +18,7 @@ const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
 
 const env = config.build.env
 const now = new Date()
-const serviceWorker = `sw.${now.getUTCFullYear()}-${now.getMonth()}-${now.getDate()}.${now.getTime()}.js`
+const serviceWorker = `sw.${now.getUTCFullYear()}-${now.getMonth() + 1}-${now.getDate()}.${now.getTime()}.js`
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
