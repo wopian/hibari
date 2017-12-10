@@ -1,14 +1,14 @@
 # Hibari
 
-[![website badge]][website]
-[![uptime badge]][website]
+[![web badge]][web]
+[![uptime badge]][web]
 [![commit badge]][commit]
 [![contributors badge]][contributors]
 [![donate badge]][donate]
 
 A work in progress [Vue] alternative for [Kitsu] users.
 
-**Note:** [new.hibari.moe][website] is currently not in a functional state, only the old [hibari.moe][website-old] is.
+**Note:** [new.hibari.moe][web] is currently not in a functional state, only the old [hibari.moe][web-old] is.
 
 ## Features
 
@@ -65,9 +65,9 @@ All code released under the [MIT] license
 [CHANGELOG]:CHANGELOG.md
 [MIT]:LICENSE.md
 
-[website-old]:https://hibari.moe
-[website]:https://new.hibari.moe
-[website badge]:https://img.shields.io/website-up-down-green-red/https/new.hibari.moe.svg?style=flat-square
+[web-old]:https://hibari.moe
+[web]:https://new.hibari.moe
+[web badge]:https://img.shields.io/website-up-down-green-red/https/new.hibari.moe.svg?style=flat-square
 [uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
 
 [commit]:https://github.com/wopian/hibari/commits/new
