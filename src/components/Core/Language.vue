@@ -1,24 +1,28 @@
-<template>
-  <select name="language" @change="changeLanguage">
-    <option v-for="lang in supportedLanguages" :selected="lang === currentLanguage" :value="lang">{{lang}}</option>
-  </select>
+<template lang='pug'>
+  select(name='language' @change='changeLanguage')
+    option(
+      v-for='lang in supportedLanguages'
+      :selected='lang === currentLanguage'
+      :value='lang'
+    ) {{lang}}
 </template>
+
 <script>
-  import Trans from '@/plugins/Translation'
+  import i18n from '@/plugins/translation'
   export default {
     computed: {
       supportedLanguages () {
-        return Trans.supportedLanguages
+        return i18n.supportedLanguages
       },
       currentLanguage () {
-        return Trans.currentLanguage
+        return i18n.currentLanguage
       }
     },
     methods: {
       changeLanguage (e) {
         const lang = e.target.value
         const to = this.$router.resolve({ params: { lang } })
-        Trans.changeLanguage(lang).then(() => {
+        i18n.changeLanguage(lang).then(() => {
           this.$router.push(to.location)
         })
       }
