@@ -7,6 +7,8 @@ engines:
     checks:
       Similar code:
         enabled: true
+    exclude_paths:
+    - src/locale
   eslint:
     enabled: true
     config:
