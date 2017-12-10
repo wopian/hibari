@@ -45,7 +45,7 @@ nav.navbar(v-bind:class='{ "is-active": menuActive }')
     components: {
       loggedIn: () => import('=/Menu/LoggedIn' /* webpackChunkName: 'menu-loggedin' */),
       login: () => import('=/Menu/Login' /* webpackChunkName: 'menu-login' */),
-      language: () => import('=/Core/language' /* webpackChunkName: 'core-language' */)
+      language: () => import('=/Core/Language' /* webpackChunkName: 'core-language' */)
     },
     data () {
       return {
