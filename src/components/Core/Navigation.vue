@@ -4,7 +4,7 @@ nav.navbar(v-bind:class='{ "is-active": menuActive }')
     .navbar-brand
       router-link.navbar-item(
         to='/'
-        @click.native='close()') Hibari
+        @click.native='close()') {{ $t('hibari') }}
 
       button.button.navbar-burger(
         @click='toggle()'
@@ -16,25 +16,26 @@ nav.navbar(v-bind:class='{ "is-active": menuActive }')
     .navbar-menu(v-bind:class='{ "is-active": menuActive }')
       .navbar-start
         router-link.navbar-item(
-          v-if='$store.state.me && $store.state.me.name'
-          :to='{ name: "Anime Library", params: { slug: $store.state.me.name, status: "all" }}'
+          v-if='$store.state.auth.my && $store.state.auth.my.name'
+          :to='{ name: "Anime Library", params: { slug: $store.state.auth.my.slug, status: "all" }}'
           active-class='has-text-primary'
-          @click.native='close()') Library
+          @click.native='close()') {{ $t('navigation.library') }}
         router-link.navbar-item(
           :to='{ name: "Explore Anime" }'
           active-class='has-text-primary'
-          @click.native='close()') Anime
+          @click.native='close()') {{ $t('navigation.anime') }}
         router-link.navbar-item(
           :to='{ name: "Explore Manga" }'
           active-class='has-text-primary'
-          @click.native='close()') Manga
+          @click.native='close()') {{ $t('navigation.manga') }}
         router-link.navbar-item(
           :to='{ name: "Bugs" }'
           active-class='has-text-primary'
-          @click.native='close()') Bugs & Features
+          @click.native='close()') {{ $t('navigation.bugs') }}
 
       .navbar-end
-        loggedIn(v-if='$store.getters.isAuth && $store.state.me')
+        language
+        loggedIn(v-if='$store.getters.isAuth && $store.state.auth.my')
         login(v-else)
 </template>
 
@@ -43,7 +44,8 @@ nav.navbar(v-bind:class='{ "is-active": menuActive }')
     name: 'navigation',
     components: {
       loggedIn: () => import('=/Menu/LoggedIn' /* webpackChunkName: 'menu-loggedin' */),
-      login: () => import('=/Menu/Login' /* webpackChunkName: 'menu-login' */)
+      login: () => import('=/Menu/Login' /* webpackChunkName: 'menu-login' */),
+      language: () => import('=/Core/language' /* webpackChunkName: 'core-language' */)
     },
     data () {
       return {

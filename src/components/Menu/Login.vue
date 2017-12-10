@@ -2,32 +2,32 @@
   b-dropdown(position='is-bottom-left')
     .navbar-item.has-dropdown(slot='trigger')
       a.navbar-link
-        span Login
+        span {{ $t('login.login') }}
 
     b-dropdown-item(custom paddingless)
       form(action='' v-on:submit.prevent='')
         .modal-card
           .modal-card-body
-            b-field(label='Email / Username')
+            b-field(:label='$t("login.emailLabel")')
               b-input(
                 v-model='credentials.username'
                 type='text'
-                placeholder='Your Email or Username'
+                :placeholder='$t("login.emailPlaceholder")'
                 required
               )
 
-            b-field(label='Password')
+            b-field(:label='$t("login.passwordLabel")')
               b-input(
                 v-model='credentials.password'
                 type='password'
-                placeholder='Your password'
+                :placeholder='$t("login.passwordPlaceholder")'
                 required
               )
 
             button.button.is-primary.button-block(
               @click='submit()'
               :class='{ "is-loading": loggingIn }'
-            ) Login with Kitsu
+            ) {{ $t('login.loginWithKitsu') }}
 
             p.help.is-danger(v-if='loginError') {{ loginError }}
 </template>
@@ -51,8 +51,8 @@
             this.loggingIn = true
             const { username, password } = this.credentials
             const { owner } = await import('@/api/oauth' /*  webpackChunkName: 'oauth2' */)
-            let { accessToken } = await owner.getToken(username, password)
-            this.$store.dispatch('LOGIN', accessToken)
+            const { data } = await owner.getToken(username, password)
+            this.$store.dispatch('LOGIN', data)
           } catch (error) {
             this.loggingIn = false
             if (error.code) {

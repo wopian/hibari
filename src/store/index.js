@@ -1,72 +1,33 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import VuexPersist from 'vuex-persist'
-// import localforage from 'localforage'
-import api from '../api'
+import localforage from 'localforage'
+import auth from './modules/auth'
 import landing from './modules/landing'
 import preferences from './modules/preferences'
 import route from './modules/route'
 
 Vue.use(Vuex)
 
-const persist = new VuexPersist({
-  storage: localStorage // localforage
+const persistSync = new VuexPersist({
+  storage: window.localStorage,
+  modules: [ 'auth', 'me' ]
 })
 
-const state = {
-  token: null,
-  me: null
-}
-
-const getters = {
-  isAuth (state) {
-    return state.token != null
-  }
-}
-
-const mutations = {
-  LOGIN (state, payload) {
-    api.headers['Authorization'] = `Bearer ${payload}`
-    state.token = payload
-    localStorage.setItem('token', payload)
-  },
-
-  LOGIN_USERDATA (state, payload) {
-    state.me = payload
-    localStorage.setItem('me', JSON.stringify(payload))
-  },
-
-  LOGOUT (state) {
-    api.headers['Authorization'] = undefined
-    state.me = null
-    state.token = null
-    localStorage.removeItem('me')
-    localStorage.removeItem('token')
-  }
-}
-
-const actions = {
-  async LOGIN (context, payload) {
-    context.commit('LOGIN', payload)
-    const data = await api.self({ fields: { users: 'avatar,name' } })
-    delete data.type
-    delete data.links
-    delete data.avatar.meta
-    context.commit('LOGIN_USERDATA', data)
-  }
-}
+const persistAsync = new VuexPersist({
+  storage: localforage,
+  asyncStorage: true,
+  modules: [ 'landing', 'preferences', 'route' ]
+})
 
 const store = new Vuex.Store({
-  plugins: [ persist.plugin ],
+  plugins: [ persistSync.plugin, persistAsync.plugin ],
   modules: {
+    auth,
     landing,
     preferences,
     route
-  },
-  state,
-  getters,
-  mutations,
-  actions
+  }
 })
 
 export default store

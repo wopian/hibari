@@ -2,7 +2,7 @@
 - const serviceWorker = htmlWebpackPlugin.options.serviceWorker
 
 doctype html
-html
+html(lang=locale)
   head
     meta(charset='utf-8')
     meta(name='viewport' content='width=device-width, initial-scale=1')
@@ -15,6 +15,9 @@ html
   body
     #app
     noscript Please enable JavaScript to use Hibari.
+    script(type='text/javascript').
+      const locale = window.navigator.language || window.navigator.userLanguage || 'en'
+      document.querySelector('html').setAttribute('lang', locale)
     if production
       script(type='text/javascript').
         (() => {
