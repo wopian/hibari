@@ -1,7 +1,8 @@
 # Hibari
 
 [![web badge]][web]
-[![uptime badge]][web]
+[![web uptime badge]][web]
+[![api uptime badge]][api]
 [![commit badge]][commit]
 [![contributors badge]][contributors]
 [![donate badge]][donate]
@@ -68,7 +69,10 @@ All code released under the [MIT] license
 [web-old]:https://hibari.moe
 [web]:https://new.hibari.moe
 [web badge]:https://img.shields.io/website-up-down-green-red/https/new.hibari.moe.svg?style=flat-square
-[uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
+[web uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
+
+[api]:https://kitsu.docs.apiary.io
+[api uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779715870-4bca0187af2c0d280737166a.svg?style=flat-square&label=api
 
 [commit]:https://github.com/wopian/hibari/commits/new
 [commit badge]:https://img.shields.io/github/last-commit/wopian/hibari/new.svg?style=flat-square
