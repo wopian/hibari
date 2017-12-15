@@ -95,9 +95,9 @@
 <style lang='sass' scoped>
   .hero
     background: var(--colour-haiti)
-    height: calc((3.5rem * 1.9) + 12rem)
-    margin-top: -3.5rem
-    padding-top: 3.5rem * 1.9
+    height: calc((52px * 2) + 12rem)
+    margin-top: -52px
+    padding-top: 52px * 2
     .title, .subtitle
       color: var(--colour-whiteSmoke)
 
