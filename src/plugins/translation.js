@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { SUPPORTED_LANGUAGES, DEFAULT_LANGUAGE } from '@/constants'
 import { i18n } from '@/plugins/i18n'
+import store from '@/store'
 
 const Trans = {
   get defaultLanguage () {
@@ -10,10 +11,10 @@ const Trans = {
     return SUPPORTED_LANGUAGES
   },
   get currentLanguage () {
-    return i18n.locale
+    return store.state.preferences.language
   },
   set currentLanguage (lang) {
-    i18n.locale = lang
+    store.commit('SET_LANGUAGE', lang)
   },
   getUserSupportedLang () {
     const userPreferredLang = Trans.getUserLang()

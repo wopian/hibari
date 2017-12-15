@@ -2,6 +2,11 @@ export default {
   lang: 'English',
   hibari: 'Hibari',
   kitsu: 'Kitsu',
+  media: {
+    anime: 'Anime',
+    drama: 'Drama',
+    manga: 'Manga'
+  },
   login: {
     login: 'Login',
     emailLabel: 'Email / Username',
@@ -17,13 +22,17 @@ export default {
   },
   navigation: {
     library: 'Library',
-    anime: 'Anime',
-    manga: 'Manga',
+    anime: '@:media.anime',
+    manga: '@:media.manga',
     bugs: 'Bugs & Features'
   },
   footer: {
     builtBy: '{0} by {1}',
     sourceCode: 'Source code licensed under {0}',
     contentProvidedBy: 'All content provided by {0}'
+  },
+  landing: {
+    title: 'Track, Share & Discover {0}',
+    subtitle: 'An Open Source Vue client for Kitsu.io'
   }
 }

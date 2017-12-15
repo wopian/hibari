@@ -19,7 +19,11 @@
 </script>
 
 <style lang='sass'>
+  @import styles/colours
   @import styles/bulma
+
+  body
+    background: var(--colour-whiteSmoke)
 
   .navbar-item:hover,
   .navbar-link:hover

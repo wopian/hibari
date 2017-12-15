@@ -2,6 +2,8 @@ export default {
   lang: 'Nederlands',
   hibari: 'Hibari',
   kitsu: 'Kitsu',
+  anime: 'anime',
+  manga: 'manga',
   login: {
     login: 'Login',
     emailLabel: 'Email / Username',

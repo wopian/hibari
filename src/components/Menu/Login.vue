@@ -1,7 +1,7 @@
 <template lang='pug'>
   b-dropdown(position='is-bottom-left')
     .navbar-item.has-dropdown(slot='trigger')
-      a.navbar-link
+      a.navbar-item
         span {{ $t('login.login') }}
 
     b-dropdown-item(custom paddingless)
@@ -77,4 +77,7 @@
 
   .button-block
     width: 100%
+
+  .navbar-item
+    color: var(--colour-whiteSmoke)
 </style>

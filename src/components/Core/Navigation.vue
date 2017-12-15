@@ -1,42 +1,43 @@
 <template lang='pug'>
-nav.navbar(v-bind:class='{ "is-active": menuActive }')
+nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive }')
   .container
     .navbar-brand
       router-link.navbar-item(
         to='/'
-        @click.native='close()') {{ $t('hibari') }}
+        @click.native='closeBurger()') {{ $t('hibari') }}
 
       button.button.navbar-burger(
-        @click='toggle()'
-        v-bind:class='{ "is-active": menuActive }')
+        @click='toggleBurger()'
+        v-bind:class='{ "is-active": burgerActive }')
         span
         span
         span
 
-    .navbar-menu(v-bind:class='{ "is-active": menuActive }')
+    .navbar-menu(v-bind:class='{ "is-active": burgerActive }')
       .navbar-start
         router-link.navbar-item(
           v-if='$store.state.auth.my && $store.state.auth.my.name'
           :to='{ name: "Anime Library", params: { slug: $store.state.auth.my.slug, status: "all" }}'
           active-class='has-text-primary'
-          @click.native='close()') {{ $t('navigation.library') }}
+          @click.native='closeBurger()') {{ $t('navigation.library') }}
         router-link.navbar-item(
           :to='{ name: "Explore Anime" }'
           active-class='has-text-primary'
-          @click.native='close()') {{ $t('navigation.anime') }}
+          @click.native='closeBurger()') {{ $t('navigation.anime') }}
         router-link.navbar-item(
           :to='{ name: "Explore Manga" }'
           active-class='has-text-primary'
-          @click.native='close()') {{ $t('navigation.manga') }}
+          @click.native='closeBurger()') {{ $t('navigation.manga') }}
         router-link.navbar-item(
           :to='{ name: "Bugs" }'
           active-class='has-text-primary'
-          @click.native='close()') {{ $t('navigation.bugs') }}
+          @click.native='closeBurger()') {{ $t('navigation.bugs') }}
 
-      .navbar-end
+      .navbar-end(v-if='$store.getters.isAuth && $store.state.auth.my')
+        logged-in
+      .navbar-end(v-else)
         language
-        loggedIn(v-if='$store.getters.isAuth && $store.state.auth.my')
-        login(v-else)
+        login
 </template>
 
 <script>
@@ -49,42 +50,53 @@ nav.navbar(v-bind:class='{ "is-active": menuActive }')
     },
     data () {
       return {
-        menuActive: false
+        burgerActive: false,
+        stickyActive: false
       }
     },
     methods: {
-      async toggle () {
-        this.menuActive = !this.menuActive
+      async toggleBurger () {
+        this.burgerActive = !this.burgerActive
       },
-      async close () {
-        this.menuActive = false
+      async closeBurger () {
+        this.burgerActive = false
+      },
+      async checkStickyness () {
+        this.stickyActive = (window.pageYOffset || document.documentElement.scrollTop) > 1
       }
+    },
+    mounted () {
+      window.addEventListener('scroll', () => this.checkStickyness(), { passive: true })
     }
   }
 </script>
 
 <style lang='sass' scoped>
   nav
-    z-index: 999
+    background: transparent
+    position: fixed
     top: 0
-    position: sticky
-    background: rgba(white, .4)
-    &::before
-      content: ''
-      position: absolute
-      top: 0
-      left: 0
-      right: 0
-      bottom: 0
-      backdrop-filter: blur(1rem)
+    width: 100vw
+    z-index: 9999
+    transition: background .1s ease-in
+    a.navbar-item
+      color: var(--colour-whiteSmoke)
+      background: transparent
+      transition: color .2s cubic-bezier(0,0,0.3,1)
+      &:hover
+        color: var(--colour-cinnabar)
+    &.is-sticky
+      background: var(--colour-haiti)
+      transition: background .2s ease-out
 
   .navbar-brand a
     font-weight: 700
 
-  .navbar-menu
-    background: transparent
+  .is-active .navbar-menu, .is-active .navbar-brand
+    background: var(--colour-haiti)
 
   .navbar-burger
     background: transparent
+    color: var(--colour-whiteSmoke)
     border: 0
 </style>

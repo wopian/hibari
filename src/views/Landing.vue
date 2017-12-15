@@ -1,6 +1,22 @@
 <template lang='pug'>
   main
-    img.banner(src='/landing.jpg')
+    .hero
+      .hero-body
+        .container
+          i18n.title(
+            path='landing.title'
+            tag='h1'
+          )
+            vue-typer(
+              :text='typer.text'
+              :initial-action='"erasing"'
+              erase-style='backspace'
+              :pre-type-delay='typer.speed'
+              :type-delay='typer.speed'
+              :pre-erase-delay=5000
+              :erase-delay='typer.speed'
+            )
+          h2.subtitle(v-t='"landing.subtitle"')
 
     section.container
       h1.title.has-text-weight-bold Track The Latest Shows
@@ -28,11 +44,26 @@
 </template>
 
 <script>
+  import { VueTyper } from 'vue-typer'
   import api from '@/api'
 
   export default {
+    components: {
+      VueTyper
+    },
     created () {
       this.getAnime()
+    },
+    data () {
+      return {
+        typer: {
+          speed: 70,
+          text: [
+            this.$t('media.anime').toLowerCase(),
+            this.$t('media.manga').toLowerCase()
+          ]
+        }
+      }
     },
     methods: {
       async getAnime () {
@@ -62,19 +93,16 @@
 </script>
 
 <style lang='sass' scoped>
-  .banner
-    width: 100vw
-    min-height: 70vh
-    max-height: 70vh
-    object-fit: cover
-    object-position: top
-    margin-top: -52px
-    pointer-events: none
-    filter: blur(.0625rem)
-    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 85%, rgba(0,0,0,0))
+  .hero
+    background: var(--colour-haiti)
+    height: calc((3.5rem * 1.9) + 12rem)
+    margin-top: -3.5rem
+    padding-top: 3.5rem * 1.9
+    .title, .subtitle
+      color: var(--colour-whiteSmoke)
 
   section
-    padding-top: .6rem
+    padding-top: 1rem
 
   .title.is-6
     display: block
@@ -92,4 +120,13 @@
   .card-space
     display: flex
     justify-content: space-between
+</style>
+
+<style lang='sass'>
+// Remove all styling Vue-Typer forces
+.vue-typer
+  all: unset
+  .left, .char.custom.typed, .caret
+    all: unset
+    color: var(--colour-whiteSmoke)
 </style>

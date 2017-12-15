@@ -9,9 +9,27 @@
 
     hr.dropdown-divider
 
+    // TODO: Language switcher in nav dropdown when logged in
+      b-dropdown-item
+        language(menu)
+
     b-dropdown-item(has-link)
       router-link(:to='{ name: "Preferences" }')  {{ $t('loggedIn.preferences') }}
 
     b-dropdown-item(has-link)
       a(@click='$store.commit("LOGOUT")' href='')  {{ $t('loggedIn.logout') }}
 </template>
+
+<script>
+  export default {
+    // TODO: Language switcher in nav dropdown when logged in
+    // components: {
+    //   language: () => import('=/Core/Language' /* webpackChunkName: 'core-language' */)
+    // }
+  }
+</script>
+
+<style lang='sass' scoped>
+  .navbar-link
+    color: var(--colour-whiteSmoke)
+</style>

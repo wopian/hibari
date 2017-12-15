@@ -11,13 +11,13 @@ Vue.use(Vuex)
 
 const persistSync = new VuexPersist({
   storage: window.localStorage,
-  modules: [ 'auth', 'me' ]
+  modules: [ 'auth', 'me', 'preferences' ]
 })
 
 const persistAsync = new VuexPersist({
   storage: localforage,
   asyncStorage: true,
-  modules: [ 'landing', 'preferences', 'route' ]
+  modules: [ 'landing', 'route' ]
 })
 
 const store = new Vuex.Store({

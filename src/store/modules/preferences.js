@@ -1,3 +1,5 @@
+import { i18n } from '@/plugins/i18n'
+
 const state = {
   language: 'en',
   defaultLibrary: 'anime',
@@ -7,6 +9,10 @@ const state = {
 }
 
 const mutations = {
+  SET_LANGUAGE (state, payload) {
+    i18n.locale = payload
+    state.language = payload
+  }
 }
 
 export default {

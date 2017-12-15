@@ -1,15 +1,23 @@
 <template lang='pug'>
-  select(name='language' @change='changeLanguage')
-    option(
-      v-for='lang in supportedLanguages'
-      :selected='lang === currentLanguage'
-      :value='lang'
-    ) {{lang}}
+  .select.is-small
+    select(name='language' @change='changeLanguage')
+      option(
+        v-for='lang in supportedLanguages'
+        :selected='lang === currentLanguage'
+        :value='lang'
+      ) {{ lang.toUpperCase() }}
 </template>
 
 <script>
   import i18n from '@/plugins/translation'
   export default {
+    props: {
+      // TODO: Language switcher in nav dropdown when logged in
+      menu: {
+        type: Boolean,
+        default: false
+      }
+    },
     computed: {
       supportedLanguages () {
         return i18n.supportedLanguages
@@ -29,3 +37,17 @@
     }
   }
 </script>
+
+<style lang='sass' scoped>
+  .select
+    line-height: 1rem
+    display: flex
+    align-items: center
+    height: unset
+  select
+    background: transparent
+    border: none
+    color: var(--colour-whiteSmoke)
+  select, .select:hover:after
+    border-color: var(--colour-cinnabar)
+</style>
