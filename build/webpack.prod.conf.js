@@ -149,10 +149,10 @@ const webpackConfig = merge(baseWebpackConfig, {
     new ProgressiveManifest({
       name: 'Hibari for Kitsu.io',
       short_name: 'Hibari',
-      description: 'Vue alternative for Kitsu.io users',
+      description: 'Open Source Vue client for Kitsu.io',
       start_url: '.',
-      theme_color: '#f75239',
-      background_color: '#fff',
+      theme_color: '#1F1621',
+      background_color: '#1F1621',
       icons: [
         {
           src: resolve('static/icon.png'),
