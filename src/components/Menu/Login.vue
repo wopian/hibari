@@ -80,4 +80,9 @@
 
   .navbar-item
     color: var(--colour-whiteSmoke)
+
+  @media screen and (max-width: 1023px)
+    .modal-card
+      margin: 0
+      max-width: 100%
 </style>
