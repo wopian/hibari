@@ -15,6 +15,17 @@ A work in progress [Vue] alternative for [Kitsu] users.
 
 - Login to your Kitsu account
 
+## Browser Support
+
+| ![chrome]</br>Chrome | ![firefox]</br>Firefox | ![safari]</br>Safari | ![edge]</br>Edge
+| -------------------- | ---------------------- | -------------------- | ----------------
+| 61 and newer         | 55 and newer           |  10.1 and newer      | 15 and newer
+
+[chrome]:https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png
+[firefox]:https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png
+[safari]:https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png
+[edge]:https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png
+
 ## Contributing
 
 PRs are welcome :tada:
@@ -72,7 +83,7 @@ All code released under the [MIT] license
 [web uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
 
 [api]:https://kitsu.docs.apiary.io
-[api uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779715870-4bca0187af2c0d280737166a.svg?style=flat-square&label=api
+[api uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779715870-4bca0187af2c0d280737166a.svg?style=flat-square&label=api%20uptime
 
 [commit]:https://github.com/wopian/hibari/commits/new
 [commit badge]:https://img.shields.io/github/last-commit/wopian/hibari/new.svg?style=flat-square
