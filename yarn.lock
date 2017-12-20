@@ -7286,9 +7286,9 @@ vue-timeago@~3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/vue-timeago/-/vue-timeago-3.4.2.tgz#291c99370975b0a6f7b65f8745fba878fb545fd8"
 
-vue-typer@~1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/vue-typer/-/vue-typer-1.0.6.tgz#697b266417a17cdc1a99d61a0ce8779937ee0043"
+vue-typer@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/vue-typer/-/vue-typer-1.2.0.tgz#08d95785a2817959b92276055cdf272d8986500b"
   dependencies:
     lodash.split "^4.4.2"
 
