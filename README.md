@@ -107,5 +107,5 @@ All code released under the [MIT] license
 [contributors]:https://github.com/wopian/hibari/graphs/contributors
 [contributors badge]:https://img.shields.io/github/contributors/wopian/hibari.svg?style=flat-square
 
-[donate]:https://paypal.me/pools/c/7ZZSVeBON7
-[donate badge]:https://img.shields.io/badge/£-donate-ff69b4.svg?style=flat-square
+[donate]:https://www.patreon.com/wopian
+[donate badge]:https://img.shields.io/badge/patreon-donate-ff69b4.svg?style=flat-square
