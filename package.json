@@ -146,7 +146,7 @@
     "lockFileMaintenance": {
       "enabled": false
     },
-    "semanticCommits": true,
+    "semanticCommits": false,
     "separateMajorReleases": false,
     "unpublishSafe": true,
     "schedule": [
