@@ -1,4 +1,4 @@
-const path = require('path')
+const { resolve } = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')

@@ -17,7 +17,7 @@
       router-link(:to='{ name: "Preferences" }')  {{ $t('loggedIn.preferences') }}
 
     b-dropdown-item(has-link)
-      a(@click='$store.commit("LOGOUT")' href='')  {{ $t('loggedIn.logout') }}
+      a(@click='$store.commit("LOGOUT")' href='javascript:;')  {{ $t('loggedIn.logout') }}
 </template>
 
 <script>

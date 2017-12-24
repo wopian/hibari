@@ -26,7 +26,7 @@ html(lang=locale)
           window.addEventListener('load', () => {
             if ('serviceWorker' in navigator &&
                 (window.location.protocol === 'https:')) {
-              navigator.serviceWorker.register('#{serviceWorker}')
+              navigator.serviceWorker.register('/#{serviceWorker}')
               .then(register => {
                 register.onupdatefound = () => {
                   if (navigator.serviceWorker.controller) {

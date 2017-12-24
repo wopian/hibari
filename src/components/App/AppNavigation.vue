@@ -34,19 +34,19 @@ nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive 
           @click.native='closeBurger()') {{ $t('navigation.bugs') }}
 
       .navbar-end(v-if='$store.getters.isAuth && $store.state.auth.my')
-        logged-in
+        nav-logged-in
       .navbar-end(v-else)
-        language
-        login
+        nav-language
+        nav-login
 </template>
 
 <script>
   export default {
     name: 'navigation',
     components: {
-      loggedIn: () => import('=/Menu/LoggedIn' /* webpackChunkName: 'menu-loggedin' */),
-      login: () => import('=/Menu/Login' /* webpackChunkName: 'menu-login' */),
-      language: () => import('=/Core/Language' /* webpackChunkName: 'core-language' */)
+      navLoggedIn: () => import('=/Nav/NavLoggedIn' /* webpackChunkName: 'nav-loggedin' */),
+      navLogin: () => import('=/Nav/NavLogin' /* webpackChunkName: 'nav-login' */),
+      navLanguage: () => import('=/Nav/NavLanguage' /* webpackChunkName: 'nav-language' */)
     },
     data () {
       return {

@@ -5,7 +5,7 @@ import Tooltip from 'buefy/src/components/tooltip'
 import Input from 'buefy/src/components/input'
 import Field from 'buefy/src/components/field'
 import { i18n } from '@/plugins/i18n'
-import router from '@/router'
+import { router, afterEach } from '@/router'
 import store from '@/store'
 import App from '@/App'
 
@@ -20,14 +20,13 @@ Vue.component(Tooltip.name, Tooltip)
 Vue.component(Input.name, Input)
 Vue.component(Field.name, Field)
 
-router.afterEach(to => {
-  store.commit('ROUTE_CHANGED', { to })
-})
+router.afterEach(afterEach)
 
 /* eslint-disable no-new */
 new Vue({
+  el: '#app',
   i18n,
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+})
