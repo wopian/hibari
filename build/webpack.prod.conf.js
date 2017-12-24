@@ -120,6 +120,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     */
     // split vendor js into its own file
+    /*
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       minChunks: (module, count) => {
@@ -132,11 +133,18 @@ const webpackConfig = merge(baseWebpackConfig, {
         )
       }
     }),
+    */
     // extract webpack runtime and module manifest to its own file in order to
     // prevent vendor hash from being updated whenever app bundle is updated
+    /*
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
       chunks: ['vendor']
+    }),
+    */
+    new webpack.optimize.AggressiveSplittingPlugin({
+      minSize: 30000,
+      maxSize: 50000
     }),
     new CopyWebpackPlugin([
       {
@@ -170,7 +178,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       minify: true,
       stripPrefix: 'dist/'
     })
-  ]
+  ],
+  recordsOutputPath: join(config.build.assetsRoot, 'js', 'records.json')
 })
 
 module.exports = webpackConfig
