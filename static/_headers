@@ -1,0 +1,8 @@
+/*
+  Content-Security-Policy: default-src https: data: 'unsafe-inline' 'unsafe-eval'
+  X-Frame-Options: SAMEORIGIN
+  X-Xss-Protection: 1; mode=block
+  X-Content-Type-Options: nosniff
+  Link: </style.css>; rel=preload; as=stylesheet
+  Link: </main.js>; rel=preload; as=script
+  Link: </image.jpg>; rel=preload; as=image
