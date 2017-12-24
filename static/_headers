@@ -1,6 +1,8 @@
 /*
-  Content-Security-Policy: default-src https: data: 'unsafe-inline' 'unsafe-eval'
-  X-Frame-Options: SAMEORIGIN
-  X-Xss-Protection: 1; mode=block
-  X-Content-Type-Options: nosniff
-  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy:    default-src 'self' data: https://*.kitsu.io; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src https:; media-src https:; frame-src 'none'; font-src https:
+  X-Content-Security-Policy:  default-src 'self' data: https://*.kitsu.io; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src https:; media-src https:; frame-src 'none'; font-src https:
+  X-WebKit-CSP:               default-src 'self' data: https://*.kitsu.io; script-src 'self' 'unsafe-inline' 'unsafe-eval'; object-src 'none'; style-src 'self' 'unsafe-inline'; img-src https:; media-src https:; frame-src 'none'; font-src https:
+  X-Frame-Options:            SAMEORIGIN
+  X-Xss-Protection:           1; mode=block
+  X-Content-Type-Options:     nosniff
+  Referrer-Policy:            strict-origin-when-cross-origin
