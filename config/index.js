@@ -1,10 +1,10 @@
-const path = require('path')
+const { resolve } = require('path')
 
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: resolve(__dirname, '../dist/index.html'),
+    assetsRoot: resolve(__dirname, '../dist'),
     assetsSubDirectory: '.',
     assetsPublicPath: '/',
     productionSourceMap: false,

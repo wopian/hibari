@@ -26,9 +26,8 @@ router.afterEach(to => {
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
   i18n,
   router,
   store,
   render: h => h(App)
-})
+}).$mount('#app')
