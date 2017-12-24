@@ -101,7 +101,7 @@
     .title, .subtitle
       color: var(--colour-whiteSmoke)
 
-  section
+  section.container
     padding-top: 1rem
 
   .title.is-6
