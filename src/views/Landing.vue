@@ -20,36 +20,18 @@
 
     section.container
       h1.title.has-text-weight-bold Track The Latest Shows
-      .columns.is-multiline.is-mobile
-        .column.is-half-mobile.is-one-quarter-tablet.is-one-fifth-desktop(
-          v-if='$store.state.landing.latest'
-          v-for='item in $store.state.landing.latest')
-          .card
-            .card-image
-              router-link.image(:to='{ name: "Anime", params: { slug: item.slug } }')
-                img(:src='item.posterImage' :alt='item.canonicalTitle')
-            .card-content
-              b-tooltip(
-                :label='item.canonicalTitle'
-                position='is-top'
-                size='is-small'
-                type='is-dark'
-                multilined
-              )
-                .title.is-6 {{ item.canonicalTitle }}
-              .card-space.is-size-7
-                span {{ item.averageRating }}%
-                span {{ item.userCount }}
-                span {{ item.ratingRank }}th
+      flickity-media(:data='$store.state.landing.latest' subtype='Anime')
 </template>
 
 <script>
   import { VueTyper } from 'vue-typer'
   import api from '@/api'
+  import FlickityMedia from '=/Flickity/FlickityMedia'
 
   export default {
     components: {
-      VueTyper
+      VueTyper,
+      FlickityMedia
     },
     created () {
       this.getAnime()
@@ -77,7 +59,7 @@
               anime: 'canonicalTitle,averageRating,userCount,ratingRank,posterImage,slug'
             },
             page: {
-              limit: 10
+              limit: 20
             }
           })
           data.forEach(item => {
@@ -91,36 +73,6 @@
     }
   }
 </script>
-
-<style lang='sass' scoped>
-  .hero
-    background: var(--colour-haiti)
-    height: calc((52px * 2) + 12rem)
-    margin-top: -52px
-    padding-top: 52px * 2
-    .title, .subtitle
-      color: var(--colour-whiteSmoke)
-
-  section.container
-    padding-top: 1rem
-
-  .title.is-6
-    display: block
-    height: 1.5rem
-    white-space: nowrap
-    text-overflow: ellipsis
-    overflow: hidden;
-
-  .card-content
-    padding: .75rem
-    .tooltip
-      display: block
-      height: 1.5rem
-
-  .card-space
-    display: flex
-    justify-content: space-between
-</style>
 
 <style lang='sass'>
 // Remove all styling Vue-Typer forces

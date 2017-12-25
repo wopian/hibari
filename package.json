@@ -19,6 +19,7 @@
     "kitsu": "~3.1.4",
     "localforage": "~1.5.5",
     "vue": "~2.5.11",
+    "vue-flickity": "^1.0.9",
     "vue-i18n": "~7.3.2",
     "vue-meta": "~1.4.0",
     "vue-router": "~3.0.1",

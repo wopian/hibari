@@ -22,8 +22,7 @@
 </script>
 
 <style lang='sass'>
-  @import styles/colours
-  @import styles/bulma
+  @import styles/app
 
   body
     background: var(--colour-whiteSmoke)
