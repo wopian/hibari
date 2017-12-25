@@ -140,21 +140,22 @@
     ],
     "pinVersions": false,
     "automerge": false,
-    "commitMessage": "chore(deps): update {{depName}} to {{newVersion}}",
+    "commitMessage": "{{semanticPrefix}}update {{depName}} to {{newVersion}}",
     "labels": [
       "dependencies"
     ],
     "lockFileMaintenance": {
       "enabled": false
     },
-    "semanticCommits": false,
+    "semanticCommitsEnabled": true,
+    "semanticPrefix": "chore(deps): ",
     "separateMajorReleases": false,
     "unpublishSafe": true,
     "schedule": [
       "before 5am on monday"
     ],
     "prCreation": "not-pending",
-    "prTitle": "chore(deps): {{#if isPin}}pin{{else}}update{{/if}} {{depName}} to {{#if isRange}}{{newVersion}}{{else}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}{{/if}}",
+    "prTitle": "{{semanticPrefix}}{{#if isPin}}pin{{else}}update{{/if}} {{depName}} to {{#if isRange}}{{newVersion}}{{else}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}{{/if}}",
     "packageRules": [
       {
         "packagePatterns": [
