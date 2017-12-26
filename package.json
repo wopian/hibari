@@ -137,7 +137,7 @@
       ":combinePatchMinorReleases",
       ":renovatePrefix",
       ":semanticCommits",
-      ":semanticPrefixChore,
+      ":semanticPrefixChore",
       ":rebaseStalePrs",
       ":unpublishSafe",
       ":prNotPending",
