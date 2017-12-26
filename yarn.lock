@@ -7349,9 +7349,9 @@ vue@^2.4.4, vue@^2.5.2, vue@~2.5.11:
   version "2.5.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.11.tgz#80ca2657aa81f03545cd8dd5a2f55454641e6405"
 
-vuex-persist@~1.0.3:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/vuex-persist/-/vuex-persist-1.0.3.tgz#a04f7e51d31c09222102a251b982e6d3483857f7"
+vuex-persist@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vuex-persist/-/vuex-persist-1.1.0.tgz#25d76e723aae707cf127706dd51e70e93371147a"
   dependencies:
     lodash.merge "^4.6.0"
 
