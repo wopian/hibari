@@ -132,54 +132,37 @@
   },
   "renovate": {
     "extends": [
-      "config:base"
+      ":npm",
+      ":preserveSemverRanges",
+      ":combinePatchMinorReleases",
+      ":renovatePrefix",
+      ":semanticCommits",
+      ":semanticPrefixChore,
+      ":rebaseStalePrs",
+      ":unpublishSafe",
+      ":prNotPending",
+      ":automergeDisabled",
+      ":maintainLockFilesMonthly",
+      ":ignoreUnstable",
+      ":updateNotScheduled",
+      ":label(dependencies)",
+      ":assignAndReview(wopian)",
+      ":timezone(Europe/London)",
+      "group:babelMonorepo",
+      "group:jestMonorepo",
+      "group:linters",
+      "group:storybookMonorepo",
+      "schedule:weekly"
     ],
+    "prTitle": "update {{depName}} to {{newVersion}}",
+    "commitMessage": "update {{depName}} to {{newVersion}}",
     "baseBranch": "new",
-    "assignees": [
-      "wopian"
-    ],
-    "pinVersions": false,
-    "automerge": false,
-    "commitMessage": "{{semanticPrefix}}update {{depName}} to {{newVersion}}",
-    "labels": [
-      "dependencies"
-    ],
-    "lockFileMaintenance": {
-      "enabled": false
-    },
-    "semanticCommitsEnabled": true,
-    "semanticPrefix": "chore(deps): ",
-    "separateMajorReleases": false,
-    "unpublishSafe": true,
-    "schedule": [
-      "before 5am on monday"
-    ],
-    "prCreation": "not-pending",
-    "prTitle": "{{semanticPrefix}}{{#if isPin}}pin{{else}}update{{/if}} {{depName}} to {{#if isRange}}{{newVersion}}{{else}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}{{/if}}",
     "packageRules": [
-      {
-        "packagePatterns": [
-          "^eslint"
-        ],
-        "groupName": "eslint"
-      },
       {
         "packagePatterns": [
           "^webpack"
         ],
         "groupName": "webpack"
-      },
-      {
-        "packagePatterns": [
-          "^babel"
-        ],
-        "groupName": "babel"
-      },
-      {
-        "packagePatterns": [
-          "^jest"
-        ],
-        "groupName": "jest"
       },
       {
         "packagePatterns": [
