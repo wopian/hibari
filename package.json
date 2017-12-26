@@ -150,8 +150,7 @@
       "group:babelMonorepo",
       "group:jestMonorepo",
       "group:linters",
-      "group:storybookMonorepo",
-      "schedule:weekly"
+      "group:storybookMonorepo"
     ],
     "prTitle": "update {{depName}} to {{newVersion}}",
     "commitMessage": "update {{depName}} to {{newVersion}}",
