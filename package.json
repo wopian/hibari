@@ -150,7 +150,6 @@
       ":assignee(wopian)",
       "group:babelMonorepo",
       "group:jestMonorepo",
-      "group:linters",
       "group:storybookMonorepo"
     ],
     "prTitle": "update {{depName}} to {{newVersion}}",
