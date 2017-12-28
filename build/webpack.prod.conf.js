@@ -151,12 +151,13 @@ const webpackConfig = merge(baseWebpackConfig, {
       short_name: 'Hibari',
       description: 'Open Source Vue client for Kitsu.io',
       start_url: '.',
+      display: 'standalone',
       theme_color: '#1F1621',
       background_color: '#1F1621',
       icons: [
         {
           src: resolve('static/icon.png'),
-          sizes: [ 16, 32, 96, 128, 192 ]
+          sizes: [ 16, 32, 96, 128, 192, 256, 512 ]
         }
       ],
       inject: true,
@@ -166,9 +167,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     new ServiceWorkerPlugin({
       cacheId: name,
       filename: serviceWorker,
-      staticFileGlobs: [ 'dist/**/*.{js,css}' ],
+      staticFileGlobs: [ 'dist/**/*.{css,html,js}' ],
+      staticFileBlobsIgnorePatterns: [ /\.map$/ ],
       minify: true,
-      stripPrefix: 'dist/'
+      mergeStaticsConfig: true,
+      stripPrefix: 'dist/',
+      navigateFallback: '/'
     })
   ]
 })
