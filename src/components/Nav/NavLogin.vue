@@ -50,7 +50,7 @@
           try {
             this.loggingIn = true
             const { username, password } = this.credentials
-            const { owner } = await import('@/api/oauth' /*  webpackChunkName: 'oauth2' */)
+            const { owner } = await import('@/api/oauth')
             const { data } = await owner.getToken(username, password)
             this.$store.dispatch('LOGIN', data)
           } catch (error) {

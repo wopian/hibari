@@ -914,6 +914,10 @@ babel-plugin-transform-vue-jsx@^3.5.0:
   dependencies:
     esutils "^2.0.2"
 
+babel-plugin-webpack-chunkname@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-webpack-chunkname/-/babel-plugin-webpack-chunkname-1.0.1.tgz#cbadd742fa08ad04dbe7dbf547ae89b2db60b74f"
+
 babel-preset-env@^1.6.0, babel-preset-env@~1.6.1:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/babel-preset-env/-/babel-preset-env-1.6.1.tgz#a18b564cc9b9afdf4aae57ae3c1b0d99188e6f48"

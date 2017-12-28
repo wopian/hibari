@@ -12,7 +12,7 @@ const locale = store.state.preferences.language || userLocale || DEFAULT_LANGUAG
 function getMessages (lang) {
   const messages = { en }
   if (SUPPORTED_LANGUAGES.includes(lang)) {
-    import(/* webpackChunkName: "locale-[request]" */ `@/locale/${lang}`).then(msgs => {
+    import(`@/locale/${lang}`).then(msgs => {
       messages[lang] = msgs.default || msgs
     })
   }

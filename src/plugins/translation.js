@@ -53,7 +53,7 @@ const Trans = {
   changeLanguage (lang) {
     if (!Trans.isLangSupported(lang)) return Promise.reject(new Error('Language not supported'))
     if (i18n.locale === lang) return Promise.resolve()
-    return import(/* webpackChunkName: "locale-[request]" */ `@/locale/${lang}`).then(msgs => {
+    return import(`@/locale/${lang}`).then(msgs => {
       i18n.setLocaleMessage(lang, msgs.default || msgs)
       return Trans.setI18nLanguageInServices(lang)
     })

@@ -23,9 +23,6 @@
 <script>
   export default {
     // TODO: Language switcher in nav dropdown when logged in
-    // components: {
-    //   language: () => import('=/Core/Language' /* webpackChunkName: 'core-language' */)
-    // }
   }
 </script>
 

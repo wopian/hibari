@@ -10,7 +10,10 @@
     }],
     "stage-0"
   ],
-  "plugins": ["transform-runtime"],
+  "plugins": [
+    "transform-runtime",
+    "webpack-chunkname"
+  ],
   "env": {
     "test": {
       "presets": [

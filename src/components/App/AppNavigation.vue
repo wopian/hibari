@@ -44,9 +44,9 @@ nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive 
   export default {
     name: 'navigation',
     components: {
-      navLoggedIn: () => import('=/Nav/NavLoggedIn' /* webpackChunkName: 'nav-loggedin' */),
-      navLogin: () => import('=/Nav/NavLogin' /* webpackChunkName: 'nav-login' */),
-      navLanguage: () => import('=/Nav/NavLanguage' /* webpackChunkName: 'nav-language' */)
+      navLoggedIn: () => import('=/Nav/NavLoggedIn'),
+      navLogin: () => import('=/Nav/NavLogin'),
+      navLanguage: () => import('=/Nav/NavLanguage')
     },
     data () {
       return {
