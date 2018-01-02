@@ -104,7 +104,7 @@
       "src/**/*.{js,vue}"
     ],
     "coveragePathIgnorePatterns": [
-      "src/(locale|api|store|router|main.js)"
+      "src/(locales|api|store|router|main.js)"
     ],
     "coverageDirectory": "<rootDir>/test/coverage",
     "coverageReporters": [

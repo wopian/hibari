@@ -1,7 +1,7 @@
 import I18n from 'vue-i18n'
 import Vue from 'vue'
 import { DEFAULT_LANGUAGE, FALLBACK_LANGUAGE, SUPPORTED_LANGUAGES } from '@/constants'
-import en from '@/locale/en'
+import en from '@/locales/en'
 import store from '@/store'
 
 Vue.use(I18n)
@@ -12,7 +12,7 @@ const locale = store.state.preferences.language || userLocale || DEFAULT_LANGUAG
 function getMessages (lang) {
   const messages = { en }
   if (SUPPORTED_LANGUAGES.includes(lang)) {
-    import(`@/locale/${lang}`).then(msgs => {
+    import(`@/locales/${lang}`).then(msgs => {
       messages[lang] = msgs.default || msgs
     })
   }
