@@ -23,7 +23,7 @@ done on the GitHub website.
 ### Existing Languages
 
 1. Check `en/index.js` has the same lines of code as the locale you're updating
-    2. Add missing translation strings if required
+    1. Add missing translation strings if required
 2. Translate the strings
 
 ### Committing Changes
