@@ -2077,7 +2077,7 @@ debug@^3.0.1, debug@^3.1.0:
   dependencies:
     ms "2.0.0"
 
-decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2, decamelize@^1.2.0:
+decamelize@^1.0.0, decamelize@^1.1.1, decamelize@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/decamelize/-/decamelize-1.2.0.tgz#f6534d15148269b20352e7bee26f501f9a191290"
 
@@ -4455,14 +4455,12 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-kitsu@~3.1.4:
-  version "3.1.4"
-  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-3.1.4.tgz#d42205747eb85137dbb9aaa6e14a70c67e72514b"
+kitsu@~4.0.0:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-4.0.1.tgz#6b55e48e38fb4ead45d818988ecf31b8b6e11455"
   dependencies:
     axios "^0.17.0"
     babel-runtime "^6.26.0"
-    camelcase "^4.1.0"
-    decamelize "^1.2.0"
     pluralize "^7.0.0"
 
 last-call-webpack-plugin@^2.1.2:
