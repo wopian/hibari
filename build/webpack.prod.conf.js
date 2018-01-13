@@ -18,9 +18,6 @@ const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
 const PurgeCSS = require('purgecss-webpack-plugin')
 
 const env = config.build.env
-const now = new Date()
-const serviceWorker = `sw.${now.getUTCFullYear()}-${now.getMonth() + 1}-${now.getDate()}.${now.getTime()}.js`
-
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -153,7 +150,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new BundleSizePlugin('../.bundlesize.yml'),
     new ServiceWorkerPlugin({
       cacheId: name,
-      filename: serviceWorker,
+      filename: 'sw.js',
       staticFileGlobs: [
         'dist/**/*.{css,html,js}'
       ],

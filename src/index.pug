@@ -48,7 +48,7 @@ html(lang=locale)
                     install.onstatechange = () => {
                       switch (install.state) {
                         case 'redundant':
-                          throw new Error('Service worker is redundant.')
+                          console.warn('Service worker is redundant.')
                       }
                     }
                   }
