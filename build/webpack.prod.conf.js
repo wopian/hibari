@@ -106,7 +106,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       // necessary to consistently work with multiple chunks via CommonsChunkPlugin
       chunksSortMode: 'dependency',
       production: (process.env.NODE_ENV === 'production'),
-      serviceWorker
+      serviceWorker: 'sw.js'
     }),
     // https://www.purgecss.com/whitelisting.html
     // new PurgeCSS({
