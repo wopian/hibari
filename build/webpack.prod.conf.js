@@ -154,12 +154,24 @@ const webpackConfig = merge(baseWebpackConfig, {
     new ServiceWorkerPlugin({
       cacheId: name,
       filename: serviceWorker,
-      staticFileGlobs: [ 'dist/**/*.{css,html,js}' ],
-      staticFileBlobsIgnorePatterns: [ /\.map$/, /_headers$/, /_redirects$/ ],
+      staticFileGlobs: [
+        'dist/**/*.{css,html,js}'
+      ],
       minify: true,
-      mergeStaticsConfig: true,
+      mergeStaticsConfig: false,
       stripPrefix: 'dist/',
-      navigateFallback: '/'
+      runtimeCaching: [
+        {
+          urlPattern: /\/anime\//,
+          handler: 'fastest',
+          options: {
+            cache: {
+              maxEntries: 10,
+              name: 'anime-cache'
+            }
+          }
+        }
+      ]
     })
   ]
 })
