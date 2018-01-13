@@ -5,10 +5,11 @@
   "author": "James Harris <wopian@wopian.me>",
   "private": true,
   "scripts": {
-    "test": " ",
+    "test": "yarn translation",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
+    "translation": "babel-node tools/translation --presets=env",
     "log:major": "changelog -M",
     "log:minor": "changelog -m",
     "log:patch": "changelog -p"
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "autoprefixer": "~7.2.3",
+    "babel-cli": "~6.26.0",
     "babel-core": "~6.26.0",
     "babel-eslint": "~8.2.0",
     "babel-loader": "~7.1.2",
