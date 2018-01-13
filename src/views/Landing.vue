@@ -20,18 +20,18 @@
 
     section.container
       h1.title.has-text-weight-bold Track The Latest Shows
-      flickity-media(:data='$store.state.landing.latest' subtype='Anime')
+      carousel-media(:data='$store.state.landing.latest' subtype='Anime')
 </template>
 
 <script>
   import { VueTyper } from 'vue-typer'
   import api from '@/api'
-  import FlickityMedia from '=/Flickity/FlickityMedia'
+  import CarouselMedia from '=/Carousel/CarouselMedia'
 
   export default {
     components: {
       VueTyper,
-      FlickityMedia
+      CarouselMedia
     },
     created () {
       this.getAnime()

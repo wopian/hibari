@@ -2,20 +2,20 @@
   main
     .hero
       .hero-body
-        flickity-quick-update
+        carousel-quick-update
 
     section.container
       h1.title.has-text-weight-bold Feed Stuff
 </template>
 
 <script>
-  import FlickityQuickUpdate from '=/Flickity/FlickityQuickUpdate'
+  import CarouselQuickUpdate from '=/Carousel/CarouselQuickUpdate'
   export default {
     meta: {
       title: 'Feed'
     },
     components: {
-      FlickityQuickUpdate
+      CarouselQuickUpdate
     }
   }
 </script>
