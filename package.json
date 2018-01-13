@@ -9,6 +9,7 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "lint": "eslint --ext .js,.vue src",
+    "jest": "jest --coverage",
     "translation": "babel-node tools/translation --presets=env",
     "log:major": "changelog -M",
     "log:minor": "changelog -m",
@@ -30,10 +31,12 @@
     "vuex-persist": "~1.1.0"
   },
   "devDependencies": {
+    "@vue/test-utils": "~1.0.0-beta.10",
     "autoprefixer": "~7.2.3",
     "babel-cli": "~6.26.0",
     "babel-core": "~6.26.0",
     "babel-eslint": "~8.2.0",
+    "babel-jest": "^22.0.6",
     "babel-loader": "~7.1.2",
     "babel-plugin-istanbul": "~4.1.5",
     "babel-plugin-transform-runtime": "~6.23.0",
@@ -63,6 +66,8 @@
     "generate-changelog": "~1.7.0",
     "html-webpack-plugin": "~2.30.1",
     "http-proxy-middleware": "~0.17.4",
+    "jest": "^22.0.6",
+    "jest-serializer-vue": "^0.3.0",
     "node-sass": "~4.7.2",
     "optimize-css-assets-webpack-plugin": "~3.2.0",
     "progress-bar-webpack-plugin": "~1.10.0",
@@ -76,10 +81,11 @@
     "tyu": "~1.0.1",
     "uglifyjs-webpack-plugin": "~1.1.4",
     "url-loader": "~0.6.2",
+    "vue-jest": "^1.4.0",
     "vue-loader": "~13.7.0",
+    "vue-server-renderer": "^2.5.13",
     "vue-style-loader": "~3.0.3",
     "vue-template-compiler": "~2.5.11",
-    "vue-test-utils": "~1.0.0-beta.8",
     "webpack": "~3.10.0",
     "webpack-bundle-size-analyzer": "~2.7.0",
     "webpack-dev-middleware": "~2.0.1",
@@ -103,20 +109,19 @@
   ],
   "jest": {
     "collectCoverageFrom": [
-      "src/**/*.{js,vue}"
+      "src/**/*.{js,vue}",
+      "!src/(constants|locales|api|store|router)/**",
+      "!src/main.js",
+      "!src/App.vue"
     ],
-    "coveragePathIgnorePatterns": [
-      "src/(locales|api|store|router|main.js)"
-    ],
-    "coverageDirectory": "<rootDir>/test/coverage",
+    "coverageDirectory": "<rootDir>/coverage",
     "coverageReporters": [
       "lcov",
       "text"
     ],
     "mapCoverage": true,
     "moduleNameMapper": {
-      "=/([^\\.]*)$": "<rootDir>/src/components/$1.vue",
-      "@/([^\\.]*)$": "<rootDir>/src/$1.vue"
+      "@/(.*)$": "<rootDir>/src/$1"
     },
     "moduleFileExtensions": [
       "js",
@@ -127,7 +132,7 @@
     },
     "transform": {
       "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "vue-jest"
+      "^.+\\.vue$": "vue-jest"
     },
     "snapshotSerializers": [
       "jest-serializer-vue"
