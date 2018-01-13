@@ -111,9 +111,10 @@ const webpackConfig = merge(baseWebpackConfig, {
       production: (process.env.NODE_ENV === 'production'),
       serviceWorker
     }),
-    new PurgeCSS({
-      paths: sync(join(__dirname, '../src/**/*.{js,vue,pug}'))
-    }),
+    // https://www.purgecss.com/whitelisting.html
+    // new PurgeCSS({
+    //   paths: sync(join(__dirname, '../src/**/*.{js,vue,pug}'))
+    // }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
     /*
