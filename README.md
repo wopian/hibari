@@ -6,6 +6,7 @@
 [![commit badge]][commit]
 [![contributors badge]][contributors]
 [![donate badge]][donate]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwopian%2Fhibari.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwopian%2Fhibari?ref=badge_shield)
 
 A work in progress [Vue] alternative for [Kitsu] users.
 
@@ -109,3 +110,6 @@ All code released under the [MIT] license
 
 [donate]:https://www.patreon.com/wopian
 [donate badge]:https://img.shields.io/badge/patreon-donate-ff69b4.svg?style=flat-square
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fwopian%2Fhibari.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fwopian%2Fhibari?ref=badge_large)
