@@ -1,4 +1,5 @@
 const { join, resolve } = require('path')
+const { sync } = require('glob-all')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -13,8 +14,8 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
-const ProgressiveManifest = require('webpack-pwa-manifest')
 const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
+const PurgeCSS = require('purgecss-webpack-plugin')
 
 const env = config.build.env
 const now = new Date()
@@ -27,7 +28,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       extract: true
     })
   },
-  devtool: config.build.productionSourceMap ? '#source-map' : false,
+  devtool: config.build.productionSourceMap ? 'nosources-source-map' : false,
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
@@ -110,6 +111,9 @@ const webpackConfig = merge(baseWebpackConfig, {
       production: (process.env.NODE_ENV === 'production'),
       serviceWorker
     }),
+    new PurgeCSS({
+      paths: sync(join(__dirname, '../src/**/*.{js,vue,pug}'))
+    }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
     /*
@@ -146,29 +150,11 @@ const webpackConfig = merge(baseWebpackConfig, {
       }
     ]),
     new BundleSizePlugin('../.bundlesize.yml'),
-    new ProgressiveManifest({
-      name: 'Hibari for Kitsu.io',
-      short_name: 'Hibari',
-      description: 'Open Source Vue client for Kitsu.io',
-      start_url: '.',
-      display: 'standalone',
-      theme_color: '#1F1621',
-      background_color: '#1F1621',
-      icons: [
-        {
-          src: resolve('static/icon.png'),
-          sizes: [ 16, 32, 96, 128, 192, 256, 512 ]
-        }
-      ],
-      inject: true,
-      fingerprints: true,
-      ios: true
-    }),
     new ServiceWorkerPlugin({
       cacheId: name,
       filename: serviceWorker,
       staticFileGlobs: [ 'dist/**/*.{css,html,js}' ],
-      staticFileBlobsIgnorePatterns: [ /\.map$/ ],
+      staticFileBlobsIgnorePatterns: [ /\.map$/, /_headers$/, /_redirects$/ ],
       minify: true,
       mergeStaticsConfig: true,
       stripPrefix: 'dist/',

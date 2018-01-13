@@ -18,7 +18,8 @@ rm(join(build.assetsRoot, build.assetsSubDirectory), err => {
       modules: false,
       children: false,
       chunks: false,
-      chunkModules: false
+      chunkModules: false,
+      assetsSort: 'size'
     }) + '\n\n')
 
     if (stats.hasErrors()) {

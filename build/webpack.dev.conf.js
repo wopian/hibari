@@ -1,4 +1,3 @@
-const { resolve } = require('path')
 const utils = require('./utils')
 const webpack = require('webpack')
 const config = require('../config')
@@ -9,7 +8,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
-const ProgressiveManifest = require('webpack-pwa-manifest')
 
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {
   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -17,7 +15,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: { rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap }) },
-  devtool: '#cheap-module-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   output: {
     filename: utils.assetsPath('[name].js'),
     chunkFilename: utils.assetsPath('[name].js')
@@ -41,23 +39,6 @@ module.exports = merge(baseWebpackConfig, {
       production: (process.env.NODE_ENV === 'production')
     }),
     new FriendlyErrorsPlugin(),
-    new BundleSizePlugin('../.bundlesize.yml'),
-    new ProgressiveManifest({
-      name: 'Hibari for Kitsu.io',
-      short_name: 'Hibari',
-      description: 'Open Source Vue client for Kitsu.io',
-      start_url: '.',
-      theme_color: '#1F1621',
-      background_color: '#1F1621',
-      icons: [
-        {
-          src: resolve('static/icon.png'),
-          sizes: [ 16, 32, 96, 128, 192 ]
-        }
-      ],
-      inject: true,
-      fingerprints: true,
-      ios: true
-    })
+    new BundleSizePlugin('../.bundlesize.yml')
   ]
 })
