@@ -157,6 +157,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       minify: true,
       mergeStaticsConfig: false,
       stripPrefix: 'dist/',
+      /*
       runtimeCaching: [
         {
           urlPattern: /\/anime\//,
@@ -169,6 +170,7 @@ const webpackConfig = merge(baseWebpackConfig, {
           }
         }
       ]
+      */
     })
   ]
 })
