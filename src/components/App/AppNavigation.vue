@@ -17,19 +17,19 @@ nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive 
       .navbar-start
         router-link.navbar-item(
           v-if='$store.state.auth.my && $store.state.auth.my.name'
-          :to='{ name: "Anime Library", params: { slug: $store.state.auth.my.slug, status: "all" }}'
+          :to='{ name: "anime library", params: { slug: $store.state.auth.my.slug, status: "all" }}'
           active-class='has-text-primary'
           @click.native='closeBurger()') {{ $t('navigation.library') }}
         router-link.navbar-item(
-          :to='{ name: "Explore Anime" }'
+          :to='{ name: "explore anime" }'
           active-class='has-text-primary'
           @click.native='closeBurger()') {{ $t('navigation.anime') }}
         router-link.navbar-item(
-          :to='{ name: "Explore Manga" }'
+          :to='{ name: "explore manga" }'
           active-class='has-text-primary'
           @click.native='closeBurger()') {{ $t('navigation.manga') }}
         router-link.navbar-item(
-          :to='{ name: "Bugs" }'
+          :to='{ name: "bugs" }'
           active-class='has-text-primary'
           @click.native='closeBurger()') {{ $t('navigation.bugs') }}
 
@@ -37,6 +37,7 @@ nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive 
         nav-logged-in
       .navbar-end(v-else)
         nav-language
+        nav-search
         nav-login
 </template>
 
@@ -46,7 +47,8 @@ nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive 
     components: {
       navLoggedIn: () => import('=/Nav/NavLoggedIn'),
       navLogin: () => import('=/Nav/NavLogin'),
-      navLanguage: () => import('=/Nav/NavLanguage')
+      navLanguage: () => import('=/Nav/NavLanguage'),
+      navSearch: () => import('=/Nav/NavSearch')
     },
     data () {
       return {

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Meta from 'vue-meta'
+import InstantSearch from 'vue-instantsearch'
 import { Dropdown, DropdownItem } from 'buefy/src/components/dropdown'
 import Tooltip from 'buefy/src/components/tooltip'
 import Input from 'buefy/src/components/input'
@@ -14,6 +15,7 @@ Vue.use(Meta, {
   keyName: 'meta',
   attribute: 'vue'
 })
+Vue.use(InstantSearch)
 Vue.component(Dropdown.name, Dropdown)
 Vue.component(DropdownItem.name, DropdownItem)
 Vue.component(Tooltip.name, Tooltip)

@@ -8,6 +8,8 @@
 /anime/:slug          /index.html                   200
 /manga                /index.html                   200
 /manga/:slug          /index.html                   200
+/groups               /index.html                   200
+/groups/:slug         /index.html                   200
 /preferences          /index.html                   200
 /bugs                 /index.html                   200
 /api/*                https://api.hibari.moe/:splat 200

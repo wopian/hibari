@@ -20,7 +20,7 @@
 
     section.container
       h1.title.has-text-weight-bold Track The Latest Shows
-      carousel-media(:data='$store.state.landing.latest' subtype='Anime')
+      carousel-media(:data='$store.state.landing.latest' subtype='anime')
 </template>
 
 <script>

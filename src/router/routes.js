@@ -6,6 +6,8 @@ import UserProfile from '+/User/Profile'
 import UserLibrary from '+/User/Library'
 import Explore from '+/Explore'
 import Media from '+/Media'
+import Groups from '+/Groups'
+import ExploreGroups from '+/ExploreGroups'
 import Preferences from '+/Preferences'
 import Bugs from '+/Bugs'
 import Errors404 from '+/Errors/404'
@@ -17,7 +19,7 @@ export const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
+      name: 'index',
       component: Index
     },
     {
@@ -26,12 +28,12 @@ export const router = new Router({
       children: [
         {
           path: '',
-          name: 'Profile',
+          name: 'profile',
           component: UserProfile
         },
         {
           path: 'anime/:status',
-          name: 'Anime Library',
+          name: 'anime library',
           component: UserLibrary,
           meta: {
             type: 'anime'
@@ -43,7 +45,7 @@ export const router = new Router({
         },
         {
           path: 'manga/:status',
-          name: 'Manga Library',
+          name: 'manga library',
           component: UserLibrary,
           meta: {
             type: 'manga'
@@ -57,7 +59,7 @@ export const router = new Router({
     },
     {
       path: '/anime',
-      name: 'Explore Anime',
+      name: 'explore anime',
       component: Explore,
       meta: {
         type: 'anime'
@@ -65,7 +67,7 @@ export const router = new Router({
     },
     {
       path: '/anime/:slug',
-      name: 'Anime',
+      name: 'anime',
       component: Media,
       meta: {
         type: 'anime'
@@ -73,7 +75,7 @@ export const router = new Router({
     },
     {
       path: '/manga',
-      name: 'Explore Manga',
+      name: 'explore manga',
       component: Explore,
       meta: {
         type: 'manga'
@@ -81,20 +83,30 @@ export const router = new Router({
     },
     {
       path: '/manga/:slug',
-      name: 'Manga',
+      name: 'manga',
       component: Media,
       meta: {
         type: 'manga'
       }
     },
     {
+      path: '/groups',
+      name: 'explore groups',
+      component: ExploreGroups
+    },
+    {
+      path: '/groups/:slug',
+      name: 'groups',
+      component: Groups
+    },
+    {
       path: '/preferences',
-      name: 'Preferences',
+      name: 'preferences',
       component: Preferences
     },
     {
       path: '/bugs',
-      name: 'Bugs',
+      name: 'bugs',
       component: Bugs
     },
     {

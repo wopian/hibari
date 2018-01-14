@@ -5,7 +5,7 @@
         span {{ $store.state.auth.my.name }}
 
     b-dropdown-item(has-link)
-      router-link(:to='{ name: "Profile", params: { slug: $store.state.auth.my.slug } }') {{ $t('loggedIn.profile') }}
+      router-link(:to='{ name: "profile", params: { slug: $store.state.auth.my.slug } }') {{ $t('loggedIn.profile') }}
 
     hr.dropdown-divider
 
@@ -14,7 +14,7 @@
         language(menu)
 
     b-dropdown-item(has-link)
-      router-link(:to='{ name: "Preferences" }')  {{ $t('loggedIn.preferences') }}
+      router-link(:to='{ name: "preferences" }')  {{ $t('loggedIn.preferences') }}
 
     b-dropdown-item(has-link)
       a(@click='$store.commit("LOGOUT")' href='javascript:;')  {{ $t('loggedIn.logout') }}
