@@ -76,7 +76,7 @@
     "progress-bar-webpack-plugin": "~1.10.0",
     "pug": "~2.0.0-rc.4",
     "pug-loader": "~2.3.0",
-    "purgecss-webpack-plugin": "~0.18.0",
+    "purgecss-webpack-plugin": "~0.19.0",
     "rimraf": "~2.6.2",
     "sass-loader": "~6.0.6",
     "semver": "~5.4.1",
