@@ -1,4 +1,24 @@
-@import app/colours
-@import app/bulma
+@import colours
 
-@import common/hero
+body
+  background: var(--colour-whiteSmoke)
+  // Prevent page content from touching border on mobile devices
+  @media screen and (max-width: 1023px)
+    main > .container
+      padding-left: 1rem
+      padding-right: 1rem
+
+.navbar-item:hover,
+.navbar-link:hover
+  background: transparent !important
+
+.hero
+  background: var(--colour-haiti)
+  height: calc((52px * 2) + 12rem)
+  margin-top: -52px
+  padding-top: 52px * 2
+  .title, .subtitle
+    color: var(--colour-whiteSmoke)
+
+section.container
+  padding-top: 1rem

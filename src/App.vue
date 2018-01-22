@@ -22,19 +22,6 @@
 </script>
 
 <style lang='sass'>
+  @import styles/bulma
   @import styles/app
-</style>
-
-<style lang='sss' scoped>
-  body
-    background: var(--colour-whiteSmoke)
-
-  .navbar-item:hover,
-  .navbar-link:hover
-    background: transparent !important
-
-  // Prevent page content from touching border on mobile devices
-  @media screen and (max-width: 1023px)
-    main > .container
-      padding: 0 1rem
 </style>
