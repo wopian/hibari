@@ -22,14 +22,14 @@
             tag='span'
           )
             a(href='//kitsu.io') Kitsu.io
-      pre(v-if='development') {{ $store.state }}
+      pre(v-if='dev') {{ $store.state }}
 </template>
 
 <script>
   export default {
     data () {
       return {
-        development: process.env.NODE_ENV === 'development'
+        dev: process.env.NODE_ENV === 'development'
       }
     }
   }

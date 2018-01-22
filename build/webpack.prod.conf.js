@@ -16,7 +16,6 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
 const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
 
-const env = config.build.env
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -37,7 +36,9 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
-      'process.env': env
+      process: {},
+      'process.env': config.build.env,
+      'process.env.NODE_ENV': config.build.env
     }),
     new UglifyJsPlugin({
       parallel: true,
