@@ -20,7 +20,7 @@
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .hero-body
     padding: 0 1.5rem
 </style>

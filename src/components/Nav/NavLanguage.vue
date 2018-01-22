@@ -38,7 +38,7 @@
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .select
     line-height: 1rem
     display: flex

@@ -71,7 +71,7 @@
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .modal-card
     max-width: 300px
 

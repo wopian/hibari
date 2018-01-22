@@ -35,7 +35,8 @@
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   footer
     margin-top: 1.5rem
+
 </style>

@@ -40,7 +40,7 @@
   }
 </script>
 
-<style lang='sass'>
+<style lang='sss'>
   .quick-update
     .js_prev.prev
       display: none
@@ -61,7 +61,7 @@
       width: auto
 </style>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .quick-update
     position: relative
   .column

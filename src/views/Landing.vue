@@ -74,7 +74,7 @@
   }
 </script>
 
-<style lang='sass'>
+<style lang='sss'>
 // Remove all styling Vue-Typer forces
 .vue-typer
   all: unset

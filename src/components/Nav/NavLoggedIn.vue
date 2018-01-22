@@ -26,7 +26,7 @@
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .navbar-link
     color: var(--colour-whiteSmoke)
 </style>

@@ -23,7 +23,9 @@
 
 <style lang='sass'>
   @import styles/app
+</style>
 
+<style lang='sss' scoped>
   body
     background: var(--colour-whiteSmoke)
 

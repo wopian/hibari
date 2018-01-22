@@ -52,7 +52,7 @@
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .banner
     width: 100vw
     min-height: 45vh

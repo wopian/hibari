@@ -78,7 +78,7 @@
   }
 </script>
 
-<style lang='sass'>
+<style lang='sss'>
   .search
     width: 16rem
     height: 100%

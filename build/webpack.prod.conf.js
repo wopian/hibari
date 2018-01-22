@@ -15,7 +15,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const BundleSizePlugin = require('webpack-bundle-size-analyzer').WebpackBundleSizeAnalyzerPlugin
 const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
-const PurgeCSS = require('purgecss-webpack-plugin')
 
 const env = config.build.env
 const webpackConfig = merge(baseWebpackConfig, {

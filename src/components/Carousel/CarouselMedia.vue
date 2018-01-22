@@ -50,7 +50,7 @@
   }
 </script>
 
-<style lang='sass'>
+<style lang='sss'>
   .js_prev.prev
     margin-left: -2rem
   .js_next.next
@@ -59,13 +59,13 @@
     pointer-events: none
 </style>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   .title.is-6
     display: block
     height: 1.5rem
     white-space: nowrap
     text-overflow: ellipsis
-    overflow: hidden;
+    overflow: hidden
 
   .card-content
     padding: .75rem

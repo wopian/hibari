@@ -4,7 +4,8 @@
       "modules": false,
       "targets": {
         "browsers": [
-          "> 0.1%"
+          "last 2 versions",
+          "> 0.5%"
         ]
       }
     }],

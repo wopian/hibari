@@ -73,7 +73,7 @@ nav.navbar(v-bind:class='{ "is-active": burgerActive, "is-sticky": stickyActive 
   }
 </script>
 
-<style lang='sass' scoped>
+<style lang='sss' scoped>
   nav
     background: transparent
     position: fixed
