@@ -1,6 +1,6 @@
 const utils = require('./utils')
 const webpack = require('webpack')
-const config = require('../config')
+const { dev } = require('../config')
 const merge = require('webpack-merge')
 const chalk = require('chalk')
 const baseWebpackConfig = require('./webpack.base.conf')
@@ -14,7 +14,7 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
-  module: { rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap }) },
+  module: { rules: utils.styleLoaders({ sourceMap: dev.cssSourceMap }) },
   devtool: 'cheap-module-eval-source-map',
   output: {
     filename: utils.assetsPath('[name].js'),
@@ -26,7 +26,7 @@ module.exports = merge(baseWebpackConfig, {
       renderThrottle: 10
     }),
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': dev.env
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),

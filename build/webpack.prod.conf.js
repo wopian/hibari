@@ -2,7 +2,7 @@ const { join, resolve } = require('path')
 const { sync } = require('glob-all')
 const utils = require('./utils')
 const webpack = require('webpack')
-const config = require('../config')
+const { build } = require('../config')
 const { name } = require('../package')
 const merge = require('webpack-merge')
 const chalk = require('chalk')
@@ -19,13 +19,13 @@ const ServiceWorkerPlugin = require('sw-precache-webpack-plugin')
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
+      sourceMap: build.productionSourceMap,
       extract: true
     })
   },
-  devtool: config.build.productionSourceMap ? 'nosources-source-map' : false,
+  devtool: build.productionSourceMap ? 'nosources-source-map' : false,
   output: {
-    path: config.build.assetsRoot,
+    path: build.assetsRoot,
     filename: utils.assetsPath('js/[name].[chunkhash].js'),
     chunkFilename: utils.assetsPath('js/[name].[chunkhash].js')
   },
@@ -37,8 +37,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       process: {},
-      'process.env': config.build.env,
-      'process.env.NODE_ENV': config.build.env
+      'process.env': build.env,
+      'process.env.NODE_ENV': build.env
     }),
     new UglifyJsPlugin({
       parallel: true,
@@ -93,7 +93,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     // you can customize output by editing /index.html
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: config.build.index,
+      filename: build.index,
       template: 'src/index.pug',
       inject: true,
       minify: {
@@ -143,7 +143,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: resolve(__dirname, '../static'),
-        to: config.build.assetsSubDirectory,
+        to: build.assetsSubDirectory,
         ignore: ['.*']
       }
     ]),

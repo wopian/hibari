@@ -1,6 +1,11 @@
 const { resolve } = require('path')
 
 module.exports = {
+  alias: {
+    '@': resolve('src'),
+    '+': resolve('src/views'),
+    '=': resolve('src/components')
+  },
   build: {
     env: require('./prod.env'),
     index: resolve(__dirname, '../dist/index.html'),
