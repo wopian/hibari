@@ -1,5 +1,4 @@
 const { join, resolve } = require('path')
-const { sync } = require('glob-all')
 const utils = require('./utils')
 const webpack = require('webpack')
 const { build } = require('../config')
@@ -32,7 +31,7 @@ const webpackConfig = merge(baseWebpackConfig, {
   plugins: [
     new ProgressBarPlugin({
       format: '  ' + chalk.green.bold(':percent') + ' :elapseds :msg',
-      renderThrottle: 10
+      renderThrottle: 1
     }),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
@@ -97,9 +96,18 @@ const webpackConfig = merge(baseWebpackConfig, {
       template: 'src/index.pug',
       inject: true,
       minify: {
-        removeComments: true,
+        collapseBooleanAttributes: true,
         collapseWhitespace: true,
-        removeAttributeQuotes: true
+        ignoreCustomComments: [],
+        minifyCSS: true,
+        minifyJS: true,
+        removeAttributeQuotes: true,
+        removeComments: true,
+        removeEmptyAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        sortAttributes: true,
+        sortClassName: true
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       },
@@ -108,19 +116,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       production: (process.env.NODE_ENV === 'production'),
       serviceWorker: 'sw.js'
     }),
-    // https://www.purgecss.com/whitelisting.html
-    // new PurgeCSS({
-    //   paths: sync(join(__dirname, '../src/**/*.{js,vue,pug}'))
-    // }),
     // keep module.id stable when vender modules does not change
     new webpack.HashedModuleIdsPlugin(),
-    /*
-    new webpack.optimize.CommonsChunkPlugin({
-      children: true,
-      async: 'common',
-      minChunks: 1
-    }),
-    */
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
@@ -157,20 +154,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       minify: true,
       mergeStaticsConfig: false,
       stripPrefix: 'dist/'
-      /*
-      runtimeCaching: [
-        {
-          urlPattern: /\/anime\//,
-          handler: 'fastest',
-          options: {
-            cache: {
-              maxEntries: 10,
-              name: 'anime-cache'
-            }
-          }
-        }
-      ]
-      */
     })
   ]
 })

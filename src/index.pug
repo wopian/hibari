@@ -31,34 +31,10 @@ html(lang=locale)
     #app
     noscript Please enable JavaScript to use Hibari.
     script(type='text/javascript').
-      const locale = window.navigator.language || window.navigator.userLanguage || 'en'
-      document.querySelector('html').setAttribute('lang', locale)
+      document.querySelector('html').setAttribute('lang',window.navigator.language||window.navigator.userLanguage||'en')
     if production
       script(type='text/javascript').
-        (() => {
-          'use strict'
-          window.addEventListener('load', () => {
-            if ('serviceWorker' in navigator &&
-                (window.location.protocol === 'https:')) {
-              navigator.serviceWorker.register('/#{serviceWorker}')
-              .then(register => {
-                register.onupdatefound = () => {
-                  if (navigator.serviceWorker.controller) {
-                    const install = register.installing
-                    install.onstatechange = () => {
-                      switch (install.state) {
-                        case 'redundant':
-                          console.warn('Service worker is redundant.')
-                      }
-                    }
-                  }
-                }
-              }).catch(function(e) {
-                console.error('Error during service worker registration:', e)
-              })
-            }
-          })
-        })()
+        (()=>{window.addEventListener('load',()=>{'serviceWorker'in navigator&&window.location.protocol==='https:'&&navigator.serviceWorker.register('/#{serviceWorker}').then(a=>{a.onupdatefound=()=>{if(navigator.serviceWorker.controller){const b=a.installing;b.onstatechange=()=>{switch(b.state){case'redundant':console.warn('SW redundant')}}}}}).catch(a=>{console.error('SW error',a)})})})()
       script(type='text/javascript' src='/'+serviceWorker)
     else
       p(style='pointer-events:none;position:fixed;left:1rem;bottom:.75rem;z-index:999999') Development Build
