@@ -4407,9 +4407,9 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-kitsu@~4.5.0:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-4.5.2.tgz#9477c7dbb941b66cf1518e8cc46dcbbbeb9eb64b"
+kitsu@~4.6.0:
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-4.6.0.tgz#c0cf71a883728778b9cb4b29929659be333a1056"
   dependencies:
     axios "^0.17.0"
     babel-runtime "^6.26.0"
