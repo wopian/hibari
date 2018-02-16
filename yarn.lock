@@ -2528,17 +2528,17 @@ eslint-config-standard@~11.0.0-beta.0:
   version "11.0.0-beta.0"
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-11.0.0-beta.0.tgz#f8afe69803d95c685a4b8392b8793188eb03cbb3"
 
-eslint-config-wopian-vue@~1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-wopian-vue/-/eslint-config-wopian-vue-1.2.0.tgz#106417ef83d5c4182a490f8500a32a011d4e07a5"
+eslint-config-wopian-vue@~1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-wopian-vue/-/eslint-config-wopian-vue-1.3.0.tgz#2893168ee4613c02132fbf26ddf1cbd6d60c6eba"
   dependencies:
-    eslint-config-wopian "^1.2.0"
+    eslint-config-wopian "^1.3.0"
     eslint-plugin-html "~4.0.2"
     eslint-plugin-vue "~4.2.2"
 
-eslint-config-wopian@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-wopian/-/eslint-config-wopian-1.2.0.tgz#911c19a92a5f0d2946817d642d70aa4797b0d02b"
+eslint-config-wopian@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-wopian/-/eslint-config-wopian-1.3.0.tgz#afb755b53bab9b21f6e337c9c78326c6a161d151"
   dependencies:
     babel-eslint "~8.2.0"
     eslint-config-standard "~11.0.0-beta.0"
