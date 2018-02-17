@@ -10,6 +10,7 @@ cache:
 sudo: false
 matrix:
   fast_finish: true
+before_script: yarn lint
 script: yarn test
 after_script:
 - yarn global add codeclimate-test-reporter
