@@ -8,7 +8,7 @@
     "test": "yarn translation",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js,.vue .",
     "jest": "jest --coverage",
     "translation": "babel-node tools/translation --presets=env",
     "log:major": "changelog -M",

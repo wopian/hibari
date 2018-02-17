@@ -135,13 +135,13 @@ const webpackConfig = merge(baseWebpackConfig, {
     // prevent vendor hash from being updated whenever app bundle is updated
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['vendor']
+      chunks: [ 'vendor' ]
     }),
     new CopyWebpackPlugin([
       {
         from: resolve(__dirname, '../static'),
         to: build.assetsSubDirectory,
-        ignore: ['.*']
+        ignore: [ '.*' ]
       }
     ]),
     new BundleSizePlugin('../.bundlesize.yml'),
