@@ -2529,16 +2529,16 @@ eslint-config-standard@~11.0.0-beta.0:
   resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-11.0.0-beta.0.tgz#f8afe69803d95c685a4b8392b8793188eb03cbb3"
 
 eslint-config-wopian-vue@~1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-wopian-vue/-/eslint-config-wopian-vue-1.3.0.tgz#2893168ee4613c02132fbf26ddf1cbd6d60c6eba"
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-wopian-vue/-/eslint-config-wopian-vue-1.3.1.tgz#e5a4df8d3baeed1f95f9e2b62c47ca6670843d52"
   dependencies:
-    eslint-config-wopian "^1.3.0"
+    eslint-config-wopian "^1.3.1"
     eslint-plugin-html "~4.0.2"
     eslint-plugin-vue "~4.2.2"
 
-eslint-config-wopian@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-wopian/-/eslint-config-wopian-1.3.0.tgz#afb755b53bab9b21f6e337c9c78326c6a161d151"
+eslint-config-wopian@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-wopian/-/eslint-config-wopian-1.3.1.tgz#48f3a3a98472cbbddd24e01b8982ab79a858e9f0"
   dependencies:
     babel-eslint "~8.2.0"
     eslint-config-standard "~11.0.0-beta.0"
@@ -4407,12 +4407,19 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-kitsu@~4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-4.6.0.tgz#c0cf71a883728778b9cb4b29929659be333a1056"
+kitsu-core@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-5.0.0.tgz#a02a828368ea00fbbb27987208404a2509cee748"
+  dependencies:
+    babel-runtime "^6.26.0"
+
+kitsu@~5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-5.0.0.tgz#999e6f3af8ef4c30ed1e735ef839171baeab2d26"
   dependencies:
     axios "^0.17.0"
     babel-runtime "^6.26.0"
+    kitsu-core "^5.0.0"
     pluralize "^7.0.0"
 
 last-call-webpack-plugin@^2.1.2:
