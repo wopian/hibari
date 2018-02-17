@@ -2641,9 +2641,9 @@ eslint-visitor-keys@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#3f3180fb2e291017716acb4c9d6d5b5c34a6a81d"
 
-eslint@~4.17.0:
-  version "4.17.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.17.0.tgz#dc24bb51ede48df629be7031c71d9dc0ee4f3ddf"
+eslint@~4.18.0:
+  version "4.18.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-4.18.0.tgz#ebd0ba795af6dc59aa5cee17938160af5950e051"
   dependencies:
     ajv "^5.3.0"
     babel-code-frame "^6.22.0"
@@ -4407,19 +4407,19 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-kitsu-core@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-5.0.0.tgz#a02a828368ea00fbbb27987208404a2509cee748"
+kitsu-core@^5.0.3:
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-5.0.3.tgz#d3d39de92b6ee5cdc0a7521a005889ae6de75c6d"
   dependencies:
     babel-runtime "^6.26.0"
 
 kitsu@~5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-5.0.0.tgz#999e6f3af8ef4c30ed1e735ef839171baeab2d26"
+  version "5.0.3"
+  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-5.0.3.tgz#ef98054b770597c621c6e1490dfb1b5ccb2b9e33"
   dependencies:
     axios "^0.17.0"
     babel-runtime "^6.26.0"
-    kitsu-core "^5.0.0"
+    kitsu-core "^5.0.3"
     pluralize "^7.0.0"
 
 last-call-webpack-plugin@^2.1.2:
