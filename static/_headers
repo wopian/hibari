@@ -1,5 +1,5 @@
 /*
-  Strict-Transport-Security:  max-age=63072000
+  Strict-Transport-Security:  max-age=63072000; includeSubDomains; preload
   X-Frame-Options:            SAMEORIGIN
   X-Xss-Protection:           1; mode=block
   X-Content-Type-Options:     nosniff
