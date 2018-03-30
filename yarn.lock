@@ -4871,7 +4871,7 @@ loader-runner@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.3.0.tgz#f482aea82d543e07921700d5a46ef26fdac6b8a2"
 
-loader-utils@^0.2.16, loader-utils@^0.2.5, loader-utils@~0.2.5:
+loader-utils@^0.2.16, loader-utils@^0.2.5:
   version "0.2.17"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-0.2.17.tgz#f86e6374d43205a6e6c60e9196f17c0299bfb348"
   dependencies:
@@ -6344,11 +6344,11 @@ pug-load@^2.0.9:
     object-assign "^4.1.0"
     pug-walk "^1.1.5"
 
-pug-loader@~2.3.0:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/pug-loader/-/pug-loader-2.3.0.tgz#b869294413a2218f0a7dd92a953e592283676c10"
+pug-loader@~2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/pug-loader/-/pug-loader-2.4.0.tgz#18eebdda045d9c31c2856f1cc3ceb8d3df7ca49a"
   dependencies:
-    loader-utils "~0.2.5"
+    loader-utils "^1.1.0"
     pug-walk "^1.0.0"
     resolve "^1.1.7"
 
