@@ -43,9 +43,9 @@ Check out [CONTRIBUTING] for information on localisation and code standards
 
 ### Requirements
 
-- [git] `>2.0.0`
-- [node] `>8.0.0`
-- [yarn] `>1.0.0`
+- [git] `>= 2.0.0`
+- [node] `>= 8.0.0`
+- [yarn] `>= 1.0.0`
 
 ### Setup
 
