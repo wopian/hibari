@@ -18,7 +18,7 @@
   "dependencies": {
     "buefy": "~0.6.2",
     "client-oauth2": "~4.1.0",
-    "kitsu": "~5.0.0",
+    "kitsu": "~5.1.0",
     "localforage": "~1.6.0",
     "vue": "~2.5.11",
     "vue-i18n": "~7.4.0",

@@ -464,11 +464,11 @@ aws4@^1.2.1, aws4@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.6.0.tgz#83ef5ca860b2b32e4a0deedee8c771b9db57471e"
 
-axios@^0.17.0:
-  version "0.17.1"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.17.1.tgz#2d8e3e5d0bdbd7327f91bc814f5c57660f81824d"
+axios@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
   dependencies:
-    follow-redirects "^1.2.5"
+    follow-redirects "^1.3.0"
     is-buffer "^1.1.5"
 
 babel-cli@~6.26.0:
@@ -3226,7 +3226,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
-follow-redirects@^1.2.5:
+follow-redirects@^1.3.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.4.1.tgz#d8120f4518190f55aac65bb6fc7b85fcd666d6aa"
   dependencies:
@@ -4768,19 +4768,19 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-kitsu-core@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-5.0.3.tgz#d3d39de92b6ee5cdc0a7521a005889ae6de75c6d"
+kitsu-core@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-5.1.0.tgz#dd777fa232996907f7f08f7200a657ffc08e9e71"
   dependencies:
     babel-runtime "^6.26.0"
 
-kitsu@~5.0.0:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-5.0.3.tgz#ef98054b770597c621c6e1490dfb1b5ccb2b9e33"
+kitsu@~5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-5.1.0.tgz#b5f5542e6384bf496e05970a36cb71ce9ab2a954"
   dependencies:
-    axios "^0.17.0"
+    axios "^0.18.0"
     babel-runtime "^6.26.0"
-    kitsu-core "^5.0.3"
+    kitsu-core "^5.1.0"
     pluralize "^7.0.0"
 
 last-call-webpack-plugin@^2.1.2:
