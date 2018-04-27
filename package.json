@@ -123,21 +123,11 @@
     "packageRules": [
       {
         "packagePatterns": [
-          "^webpack"
-        ],
-        "groupName": "webpack"
-      },
-      {
-        "packagePatterns": [
-          "^vue"
+          "vue",
+          "vue-router",
+          "vue-template-compiler"
         ],
         "groupName": "vue"
-      },
-      {
-        "packagePatterns": [
-          "^vuex"
-        ],
-        "groupName": "vuex"
       }
     ]
   }
