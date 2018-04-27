@@ -6,7 +6,6 @@ platform:
 - x64
 cache:
 - node_modules
-- "%LOCALAPPDATA%\\Yarn"
 install:
 - ps: Install-Product node $env:nodejs_version $env:platform
 - yarn install
