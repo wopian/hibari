@@ -83,7 +83,7 @@
     "webpack": "~3.11.0",
     "webpack-bundle-size-analyzer": "~2.7.0",
     "webpack-dev-middleware": "~2.0.1",
-    "webpack-hot-middleware": "~2.21.0",
+    "webpack-hot-middleware": "~2.22.0",
     "webpack-merge": "~4.1.1"
   },
   "engines": {
