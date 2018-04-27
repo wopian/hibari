@@ -4,7 +4,7 @@ os:
 language: node_js
 node_js:
 - node
-- 8
+- 8 # EOL Dec 19
 cache:
   yarn: true
 sudo: false
