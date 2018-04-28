@@ -115,7 +115,7 @@
         // -----------------------------------------------------------------------------------------
         try {
           let response = await Kitsu.findAll('user', {
-            filter: { name: this.$route.params.slug },
+            filter: { slug: this.$route.params.slug },
             include: 'waifu,pinnedPost,profileLinks,favorites.item',
             fields: {
               characters: 'slug,image,name',
