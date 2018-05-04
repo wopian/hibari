@@ -197,7 +197,7 @@ ajv@^6.1.0:
     json-schema-traverse "^0.3.0"
     uri-js "^3.0.2"
 
-algoliasearch-helper@^2.21.1:
+algoliasearch-helper@^2.26.0:
   version "2.26.0"
   resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-2.26.0.tgz#cb784b692a5aacf17062493cb0b94f6d60d30d0f"
   dependencies:
@@ -206,9 +206,9 @@ algoliasearch-helper@^2.21.1:
     qs "^6.5.1"
     util "^0.10.3"
 
-algoliasearch@^3.18.1:
-  version "3.27.0"
-  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.27.0.tgz#675b7f2d186e5785a1553369b15d47b53d4efb31"
+algoliasearch@^3.27.0:
+  version "3.27.1"
+  resolved "https://registry.yarnpkg.com/algoliasearch/-/algoliasearch-3.27.1.tgz#e1af42b97dbf44a2dd3a8c907be99c0c34e48414"
   dependencies:
     agentkeepalive "^2.2.0"
     debug "^2.6.8"
@@ -7952,12 +7952,12 @@ vue-i18n@~7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.6.0.tgz#8745807756f6ca5090fd85629e9cab99b1c6e442"
 
-vue-instantsearch@~1.5.0:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/vue-instantsearch/-/vue-instantsearch-1.5.2.tgz#4c673ff6135197af0b30ce7b1e010263993af3d1"
+vue-instantsearch@~1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/vue-instantsearch/-/vue-instantsearch-1.6.0.tgz#1846902b57cbe1fb72dd09ba6a0b5a284653ca95"
   dependencies:
-    algoliasearch "^3.18.1"
-    algoliasearch-helper "^2.21.1"
+    algoliasearch "^3.27.0"
+    algoliasearch-helper "^2.26.0"
     escape-html "^1.0.3"
 
 vue-jest@^1.4.0:
