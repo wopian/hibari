@@ -8043,9 +8043,9 @@ vue@~2.5.11:
   version "2.5.16"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
-vuex-persist@~1.1.0:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/vuex-persist/-/vuex-persist-1.1.6.tgz#c6c7743f29018440b902ead0b3c5399c43e2b60a"
+vuex-persist@~1.2.0:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/vuex-persist/-/vuex-persist-1.2.2.tgz#e852411d734dafca08f5530d22624a08f0312e95"
   dependencies:
     lodash.merge "^4.6.1"
 
