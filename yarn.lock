@@ -8002,9 +8002,9 @@ vue-i18n@~7.7.0:
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/vue-i18n/-/vue-i18n-7.7.0.tgz#f317581e0ebc43c128662501cfabd6ecd5e7fceb"
 
-vue-instantsearch@~1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/vue-instantsearch/-/vue-instantsearch-1.6.0.tgz#1846902b57cbe1fb72dd09ba6a0b5a284653ca95"
+vue-instantsearch@~1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/vue-instantsearch/-/vue-instantsearch-1.7.0.tgz#93db5df104311dd6c803668adec26b0a02f86f3a"
   dependencies:
     algoliasearch "^3.27.0"
     algoliasearch-helper "^2.26.0"
