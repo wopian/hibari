@@ -1055,9 +1055,9 @@ babel-plugin-transform-vue-jsx@^3.5.0:
   dependencies:
     esutils "^2.0.2"
 
-babel-plugin-webpack-chunkname@~1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-webpack-chunkname/-/babel-plugin-webpack-chunkname-1.0.1.tgz#cbadd742fa08ad04dbe7dbf547ae89b2db60b74f"
+babel-plugin-webpack-chunkname@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-webpack-chunkname/-/babel-plugin-webpack-chunkname-1.2.0.tgz#51630743afe0458acdd041b2e62b1c0c562e47bf"
 
 babel-polyfill@^6.26.0:
   version "6.26.0"
