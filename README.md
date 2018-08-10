@@ -79,28 +79,30 @@ All code released under the [MIT] license
 
 [web-old]:https://hibari.moe
 [web]:https://new.hibari.moe
-[web badge]:https://img.shields.io/website-up-down-green-red/https/new.hibari.moe.svg?style=flat-square
-[web uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779133970-964c0fa9a021aea415919bee.svg?style=flat-square
+[web badge]:https://flat.badgen.net/uptime-robot/status/m779133970-964c0fa9a021aea415919bee
+[web uptime badge]:https://flat.badgen.net/uptime-robot/month/m779133970-964c0fa9a021aea415919bee
 
 [api]:https://kitsu.docs.apiary.io
-[api uptime badge]:https://img.shields.io/uptimerobot/ratio/7/m779715870-4bca0187af2c0d280737166a.svg?style=flat-square&label=api%20uptime
+[api uptime badge]:https://flat.badgen.net/uptime-robot/month/m779715870-4bca0187af2c0d280737166a?label=api%20uptime
 
 [commit]:https://github.com/wopian/hibari/commits/new
 [commit badge]:https://img.shields.io/github/last-commit/wopian/hibari/new.svg?style=flat-square
 
 [david]:https://david-dm.org/wopian/hibari
-[david badge]:https://img.shields.io/david/wopian/hibari.svg?style=flat-square
+[david badge]:https://flat.badgen.net/david/dep/wopian/hibari
+
 [david dev]:https://david-dm.org/wopian/hibari?type=dev
-[david dev badge]:https://img.shields.io/david/dev/wopian/hibari.svg?style=flat-square
+[david dev badge]:https://flat.badgen.net/david/dev/wopian/hibari
 
 [travis]:https://travis-ci.org/wopian/hibari
-[travis badge]:https://img.shields.io/travis/wopian/hibari/new.svg?style=flat-square&label=linux%20%26%20macOS
+[travis badge]:https://flat.badgen.net/travis/wopian/hibari/new
 
 [appveyor]:https://ci.appveyor.com/project/wopian/hibari
-[appveyor badge]:https://img.shields.io/appveyor/ci/wopian/hibari/new.svg?style=flat-square&label=windows
+[appveyor badge]:https://flat.badgen.net/appveyor/ci/wopian/hibari/new
 
 [cc coverage]:https://codeclimate.com/github/wopian/hibari/coverage
 [cc coverage badge]:https://img.shields.io/codeclimate/coverage/github/wopian/hibari.svg?style=flat-square
+
 [cc maintainability]:https://codeclimate.com/github/wopian/hibari
 [cc maintainability badge]:https://img.shields.io/codeclimate/maintainability/wopian/hibari.svg?style=flat-square
 
@@ -108,4 +110,4 @@ All code released under the [MIT] license
 [contributors badge]:https://img.shields.io/github/contributors/wopian/hibari.svg?style=flat-square
 
 [donate]:https://paypal.me/wopian
-[donate badge]:https://img.shields.io/badge/support%20me%20on-paypal.me-ff69b4.svg?style=flat-square
+[donate badge]:https://flat.badgen.net/badge/support%20me%20on/paypal.me/pink
