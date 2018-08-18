@@ -65,12 +65,12 @@
                 .library-rating(v-else) Unrated
                 .library-updated {{ humanise(entry.updatedAt) }}
 
-        .title
+        //-.title
           span Anime Stats
-        .row
+        //-.row
           genres.col-6(v-bind:chartData='chartGenres')
 
-        .title
+        //-.title
           span Manga Stats
 
       //-
