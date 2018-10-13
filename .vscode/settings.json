@@ -4,14 +4,11 @@
     "javascript",
     "vue"
   ],
-  "stylelint.enable": true,
-  "stylelint.additionalDocumentSelectors": [ "vue" ],
   "css.validate": false,
   "scss.validate": false,
   "vetur.validation.style": true,
   "vetur.format.scriptInitialIndent": true,
   "vetur.format.styleInitialIndent": true,
-  "jest.autoEnable": true,
   "search.exclude": {
     "**/node_modules": true,
     "**/dist": true
@@ -22,7 +19,7 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/dist": true,
+    "**/dist": false,
     "**/coverage": true
   }
 }

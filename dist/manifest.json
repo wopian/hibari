@@ -1,21 +1,47 @@
 {
-    "name": "Hibari for Kitsu.io",
-    "short_name": "Hibari",
-    "description": "Open Source Vue client for Kitsu.io",
-    "start_url": ".",
-    "display": "standalone",
-    "theme_color": "#1f1621",
-    "background_color": "#1f1621",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "icons": [
+    {
+      "src": "/icon_512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "name": "Hibari",
+  "short_name": "Hibari",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": ".",
+  "description": "TODO",
+  "theme_color": "#fff",
+  "background_color": "#fff"
 }
