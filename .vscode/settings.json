@@ -19,7 +19,7 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/dist": false,
+    "**/dist": true,
     "**/coverage": true
   }
 }
