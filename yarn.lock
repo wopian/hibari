@@ -466,12 +466,12 @@ aws4@^1.2.1, aws4@^1.6.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.7.0.tgz#d4d0e9b9dbfca77bf08eeb0a8a471550fe39e289"
 
-axios@^0.18.0:
-  version "0.18.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.18.0.tgz#32d53e4851efdc0a11993b6cd000789d70c05102"
+axios@~0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
+  integrity sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==
   dependencies:
-    follow-redirects "^1.3.0"
-    is-buffer "^1.1.5"
+    follow-redirects "1.5.10"
 
 babel-cli@~6.26.0:
   version "6.26.0"
@@ -2231,9 +2231,10 @@ debug@2.6.9, debug@^2.1.2, debug@^2.2.0, debug@^2.3.3, debug@^2.6.8, debug@^2.6.
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0:
+debug@=3.1.0, debug@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
+  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
   dependencies:
     ms "2.0.0"
 
@@ -3206,7 +3207,14 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.1"
     readable-stream "^2.0.4"
 
-follow-redirects@^1.0.0, follow-redirects@^1.3.0:
+follow-redirects@1.5.10:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
+  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
+  dependencies:
+    debug "=3.1.0"
+
+follow-redirects@^1.0.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.0.tgz#234f49cf770b7f35b40e790f636ceba0c3a0ab77"
   dependencies:
@@ -4778,22 +4786,19 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
 
-kitsu-core@^5.2.2:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-5.2.2.tgz#bfa4b53b0fa5402f67adb67267b62bf3b4ecd23f"
-  integrity sha1-v6S1Ow+lQC9nrbZyZ7Yr87Ts0j8=
-  dependencies:
-    babel-runtime "^6.26.0"
+kitsu-core@^9.1.15:
+  version "9.1.15"
+  resolved "https://registry.yarnpkg.com/kitsu-core/-/kitsu-core-9.1.15.tgz#9c22f9b416e6a544896548a8e151760c7eed96af"
+  integrity sha512-jqs74f0JRT8vkDzISLbbef6AtdYunIqZy2qMvQMDjXSTHfD/zPOL5AHqc/kUtW7XpF6u7edkzANJLn8ackXwqw==
 
-kitsu@~5.2.0:
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-5.2.2.tgz#dfaea415a23a87e37f6b2db55ec152848d9b64c3"
-  integrity sha1-366kFaI6h+N/ay21XsFShI2bZMM=
+kitsu@~9.1.0:
+  version "9.1.15"
+  resolved "https://registry.yarnpkg.com/kitsu/-/kitsu-9.1.15.tgz#ecc3c90c84a6d28c7b443a12c70e1e8406d0fb01"
+  integrity sha512-bRsdtqZ/46Wu2v7/tIaISnX5mCVpoNywe0F4fxYY32kraJ4K9+EEsa9FWckVwU4xz0bMf4/zKLjvpcs0PrF0ow==
   dependencies:
-    axios "^0.18.0"
-    babel-runtime "^6.26.0"
-    kitsu-core "^5.2.2"
-    pluralize "^7.0.0"
+    axios "~0.19.2"
+    kitsu-core "^9.1.15"
+    pluralize "^8.0.0"
 
 last-call-webpack-plugin@^2.1.2:
   version "2.1.2"
@@ -5904,6 +5909,11 @@ pkg-dir@^2.0.0:
 pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
+
+pluralize@^8.0.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-8.0.0.tgz#1a6fa16a38d12a1901e0320fa017051c539ce3b1"
+  integrity sha512-Nc3IT5yHzflTfbjgqWcCPpo7DaKy4FnpB0l/zCAW0Tc7jxAiuqSxHasntB3D7887LSrA93kDJ9IXovxJYxyLCA==
 
 pn@^1.1.0:
   version "1.1.0"
