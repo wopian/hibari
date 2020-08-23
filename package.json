@@ -26,7 +26,7 @@
     "vue-lory": "~0.0.5",
     "vue-meta": "~1.5.0",
     "vue-router": "~3.0.1",
-    "vue-timeago": "~3.4.2",
+    "vue-timeago": "~5.1.0",
     "vue-typer": "~1.2.0",
     "vuex": "~3.0.1",
     "vuex-persist": "~1.4.0"
