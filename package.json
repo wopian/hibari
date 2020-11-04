@@ -45,7 +45,7 @@
     "babel-register": "~6.26.0",
     "chalk": "~2.4.0",
     "connect-history-api-fallback": "~1.6.0",
-    "copy-webpack-plugin": "~4.6.0",
+    "copy-webpack-plugin": "~6.3.0",
     "css-loader": "~4.3.0",
     "cssnano": "~3.10.0",
     "eslint": "~7.9.0",
