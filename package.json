@@ -25,7 +25,7 @@
     "vue-instantsearch": "~1.7.0",
     "vue-lory": "~0.0.5",
     "vue-meta": "~1.6.0",
-    "vue-router": "~3.4.0",
+    "vue-router": "~3.5.0",
     "vue-timeago": "~3.4.2",
     "vue-typer": "~1.2.0",
     "vuex": "~3.6.0",
